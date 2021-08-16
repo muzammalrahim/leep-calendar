@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52" height="49" viewBox="0 0 52 49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #60012c;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Group_1656" data-name="Group 1656" transform="translate(-1751 -177)">
+    <g id="Group_1504" data-name="Group 1504" transform="translate(0 58)">
+      <path id="Rectangle_10" data-name="Rectangle 10" class="cls-1" d="M0,0H47a5,5,0,0,1,5,5V44a5,5,0,0,1-5,5H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(1751 119)"/>
+    </g>
+    <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(1761.745 185.745)">
+      <path id="Path_1" data-name="Path 1" class="cls-2" d="M24.508,14.5a10,10,0,1,1-10-10A10,10,0,0,1,24.508,14.5Z"/>
+      <path id="Path_2" data-name="Path 2" class="cls-2" d="M30.415,30.415l-5.44-5.44" transform="translate(-3.405 -3.405)"/>
+    </g>
+  </g>
+</svg>

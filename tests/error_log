@@ -1,0 +1,24 @@
+[20-Feb-2021 16:27:00 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7
+[20-Feb-2021 16:27:00 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7
+[20-Feb-2021 16:27:00 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7
+[20-Feb-2021 16:27:10 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7
+[20-Feb-2021 16:27:51 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7
+[20-Feb-2021 16:27:51 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Foundation\Testing\TestCase' not found in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php:7
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/tests/TestCase.php on line 7

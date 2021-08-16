@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="9.927" height="14.181" viewBox="0 0 9.927 14.181">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #60012c;
+      }
+    </style>
+  </defs>
+  <path id="Icon_material-location-on" data-name="Icon material-location-on" class="cls-1" d="M12.463,3A4.96,4.96,0,0,0,7.5,7.963c0,3.723,4.963,9.218,4.963,9.218s4.963-5.5,4.963-9.218A4.96,4.96,0,0,0,12.463,3Zm0,6.736a1.773,1.773,0,1,1,1.773-1.773A1.773,1.773,0,0,1,12.463,9.736Z" transform="translate(-7.5 -3)"/>
+</svg>

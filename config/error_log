@@ -1,0 +1,380 @@
+[20-Feb-2021 16:26:27 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:26:27 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:26:28 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:28 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:29 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:29 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:26:29 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:30 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:26:32 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:32 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:32 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:32 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:33 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Maatwebsite\Excel\Excel' not found in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php:163
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php on line 163
+[20-Feb-2021 16:26:33 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Maatwebsite\Excel\Excel' not found in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php:163
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php on line 163
+[20-Feb-2021 16:26:33 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:34 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:34 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/logging.php on line 20
+[20-Feb-2021 16:26:37 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:37 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:37 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Maatwebsite\Excel\Excel' not found in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php:163
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php on line 163
+[20-Feb-2021 16:26:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:39 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:40 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:26:40 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:40 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/hashing.php on line 32
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:26:43 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:26:44 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php on line 18
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php on line 18
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php on line 18
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:26:49 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:26:50 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:26:52 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php on line 16
+[20-Feb-2021 16:26:52 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php on line 16
+[20-Feb-2021 16:26:53 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php on line 16
+[20-Feb-2021 16:26:53 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php on line 16
+[20-Feb-2021 16:26:54 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:26:54 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:26:55 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:26:55 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:26:55 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:26:55 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:26:55 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:26:56 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:26:57 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/filesystems.php on line 16
+[20-Feb-2021 16:27:01 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:01 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:01 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:02 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:05 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:08 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:09 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/view.php on line 17
+[20-Feb-2021 16:27:09 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php on line 18
+[20-Feb-2021 16:27:16 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:27:16 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php:11
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/laravel-twitter-streaming-api.php on line 11
+[20-Feb-2021 16:27:23 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:27:24 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:27:24 America/Boise] PHP Fatal error:  Uncaught Error: Class 'Maatwebsite\Excel\Excel' not found in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php:163
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/excel.php on line 163
+[20-Feb-2021 16:27:37 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/database.php on line 18
+[20-Feb-2021 16:27:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:27:38 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/session.php on line 21
+[20-Feb-2021 16:27:39 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/queue.php on line 16
+[20-Feb-2021 16:27:40 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:27:44 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/app.php on line 16
+[20-Feb-2021 16:27:44 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:27:45 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:27:46 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/services.php on line 18
+[20-Feb-2021 16:27:48 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/mail.php on line 16
+[20-Feb-2021 16:49:11 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:49:11 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:49:11 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:49:12 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:49:28 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:49:28 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:49:29 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:49:29 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:49:48 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:49:48 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/broadcasting.php on line 18
+[20-Feb-2021 16:50:01 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21
+[20-Feb-2021 16:50:11 America/Boise] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/knifeadv/public_html/atlasmotorsja.com/config/cache.php on line 21

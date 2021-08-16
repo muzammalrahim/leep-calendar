@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: #60012c;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-size: 17px;
+        font-family: Poppins-SemiBold, Poppins;
+        font-weight: 600;
+      }
+
+      .cls-3 {
+        opacity: 0.2;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Group_1660" data-name="Group 1660" transform="translate(-716 -329)">
+    <rect id="Rectangle_333" data-name="Rectangle 333" class="cls-1" width="32" height="32" rx="6" transform="translate(719 332)"/>
+    <text id="_1" data-name="1" class="cls-2" transform="translate(735 354)"><tspan x="-3.077" y="0">1</tspan></text>
+    <rect id="Rectangle_333-2" data-name="Rectangle 333" class="cls-1" width="32" height="32" rx="6" transform="translate(719 332)"/>
+    <rect id="Rectangle_343" data-name="Rectangle 343" class="cls-3" width="38" height="38" rx="6" transform="translate(716 329)"/>
+    <path id="Path_2532" data-name="Path 2532" class="cls-4" d="M43.006,19.9l4.938,4.938L58.55,14.231" transform="translate(684.499 328.693)"/>
+  </g>
+</svg>
