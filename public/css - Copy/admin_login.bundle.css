@@ -1,0 +1,108 @@
+body {
+  background: #EEF0F8;
+}
+
+@media (min-width: 992px) {
+  .header-fixed .wrapper {
+    padding-top: 65px;
+  }
+  .header-fixed.subheader-fixed.subheader-enabled .wrapper {
+    padding-top: 119px;
+  }
+  .aside-fixed .wrapper {
+    padding-left: 265px;
+  }
+  .aside-fixed.aside-minimize:not(.aside-minimize-hover) .wrapper {
+    padding-left: 70px;
+  }
+
+  .container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+    padding: 0 25px;
+  }
+
+   .subheader-enabled:not(.subheader-fixed) .content {
+    padding-top: 0;
+  }
+  .subheader-enabled:not(.subheader-fixed) .subheader.subheader-solid {
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 991.98px) {
+  .header-mobile-fixed .wrapper {
+    padding-top: 55px;
+  }
+  .header-mobile-fixed.subheader-mobile-fixed.subheader-enabled .wrapper {
+    padding-top: 120px;
+  }
+
+  .container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+    max-width: none;
+    padding: 0 15px;
+  }
+
+  .subheader-enabled:not(.subheader-mobile-fixed) .content {
+    padding-top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    height: 65px;
+    position: relative;
+    z-index: 2;
+  }
+  .header.header-fixed {
+    height: 65px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 97;
+  }
+  .aside-enabled .header.header-fixed {
+    left: 265px;
+  }
+  .header-fixed.aside-minimize .header {
+    left: 70px;
+  }
+  .header-fixed.subheader-fixed .header {
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .header-mobile-fixed .wrapper {
+    padding-top: 55px;
+  }
+  .header-mobile-fixed.subheader-mobile-fixed.subheader-enabled .wrapper {
+    padding-top: 120px;
+  }
+
+  .container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl {
+    max-width: none;
+    padding: 0 15px;
+  }
+
+  .subheader-enabled.subheader-transparent .content {
+    padding-top: 0;
+  }
+}

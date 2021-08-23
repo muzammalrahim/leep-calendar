@@ -1,0 +1,161 @@
+.legend-page{
+    padding: 20px 80px 20px 118px;
+}
+.legend-wrapper .legend-head h3{
+font-size: 42px !important; 
+color: #60012C;
+text-align: left;
+font-weight: 700 !important;
+}
+.legend-wrapper .legend-head sub{
+    color: #000 !important;
+    font-size: 18px;
+}
+.legend-wrapper .legend-head p{
+    margin-top: 20px;
+    font-weight: 400
+}
+.legend-wrapper .legend-head h5{
+   margin-top: 30px !important;
+}
+.legend-wrapper .example-box{
+    border: 2px solid #60012C;
+border-radius: 19px;
+opacity: 1;
+padding: 30px 20px;
+margin: 50px 305px 50px 0px;
+}
+.legend-wrapper .example-box p{
+    font-size: 18px !important;
+    color: #60012C;
+}
+.legend-wrapper .example-box h6{
+    color: #60012C;
+    font-weight: 700;
+    font-size: 20px !important;
+}
+
+.legend-title h1{
+    color: #60012C;
+}
+.legend-title h4{
+    color: #60012C;
+}
+.dates h4{
+    color: #60012C;
+}
+.legend-title span{
+    font-weight: 700;
+}
+/* media-queries */
+@media screen and (min-width:1920px) and (max-width: 1980px) {
+    .legend-wrapper .legend-head h3 {
+        font-size: 48px !important;
+    }
+    .legend-wrapper .legend-head sub {
+        color: #000 !important;
+        font-size: 22px;
+    }
+    .legend-wrapper .legend-head p {
+        font-size: 24px;
+    }
+    .legend-wrapper .legend-head b{
+        font-size: 24px;
+    }
+    .legend-title h1 {
+        font-weight: 700;
+      margin: 60px 0px;
+    }
+    .legend-wrapper .legend-head h5 {
+        font-size: 30px;
+        margin-top: 40px !important;
+    }
+    .legend-wrapper .example-box h6 {
+        font-size: 24px !important;
+    }
+    .legend-wrapper .example-box {
+        margin: 50px 650px 50px 0px;
+    }
+    .legend-wrapper .example-box p {
+        font-size: 24px !important;
+    }
+    .legend-title b{
+        font-size: 24px !important;
+    }
+    .legend-title p{
+        font-size: 24px !important;
+    }
+    .legend-title h4 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (min-width:1600px) and (max-width: 1919px) {
+    .legend-page {
+        padding: 0px; 
+    }
+    .legend-title h1 {
+        font-weight: 700;
+      margin: 60px 0px;
+    }
+    .legend-wrapper .legend-head h3 {
+        font-size: 48px !important;
+    }
+    .legend-wrapper .legend-head sub {
+        color: #000 !important;
+        font-size: 22px;
+    }
+    .legend-wrapper .legend-head p {
+        font-size: 24px;
+    }
+    .legend-wrapper .legend-head b{
+        font-size: 24px;
+    }
+    .legend-wrapper .legend-head h5 {
+        font-size: 30px;
+        margin-top: 40px !important;
+    }
+    .legend-wrapper .example-box h6 {
+        font-size: 24px !important;
+    }
+    .legend-wrapper .example-box {
+        margin: 50px 380px 50px 0px;
+    }
+    .legend-wrapper .example-box p {
+        font-size: 24px !important;
+    }
+    .legend-title b{
+        font-size: 24px !important;
+    }
+    .legend-title p{
+        font-size: 24px !important;
+    }
+    .legend-title h4 {
+        font-size: 36px;
+    }
+}
+@media screen and (min-width:1024px) and (max-width: 1279px) {
+.legend-wrapper .example-box {
+    margin: 50px 210px 50px 0px;
+}
+}
+@media screen and (max-width:767px){
+    .legend-page {
+        padding: 5px; 
+    }
+    .legend-wrapper .legend-head h3 {
+        font-size: 24px !important;
+    }
+    .legend-wrapper .legend-head sub {
+        font-size: 12px;
+    }
+    .legend-wrapper .example-box {
+         padding: 20px 10px; 
+         margin: 0px; 
+    }
+    .legend-title h1 {
+        font-size: 28px !important;
+     margin-top: 15px;
+     font-weight: 700;
+    }
+}

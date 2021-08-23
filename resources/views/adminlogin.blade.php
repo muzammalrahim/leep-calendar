@@ -24,12 +24,19 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Page Custom Styles(used by this page)-->
-		<link href="{{URL::asset('/css/pages/login/login-1.css')}}" rel="stylesheet" type="text/css" />
+		<link href="{{asset('/css/pages/login/login-1.css')}}" rel="stylesheet" type="text/css" />
 		<!--end::Page Custom Styles-->
-		<!--begin::Global Theme Styles(used by all pages)-->
-		<link href="{{URL::asset('/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
-		<link href="{{URL::asset('/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" />
-		<link href="{{URL::asset('/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+		<!--begin::Global Theme Styles(used by all pages)-->{{-- 
+		<link href="{{asset('/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
+		{{-- <link href="{{asset('/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
+		
+		
+		{{-- Commented because using CDN below
+		<link async href="{{asset('/css/style.bundle.css')}}" rel="stylesheet" type="text/css" /> 
+		--}}
+		<link async href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/css/style.bundle.css?v=7.2.8" rel="stylesheet" type="text/css" />
+
+		
 		<!--end::Global Theme Styles-->
 		<!--begin::Layout Themes(used by all pages)-->
 		<!--end::Layout Themes-->
@@ -48,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					<div class="d-flex flex-column-auto flex-column pt-lg-40 pt-15">
 						<!--begin::Aside header-->
 						<a href="#" class="text-center mb-10">
-							<img src="{{URL::asset('/media/logos/logo-letter-1.png')}}" class="max-h-70px" alt="" />
+							<img src="{{asset('/media/logos/logo-letter-1.png')}}" class="max-h-70px" alt="" />
 						</a>
 						<!--end::Aside header-->
 						<!--begin::Aside title-->
@@ -65,7 +72,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!--begin::Content-->
 				<div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 mx-auto">
 					<!--begin::Content body-->
-					<div class="d-flex flex-column-fluid flex-center">
+					<div class=" flex-center">
 						<!--begin::Signin-->
 						<div class="login-form login-signin">
 							<!--begin::Form-->
@@ -213,13 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1200 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#8950FC", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#6993FF", "warning": "#FFA800", "danger": "#F64E60", "light": "#F3F6F9", "dark": "#212121" }, "light": { "white": "#ffffff", "primary": "#EEE5FF", "secondary": "#ECF0F3", "success": "#C9F7F5", "info": "#E1E9FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#212121", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#ECF0F3", "gray-300": "#E5EAEE", "gray-400": "#D6D6E0", "gray-500": "#B5B5C3", "gray-600": "#80808F", "gray-700": "#464E5F", "gray-800": "#1B283F", "gray-900": "#212121" } }, "font-family": "Poppins" };</script>
 		<!--end::Global Config-->
 		<!--begin::Global Theme Bundle(used by all pages)-->
-		<script src="{{URL::asset('/plugins/global/plugins.bundle.js')}}"></script>
-		<script src="{{URL::asset('/plugins/custom/prismjs/prismjs.bundle.js')}}"></script>
-		<script src="{{URL::asset('/js/scripts.bundle.js')}}"></script>
-		<!--end::Global Theme Bundle-->
-		<!--begin::Page Scripts(used by this page)-->
-		<script src="{{URL::asset('/js/pages/custom/login/login-general.js')}}"></script>
-		<!--end::Page Scripts-->
+		
 	</body>
 	<!--end::Body-->
 </html>
