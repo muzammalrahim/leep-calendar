@@ -186,7 +186,7 @@
     <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/pages/crud/forms/widgets/bootstrap-datepicker.js') }}" type="text/javascript"></script>
     <script src="{{ asset('plugins/custom/prismjs/prismjs.bundle.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('plugins/custom/uppy/uppy.bundle.js') }}" type="text/javascript"></script>
+    {{-- <script src="{{ asset('plugins/custom/uppy/uppy.bundle.js') }}" type="text/javascript"></script> --}}
 
     <!--end::Global Theme Bundle-->
         <!--begin::Page Vendors(used by this page)-->

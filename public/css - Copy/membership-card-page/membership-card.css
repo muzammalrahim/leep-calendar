@@ -1,0 +1,397 @@
+.member-wrapper .container{
+    max-width: 1040px;
+}
+.member-wrapper{
+    padding-left: 55px;
+}
+.member-wrapper .member-heading h3{
+margin: 18px 0px;
+text-align: left;
+font: normal normal 600 30px/46px; 
+letter-spacing: 0px;
+color: #60012C;
+opacity: 1;
+}
+.silver-event h4{
+    padding-top: 10px;
+color:  #60012C;  
+text-align: center;
+font: normal normal 600 22px/30px;
+}
+.silver-event p{
+ font-size: 18px;
+ font-weight: 500;
+}
+.silver-event span{
+    color:  #60012C;
+    font-weight: 700;
+    font: normal normal 600 18px/27px;
+  
+}
+.silver-event{
+    margin-bottom: 12px;
+}
+.silver-event .btn-outline-secondary{
+    margin: 15px auto;
+background-color: #60012C;
+border: 1px solid #60012C;
+color: #fff;
+font-weight: 600;
+}
+sub {
+    bottom: -.25em;
+    font-size: 15px;
+}
+.member-wrapper .event-color{
+    height: 660px;
+    padding: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+.member-wrapper .event-color:hover{
+background-color: #EDE1D2;
+}
+.member-wrapper .event-color p{
+margin: 0px !important;
+padding: 0px 10px;
+text-align: left;
+font-weight: 500;
+font-size: 13px;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+}
+.champion-membership{
+    padding: 0px 35px;
+}
+.member-wrapper .event-color .event-color-btn{
+    margin: 100px auto 25px auto;
+}
+.event-color-btn-single{
+    margin: 124px auto 25px auto;
+}
+.event-color-btn-two{
+    margin: 25px auto 25px auto;
+}
+.member-wrapper .event-color .event-color-btn-two .btn-outline-secondary{
+    background-color: #60012C;
+    border: 1px solid #60012C;
+    color: #fff;
+    font-weight: 500;
+    width: 130px;
+    margin-right: 15px;
+}
+.member-wrapper .event-color .event-color-btn-single .btn-outline-secondary{
+    background-color: #60012C;
+    border: 1px solid #60012C;
+    color: #fff;
+    font-weight: 500;
+    width: 130px;
+    margin-right: 15px;
+}
+.member-wrapper .event-color .event-color-btn .btn-outline-secondary{
+    background-color: #60012C;
+    border: 1px solid #60012C;
+    color: #fff;
+    font-weight: 500;
+    width: 130px;
+    margin-right: 15px;
+}
+.member-wrapper .event-color .event-color-btn .btn-secondary{
+    background-color: transparent;
+    border: 1px solid #60012C;
+    color: #60012C;
+    font-weight: 500;
+    width: 130px;
+}
+.member-msg p{
+margin: 35px auto 65px auto;
+font-weight: 500;
+font-size: 14px;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1
+}
+
+.champion-membership .champion-data h3{
+    font: normal normal 600 30px/46px;
+    letter-spacing: 0px;
+    color: #60012C !important;
+    margin-bottom: 35px;
+}
+.champion-membership .champion-data h6{
+font: normal normal 600 25px/38px !important;
+letter-spacing: 0px;
+color: #000000;
+}
+.champion-membership .champion-data p{
+    font-weight: 500;
+font-size: 14px;
+}
+.champion-btn .btn-outline-secondary{
+    margin: 15px auto;
+background-color: #60012C;
+border: 1px solid #60012C;
+color: #fff;
+font-weight: 600;
+width: 150px;
+}
+.member-wrapper .container .event-right{
+    text-align: right;
+    margin-top: 45px;
+    font-weight: 500;
+    font-size: 14px;
+    padding-left: 600px;
+}
+.member-wrapper .container .more-event{
+    /* font-weight: 500;
+    font-size: 14px; */
+    margin-top: 70px;
+    padding: 0px 332px 0px 284px;
+text-align: center;
+font-size: 20px;
+font-weight: 700;
+/* font: normal normal 600 25px/38px !important; */
+letter-spacing: 0px;
+color: #60012C;
+opacity: 1;
+}
+
+@media screen and (min-width:1920px) and (max-width: 1980px) {
+.member-wrapper .container {
+    max-width: 1610px;
+}
+.silver-event h4 {
+    font-size: 28px;
+    font-weight: 700;
+}
+.member-wrapper .event-color p {
+    font-size: 20px;
+}
+.silver-event .btn-outline-secondary {
+font-size:22px;
+}
+sub {
+    bottom: -.25em;
+    font-size: 18px;
+}
+.silver-event span {
+    color: #60012C;
+    font-weight: 700;
+    font-size: 22px;
+}
+.member-wrapper .event-color {
+    height: 865px;
+}
+.event-color-btn-single {
+    margin: 177px auto 25px auto;
+    font-size: 22px;
+}
+.member-wrapper .event-color .event-color-btn {
+    margin: 110px auto 25px auto;
+  
+}
+.member-wrapper .event-color .event-color-btn .btn-outline-secondary {
+    font-size: 20px;
+}
+.member-wrapper .event-color .event-color-btn .btn-secondary {
+    font-size: 20px;
+}
+.member-wrapper .event-color .event-color-btn-single .btn-outline-secondary {
+    font-size: 20px;
+}
+.member-wrapper .event-color .event-color-btn-two .btn-outline-secondary {
+    font-size: 20px;
+}
+.member-msg p {
+    font-size: 20px;
+}
+.champion-membership .champion-data h3 {
+    font-size: 30px;
+    font-weight: 700;
+}
+.champion-membership .champion-data h6 {
+    font-size: 28px;
+    font-weight: 600;
+}
+.champion-membership .champion-data p {
+    font-size: 22px;
+}
+.champion-btn .btn-outline-secondary {
+    width: 170px;
+    font-size: 22px;
+}
+.member-wrapper .container .event-right {
+    font-weight: 500;
+    font-size: 22px;
+    padding-left: 895px;
+}
+.member-wrapper .container .more-event {
+    padding: 0px 460px 0px 410px;
+    font-size: 30px;
+}
+}
+@media screen and (min-width:1600px) and (max-width: 1919px) {
+    .member-wrapper .container {
+        max-width: 1290px;
+    }
+    .silver-event h4 {
+        font-size: 26px;
+        font-weight: 700;
+    }
+    .member-wrapper .event-color p {
+        font-size: 18px;
+    }
+    .silver-event .btn-outline-secondary {
+    font-size:22px;
+    }
+    sub {
+        bottom: -.25em;
+        font-size: 18px;
+    }
+    .silver-event span {
+        color: #60012C;
+        font-weight: 700;
+        font-size: 22px;
+    }
+    .member-wrapper .event-color {
+        height: 865px;
+    }
+    .event-color-btn-single {
+        margin: 134px auto 25px auto;
+        font-size: 22px;
+    }
+    .member-wrapper .event-color .event-color-btn {
+        margin: 110px auto 25px auto;
+      
+    }
+    .member-wrapper .event-color .event-color-btn .btn-outline-secondary {
+        font-size: 20px;
+    }
+    .member-wrapper .event-color .event-color-btn .btn-secondary {
+        font-size: 20px;
+    }
+    .member-wrapper .event-color .event-color-btn-single .btn-outline-secondary {
+        font-size: 20px;
+    }
+    .member-wrapper .event-color .event-color-btn-two .btn-outline-secondary {
+        font-size: 18px;
+    }
+    .member-msg p {
+        font-size: 18px;
+    }
+    .champion-membership .champion-data h3 {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    .champion-membership .champion-data h6 {
+        font-size: 26px;
+        font-weight: 600;
+    }
+    .champion-membership .champion-data p {
+        font-size: 20px;
+    }
+    .champion-btn .btn-outline-secondary {
+        width: 170px;
+        font-size: 20px;
+    }
+    .member-wrapper .container .event-right {
+        font-weight: 500;
+        font-size: 20px;
+        padding-left: 708px;
+    }
+    .member-wrapper .container .more-event {
+        padding: 0px 392px 0px 325px;
+        font-size: 28px;
+    }
+    }
+    @media screen and (min-width:1400px) and (max-width: 1599px) {
+        .member-wrapper .container {
+            max-width: 1136px;
+        }
+        .member-wrapper .event-color p {
+font-size: 14px;
+        }
+        .member-wrapper .event-color {
+height: 700px;
+        }
+        .event-color-btn-single {
+            margin: 148px auto 25px auto;
+        }
+        .member-wrapper .event-color .event-color-btn {
+            margin: 115px auto 25px auto;
+        }
+        .event-color-btn-two {
+            margin: 41px auto 25px auto;
+        }
+    }
+    @media screen and (min-width:1280px) and (max-width: 1365px) {
+    .member-wrapper .container {
+        max-width: 975px;
+    }
+    .silver-event h4 {
+        font-size: 22px;
+    }
+    .member-wrapper .event-color {
+        height: 680px;
+                }
+                .member-wrapper .event-color .event-color-btn .btn-outline-secondary {
+                    width: 115px;
+                }
+                .member-wrapper .event-color .event-color-btn .btn-secondary {
+                    width: 115px;
+                }
+                .member-wrapper .event-color .event-color-btn {
+                    margin: 116px auto 25px auto;
+                }
+                .event-color-btn-single {
+                    margin: 120px auto 25px auto;
+                }
+                .member-wrapper .container .event-right {
+                    padding-left: 535px;
+                }
+                .member-wrapper .container .more-event {
+                    padding: 0px 295px 0px 250px;
+                }
+}
+@media screen and (min-width:1024px) and (max-width: 1279px) {
+    .member-wrapper .event-color .event-color-btn .btn-outline-secondary {
+        width: 105px;
+    }
+    .member-wrapper .event-color .event-color-btn .btn-secondary {
+        width: 108px;
+    }
+    .member-wrapper .event-color {
+        height: 700px;
+    }
+    .member-wrapper .event-color .event-color-btn {
+        margin: 144px auto 25px auto;
+    }
+    .event-color-btn-single {
+        margin: 148px auto 25px auto;
+    }
+    .member-wrapper .container .event-right {
+    
+        padding-left: 528px;
+    }
+    .member-wrapper .container .more-event {
+        padding: 0px 300px 0px 250px;
+    }
+}
+@media screen and (max-width:767px){
+    .member-wrapper {
+        padding-left: 0px;
+    }
+    .member-wrapper .container .event-right {
+        padding-left: 10px !important;
+}
+.member-wrapper .container .more-event {
+    margin-top: 70px;
+     padding: 0px;
+}
+.member-wrapper .event-color {
+    margin-bottom: 15px;
+}
+.champion-membership {
+    padding: 0px;
+}
+}
