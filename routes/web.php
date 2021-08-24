@@ -129,6 +129,12 @@ Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search')
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/updateapp', function()
+{
+    \Artisan::call('dump-autoload');
+    dump('dump-autoload complete');
+});
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

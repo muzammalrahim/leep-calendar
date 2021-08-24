@@ -18,3 +18,4 @@ yarn-error.log
 /public/hot
 /public/storage
 docker-compose.override.yml
+sftp-config.json
