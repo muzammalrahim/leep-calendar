@@ -6,235 +6,85 @@
 
 <head>
 
-  <meta charset="UTF-8">
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NNTKK5C');</script>
+	<!-- End Google Tag Manager -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
 
-  <title>Leep Calender | @yield('title', $page_title ?? '')</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  	<title>Leep Calender | @yield('title', $page_title ?? '')</title>
 
+  	<link rel="stylesheet" href="{{URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')}}"/>
+	{{--   <link rel="stylesheet" href="{{URL::asset('css/bootstrap-steps.min.css')}}"/> --}}
 
-{{--   <link rel="stylesheet" href="{{URL::asset('css/bootstrap-steps.min.css')}}"/> --}}
+  	<link rel="stylesheet" href="{{URL::asset('leep_calender/css/style.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('leep_calender/css/style.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('leep_calender/css/login-leep.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('leep_calender/css/login-leep.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('leep_calender/css/event-search.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('leep_calender/css/event-search.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('css/contactus-page/contactus.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('css/contactus-page/contactus.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('leep_calender/css/event-detail.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('leep_calender/css/event-detail.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('leep_calender/css/signup-page/signup-leep.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('leep_calender/css/signup-page/signup-leep.css')}}"/>
+  	<link rel="stylesheet" href="{{URL::asset('css/add event page/add-event-2.css')}}"/>
 
-  <link rel="stylesheet" href="{{URL::asset('css/add event page/add-event-2.css')}}"/>
+  	<link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
 
+  	<link href="{{URL::asset('css/membership-card-page/membership-card.css')}}" rel="stylesheet" />
 
+  	<link href="{{URL::asset('css/legend-page/legend.css')}}" rel="stylesheet" />
 
-  <link href="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css')}}" rel="stylesheet" />
+  	<link href="{{URL::asset('css/aboutus-page/aboutus.css')}}" rel="stylesheet" />
 
+  	<link href="{{URL::asset('css/categories/categories1.css')}}" rel="stylesheet" />
 
-
-  <link href="{{URL::asset('css/membership-card-page/membership-card.css')}}" rel="stylesheet" />
-
-  <link href="{{URL::asset('css/legend-page/legend.css')}}" rel="stylesheet" />
-
-  <link href="{{URL::asset('css/aboutus-page/aboutus.css')}}" rel="stylesheet" />
-
-  <link href="{{URL::asset('css/categories/categories1.css')}}" rel="stylesheet" />
-
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 
 
 	{{-- <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script> --}}
 
 
-
-
-
 </head>
 
 <body>
 
-        @if (config('layout.page-loader.type') != '')
-
-            @include('layout.partials._page-loader')
-
-        @endif
-
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNTKK5C"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 
 
+    @if (config('layout.page-loader.type') != '')
 
+        @include('layout.partials._page-loader')
 
-  <div class="wrapper">
+    @endif
+
+    <div class="wrapper">
 
 	<div class="sticky-top">
 
 	    <header>
 
-	      <div class="professional-heading">
+	    	{{-- Site Header --}}
 
-	        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar.</h6>
+	    	@include('layout.header')
 
-	      </div>
-
-	      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-	        <a class="navbar-brand" href="{{URL::asset('home')}}"><img
-
-	            src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Untitled-1.svg')}}" alt="">
-
-	        </a>
-
-	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-
-	          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-	          <span class="navbar-toggler-icon"></span>
-
-	        </button>
-
-
-
-	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-	          <ul class="navbar-nav mr-auto">
-
-	            <li class="nav-item active">
-
-	              <a class="nav-link" href="{{ asset('home') }}">Home </a>
-
-	            </li>
-
-	            <li class="nav-item">
-
-	              <a class="nav-link" href="{{ URL::asset('categories') }}">Categories</a>
-
-	            </li>
-
-	            <li class="nav-item">
-
-	              <a class="nav-link" href="{{URL::asset('Blogs')}}">Blogs</a>
-
-	            </li>
-
-	            <li class="nav-item">
-
-	              <a class="nav-link" href="{{URL::asset('aboutUs')}}">About us</a>
-
-	            </li>
-
-	            <li class="nav-item">
-
-	              <a class="nav-link" href="{{URL::asset('contactUs')}}">Contact Us</a>
-
-	            </li>
-
-	            <li class="nav-item">
-
-	              <a class="nav-link" href="{{URL::asset('legend')}}">Legend</a>
-
-	            </li>
-
-	          </ul>
-
-                @guest
-
-	          <form class="form-inline my-2 my-lg-0 right-login">
-
-	            <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a>
-
-	            <a href="{{URL::asset('login')}}" class="btn btn-outline-secondary" type="submit">Login</a>
-
-	            <a href="{{URL::asset('register')}}" class="btn btn-outline-success" type="submit">Sign up</a>
-
-	          </form>
-
-	            @else
-
-
-
-	            	@if(Auth::User()->email_verified_at=='')
-
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-
-                        @csrf
-
-                        <button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button>
-
-                    </form>&nbsp
-
-                    @else
-
-    					<div class="createbtn">
-    
-    						<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary" type="submit">Create an Event</a>
-    
-    					</div>
-    
-    					<div class="user">
-    
-    						<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
-    
-    							{{Auth::user()->fname}}
-    
-    						</b>
-    
-    						<p style="margin-bottom:0px">{{Auth::user()->email}}</p>
-    
-    						<label onclick="window.location.replace('{{URL::asset('myEvents/')}}','self'); " style=" cursor:pointer;">
-    
-    							My Events
-    
-    						</label>
-    
-    					</div>
-						<div class="user-img"> 
-							<a href="{{URL::asset('settings')}}">
-								@if(Auth::user()->image!='')
-									<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
-								@else
-									<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
-								@endif
-							</a>
-						</div>
-
-
-
-                    @endif
-
-                    <a class="btn btn-outline-secondary" href="{{ route('logout') }}"
-
-                       onclick="event.preventDefault();
-
-                                     document.getElementById('logout-form').submit();">
-
-                        {{ __('Logout') }}
-
-                    </a>
-
-
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-
-                        @csrf
-
-                    </form>
-
-                @endguest
-
-	        </div>
-
-	      </nav>
-
-	      <hr>
+	    	<hr>
 
 	    </header>
 
@@ -831,216 +681,141 @@
 	    </div> --}}
 
 		    <!-- search-bar -->
-
+		    
 		    <div class="wrap">
 
-		      <div class="search">
+			    {{-- <div class="row"> --}}
+			    	{{-- <div class="col-6"> --}}
 
-		        <input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
+			    	{{-- </div> --}}
 
-		        <button type="submit" class="searchButton">
 
-		          <i class="fa fa-search"></i>
+			    <div class="search">
+			    	<input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
+			    	<button type="submit" class="searchButton">
+			    		<i class="fa fa-search"></i>
+			    	</button>
+			    </div>
 
-		        </button>
-
-		      </div>
+			    {{-- </div> --}}
 
 		    </div>
 
 
 
+
 		    <!-- DropDown-bar -->
 
-	        <div class="dropdown-bar">
+	        <div class="mt-5 mb-3 ml-4">
 
 	            <div class="row">
 
+	            	<div class="col-md-6 col-lg-6 col-sm-6 col-12">
+	            		<div class="professional-heading">
+					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar.</h6>
+					    </div>
+	            	</div>
 
+	            	<div class="col-md-2 col-lg-2 col-sm-1 col-3">
+	            		<p class="float-right"> <small class="position-relative"> Search Filters </small> </p>
+	            	</div>
 
-	                <div class="col-md-8 drop-left">
+	                <div class="col-md-4 col-lg-4 col-sm-5 col-9 drop-left drop-left">
 
-	                    <div class=" my-btn btn-group col-md-1 drop">
+	                    <div class="my-btn btn-group col-md-2 col-lg-2 col-4 drop">
 
-	                        <button class="  btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-
-	                            aria-haspopup="true" aria-expanded="false">
-
+	                        <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                            Category
-
-	                        </button>
+	                        </span>
 
 	                            <!-- Category -->
-
 	                        <div class="search-category">
+	                        	<div class="category-search sticky-top">
+		                            <div class="input-group md-form form-sm form-2">
+		                                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" 
+		                                    aria-label="Search" id="search" name="category" value='' onkeyup="filter()">
+		                                <div class="input-group-append">
+		                                    <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
+		                                </div>
+		                            </div>
 
-	                          <div class="category-search sticky-top">
-
-	                            <div class="input-group md-form form-sm form-2">
-
-	                                <input class="form-control my-0 py-1 red-border" type="text"
-
-	                                    placeholder="Search a category" aria-label="Search" id="search" name="category"
-
-	                                    value='' onkeyup="filter()">
-
-	                                <div class="input-group-append">
-
-	                                    <span class="input-group-text red lighten-3" id="basic-text1"><i
-
-	                                            class="fa fa-search text-grey" aria-hidden="true"></i></span>
-
-	                                </div>
-
-
-
-	                            </div>
-
-	                          </div>
+	                          	</div>
 
 	                            <div class="selections">
-
-	                               
-
 	                                <div>
-
 	                                    <select id="select" size="10"   onchange='change()' name="category">
-
 										<option value="" selected="">Select</option>
-
 						              	@foreach(App\Models\category::all() as $cat)
-
 											<option value="{{$cat->name}}">{{$cat->name}}</option>
-
 										@endforeach	              	
-
 	                                    </select>
-
 	                                </div>
-
 	                            </div>
 
 	                        </div>
 
 	                            <!-- End Category -->
 
-	                </div>
+	                	</div>
 
-	                <div class="xyz btn-group col-md-1 drop">
+		                <div class="xyz btn-group col-md-2 col-lg-2 col-4 drop">
 
-	            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+				            <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				              Duration
+				            </span>
 
-	              aria-haspopup="true" aria-expanded="false">
+				            <div class="duration-box">
+				            	<div class="row">
+					                <div class="checkbox col-md-6">
+					                	<label><input type="checkbox"  name="type_all" value="All"><span>All</span> </label>
+					                </div>
+					                <div class="checkbox col-md-6">
+					                	<label><input type="checkbox" name="weekly" value="Weekly"><span>Weekly</span></label>
+					                </div>
+					                <!-- </form>
+					                	<form class="row"> -->
+					                <div class="checkbox col-md-6">
+					                	<label><input type="checkbox" name="daily" value="Daily"><span>Daily</span> </label>
+					                </div>
+					                <div class="checkbox col-md-6">
+					                	<label><input type="checkbox" name="annual" value="Annual"><span>Annual</span></label>
+					                </div>
+					            </div>
+				        	</div>
 
-	              Duration
+			          	</div>
 
-	            </button>
+	                    <div class="my-btn btn-group col-md-2 col-lg-2 col-4 drop">
 
-
-
-	            <div class="duration-box">
-
-	              <div class="row">
-
-	                <div class="checkbox col-md-6">
-
-	                  <label><input type="checkbox"  name="type_all" value="All"><span>All</span> </label>
-
-	                </div>
-
-	                <div class="checkbox col-md-6">
-
-	                  <label><input type="checkbox" name="weekly" value="Weekly"><span>Weekly</span></label>
-
-	                </div>
-
-
-
-	              <!-- </form>
-
-	              <form class="row"> -->
-
-	                <div class="checkbox col-md-6">
-
-	                  <label><input type="checkbox" name="daily" value="Daily"><span>Daily</span> </label>
-
-	                </div>
-
-	                <div class="checkbox col-md-6">
-
-	                  <label><input type="checkbox" name="annual" value="Annual"><span>Annual</span></label>
-
-	                </div>
-
-
-
-	              </div>
-
-
-
-	            </div>
-
-	          </div>
-
-	                    <div class="my-btn btn-group col-md-1 drop">
-
-	                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-
-	                            aria-haspopup="true" aria-expanded="false">
-
+	                        <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
 	                            Country
-
-	                        </button>
+	                        </span>
 
 	                        <div class="search-category">
-
 	                            <div class="category-search sticky-top">
-
 	                                <div class="input-group md-form form-sm form-2">
-
-	                                    <input class="form-control my-0 py-1 red-border" type="text"
-
-	                                        placeholder="Search a category" aria-label="Search" id="searchOne" name="search"
-
-	                                        value='' onkeyup="filterOne()">
-
+	                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" 
+	                                    aria-label="Search" id="searchOne" name="search"value='' onkeyup="filterOne()">
 	                                    <div class="input-group-append">
-
-	                                        <span class="input-group-text red lighten-3" id="basic-text1"><i
-
-	                                                class="fa fa-search text-grey" aria-hidden="true"></i></span>
-
+	                                        <span class="input-group-text red lighten-3" id="basic-text1">
+	                                        	<i class="fa fa-search text-grey" aria-hidden="true"></i>
+	                                        </span>
 	                                    </div>
-
-
-
 	                                </div>
-
 	                            </div>
 
 	                            <div class="selections">
 
-	                            <div class="col-12 mt-3">
-
-	                                <!-- <select class="form-select" aria-label="Default select example"> -->
-
-	                                <select id="selectOne" size="10" onchange='changeOne()'  name="state">
-
-						              	<option value="" selected="">Select</option>
-
-						              	@foreach(App\Models\events::distinct()->get(['country1']) as $us)
-
-							              	<option value="{{$us->country1}}">{{$us->country1}}</option>
-
-						                	
-
-						              	@endforeach
-
-	                                </select>
-
-	                                <!-- </select> -->
-
-	                            </div>
+		                            <div class="col-12 mt-3">
+		                                <!-- <select class="form-select" aria-label="Default select example"> -->
+		                                <select id="selectOne" size="10" onchange='changeOne()'  name="state">
+							              	<option value="" selected="">Select</option>
+							              	@foreach(App\Models\events::distinct()->get(['country1']) as $us)
+								              	<option value="{{$us->country1}}">{{$us->country1}}</option>
+							              	@endforeach
+		                                </select>
+		                                <!-- </select> -->
+		                            </div>
 
 	                            </div>
 
@@ -1048,7 +823,7 @@
 
 	                    </div>
 
-	                    <div class="btn-group col-md-1 drop">
+	                    {{-- <div class="btn-group col-md-1 drop">
 
 	                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
 
@@ -1060,48 +835,31 @@
 
 
 
-	                    </div>
+	                    </div> --}}
 
 	                </div>
 
 	                <div class="col-md-4 drop-right">
-
-	                    <i class="fa fa-filter"> Advanced Filters</i>
-
+	                    {{-- <i class="fa fa-filter"> Advanced Filters</i> --}}
 	                    <div class="grey-wrapper" style="display: none;">
-
-	                        <div class="container">
-
-	                            <div class="wrapper1">
-
-	                                <div class="div1">
-
-	                                    <div class="heading">
-
-	                                        <h6>Country</h6>
-
-	                                    </div>
+	                    	<div class="container">
+	                    		<div class="wrapper1">
+	                    			<div class="div1">
+	                    				<div class="heading"> <h6>Country</h6> </div>
 
 	                                    <div class="input-group md-form form-sm form-2">
-
 	                                        <input class="form-control my-0 py-1 red-border" type="text"
-
 	                                            placeholder="Search a country" aria-label="Search">
-
 	                                        <div class="input-group-append">
-
-	                                            <span class="input-group-text red lighten-3" id="basic-text1"><i
-
-	                                                    class="fa fa-search text-grey" aria-hidden="true"></i></span>
-
+	                                            <span class="input-group-text red lighten-3" id="basic-text1">
+	                                            	<i class="fa fa-search text-grey" aria-hidden="true"></i>
+	                                            </span>
 	                                        </div>
 
 	                                    </div>
 
 	                                    <div>
-
 	                                        <ul>
-
 	                                            <li><input type="checkbox"> Africa</li>
 
 	                                            <li><input type="checkbox"> Alcohol, Tobacco & Drugs</li>
@@ -1125,33 +883,19 @@
 	                                </div>
 
 	                                <div class="div2">
-
-	                                    <div class="heading">
-
-	                                        <h6>Category</h6>
-
-	                                    </div>
-
+	                                	<div class="heading"> <h6>Category</h6> </div>
 	                                    <div class="input-group md-form form-sm form-2">
-
-	                                        <input class="form-control my-0 py-1 red-border" type="text"
-
-	                                            placeholder="Search a category" aria-label="Search">
-
+	                                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" aria-label="Search">
 	                                        <div class="input-group-append">
-
-	                                            <span class="input-group-text red lighten-3" id="basic-text1"><i
-
-	                                                    class="fa fa-search text-grey" aria-hidden="true"></i></span>
+	                                            <span class="input-group-text red lighten-3" id="basic-text1">
+	                                            	<i class="fa fa-search text-grey" aria-hidden="true"></i>
+	                                            </span>
 
 	                                        </div>
-
 	                                    </div>
 
 	                                    <div>
-
 	                                        <ul>
-
 	                                            <li><input type="checkbox"> Afghanistan, AF</li>
 
 	                                            <li><input type="checkbox"> Aland Island, AX</li>
@@ -1168,12 +912,7 @@
 
 	                                            <li class="no-check"> Anguilla, Al</li>
 
-
-
-
-
 	                                        </ul>
-
 	                                    </div>
 
 	                                </div>
@@ -1181,65 +920,30 @@
 
 
 	                                <div class="div3">
-
-	                                    <div class="heading">
-
-	                                        <h6>Event Type</h6>
-
-	                                    </div>
-
+	                                    <div class="heading"><h6>Event Type</h6></div>
 	                                    <div>
-
 	                                        <ul>
-
 	                                            <li><input type="checkbox"> Daily</li>
-
 	                                            <li><input type="checkbox"> Weekly</li>
-
 	                                            <li><input type="checkbox"> Annual</li>
-
 	                                            <li><input type="checkbox"> Recurring</li>
-
-
-
 	                                        </ul>
-
 	                                    </div>
-
 	                                </div>
 
 	                                <div class="div4">
-
-	                                    <div class="heading">
-
-	                                        <h6>Duration</h6>
-
-	                                    </div>
-
+	                                    <div class="heading"><h6>Duration</h6></div>
 	                                    <div>
-
 	                                        <ul>
-
 	                                            <li><input type="checkbox"> All</li>
-
 	                                            <li><input type="checkbox"> 1 Day</li>
-
 	                                            <li><input type="checkbox"> 2 Day</li>
-
 	                                            <li><input type="checkbox"> 3 Day</li>
-
 	                                            <li><input type="checkbox"> 4 Day</li>
-
 	                                            <li><input type="checkbox"> 5 Day</li>
-
 	                                            <li><input type="checkbox"> 6 Day</li>
-
-
-
 	                                        </ul>
-
 	                                    </div>
-
 	                                </div>
 
 	                                <div class="div5">
@@ -1319,33 +1023,7 @@
   	</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    @yield('content')
-
-
-
-
-
-
-
-
-
-
-
-
-
+@yield('content')
 
 
 
@@ -1366,155 +1044,95 @@
 
         <div class="footer-data">
 
-          <div class="footer1">
-
-            <h6>Shortcuts</h6>
-
-            <ul>
-
-              <li>Event Search</li>
-
-              <li>Categories</li>
-
-              <li>Legend</li>
-
-              <li>membership</li>
-
-              <li>About Us</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Support</h6>
-
-            <ul>
-
-              <li>Privacy Policy</li>
-
-              <li>Legal</li>
-
-              <li>Affliates</li>
-
-              <li>membership</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Shortcuts</h6>
-
-            <ul>
-
-              <li>Event Search</li>
-
-              <li>Categories</li>
-
-              <li>Legend</li>
-
-              <li>membership</li>
-
-              <li>About Us</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Support</h6>
-
-            <ul>
-
-              <li>Privacy Policy</li>
-
-              <li>Legal</li>
-
-              <li>Affliates</li>
-
-              <li>membership</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Shortcuts</h6>
-
-            <ul>
-
-              <li>Event Search</li>
-
-              <li>Categories</li>
-
-              <li>Legend</li>
-
-              <li>membership</li>
-
-              <li>About Us</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Support</h6>
-
-            <ul>
-
-              <li>Privacy Policy</li>
-
-              <li>Legal</li>
-
-              <li>Affliates</li>
-
-              <li>membership</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-          <div class="footer1">
-
-            <h6>Shortcuts</h6>
-
-            <ul>
-
-              <li>Event Search</li>
-
-              <li>Categories</li>
-
-              <li>Legend</li>
-
-              <li>membership</li>
-
-              <li>About Us</li>
-
-              <li>Contact Us</li>
-
-            </ul>
-
-          </div>
-
-        </div>
+        	<div class="footer1">
+        		<h6>Shortcuts</h6>
+        		<ul>
+
+	            	<li>Event Search</li>
+	            	<li>Categories</li>
+	            	<li>Legend</li>
+	            	<li>membership</li>
+	            	{{-- <li>About Us</li>
+	            	<li>Contact Us</li> --}}
+
+	            	<li> <a class="text-dark text-underline" href="{{URL::asset('aboutUs')}}">About us</a> </li>
+
+	            	<li> <a class="text-dark text-underline" href="{{URL::asset('contactUs')}}">Contact Us</a> </li>
+
+	            </ul>
+
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Support</h6>
+	            <ul> 
+	            	<li>Privacy Policy</li>
+	            	<li>Legal</li>
+	            	<li>Affliates</li>
+	            	<li>membership</li>
+	            	<li>Contact Us</li>
+	            </ul>
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Shortcuts</h6>
+	        	<ul>
+	        		<li>Event Search</li>
+	        		<li>Categories</li>
+	        		<li>Legend</li>
+	        		<li>membership</li>
+	        		<li>About Us</li>
+	        		<li>Contact Us</li>
+	        	</ul>
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Support</h6>
+	        	<ul>
+	        		<li>Privacy Policy</li>
+	        		<li>Legal</li>
+	        		<li>Affliates</li>
+	        		<li>membership</li>
+	        		<li>Contact Us</li>
+	        	</ul>
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Shortcuts</h6>
+	        	<ul>
+	        		<li>Event Search</li>
+	        		<li>Categories</li>
+	        		<li>Legend</li>
+	        		<li>membership</li>
+	        		<li>About Us</li>
+	        		<li>Contact Us</li>
+	        	</ul>
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Support</h6>
+	        	<ul>
+	        		<li>Privacy Policy</li>
+	        		<li>Legal</li>
+	        		<li>Affliates</li>
+	        		<li>membership</li>
+	        		<li>Contact Us</li>
+	        	</ul>
+	        </div>
+
+	        <div class="footer1">
+	        	<h6>Shortcuts</h6>
+	        	<ul>
+	        		<li>Event Search</li>
+	        		<li>Categories</li>
+	        		<li>Legend</li>
+	        		<li>membership</li>
+	        		<li>About Us</li>
+	        		<li>Contact Us</li>
+	        	</ul>
+	        </div>
+
+	    </div>
 
         <div class="footer-links">
 

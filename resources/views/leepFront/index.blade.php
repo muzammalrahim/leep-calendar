@@ -2,7 +2,7 @@
 
 @section('content')
 
-@extends('layout.layoutLeep')
+@extends('layout.layoutLeep') {{-- layout/layoutLeep --}}
 
  
 
@@ -12,110 +12,19 @@
 
     <!-- hero-box -->
 
-    <div class="hero-wrapper">
+    <div class="hero-wrapper mb-4">
 
-      <div class="container">
+      <div class="container123">
 
         <div class="row">
 
-          <div class="col-md-8">
+          <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
 
-            <div class="">
+            <div class="calender m-auto">
 
-              <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+              <div class="calender-head mt-3">
 
-                <div class="carousel-inner">
-
-                  <div class="carousel-item active">
-
-                    @isset(App\Models\participants::first()->banner)
-                    <img src="{{URL::asset('leep_calender/images/Developer Assets/'.App\Models\participants::first()->banner)}}"
-                      class="d-block w-100" alt="...">
-                    @endif
-
-                    <div class="carousel-caption  d-md-block">
-
-                      <div class="warmup-after mt-5">
-
-
-
-
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  <!--<div class="carousel-item">-->
-
-                  <!--  <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Component1711.svg"-->
-
-                  <!--    class="d-block w-100" alt="...">-->
-
-                  <!--  <div class="carousel-caption  d-md-block">-->
-
-                  <!--    <div class="warmup-after mt-5">-->
-
-
-
-                  <!--    </div>-->
-
-                  <!--  </div>-->
-
-                  <!--</div>-->
-
-                  <!--<div class="carousel-item">-->
-
-                  <!--  <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Component1711.svg"-->
-
-                  <!--    class="d-block w-100" alt="...">-->
-
-                  <!--  <div class="carousel-caption  d-md-block">-->
-
-                  <!--    <div class="warmup-after mt-5">-->
-
-
-
-
-
-                  <!--    </div>-->
-
-                  <!--  </div>-->
-
-                  <!--</div>-->
-
-                </div>
-
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-
-                  <!-- <span class="sr-only">Previous</span> -->
-
-                </a>
-
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-
-                  <!-- <span class="sr-only">Next</span> -->
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-4">
-
-            <div class="calender">
-
-              <div class="calender-head">
-
-                <h4>WHAT'S HAPPENING ...</h4>
+                <h3> Today Is ...</h3>
 
               </div>
 
@@ -123,198 +32,19 @@
 
               <section id="tabs">
 
-                <div class="container">
-
-
-
-                  <div class="row">
-
-                    <div class="col-xs-12 ">
-
-                      <nav>
-
-                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-
-                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-
-                            role="tab" aria-controls="nav-home" aria-selected="true">Day</a>
-
-                          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-
-                            role="tab" aria-controls="nav-profile" aria-selected="false">Week</a>
-
-                          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-
-                            role="tab" aria-controls="nav-contact" aria-selected="false">Month</a>
-
-
-
-                        </div>
-
-                      </nav>
-
-                      <div class="tab-content  px-3 px-sm-0" id="nav-tabContent">
-
-                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-
-                          aria-labelledby="nav-home-tab">
-
-                          <div class="calender-scroll">
-
-                            @foreach($d_events as $d_e)
-
-                              @isset($d_e->id)
-
-                                <div class="calender-body">
-
-                                  <div class="row">
-
-                                    <!--<div class="col-md-2 date-box">-->
-
-                                    <!--  <span>{{$d_e->d_start}}</span>-->
-
-                                    <!--  <b> {{date("M", strtotime(date("Y")."-".$d_e->m_start."-01"))}}</b>-->
-
-                                    <!--</div>-->
-
-                                    <div style=" padding-left:30px;   width: 221px;" class="col-md-11 date-data">
-
-                                      <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
-
-                                        {{\Illuminate\Support\Str::limit($d_e->name,17)}}
-
-                                      </h6>
-
-                                      <p>{{\Illuminate\Support\Str::limit($d_e->description,60)}}</p>
-
-                                    </div>
-
-                                  </div>
-
-                                </div>
-
-                                @endif
-
-                            @endforeach
-
-                          </div>
-
-                        </div>
-
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-
-                          <div class="calender-scroll">
-
-                            @isset($m_events[0]->id)
-
-                              @foreach($m_events as $m_e)
-
-                                <div class="calender-body">
-
-                                  <div class="row">
-
-                                    <!--<div class="col-md-2 date-box">-->
-
-                                    <!--  <span>{{$m_e->d_start}}</span>-->
-
-                                    <!--  <b> {{date("M", strtotime(date("Y")."-".$m_e->m_start."-01"))}}</b>-->
-
-                                    <!--</div>-->
-
-                                    <div class="col-md-11 date-data" style='padding-left: 30px;'>
-
-                                      <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
-
-                                        {{\Illuminate\Support\Str::limit($m_e->name,17)}}
-
-                                      </h6>
-
-                                      <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p>
-
-                                    </div>
-
-                                  </div>
-
-
-
-                                </div>
-
-                              @endforeach
-
-                              @else 
-
-                              @endif
-
-                          </div>
-
-                        </div>
-
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
-                          <div class="calender-scroll">
-
-                            @isset($week_events[0]->id)
-
-                              @foreach($week_events as $w_e)
-
-                                <div class="calender-body">
-
-                                  <div class="row">
-
-                                    <!--<div class="col-md-2 date-box">-->
-
-                                    <!--  <span>{{$w_e->d_start}}</span>-->
-
-                                    <!--  <b> {{date("M", strtotime(date("Y")."-".$w_e->m_start."-01"))}}</b>-->
-
-                                    <!--</div>-->
-
-                                    <div class="col-md-11 date-data" style='padding-left: 30px;'>
-
-                                      <h6  onclick="window.location.replace('{{URL::asset('event/'.$w_e->id)}}','self'); " style=" cursor:pointer;">
-
-                                        {{\Illuminate\Support\Str::limit($w_e->name,17)}}
-
-                                      </h6>
-
-                                      <p>{{\Illuminate\Support\Str::limit($w_e->description,60)}}</p>
-
-                                    </div>
-
-                                  </div>
-
-
-
-                                </div>
-
-                              @endforeach
-
-                              @else
-
-                              @endif
-
-                          </div>
-
-                        </div>
-
-                      </div>
-
-
-
-                    </div>
-
-                  </div>
-
-                </div>
-
+                  @include('leepFront.parts.calendar') {{-- leepFront/parts/calendar --}}  
+                
               </section>
 
               <!-- ./Tabs -->
 
-
-
             </div>
 
+          </div>
+
+
+          <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+            @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
           </div>
 
         </div>
@@ -323,9 +53,7 @@
 
     </div>
 
-    <div class="green">
-
-    </div>
+    {{-- <div class="green"></div> --}}
 
     <!-- End hero-box -->
 

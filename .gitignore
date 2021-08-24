@@ -12,9 +12,3 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/.idea
-/.vscode
-/.phpintel
-/public/hot
-/public/storage
-docker-compose.override.yml
