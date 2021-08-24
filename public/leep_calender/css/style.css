@@ -11,9 +11,9 @@
 }
 .hero-wrapper .calender #tabs nav a{
 
-    width: 80px !important;
+    /*width: 80px !important;*/
 
-    margin-right: 18px !important;
+    /*margin-right: 18px !important;*/
 
 }
 
@@ -49,7 +49,7 @@ header{
 
     color: #000000 !important;
 
-    padding-left: 14px;
+    /*padding-left: 14px;*/
     font-size: 21px;
     font-weight: 600;
 
@@ -465,11 +465,11 @@ padding: 12px 12px;
 
 .calender{
 
-    background-color: #fff;
+    /*background-color: #fff;*/
 
     margin:20px 0px 20px 10px;
 
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 
     height: 310px;
 
@@ -481,44 +481,32 @@ padding: 12px 12px;
 
     margin-bottom: 15px;
 
-    background-color: #fff;
+    /*background-color: #fff;*/
 
     border-radius: 10px;
 
 }
 
-.calender .calender-head h4{
-
-
+.calender .calender-head h3{
 
 letter-spacing: 0px;
-
-color: #7A003C;
-
+color: #c8b08b;
 padding: 15px;
-
-border-radius: 10px;
-
-background-color: white;
-
+font-weight: bold;
+/*border-radius: 10px;*/
+/*background-color: white;*/
 }
-
-
-
-  
-
 
 
 .calender-scroll{
 
-    height: 214px;
+    height: 139px;
 
     overflow-y: scroll;
 
     overflow-x: hidden;
 
 }
-
 
 
 
@@ -999,7 +987,7 @@ opacity: 0.5;
 
     border-color: transparent transparent #000 !important;
 
-    border-bottom: 4px solid !important;
+    /*border-bottom: 4px solid !important;*/
 
     font-size: 20px;
 
@@ -1715,13 +1703,13 @@ opacity: 1;
 
             height: 362px;
 
-            width: 440px;
+            width: auto;
 
         }
 
         .calender-scroll {
 
-            height: 260px;
+            /*height: 190px;*/
 
         }
 
@@ -1819,19 +1807,20 @@ opacity: 1;
 
     }
 
-@media screen and (min-width:1440px) and (max-width: 1599px) {
+@media screen and (min-width:1440px) and (max-width: 1919px) {
 
     .hero-wrapper .carousel-item img{
 
-        height:348px !important;
+        /*height:348px !important;*/
 
     }
 
     .hero-wrapper .calender #tabs nav a{
 
-        width: 95px !important;
+        width: fit-content !important;
 
         margin-right: 18px !important;
+        padding: 2px 8px;
 
     }
 
@@ -1877,7 +1866,7 @@ opacity: 1;
 
     .drop {
 
-        margin-right: 40px;
+        /*margin-right: 40px;*/
 
     }
 
@@ -1909,7 +1898,7 @@ opacity: 1;
 
         .calender {
 
-            width: 395px;
+            width: 350px;
 
         }
 
@@ -2002,7 +1991,7 @@ opacity: 1;
 
     .hero-wrapper .carousel-item img{
 
-        height:150px !important;
+        /*height:150px !important;*/
 
     }
 
@@ -2142,7 +2131,8 @@ opacity: 1;
 
     .hero-wrapper .carousel-item img{
 
-        height:150px !important;
+        /*height:150px !important;*/
+        
 
     }
 
@@ -2489,4 +2479,33 @@ opacity: 1;
 
 
 }
+.calender{
+    height: auto !important;
+}
+.bg-site{
+    background-color: #60012C; 
+}
+.bg-yellow{
+    background-color: #c8b08b;
+}
 
+.font-color{
+    color: #60012C; 
+}
+a.nav-item.active{
+    color: #60012C !important;
+}
+a.nav-item{
+    color: #c8b08b !important;
+}
+.font15{
+    font-size: 15px !important;
+}
+.font18{
+    font-size: 18px !important;
+}
+.pointer{cursor: pointer;}
+.text-underline{text-decoration: underline;}
+.calender {
+    width: 350px !important;
+}

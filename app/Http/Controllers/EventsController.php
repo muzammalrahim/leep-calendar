@@ -33,7 +33,7 @@ class EventsController extends Controller
         $user=User::all();
         $page_title = 'Events';
         $page_Heading1='Events';
-        return view('admin.events',compact('events','user','page_Heading1'));
+        return view('admin.events',compact('events','user','page_Heading1')); // admin/events
     }
     public function evecc(){
         $events=events::all();

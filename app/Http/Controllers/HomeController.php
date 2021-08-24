@@ -47,17 +47,20 @@ class HomeController extends Controller
 
         $events=events::all();   
         $date=date("Y-m-d");
+        // dump($date);
 
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
 
-        $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
+        $d_events=events::where('start_date','=',$date)->where('type','Daily')
+        // ->where('status','Approved')
+        ->get();
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.index',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','tweets'));
+        return view('leepFront.index',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','tweets','d','m'));
         // return view('auth.verify');
     }
     public function categoryDetail($id)
@@ -833,7 +836,7 @@ class HomeController extends Controller
     }
     public function categories($value='')
     {
-        return view('leepFront.category');        
+        return view('leepFront.category'); // leepFront/category        
     }
     public function becomeFreeMember($value='')
     {
