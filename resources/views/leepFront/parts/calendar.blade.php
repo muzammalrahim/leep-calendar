@@ -50,7 +50,7 @@
                       <!--  <span>{{$d_e->d_start}}</span>-->
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$d_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div style=" padding-left:30px;   width: 221px;" class="col-md-12 date-data">
+                      <div style=" padding-left:30px;" class="col-md-12 date-data">
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($d_e->name,17)}}
                         </h6>

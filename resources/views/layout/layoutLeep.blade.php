@@ -708,7 +708,7 @@
 
 	        <div class="mt-5 mb-3 ml-4">
 
-	            <div class="row">
+	            <div class="row m-0">
 
 	            	<div class="col-md-6 col-lg-6 col-sm-6 col-12">
 	            		<div class="professional-heading">

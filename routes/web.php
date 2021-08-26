@@ -91,6 +91,7 @@ Route::post('contactUs', 'HomeController@contactUsForm');
 Route::get('legend', 'HomeController@legend');
 Route::get('aboutUs', 'HomeController@aboutUs');
 Route::get('categories', 'HomeController@categories');
+
 Route::get('category/{id}', 'HomeController@categoryDetail');
 
 Route::get('downloadPdf/{eveId}/{filesId}', 'HomeController@downloadpdf');
