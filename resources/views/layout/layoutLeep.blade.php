@@ -1,3 +1,8 @@
+<?php
+// Initialiazation
+	$page = new \App\Models\Page;
+// End Initialiazation
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -1064,16 +1069,39 @@
 	        </div>
 
 	        <div class="footer1">
+	        	<h6>Pages</h6>
+	        	<ul>
+	        		@foreach( $page->getPagesList('Publish') as $page )
+	        			<li>
+	        				<a href="{{ route('page.detail.show',["slug"=>$page->slug]) }}" class="text-dark">{{ $page->title }}</a>
+	        			</li>
+	        		@endforeach
+	        	</ul>
+	        </div>
+
+
+	        <div class="footer1">
 	        	<h6>Support</h6>
 	            <ul> 
 	            	<li>Privacy Policy</li>
 	            	<li>Legal</li>
 	            	<li>Affliates</li>
 	            	<li>membership</li>
-	            	<li>Contact Us</li>
 	            </ul>
 	        </div>
 
+	        
+
+	        <div class="footer1">
+	        	<h6>Support</h6>
+	        	<ul>
+	        		<li>Privacy Policy</li>
+	        		<li>Legal</li>
+	        		<li>Affliates</li>
+	        		<li>membership</li>
+	        	</ul>
+	        </div>
+
 	        <div class="footer1">
 	        	<h6>Shortcuts</h6>
 	        	<ul>
@@ -1081,8 +1109,6 @@
 	        		<li>Categories</li>
 	        		<li>Legend</li>
 	        		<li>membership</li>
-	        		<li>About Us</li>
-	        		<li>Contact Us</li>
 	        	</ul>
 	        </div>
 
@@ -1093,7 +1119,6 @@
 	        		<li>Legal</li>
 	        		<li>Affliates</li>
 	        		<li>membership</li>
-	        		<li>Contact Us</li>
 	        	</ul>
 	        </div>
 
@@ -1104,31 +1129,6 @@
 	        		<li>Categories</li>
 	        		<li>Legend</li>
 	        		<li>membership</li>
-	        		<li>About Us</li>
-	        		<li>Contact Us</li>
-	        	</ul>
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Support</h6>
-	        	<ul>
-	        		<li>Privacy Policy</li>
-	        		<li>Legal</li>
-	        		<li>Affliates</li>
-	        		<li>membership</li>
-	        		<li>Contact Us</li>
-	        	</ul>
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Shortcuts</h6>
-	        	<ul>
-	        		<li>Event Search</li>
-	        		<li>Categories</li>
-	        		<li>Legend</li>
-	        		<li>membership</li>
-	        		<li>About Us</li>
-	        		<li>Contact Us</li>
 	        	</ul>
 	        </div>
 
@@ -1191,6 +1191,18 @@
         <div class="row">
 
           <div class="col-md-1">
+
+          	<div class="footer1">
+	        	<h6>Pages</h6>
+	        	<ul>
+	        		@foreach( $page->getPagesList('Publish') as $page )
+	        			<li>
+	        				<a href="{{ route('page.detail.show',["slug"=>$page->slug]) }}" class="text-dark">{{ $page->title }}</a>
+	        			</li>
+	        		@endforeach
+	        	</ul>
+	        </div>
+
 
             <div class="footer1">
 

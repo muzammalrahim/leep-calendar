@@ -53,7 +53,7 @@
                                 <td>{{ $page->slug }}</td>
                                 <td>{{ $page->heading }}</td>
                                 <td>{!! \Illuminate\Support\Str::limit($page->content, 45) !!} </td>
-                                <td>
+                                <td class="{{ ( ( $page->status == 'Publish' ) ? 'text-success' : 'text-warning' ) }}">
                                    {{ ( ( $page->status == 'Publish' ) ? 'Published' : 'Unpublished' ) }}
                                 </td>
                                 <td>{{$page->created_at->diffForHumans()}}</td>

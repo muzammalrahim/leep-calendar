@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Page;
 
 class PagesController extends Controller
 {
+
+    private $page;
+
+    public function __construct()
+    {
+        $this->page = new Page;
+    }
+
     public function index()
     {
         $page_title = 'Dashboard';
@@ -118,5 +127,14 @@ class PagesController extends Controller
     public function quickSearch()
     {
         return view('layout.partials.extras._quick_search_result');
+    }
+
+    public function getDynamicPages($slug)
+    {
+        $data = [];
+
+        $data['page_detail'] = $this->page->getPageDetail(null,$slug);
+
+        return view('leepFront.page_detail', $data);
     }
 }

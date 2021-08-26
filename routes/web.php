@@ -153,3 +153,6 @@ Route::get('/updateapp', function()
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Dynamic pages
+Route::get('/page/{slug}', 'PagesController@getDynamicPages')->name('page.detail.show');

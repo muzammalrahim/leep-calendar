@@ -64,7 +64,7 @@ header .bg-light {
 }
 
 .navbar-light .navbar-nav .nav-link {
-	font-size: 14px !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
 
     color: #60012C !important;
@@ -963,7 +963,7 @@ opacity: 0.5;
 
 #tabs{
 
-	
+    
 
     color: #000;
 
