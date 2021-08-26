@@ -93,22 +93,12 @@
 }
 
 .event-title{
-
     padding: 15px;
-
-    background: #EDE1D2 0% 0% no-repeat padding-box;
-
-border-radius: 20px;
-
-opacity: 1;
-
-margin-bottom: 10px;
-
+    /*background: #EDE1D2 0% 0% no-repeat padding-box;*/
+    border-radius: 20px;
+    opacity: 1;
+    margin-bottom: 10px;
 }
-
-
-
-
 
    /* drop-down-css-end*/
 
