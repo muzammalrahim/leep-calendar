@@ -1,15 +1,3 @@
-{{--
-Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 4 & Angular 8
-Author: KeenThemes
-Website: http://www.keenthemes.com/
-Contact: support@keenthemes.com
-Follow: www.twitter.com/keenthemes
-Dribbble: www.dribbble.com/keenthemes
-Like: www.facebook.com/keenthemes
-Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
-License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
- --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" {{ Metronic::printAttrs('html') }} {{ Metronic::printClasses('html') }}>
     <head>
@@ -29,37 +17,14 @@ License: You must have a valid license purchased only from themeforest(the above
         {{-- Fonts --}}
         {{ Metronic::getGoogleFontsInclude() }}
 
-        {{-- Global Theme Styles (used by all pages) --}}
-        {{-- @foreach(config('layout.resources.css') as $style) --}}
-            {{-- <link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($style)) : asset($style) }}" rel="stylesheet" type="text/css"/> --}}
-        {{-- @endforeach --}}
+        
         <link href="{{asset('/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
-        {{-- <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" /> --}}
-        <!--end::Page Vendors Styles-->
-        <!--begin::Global Theme Styles(used by all pages)-->
+        
         <link href="{{asset('/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
-        {{-- <link href="{{asset('/plugins/custom/prismjs/prismjs.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
         
-        {{-- <link href="{{asset('/css/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
-        {{-- <link href="{{asset('/plugins/global/bootstrap-select.css.map')}}" rel="stylesheet" type="text/css" /> --}}
-        {{-- Layout Themes (used by all pages) --}}
-{{--         @foreach (Metronic::initThemes() as $theme)
-            <link href="{{ config('layout.self.rtl') ? asset(Metronic::rtlCssPath($theme)) : asset($theme) }}" rel="stylesheet" type="text/css"/>
-        @endforeach
- --}}        {{--  0 => 'plugins/global/plugins.bundle.css',
-                1 => 'plugins/custom/prismjs/prismjs.bundle.css',
-                2 => 'css/style.bundle.css',
-                3 => 'plugins/custom/uppy/uppy.bundle.css', --}}
-       {{--  <link href="{{ asset('plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css"/>
-        <link href="{{ asset('plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css"/> --}}
-        
-
-        {{-- Commented because using CDN below 
-        <link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet" type="text/css"/>
-        --}}
         <link async href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/css/style.bundle.css?v=7.2.8" rel="stylesheet" type="text/css" />
         
-        {{-- <link href="{{ asset('plugins/custom/uppy/uppy.bundle.css') }}" rel="stylesheet" type="text/css"/> --}}
+        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
         <!--end::Fonts-->
         <!--begin::Page Vendors Styles(used by this page)-->
@@ -74,11 +39,85 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//lib/css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//lib/css/prettify.css"></link>
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.css"></link>
+
+        {{-- Fontawesome Icons --}}
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
       
 
         {{-- Includable CSS --}}
         @yield('styles')
-    
+
+        <!--Start: Regular Datatables CSS-->
+            <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+            <!--Responsive Extension Datatables CSS-->
+            <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
+            @yield('styles')
+
+            <style>
+                /*Overrides for Tailwind CSS */
+
+                /*Form fields*/
+                .dataTables_wrapper select,
+                .dataTables_wrapper .dataTables_filter input {
+                    color: #4a5568;             /*text-gray-700*/
+                    padding-left: 1rem;         /*pl-4*/
+                    padding-right: 1rem;        /*pl-4*/
+                    padding-top: .5rem;         /*pl-2*/
+                    padding-bottom: .5rem;      /*pl-2*/
+                    line-height: 1.25;          /*leading-tight*/
+                    border-width: 2px;          /*border-2*/
+                    border-radius: .25rem;
+                    border-color: #edf2f7;      /*border-gray-200*/
+                    background-color: #edf2f7;  /*bg-gray-200*/
+                    border: 1px solid black;
+                }
+
+                /*Row Hover*/
+                table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+                    background-color: #ebf4ff;  /*bg-indigo-100*/
+                }
+
+                /*Pagination Buttons*/
+                .dataTables_wrapper .dataTables_paginate .paginate_button       {
+                    font-weight: 700;               /*font-bold*/
+                    border-radius: .25rem;          /*rounded*/
+                    border: 1px solid transparent;  /*border border-transparent*/
+                }
+
+                /*Pagination Buttons - Current selected */
+                .dataTables_wrapper .dataTables_paginate .paginate_button.current   {
+                    color: #fff !important;             /*text-white*/
+                    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);    /*shadow*/
+                    font-weight: 700;                   /*font-bold*/
+                    border-radius: .25rem;              /*rounded*/
+                    background: #667eea !important;     /*bg-indigo-500*/
+                    border: 1px solid transparent;      /*border border-transparent*/
+                }
+
+                /*Pagination Buttons - Hover */
+                .dataTables_wrapper .dataTables_paginate .paginate_button:hover     {
+                    color: #fff !important;             /*text-white*/
+                    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);     /*shadow*/
+                    font-weight: 700;                   /*font-bold*/
+                    border-radius: .25rem;              /*rounded*/
+                    background: #667eea !important;     /*bg-indigo-500*/
+                    border: 1px solid transparent;      /*border border-transparent*/
+                }
+
+                /*Add padding to bottom border */
+                table.dataTable.no-footer {
+                    border-bottom: 1px solid #e2e8f0;   /*border-b-1 border-gray-300*/
+                    margin-top: 0.75em;
+                    margin-bottom: 0.75em;
+                }
+
+                /*Change colour of responsive icon*/
+                table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+                    background-color: #667eea !important; /*bg-indigo-500*/
+                }
+            </style>
+        <!--End: Regular Datatables CSS-->
 
     </head>
 
@@ -105,8 +144,6 @@ License: You must have a valid license purchased only from themeforest(the above
        <script src="{{ asset('plugins/global/plugins.bundle.js') }}" type="text/javascript"></script>
        -->
        <script src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/plugins/global/plugins.bundle.js?v=7.2.8" type="text/javascript"></script>
-
-        {{-- <script src="{{asset('plugins/custom/prismjs/prismjs.bundle.js')}}" type="text/javascript'"></script> --}}
         
 
         {{-- Previous Code Commented By Zeeshan
@@ -115,14 +152,16 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/js/scripts.bundle.js?v=7.2.8" type="text/javascript"></script>
 
         <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/wysihtml5-0.3.0.js')}}"></script>
-{{--         <script src="https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/prettify.js"></script>
-        <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.js')}}"></script>
- --}}
-    {{-- <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/wysihtml5-0.3.0.js')}}"></script> --}}
-    {{-- <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/jquery-1.7.2.min.js')}}"></script> --}}
-    <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/prettify.js')}}"></script>
-{{--     <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/bootstrap.min.js')}}"></script>
- --}}    <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.js')}}"></script>
+
+        <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/prettify.js')}}"></script>
+       <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.js')}}"></script>
+
+       <!-- Start: Datatables -->
+            <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+            
+        <!-- End: Datatables -->
+
         {{-- Includable JS --}}
         @yield('scripts')
 
