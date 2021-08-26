@@ -1,3 +1,5 @@
+/.idea/*
+/.phpintel/*
 /node_modules
 /public/css
 /public/js
@@ -12,3 +14,4 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+sftp-config.json

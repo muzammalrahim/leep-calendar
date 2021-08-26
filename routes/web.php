@@ -63,6 +63,16 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('admin/updateBannerPic','EventsController@updateBannerPic');
     Route::post('admin/updatePassword','EventsController@updatePassword')->name('admin/updatePassword');
 
+    // Pages routes
+    Route::get('admin/pages', 'PageController@index')->name('admin.pages.show');
+    Route::get('admin/pages/add-new-page', 'PageController@add')->name('admin.pages.add');
+    Route::post('admin/page/store', 'PageController@store')->name('admin.page.store');
+    Route::post('/page-slug-check', 'PageController@checkSlugInDb')->name('product.slug.check');
+    Route::get('admin/page/edit/{id}', 'PageController@edit')->name('admin.page.edit');
+    Route::post('admin/page/update', 'PageController@update')->name('admin.page.update');
+    Route::get('admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
+    // /admin/adminSetting
+
 });
 
 Route::get('logout', [LoginController::class,'logout']);
