@@ -146,6 +146,21 @@ Route::get('/updateapp', function()
     dump('dump-autoload complete');
 });
 
+
+Route::get('/clear', function() {
+    $cache = \Artisan::call('cache:clear');
+    $view = \Artisan::call('view:clear');
+    $route = \Artisan::call('route:clear');
+    $config = \Artisan::call('config:clear');
+
+    dump(' cache = '.$cache);
+    dump(' route = '.$route);
+    dump(' config = '.$config);
+    dd(' view = '.$view);
+});
+
+
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -156,3 +171,4 @@ Route::get('/updateapp', function()
 
 // Dynamic pages
 Route::get('/page/{slug}', 'PagesController@getDynamicPages')->name('page.detail.show');
+

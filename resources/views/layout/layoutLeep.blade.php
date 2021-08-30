@@ -84,16 +84,9 @@
 	<div class="sticky-top">
 
 	    <header>
-
-	    	{{-- Site Header --}}
-
-	    	@include('layout.header')
-
+	    	@include('layout.header') {{-- layout/header --}}
 	    	<hr>
-
 	    </header>
-
-
 
 	<form  method="POST" action="{{url('searchEvents') }}">
 
@@ -1031,156 +1024,44 @@
 @yield('content')
 
 
-
-
-
-
-    <div class="second-line">
-
-      <hr>
-
-    </div>
+<div class="borderline my-3"></div>
 
     <!-- Footer -->
 
-    <div class="footer">
+<div class="footer">
 
-      <div class="container">
+	@include('layout.footer')
+	
 
-        <div class="footer-data">
-
-        	<div class="footer1">
-        		<h6>Shortcuts</h6>
-        		<ul>
-
-	            	<li>Event Search</li>
-	            	<li>Categories</li>
-	            	<li>Legend</li>
-	            	<li>membership</li>
-	            	{{-- <li>About Us</li>
-	            	<li>Contact Us</li> --}}
-
-	            	<li> <a class="text-dark text-underline" href="{{URL::asset('aboutUs')}}">About us</a> </li>
-
-	            	<li> <a class="text-dark text-underline" href="{{URL::asset('contactUs')}}">Contact Us</a> </li>
-
-	            </ul>
-
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Pages</h6>
-	        	<ul>
-	        		@foreach( $page->getPagesList('Publish') as $page )
-	        			<li>
-	        				<a href="{{ route('page.detail.show',["slug"=>$page->slug]) }}" class="text-dark">{{ $page->title }}</a>
-	        			</li>
-	        		@endforeach
-	        	</ul>
-	        </div>
-
-
-	        <div class="footer1">
-	        	<h6>Support</h6>
-	            <ul> 
-	            	<li>Privacy Policy</li>
-	            	<li>Legal</li>
-	            	<li>Affliates</li>
-	            	<li>membership</li>
-	            </ul>
-	        </div>
-
-	        
-
-	        <div class="footer1">
-	        	<h6>Support</h6>
-	        	<ul>
-	        		<li>Privacy Policy</li>
-	        		<li>Legal</li>
-	        		<li>Affliates</li>
-	        		<li>membership</li>
-	        	</ul>
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Shortcuts</h6>
-	        	<ul>
-	        		<li>Event Search</li>
-	        		<li>Categories</li>
-	        		<li>Legend</li>
-	        		<li>membership</li>
-	        	</ul>
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Support</h6>
-	        	<ul>
-	        		<li>Privacy Policy</li>
-	        		<li>Legal</li>
-	        		<li>Affliates</li>
-	        		<li>membership</li>
-	        	</ul>
-	        </div>
-
-	        <div class="footer1">
-	        	<h6>Shortcuts</h6>
-	        	<ul>
-	        		<li>Event Search</li>
-	        		<li>Categories</li>
-	        		<li>Legend</li>
-	        		<li>membership</li>
-	        	</ul>
-	        </div>
-
-	    </div>
-
+	{{-- <div class="container">
         <div class="footer-links">
-
-          <div><a href="#"><img
-
-                src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-facebook-square.svg')}}"
-
-                alt=""></a> </div>
-
-          <div><a href="#"><img
-
-                src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-instagram.svg')}}" alt=""></a>
-
-          </div>
-
-          <div><a href="#"><img
-
-                src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-twitter-square.svg')}}"
-
-                alt=""></a>
-
-          </div>
-
-          <div><a href="#"><img
-
-                src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-linkedin.svg')}}" alt=""></a>
-
-          </div>
-
-          <div> <a href="#"> <img
-
-                src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-behance-square.svg')}}"
-
-                alt=""></a>
-
-          </div>
-
+        	<div>
+          		<a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-facebook-square.svg')}}"
+                alt=""></a> 
+            </div>
+      		<div>
+          		<a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-instagram.svg')}}" alt=""></a>
+          	</div>
+          	<div>
+          		<a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-twitter-square.svg')}}" alt=""></a>
+          	</div>
+          	<div>
+          		<a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-linkedin.svg')}}" alt=""></a>
+          	</div>
+          	<div>
+          		<a href="#"> <img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Icon awesome-behance-square.svg')}}" alt=""></a>
+          	</div>
         </div>
 
-        <div class="footer-copy text-center">
-
-          <p>Copyrights &copy 2020. Jubilee LLC. All Rights Reserved.</p>
-
+        <div class="footer-copy text-center"> 
+        	<p>Copyrights &copy 2020. Jubilee LLC. All Rights Reserved.</p>
         </div>
+    </div> --}}
 
-      </div>
+</div>
 
-    </div>
+<div class="my-3"></div>
+
 
     <!-- Mobile  Footer -->
 
@@ -1190,196 +1071,22 @@
 
         <div class="row">
 
-          <div class="col-md-1">
-
-          	<div class="footer1">
-	        	<h6>Pages</h6>
-	        	<ul>
-	        		@foreach( $page->getPagesList('Publish') as $page )
-	        			<li>
-	        				<a href="{{ route('page.detail.show',["slug"=>$page->slug]) }}" class="text-dark">{{ $page->title }}</a>
-	        			</li>
-	        		@endforeach
-	        	</ul>
-	        </div>
-
-
-            <div class="footer1">
-
-              <h6>Shortcuts</h6>
-
-              <ul>
-
-                <li>Event Search</li>
-
-                <li>Categories</li>
-
-                <li>Legend</li>
-
-                <li>membership</li>
-
-                <li>About Us</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Support</h6>
-
-              <ul>
-
-                <li>Privacy Policy</li>
-
-                <li>Legal</li>
-
-                <li>Affliates</li>
-
-                <li>membership</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Shortcuts</h6>
-
-              <ul>
-
-                <li>Event Search</li>
-
-                <li>Categories</li>
-
-                <li>Legend</li>
-
-                <li>membership</li>
-
-                <li>About Us</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Support</h6>
-
-              <ul>
-
-                <li>Privacy Policy</li>
-
-                <li>Legal</li>
-
-                <li>Affliates</li>
-
-                <li>membership</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Shortcuts</h6>
-
-              <ul>
-
-                <li>Event Search</li>
-
-                <li>Categories</li>
-
-                <li>Legend</li>
-
-                <li>membership</li>
-
-                <li>About Us</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Support</h6>
-
-              <ul>
-
-                <li>Privacy Policy</li>
-
-                <li>Legal</li>
-
-                <li>Affliates</li>
-
-                <li>membership</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-          <div class="col-md-1">
-
-            <div class="footer1">
-
-              <h6>Shortcuts</h6>
-
-              <ul>
-
-                <li>Event Search</li>
-
-                <li>Categories</li>
-
-                <li>Legend</li>
-
-                <li>membership</li>
-
-                <li>About Us</li>
-
-                <li>Contact Us</li>
-
-              </ul>
-
-            </div>
-
-          </div>
-
-
-
+        	<div class="col-md-1">
+
+		      	<div class="footer1">
+		        	<h6>Pages</h6>
+		        	<ul>
+		        		@foreach( $page->getPagesList('Publish') as $page )
+		        			<li>
+		        				<a href="{{ route('page.detail.show',["slug"=>$page->slug]) }}" class="text-dark">{{ $page->title }}</a>
+		        			</li>
+		        		@endforeach
+		        	</ul>
+		        </div>
+
+		    </div>
+
+          
           <div class="col-12">
 
             <div class="footer-links">
@@ -1447,128 +1154,93 @@
 <style type="text/css">
 
 	.selections{
-
 	    margin-left: 2px;
-
 	    width: 230px !important;
-
 	}
 
 	.selections select{
-
 	    margin-top: 8px;
-
 	    padding: 0px !important;
-
 	    width: 230px !important;
-
 	    background-color: #000 !important;
-
 	    color: #ffffff !important;
-
-	    border: none !important;    
-
+	    border: none !important;
 	}
 
 	.selections select:focus{
-
 	    border: transparent !important;
-
 	}
 
 	.selections option{
-
 	    padding-left: 10px !important;
-
 	}
 
-
-
 	.selections select::-webkit-scrollbar {
-
 	    width: 10px;               /* width of the entire scrollbar */
+	}
 
-	  }
-
-	  
-
-	  .selections select::-webkit-scrollbar-track {
-
+	.selections select::-webkit-scrollbar-track {
 	    background: #eee;        /* color of the tracking area */
+	}
 
-	  }
-
-	  
-
-	  .selections select::-webkit-scrollbar-thumb {
-
+	.selections select::-webkit-scrollbar-thumb {
 	    background-color: #60012C;    /* color of the scroll thumb */
-
 	    border-radius: 20px;       /* roundness of the scroll thumb */
-
 	    border: 2px solid #eee;  /* creates padding around scroll thumb */
-
-	  }
-
+	}
 	
 
 </style>
 
 	{{-- /*dropdown.css-end*/ --}}
+<script src="{{URL::asset('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}"></script>
 
-  <script src="{{URL::asset('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}"></script>
+<script src="{{URL::asset('https://code.jquery.com/jquery-3.5.1.min.js')}}"></script>
 
-  <script src="{{URL::asset('https://code.jquery.com/jquery-3.5.1.min.js')}}"></script>
+<script src="{{URL::asset('https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')}}"></script>
 
-  <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')}}"></script>
+<script src="{{URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js')}}"></script>
 
-  <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js')}}"></script>
+{{-- <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script> --}}
 
-   {{-- <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')}}"></script> --}}
+<script src="{{URL::asset('https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')}}"></script>
 
-   <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js')}}"></script>
+<script src="{{URL::asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')}}"></script>
 
+{{-- NEW ADDED --}}
 
+    {{-- <script src="{{URL::asset('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js')}}"></script> --}}
 
-   <script src="{{URL::asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')}}"></script>
+    {{-- <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script> --}}
 
-	{{-- NEW ADDED --}}
+{{-- NEW ADDED END --}}
 
-	    {{-- <script src="{{URL::asset('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js')}}"></script> --}}
+{{-- NEW ADDED --}}
 
-	    {{-- <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script> --}}
+<script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script>
 
-	{{-- NEW ADDED END --}}
+{{-- NEW ADDED END --}}
 
-	{{-- NEW ADDED --}}
+{{-- <script src = "{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')}}"></script> --}}
 
-	    <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script>
-
-	{{-- NEW ADDED END --}}
-
-   {{-- <script src = "{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')}}"></script> --}}
-
-   <script src="{{URL::asset('js/script.js')}}"></script>
+<script src="{{URL::asset('js/script.js')}}"></script>
 
 
 
 <script type="text/javascript">
 
-  $(document).ready(function(){  
+$(document).ready(function(){  
 
-       $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-multiple').select2();
 
-       $('.select2-search__field').css('border', 'none');
+    $('.select2-search__field').css('border', 'none');
 
-       $('.select2-search__field').attr("placeholder", "Type here to search Category ");
-
-
+    $('.select2-search__field').attr("placeholder", "Type here to search Category ");
 
        // $('select').select2('.js-example-basic-multiple');
 
        // $.fn.select2.defaults.set("theme", "bootstrap");
-
-  });  
+});  
 
 </script>
 

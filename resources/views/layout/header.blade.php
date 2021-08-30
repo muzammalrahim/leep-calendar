@@ -35,7 +35,7 @@
 
 	            <li class="nav-item">
 
-	              <a class="nav-link" href="{{URL::asset('Blogs')}}">Blogs</a>
+	              <a class="nav-link" href="{{URL::asset('Blogs')}}">LEEP Ink</a>
 
 	            </li>
 

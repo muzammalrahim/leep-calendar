@@ -13,66 +13,24 @@
         <div class="row">
             <div class="col-md-2"> 
 
-                <div class="follow-us">
-                    <h5 class="border-bottom border-danger font-weight-bold"> Follow Us </h5>
-                </div>
-
-                <div class="icons m-3"> 
-                    <img src="https://img.icons8.com/color/50/000000/linkedin.png"/>
-                    <img src="https://img.icons8.com/color/50/000000/twitter.png"/>
-                    <img src="https://img.icons8.com/nolan/50/facebook.png"/> <br>
-                    <img src="https://img.icons8.com/color/50/000000/instagram-new.png"/>
-                    <img src="https://img.icons8.com/color/48/000000/youtube-play.png"/>
-                    <img src="https://img.icons8.com/ios/50/000000/wordpress.png"/>
-                </div>
-
-                <div class="latest-posts">
-                    <h5 class="border-bottom border-danger font-weight-bold"> Latests Posts </h5>
-                </div>
+                @include('layout.leftSidebar')
 
             </div>
             <div class="col-md-8"> 
                 <div class="event-main">
                     <div class="eventsDetail">
                         <div class="event-detail-container">
-                              @if(session()->has('errorMsg'))
-                                  <div class="alert alert-danger">
-                                      <ul style="text-align: center;">
-                                          {{session('errorMsg')}}
-                                      </ul>
-                                  </div>
-                              @endif
-                              @if(session()->has('successMsg'))
-                                  <div class="alert alert-success">
-                                      <ul style="text-align: center;">
-                                          {{session('successMsg')}}
-                                      </ul>
-                                  </div>
-                              @endif
-                              @if ($errors->any())
-                                  <div class="alert alert-danger  col-12">
-                                      <ul>
-                                          @foreach ($errors->all() as $error)
-                                              <li>{{ $error }}</li>
-                                          @endforeach
-                                      </ul>
-                                  </div>
-                              @endif
 
-                            <div class="border-bottom border-danger">
+                            @include('layout.errorMsg')
+                              
+
+                            <div class="borderBottom">
                                 <div class="row">
                                     <div class="col-md-10 event-detail-left">
                                         @if(isset($event->name))
-                                            <h1 class="font-weight-bold text-dark">About the {{$event->name}}</h1>
+                                            <h1 class="font-weight-bold text-dark">{{$event->alt_text}}</h1>
                                         @endif
                                     </div>
-                                   {{--  @if(Auth::id()==$event->user_id)
-                                      <div class="col-md-6 event-detail-right">
-                                          <div> <a href="{{URL::asset('deleteEvent/'.$event->id)}}" class="btn btn-outline-secondary" type="submit">Delete Event</a>
-                                              <a href="{{URL::asset('editEvent/'.$event->id)}}" class="btn btn-outline-success" type="submit">Edit Event</a>
-                                          </div>
-                                      </div>
-                                    @endif --}}
 
                                     <div class="col-md-12">
                                         <span class="float-right font-color font18 font-weight-bold"> This Date is Estimated </span> 
@@ -80,115 +38,104 @@
                                 </div>
                             </div>
                             <div class="eventDetailAndRegions m-4 ">
-                                <div class="row border-bottom border-danger">
-                                    <div class="col-md-6">
+                                <div class="borderBottom">
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="country mb-3"> 
+                                                <span class="font-weight-bold"> Country/Region: </span> {{ $event->country1 }} 
+                                            </div> 
+                                        </div>
 
-                                        <div class="country mb-3"> <span class="font-weight-bold"> Country/Region: </span> Worldwid </div>  
+                                        <div class="col-md-6">
+                                            <div class="eventDate mb-3"> 
+                                                <span class="font-weight-bold"> Event Date(s):</span> 
+                                                {{-- July 1, 2019 - July 31, 2019  --}}
 
-                                        <div class="eventCategories mb-3">
-                                            <span class="font-weight-bold"> Event Categories:</span> 
+                                                {{date("F", strtotime(date("Y")."-".$event->m_start."-01")).' '. $event->d_start}} , {{$event->y_start}} - 
+                                                    {{date("F", strtotime(date("Y")."-".$event->m_end."-01")).' '. $event->d_end}} , {{$event->y_end}}
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
 
-                                            {{-- Anniversary, Civil Rights,Military, Real Estate, Middle East --}}
-                                            <div class="row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="eventCategories">
+                                                <span class="font-weight-bold"> Event Categories:</span> 
                                                 @isset($event->cat1->name)
-                                                    <div class="col-md-6">
-                                                        <label class="container" style="margin-bottom: 5px !important; ">{{($event->cat1->name)}}
-                                                            {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                        </label>
-                                                    </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat1->name)}}, </span>
                                                 @endif
                                                 @isset($event->cat2->name)
-                                                    <div class="col-md-6">
-                                                        <label class="container" style="margin-bottom: 5px !important; ">{{($event->cat2->name)}}
-                                                            {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                        </label>
-                                                    </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat2->name)}}, </span>
                                                 @endif
                                                 @isset($event->cat3->name)
-                                                    <div class="col-md-6">
-                                                        <label class="container" style="margin-bottom: 5px !important; ">{{($event->cat3->name)}}
-                                                            {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                        </label>
-                                                    </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat3->name)}}, </span>
                                                 @endif
                                                 @isset($event->cat4->name)
-                                                <div class="col-md-6">
-                                                    <label class="container" style="margin-bottom: 5px !important; ">{{($event->cat4->name)}}
-                                                        {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                    </label>
-                                                </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat4->name)}}, </span>
                                                 @endif
                                                 @isset($event->cat5->name)
-                                                    <div class="col-md-6">
-                                                        <label class="container" style="margin-bottom: 5px !important; ">@isset($event->cat5->name){{($event->cat5->name)}}@endif
-                                                            {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                        </label>
-                                                    </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat5->name)}}, </span>
                                                 @endif
                                                 @isset($event->cat3->name)
-                                                    <div class="col-md-6">
-                                                        <label class="container" style="margin-bottom: 5px !important; ">{{($event->cat3->name)}}
-                                                            {{-- <input type="checkbox" checked="checked"><span class="checkmark"></span> --}}
-                                                        </label>
-                                                    </div>
+                                                    <span style="margin-bottom: 5px !important; ">{{($event->cat3->name)}} </span>
+                                                @endif
+                                            </div>
+
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="lenghtOfFamily mb-3"> <span class="font-weight-bold"> Length of Event: </span> {{ $event->type }}  </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="eventChampion mb-3">
+                                                <span class="font-weight-bold"> Event Champion:</span> {{ $event->champ_name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="source mb-3">
+                                               <span class="font-weight-bold"> Source/Reference URL: </span> {{ $event->url }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="socialLinks mb-3">
+                                                <span class="font-weight-bold"> Event Champion Social Media Links:</span>
+                                                @if (isset($event->socail_link1))
+                                                    <a href="{{ $event->socail_link1 }}"> {{ $event->socail_link1 }}  </a>
+                                                @endif
+
+                                                @if (isset($event->socail_link2))
+                                                    <a href="{{ $event->socail_link2 }}"> {{ $event->socail_link2 }}  </a>
+                                                @endif
+
+                                                @if (isset($event->socail_link3))
+                                                    <a href="{{ $event->socail_link3 }}"> {{ $event->socail_link3 }}  </a>
                                                 @endif
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="eventAddress mb-3">
+                                               <span class="font-weight-bold"> Event Address (if available): </span> {{ $event->address1 }}
+                                            </div>
 
-                                        <div class="eventChampion mb-3">
-                                            <span class="font-weight-bold"> Event Champion:</span> Multiple Sponsors. See PENGON for information.
-                                        </div>
+                                            <div class="registerPurchase mb-3">
+                                                <span class="font-weight-bold"> Register or Purchase Tickets to this Event (if available): </span>
+                                                {{ $event->purchas_reserve }}
+                                            </div>
 
-                                        <div class="socialLinks mb-3">
-                                            <span class="font-weight-bold"> Event Champion Social Media Links:</span>
-                                            Facebook: http://www.facebook.com <br>
-                                            Twitter: http://www.twitter.com <br>
-                                            Instagram: http://www.Linkedin.com <br>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <div class="eventDat mb-3"> 
-                                            <span class="font-weight-bold"> Event Date(s):</span> 
-                                            July 1, 2019 - July 31, 2019 </div>
-
-                                        <div class="lenghtOfFamily mb-3"> <span class="font-weight-bold"> Length of Event: </span> Monthly  </div>
-
-                                        <div class="source mb-3">
-                                           <span class="font-weight-bold"> Source/Reference URL: </span> http://stopthewall.org
-                                        </div>
-
-                                        <div class="eventAddress mb-3">
-                                           <span class="font-weight-bold"> Event Address (if available): </span>  123B 45th St., City, State, Zip, USA
-                                        </div>
-
-                                        <div class="registerPurchase mb-3">
-                                            <span class="font-weight-bold"> Register or Purchase Tickets to this Event (if available): </span>
-                                            https://purchasetickets.com
-                                        </div>
-
-                                    </div>
-
-                                    {{-- <p class="categorieNames">
-                                        @isset($event->cat1->name)
-                                            {{$event->cat1->name}}   
-                                        @elseif(isset($event->cat2->name))
-                                            {{$event->cat2->name}}                                
-                                        @elseif(isset($event->cat3->name))
-                                            {{$event->cat3->name}}                                
-                                        @elseif(isset($event->cat4->name))
-                                            {{$event->cat4->name}}                                
-                                        @elseif(isset($event->cat5->name))
-                                            {{$event->cat5->name}}                                
-                                        @elseif(isset($event->cat6->name))
-                                            {{$event->cat6->name}}                                
-                                        @endif
-                                    </p> --}}
-
-                                    
                                 </div>
 
-                                <div class="row mt-3 border-bottom border-danger">
+                                <div class="row mt-3 borderBottom">
                                     <div class="col-md-12">
                                         <div class="events-description">
                                             <h4 class="font-weight-bold">Description</h4>
@@ -197,66 +144,18 @@
                                     </div>
                                 </div>
 
-
-
-
                             </div>
 
                         </div>
                         <!-- event-schedule-box -->
-                        <div class="schedule">
+                        <div class="champion-info">
+                            
+                            <div class="professional-heading">
+                                <h6>EVENT CHAMPION CONTACT INFORMATION.</h6>
+                            </div>
+
                             <div class="row m-0">
-                                <div class="col-md-5">
-                                    <div class="schedule-one">
-                                        <h6>Event Details</h6>
-                                        <p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                            tempor
-                                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                                        </p>
-                                        <div class="row">
-                                            <div class="col-md-1"> <img
-                                                    src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon material-location-on.svg')}}"
-                                                    alt=""></div>
-                                            <div class="col-md-11 location-img">
-                                                <p>
-                                                  @isset($event->location_based){{$event->location_based}}@endif
-                                                    
-                                                </p>
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="row cell-mail">
-                                            <div class="col-md-6">
-                                                <p> <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon ionic-ios-call.svg')}}"
-                                                        alt=""> {{$event->ph_num}}</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p> <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon ionic-md-mail.svg')}}"
-                                                        alt="">{{$event->email_form}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="schedule-one">
-                                        <h6>Event Schedule</h6>
-                                        <div class="schedule-detail text-center">
-                                            <p class="estimate-date">Estimated Start Date</p>
-                                            <p class="estimate-date-one"> {{date("F", strtotime(date("Y")."-".$event->m_start."-01")).' '. $event->d_start}} , {{$event->y_start}}</p>
-                                            <p class="estimate-date">Estimated End Date</p>
-                                            <p class="estimate-date-one"> {{date("F", strtotime(date("Y")."-".$event->m_end."-01")).' '. $event->d_end}} , {{$event->y_end}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- <div class="col-md-4">
-                                    <div class="schedule-one" style="height: auto;min-height: 280px;">
-                                        <h6>Event Categories</h6>
-                                        
-                                    </div>
-                                </div> --}}
-
+                               
                             </div>
 
                         </div>
@@ -396,45 +295,83 @@
                         <!-- champion-contact-information -->
                         @isset((Auth::user()->membership->type))
                             @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
-                              <div class="champion-info-wrapper">
-                                  <h6>EVENT CHAMPION CONTACT INFORMATION</h6>
-                                  <div class="champion-box">
-                                      <div class="text-center">
-                                          <p>Champion/Recommended Resource:</p>
-                                          <span class="text-center">Multiple Sponsors. See PENGON for information</span>
-                                      </div>
-                                      <div class="champ-address">
-                                          <div class="row">
-                                              <div class="col-md-3 address-one">
-                                                  <p class="addresing">Address 1 / Referral Name:</p>
-                                                  <p class="address-height">Address 2: State / Province:</p>
-                                                  <p class="addresing">Country: </p>
-                                                  <p class="addresing">Zip Code:</p>
-                                              </div>
-                                              <div class="col-md-3 address-two">
-                                                  <p class="addresing-one">{{$event->champ_name}}</p>
-                                                  <p  class="address-height-one">{{$event->champ_address}}</p>
-                                                  <p class="addresing-one">{{$event->champ_country}}</p>
-                                                  <p class="addresing-one">{{$event->zip}}</p>
-                                              </div>
+                            <div class="champ-info">
+                                <div class="champ-box px-5">
+                                    <span class="font-weight-bold"> Champion/Recommended Resource: </span>
+                                    <span>Multiple Sponsors. See PENGON for information</span>
 
-                                              <div class="col-md-3 address-one">
-                                                  <p class="addresing">Contact Person:</p>
-                                                  <p class="addresing">E-mail or Social Media Handle:</p>
-                                                  <p class="addresing">Phone Number:</p>
-                                                  <p class="addresing">Contact Url</p>
-                                              </div>
-                                              <div class="col-md-3 address-four">
-                                                  <p class="addresing-two">{{$event->contact_person}}</p>
-                                                  <p class="addresing-two">{{$event->email_form}}</p>
-                                                  <p class="addresing-two">{{$event->ph_num}}</p>
-                                                  <p class="addresing-two">{{$event->contact_link}}</p>
-                                              </div>
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Address 1 / Referral Name:</span>  
+                                            {{$event->champ_name}}
+                                        </div>    
+                                    </div>
 
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Address 2:</span>
+                                            {{$event->champ_address}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> City:</span>
+                                            {{$event->city}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> State / Province:</span>
+                                            {{$event->state}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Country:</span>
+                                            {{$event->country2}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Zip Code:</span>
+                                            {{$event->zip}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Contact Person:</span>
+                                            {{$event->contact_person}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> E-mail or Social Media Handle:</span>
+                                            {{$event->email_form}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> Phone Number:</span>
+                                            {{$event->ph_num}}
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold"> PContact URL:</span>
+                                            {{$event->contact_link}}
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                             @else
                               <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
                                 <h6>EVENT CHAMPION CONTACT INFORMATION</h6>
@@ -534,9 +471,7 @@
 
             <div class="col-md-2">
 
-                <h5 class="font-weight-bold text-center"> BECOME A MEMBER </h5>
-                <a href="#" class="text-center text-dark d-block my-2"> Professionals </a>
-                <a href="#" class="text-center text-dark d-block my-2"> Event Champions </a>
+                @include('layout.rightSidebar')
 
             </div>
 

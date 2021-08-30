@@ -2509,3 +2509,21 @@ a.nav-item{
 .calender {
     width: 350px !important;
 }
+.borderline{
+    border-top: 2px solid #60012c;
+}
+
+.borderBottom{
+    border-bottom: 2px solid #60012c;
+}
+.dynamicPage123 > .font-color:hover {
+    color: black !important;
+}
+
+.colorSkin {
+    color: #a0641e;
+}
+a.colorSkin:hover {
+    color: #a0641e !important;
+    text-decoration: underline;
+}

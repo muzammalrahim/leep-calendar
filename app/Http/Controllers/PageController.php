@@ -27,7 +27,7 @@ class PageController extends Controller
 
         $data['pages'] = $this->page->getPagesList();
         
-        return view('admin.pages.manage_pages', $data);
+        return view('admin.pages.manage_pages', $data); // admin/pages/manage_pages
     }
 
     public function add()
