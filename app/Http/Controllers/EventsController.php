@@ -24,9 +24,12 @@ use DatePeriod;
 class EventsController extends Controller
 {
     
+    private $event;
+    
     public function __construct()
     {
         // $this->middleware('admin');
+        $this->event = new events;
     }
     public function events(){
         $events=events::all();

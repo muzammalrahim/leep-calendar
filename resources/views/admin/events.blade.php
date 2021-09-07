@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('content')
-
                   @if(session()->has('errorMsg'))
                       <div class="alert alert-danger">
                           <ul style="text-align: center;">

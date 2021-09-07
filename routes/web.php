@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/','EventsController@users');
     Route::get('/admin/users','EventsController@users');
     Route::post('admin/users','EventsController@searchUsers');
-    Route::get('admin/events','EventsController@events');
+    Route::get('admin/events','EventsController@events')->name('admin.events');
     Route::post('admin/searchEvents','EventsController@searchEvents')->name('admin/searchEvents');
     Route::get('admin/eve','EventsController@evecc');
     Route::get('admin/eventRegUsers/{id}','EventsController@eventRegUsers');
