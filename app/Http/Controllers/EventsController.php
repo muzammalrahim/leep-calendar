@@ -227,19 +227,42 @@ class EventsController extends Controller
         return view('admin.users',compact('users','page_Heading1'));
     }
 
+
+
     public function addBtcAddress(Request $request)
     {
+        // Initialization
+            $data = [];
+        // End Initialization
 
-        // try {
-            $path = $request->file('file');
+        $request->validate([
+            'file' => ['required',function ($attribute, $value, $fail) {
+                if (!in_array($value->getClientOriginalExtension(), ['csv'])) {
+                    $fail('Incorrect :attribute type chosen.');
+                }
+            }]
+        ]);
 
-            Excel::import(new eventImport, $path);
-            return redirect('admin/events');
+        $file = file($request->file->getRealPath());
+        
+        // Inorder to remove header use: // $data = array_slice($file, 1);
 
-        // }catch(\Exception $e){
-        //     dd('error');
-        // }
+        // Splitting data after every 1000 lines
+        $parts = (array_chunk($file, 5000));
+
+        foreach ($parts as $index=>$part) {
+            $file_name = resource_path('pending-files/'.date('y-m-d-H-i-s').$index. '.csv');
+
+            file_put_contents($file_name, $part);
+        }
+
+        $this->event->importToDb();
+
+        session()->flash('status', 'Queued for importing');
+        
+        return redirect()->route('admin.events')->with($data);
     }
+
 
     public function adminSetting()
     {
@@ -299,5 +322,45 @@ class EventsController extends Controller
             return redirect()->back()->with(['errorMsg'=>"Blog deleted Successfully"]);
         }
         return view('admin.blogs',compact('blogs'));
+    }
+
+    // ========================================== Login user's event ==========================================
+
+    public function usersEvents(Request $request){
+        $user = Auth::user();
+        $events = events::where('user_id',$user->id)->where('status', '!=', 'Deleted')->get();
+        $data['user'] = $user;
+        $data['events'] = $events;
+        return view('user.events.index',$data);
+    }
+
+    // ========================================== Edit event of user ==========================================
+
+    public function editEvent($value=''){
+        $this->middleware('auth');
+        $user = Auth::user();
+        $event=events::find($value);
+        if($user->id ==$event->user_id)
+        {
+            return view('user.events.editEvent',compact('event'));            
+        }else{
+            return redirect('/');
+        }
+    }
+
+    // ========================================== Delete event of user ==========================================
+
+    public function deleteEvent($id){
+        $this->middleware('auth');
+        $user = Auth::user();
+        $event=events::find($id);
+        if($user->id == $event->user_id){
+            $event->status='Deleted';
+            $event->save();
+            // dd($event);
+            return redirect('my-events')->with(['successMsg'=>'Event Deleted Successfully']);
+        }else{
+            return redirect()->back()->with(['errorMsg'=>'Unknown Events']);
+        }
     }
 }

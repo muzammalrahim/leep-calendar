@@ -88,7 +88,7 @@
                                         <script 
                                             src="{{URL::asset('https://checkout.stripe.com/checkout.js')}}" 
                                             class="stripe-button"
-                                            data-key="pk_test_QnIkbt1DyPNo1nv8aZwEW2CK"
+                                            data-key="pk_test_51JUnQfDtg6OTP8g894Kp4YWXJn3dVzlCvBXVvpWwvueOWV2NUkaAWb6UfsnO9HuQNO2qdNyNvRvgfVPL8RgQ5fmi00gfmrUTMo"
                                             data-amount="6995"
                                             data-name="Leep Calender "
                                             data-description=""

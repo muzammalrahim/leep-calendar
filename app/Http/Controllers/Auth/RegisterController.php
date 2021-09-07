@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -54,6 +55,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
@@ -98,15 +100,30 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+
+    // Registering User Here
+
     protected function create(array $data)
     {
-        // dd($data); 
-        return User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
+        // dd($data);
 
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $role = array(2,3);
+
+        if (in_array($data['role'], $role)) {
+            return User::create([
+                'fname' => $data['fname'],
+                'lname' => $data['lname'],
+                'email' => $data['email'],
+                'role_id' => $data['role'],
+                'password' => Hash::make($data['password'])
+            ]);
+        }
+        else{
+            return redirect('/');
+        }
+        
     }
+ 
+
+
 }

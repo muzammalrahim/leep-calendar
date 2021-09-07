@@ -135,125 +135,54 @@
 
                                 </div>
 
-                                <div class="row mt-3 borderBottom">
-                                    <div class="col-md-12">
-                                        <div class="events-description">
-                                            <h4 class="font-weight-bold">Description</h4>
-                                            <p>@isset($event->description){{$event->description}}@endif</p>
+                                <div class="descript borderBottom">
+                                    <div class="row mt-3">
+                                        <div class="col-md-12">
+                                            <div class="events-description">
+                                                <h4 class="font-weight-bold">Description</h4>
+                                                <p>@isset($event->description){{$event->description}}@endif</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-
-                        </div>
-                        <!-- event-schedule-box -->
-                        <div class="champion-info">
-                            
-                            <div class="professional-heading">
-                                <h6>EVENT CHAMPION CONTACT INFORMATION.</h6>
-                            </div>
-
-                            <div class="row m-0">
-                               
                             </div>
 
                         </div>
 
                         <!-- champion-box -->
 
-
-                        <div class="event-card">
-                            <div class="row m-0">
-
-                                <div class="col-md-8" style="display: none;">
+                        <div class="m-4 event-card1 borderBottom pb-2">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div class="event-champion">
-                                        <h6>Event Champion</h6>
+                                        <h4 class="font-weight-bold">Event Champion</h4>
                                     </div>
-                                    <div class="focal-contact">
-
+                                    <div class="focal-contact1 mt-4">
                                         <div class="row m-0">
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                                        alt=""></div>
-                                                <div class="user-name"><b>Domenico Lehner</b>
-                                                    <p>Darrel_Hn87@yahoo.com</p>
+                                            <div class="focal-person">
+                                                <div class="col-md-4 ">
+                                                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
+                                                        alt="">
+                                                </div>
+                                                <div class="col-md-8 ser-name"><b>{{ $event->event_champion }}</b>
+                                                    {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
                                                 </div>
                                                 <!-- hover-box-start-->
-                                                <div class="hover-card">
+                                               {{--  <div class="hover-card">
                                                     <div class="col-md-12 focal-hover">
                                                         <div><img
                                                                 src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
                                                                 alt=""></div>
-                                                        <div class="user-name"><b>Domenico Lehner</b>
-                                                            <p>Darrel_Hn87@yahoo.com</p>
+                                                        <div class="user-name"><b> {{ $event->event_champion }} </b>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <hr>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-1"> <i class="fa fa-map-marker"
-                                                                aria-hidden="true"></i></div>
-                                                        <div class="col-md-11 location-img">
-                                                            <p>
-                                                                Lorem ipsum dolor sit amet, consetetur sadipscing
-                                                                elitr, sed diam nonumy eirmod tempor invidunt ut labore et
-                                                                dolore magna aliquyam
-                                                                erat, sed diam voluptua. At vero eos et
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="row cell-mail">
-                                                        <div class="col-md-6">
-                                                            <p><i class="fa fa-phone" aria-hidden="true"></i>Lorem ipsum dolor
-                                                                sit</p>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <p> <i class="fa fa-envelope"></i> Lorem ipsum dolor sit</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </div>                                                    
+                                                </div> --}}
                                                 <!-- hover-box-end-->
                                             </div>
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="">
-                                                </div>
-                                                <div class="user-name"><b>Ms. Misael Schiller</b>
-                                                    <p>Kaylin.McClure@gmail.com</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="">
-                                                </div>
-                                                <div class="user-name"><b>Rowena Kuhn I</b>
-                                                    <p>Dustin71@gmail.com</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                                        alt=""></div>
-                                                <div class="user-name"><b>Allie Gerlach</b>
-                                                    <p>Ruthe_Terry@yahoo.com</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="">
-                                                </div>
-                                                <div class="user-name"><b>Dagmar Becker</b>
-                                                    <p>Sally72@hotmail.com</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 focal-person">
-                                                <div><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="">
-                                                </div>
-                                                <div class="user-name"><b>Kitty West</b>
-                                                    <p>Petra86@hotmail.com</p>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -293,111 +222,45 @@
                         <!-- champion-box-end-->
 
                         <!-- champion-contact-information -->
-                        @isset((Auth::user()->membership->type))
-                            @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
-                            <div class="champ-info">
-                                <div class="champ-box px-5">
-                                    <span class="font-weight-bold"> Champion/Recommended Resource: </span>
-                                    <span>Multiple Sponsors. See PENGON for information</span>
+                        <div class="champ-contact-info m-4">
 
-                                    <div class="row mt-4">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Address 1 / Referral Name:</span>  
-                                            {{$event->champ_name}}
-                                        </div>    
-                                    </div>
+                            <h4 class="font-weight-bold">EVENT CHAMPION CONTACT INFORMATION</h4>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Address 2:</span>
-                                            {{$event->champ_address}}
-                                        </div>
-                                    </div>
+                            @isset((Auth::user()->membership->type))
+                                @php
+                                    $isSubscriber = $user->isPaidSubscriber->slug; 
+                                @endphp
+                                    
+                                @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> City:</span>
-                                            {{$event->city}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> State / Province:</span>
-                                            {{$event->state}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Country:</span>
-                                            {{$event->country2}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Zip Code:</span>
-                                            {{$event->zip}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row mt-4">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Contact Person:</span>
-                                            {{$event->contact_person}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> E-mail or Social Media Handle:</span>
-                                            {{$event->email_form}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> Phone Number:</span>
-                                            {{$event->ph_num}}
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <span class="font-weight-bold"> PContact URL:</span>
-                                            {{$event->contact_link}}
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            @else
-                              <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
-                                <h6>EVENT CHAMPION CONTACT INFORMATION</h6>
-                                <div class="blurr-back">
-                                  <div class="blurry text-center">
-                                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                    <h4>PREMIUM ACCESS ONLY</h4>
-                                    <h6>Upgrade to Premium/Gold Membership to View</h6>
-                                    <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
+                                    @include('leepFront.eventDetail.contactInfo')
+                                
+                                @else
+                                  <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
+                                    <div class="blurr-back">
+                                      <div class="blurry text-center">
+                                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
+                                        <h4>PREMIUM ACCESS ONLY</h4>
+                                        <h6>Upgrade to Premium/Gold Membership to View</h6>
+                                        <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
+                                      </div>
+                                    </div>                      
                                   </div>
-                                </div>                      
-                              </div>
+                                @endif
+                                @else
+                                  <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
+                                    {{-- <h6>EVENT CHAMPION CONTACT INFORMATION</h6> --}}
+                                    <div class="blurr-back">
+                                      <div class="blurry text-center">
+                                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
+                                        <h4>PREMIUM ACCESS ONLY</h4>
+                                        <h6>Upgrade to Premium/Gold Membership to View</h6>
+                                        <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
+                                      </div>
+                                    </div>                      
+                                  </div>
                             @endif
-                            @else
-                              <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
-                                <h6>EVENT CHAMPION CONTACT INFORMATION</h6>
-                                <div class="blurr-back">
-                                  <div class="blurry text-center">
-                                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                    <h4>PREMIUM ACCESS ONLY</h4>
-                                    <h6>Upgrade to Premium/Gold Membership to View</h6>
-                                    <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
-                                  </div>
-                                </div>                      
-                              </div>
-                        @endif
+                        </div>
                         <!-- Video-box-->
                         <div class="video-wrapper">
                             <div class="container">

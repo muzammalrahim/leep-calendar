@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
+Route::get('/home', 'HomeController@index');
+
 // Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 // Route::get('/login/admin', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm']);
 Route::get('/login/admin', "PagesController@login11");
@@ -101,18 +104,19 @@ Route::post('contactUs', 'HomeController@contactUsForm');
 Route::get('legend', 'HomeController@legend');
 Route::get('aboutUs', 'HomeController@aboutUs');
 Route::get('categories', 'HomeController@categories');
-
 Route::get('category/{id}', 'HomeController@categoryDetail');
-
 Route::get('downloadPdf/{eveId}/{filesId}', 'HomeController@downloadpdf');
 Route::get('addNewEvent', 'HomeController@addNewEvent')->middleware('auth');
-Route::get('editEvent/{id}', 'HomeController@editEvent')->middleware('auth');
-Route::get('deleteEvent/{id}', 'HomeController@deleteEvent')->middleware('auth');
 Route::post('addNewEventform', 'HomeController@addNewEventFrom')->middleware('auth');
 Route::post('editEventFrom', 'HomeController@editEventFrom')->middleware('auth');
-
 Route::get('stripeCheck', 'HomeController@stripeCheck')->middleware('auth');
 // Route::post('searchEvents', 'HomeController@userSearchEvents')->name('searchEvents');
+
+Route::get('my-events', 'EventsController@usersEvents')->name('usersEvents')->middleware('auth');
+Route::get('editEvent/{id}', 'EventsController@editEvent')->name('editEvent')->middleware('auth');
+Route::get('deleteEvent/{id}', 'EventsController@deleteEvent')->name('deleteEvent')->middleware('auth');
+
+
 Route::get('login', 'PagesController@index');
 Auth::routes();
 
@@ -138,7 +142,6 @@ Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search')
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 
 Route::get('/updateapp', function()
 {

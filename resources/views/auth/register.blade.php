@@ -135,7 +135,45 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password"  name="password_confirmation"> <span
               toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password mr-2"></span>
   
-          </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-md-2">
+                I am
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" value="3" id="flexRadioDefault1" checked>
+                    <label class="form-check-label text-dark" for="flexRadioDefault1">
+                        Subscriber
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="role" value="2" id="flexRadioDefault2">
+                    <label class="form-check-label text-dark" for="flexRadioDefault2">
+                        Event Champion
+                    </label>
+                </div>
+            </div>
+        </div>
+
+
+        {{-- <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="role" value="3" id="flexRadioDefault1" checked>
+            <label class="form-check-label text-dark" for="flexRadioDefault1">
+                Subscriber
+            </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="role" value="2" id="flexRadioDefault2">
+            <label class="form-check-label text-dark" for="flexRadioDefault2">
+                Event Chamption
+            </label>
+        </div> --}}
+
           <div class=" row form-check">
             <div class="check"> <input type="checkbox" required="" class="form-check-input" id="exampleCheck1">
               <label class="form-check-label" for="exampleCheck1"> <i>I agree to the terms & conditions</i> </label></div>
@@ -143,7 +181,7 @@
           </div>
         <button type="submit" class="btn btn-danger">Sign Up</button>
         <div class="new-member mt-3">
-          <p>Already a member? <a href="login-leep.html"><span>Login</span></a></p>
+          <p>Already a member? <a href="{{ asset('/login') }}"><span>Login</span></a></p>
         </div>
       </form>
     </div>

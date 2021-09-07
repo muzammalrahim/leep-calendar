@@ -2527,3 +2527,14 @@ a.colorSkin:hover {
     color: #a0641e !important;
     text-decoration: underline;
 }
+
+
+.hero {
+    background-color: #000000;
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('leep_calender/event/img/Events.jpg');*/
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    padding: 8em;
+    text-align: center;
+}

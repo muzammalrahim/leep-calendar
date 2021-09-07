@@ -41,17 +41,12 @@ class HomeController extends Controller
         
         $page_title = 'Dashboard';
         $page_description = 'Some description for the page';
-
         $d=date('d');     
         $m=date('m');     
         $y=date('Y');     
-
         $events=events::all();   
         $date=date("Y-m-d");
-        // dump($date);
-
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-
         $d_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
@@ -213,8 +208,8 @@ class HomeController extends Controller
         return view('leepFront.searchEvents',compact('events','search'));
         // return view('leepFront.searchEvents');
     }
-    public function eventDetail($id)
-    {
+    public function eventDetail($id){
+        $user = Auth::user();
         $event=events::find($id);
         if(isset($event->id)){
             if($event->status=='Approved' || Auth::id()==$event->user_id){
@@ -235,7 +230,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('event','d_events','m_events','week_events','d','m','category')); // leepFront/eventDetail
+            return view('leepFront.eventDetail',compact('event','d_events','m_events','week_events','d','m','category','user')); // leepFront/eventDetail
 
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -268,8 +263,7 @@ class HomeController extends Controller
             return redirect()->back()->with(['errorMsg'=>'Unknown Events']);
         }
     }
-    public function deleteEvent($id)
-    {
+    public function deleteEvent($id){
         $this->middleware('auth');
         $event=events::find($id);
         if(Auth::id()==$event->user_id)
@@ -281,6 +275,7 @@ class HomeController extends Controller
             return redirect()->back()->with(['errorMsg'=>'Unknown Events']);
         }
     }
+
     public function addNewEventFrom(Request $request)
     {
 
@@ -785,13 +780,21 @@ class HomeController extends Controller
     }
     public function becomeMember($value='')
     {
-        return view('leepFront.becomeMember');
+        return view('leepFront.becomeMember'); // leepFront/becomeMember
     }
     public function myEvents($value='')
     {
         $events=events::where('user_id',Auth::id())->where('status','!=','Deleted')->paginate(8);
         // dd($events);
-        return view('leepFront.myEvents',compact('events'));
+        $d=date('d');  
+        $m=date('m');
+        $date=date("Y-m-d");
+
+        $d_events=events::where('start_date','=',$date)->where('type','Daily')->get();;
+        $featureEvents=featuredEvents::all()->take(3) ;
+
+        // $y=date('Y');
+        return view('leepFront.myEvents.events',compact('events','m','d','d_events','featureEvents')); // leepFront/myEvents 
     }
     public function becomeEventChamp($value='')
     {
@@ -909,7 +912,7 @@ class HomeController extends Controller
                         "amount" => $fee,
                         "currency" => "usd",
                         "source" => $request->stripeToken,
-                        "description" => "This payment is testing purpose of    websolutionstuff.com",
+                        "description" => "This payment is testing purpose of creativetech-solutions.com",
                 ]);
                 if($request->member==='premium'){
                     $mem=membership::where('type','Premium')->first();
