@@ -47,6 +47,14 @@ return [
             'visible' => 'preview',
         ],
 
+        [
+            'title' => 'Pages',
+            'root' => true,
+            'icon' => 'media/svg/icons/Home/Library.svg',
+            'page' => 'admin/pages',
+            'visible' => 'preview',
+        ],
+
         // // Custom
         // [
         //     'section' => 'Custom',

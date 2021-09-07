@@ -119,7 +119,7 @@
         </div>
         <button type="submit" class="btn btn-danger">Login</button>
         <div class="new-member mt-3">
-          <p>Not a registered user? <a href="signup-leep.html"><span>Signup</span></a></p>
+          <p>Not a registered user? <a href="{{ asset('/register') }}"><span>Signup</span></a></p>
         </div>
       </form>
     </div>

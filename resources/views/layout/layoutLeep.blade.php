@@ -83,10 +83,14 @@
 
 	<div class="sticky-top">
 
+		{{-- ========================== Header ========================== --}}
+
 	    <header>
 	    	@include('layout.header') {{-- layout/header --}}
 	    	<hr>
 	    </header>
+
+		{{-- ========================== Header ========================== --}}
 
 	<form  method="POST" action="{{url('searchEvents') }}">
 
@@ -1191,6 +1195,10 @@
 	
 
 </style>
+
+<script type="text/javascript">
+    var base_url = '{!! url('/') !!}';
+</script>
 
 	{{-- /*dropdown.css-end*/ --}}
 <script src="{{URL::asset('https://code.jquery.com/jquery-3.5.1.slim.min.js')}}"></script>
