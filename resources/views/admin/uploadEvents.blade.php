@@ -1,21 +1,39 @@
 @extends('layout.default')
 
 @section('content')
+    @if ($errors->any())
+      <div class="alert alert-danger">
+          <strong>Danger!</strong>
+          <ul>
+               @foreach ($errors->all() as $error)
+                    <li >{{ $error }}</li>
+                @endforeach
+          </ul>
+      </div>
+    @endif
 
-                  @if(session()->has('errorMsg'))
-                      <div class="alert alert-danger">
-                          <ul style="text-align: center;">
-                              {{session('errorMsg')}}
-                          </ul>
-                      </div>
-                  @endif
-                  @if(session()->has('successMsg'))
-                      <div class="alert alert-success">
-                          <ul style="text-align: center;">
-                              {{session('successMsg')}}
-                          </ul>
-                      </div>
-                  @endif
+    @if(session()->has('errorMsg'))
+      <div class="alert alert-danger">
+          <ul style="text-align: center;">
+              {{session('errorMsg')}}
+          </ul>
+      </div>
+    @endif
+    @if(session()->has('successMsg'))
+      <div class="alert alert-success">
+          <ul style="text-align: center;">
+              {{session('successMsg')}}
+          </ul>
+      </div>
+    @endif
+
+    @if(session()->has('status'))
+      <div class="alert alert-success">
+          <ul style="text-align: center;">
+              {{session('status')}}
+          </ul>
+      </div>
+    @endif
 
     <div class="row">
         <div  class='card-header col-lg-12 col-xxl-12'>
