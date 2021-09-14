@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\events;
-use App\Models\admin;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+
 use App\Imports\eventImport;
+
+use App\Models\events;
+use App\Models\membership;
+use App\Models\admin;
 use App\Models\featuredEvents;
 use App\Models\User;
 use App\Models\participants;
 use App\Models\category;
 use App\Models\blogs;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use App\Models\membership;
+use App\Models\country;
+
 use Excel;
 use TwitterStreamingApi;
 use PublicStream;
@@ -24,12 +29,15 @@ use DatePeriod;
 class EventsController extends Controller
 {
     
-    private $event;
+    private $event, $country, $user;
     
     public function __construct()
     {
         // $this->middleware('admin');
         $this->event = new events;
+        $this->country = new country;
+        $this->category = new category;
+        $this->user = new User;
     }
     public function events(){
         $events=events::all();
@@ -366,4 +374,23 @@ class EventsController extends Controller
             return redirect()->back()->with(['errorMsg'=>'Unknown Events']);
         }
     }
+
+
+    /* Start: Zeeshan code */
+    // Admin add new event
+    public function addEventByAdmin()
+    {
+        // Initialization
+            $data = [];
+        // End Initialization
+
+        $data['countries_list'] = $this->country->getCountriesList();
+        
+        $data['categories_list'] = $this->category->getCategoriesList();
+
+        $data['event_champions'] = $this->user->getUserByRoleSlug('event_champ');
+
+        return view('admin.events.add_event', $data);
+    }
+    /* End: Zeeshan code */
 }
