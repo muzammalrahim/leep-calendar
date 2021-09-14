@@ -76,6 +76,10 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
     // /admin/adminSetting
 
+    // Events routes
+    Route::get('admin/event/add-new-event', 'EventsController@addEventByAdmin')->name('admin.event.add');
+    Route::post('admin/event/store', 'EventsController@store')->name('admin.event.store');
+
 });
 
 Route::get('logout', [LoginController::class,'logout']);

@@ -12,6 +12,13 @@ return [
             'new-tab' => false,
         ],
         [
+            'title' => 'Add Event',
+            'root' => true,
+            'icon' => 'media/svg/icons/Home/Library.svg',
+            'page' => 'admin/event/add-new-event',
+            'visible' => 'preview',
+        ],
+        [
             'title' => 'Upload Events',
             'root' => true,
             'icon' => 'media/svg/icons/Home/Library.svg',
@@ -54,6 +61,8 @@ return [
             'page' => 'admin/pages',
             'visible' => 'preview',
         ],
+
+        
 
         // // Custom
         // [

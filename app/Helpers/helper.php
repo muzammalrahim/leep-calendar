@@ -22,3 +22,15 @@ function getMonthName($month){
     $months = getMonths();
     return (isset($months[$month]))?($months[$month]):$month;
 } 
+
+/* Start: Zeeshan code */
+function getEventTypesList()
+{
+    return ['Daily', 'Weekly', 'Monthly'];
+}
+
+function getStaticChangesList()
+{
+    return ['Same', 'Changes'];
+}
+/* End: Zeeshan code */
