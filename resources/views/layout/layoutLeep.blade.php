@@ -812,8 +812,8 @@
 		                                <!-- <select class="form-select" aria-label="Default select example"> -->
 		                                <select id="selectOne" size="10" onchange='changeOne()'  name="state">
 							              	<option value="" selected="">Select</option>
-							              	@foreach(App\Models\events::distinct()->get(['country1']) as $us)
-								              	<option value="{{$us->country1}}">{{$us->country1}}</option>
+							              	@foreach(App\Models\events::distinct()->get(['name']) as $us)
+								              	<option value="{{$us->name}}">{{$us->name}}</option>
 							              	@endforeach
 		                                </select>
 		                                <!-- </select> -->

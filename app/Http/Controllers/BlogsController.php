@@ -82,4 +82,9 @@ class BlogsController extends Controller
     {
         //
     }
+
+    public function legalDisclaimer(){
+
+        return view('leepFront.legalDisclaimer');
+    }
 }

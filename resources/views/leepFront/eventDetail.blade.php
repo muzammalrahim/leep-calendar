@@ -5,7 +5,7 @@
 {{-- Content --}}
 
     <!-- hero-box -->
-    {{-- @dd($event->cat1->image); --}}
+    {{-- @dd($event->EventComments); --}}
     
     @include('leepFront.parts.category_slider')
     
@@ -227,13 +227,10 @@
                             <h4 class="font-weight-bold">EVENT CHAMPION CONTACT INFORMATION</h4>
 
                             @isset((Auth::user()->membership->type))
-                                @php
-                                    $isSubscriber = $user->isPaidSubscriber->slug; 
-                                @endphp
                                     
                                 @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
 
-                                    @include('leepFront.eventDetail.contactInfo')
+                                    @include('leepFront.eventDetail.contactInfo') {{-- leepFront/eventDetail/contactInfo --}}
                                 
                                 @else
                                   <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
@@ -330,11 +327,75 @@
                     </div>
 
                 </div>
+
+                {{-- Comments on event --}}
+
+                <div class="borderBottom">
+                    {{-- <p class="commen-header">  Comments  </p> --}}
+
+                    @php
+                        // $hasMemberShip = hasMemberShip();
+                        // dd($hasMemberShip);
+                    @endphp
+
+                    <h4 class="font-weight-bold">Comments</h4>
+
+                </div>
+
+                    <div class="container mt-5">
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-md-12">
+                                <div class="d-flex flex-column comment-section">
+                                    <div class="bg-white p-2">
+
+                                        @foreach ($event->EventComments as $comment)
+
+                                        <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                            <div class="d-flex flex-column justify-content-start ml-2">
+                                                <span class="d-block font-weight-bold name">{{ $comment->user->fname, $comment->user->lname }}</span>
+                                                <span class="date text-black-50">
+                                                    {{ Carbon\Carbon::parse($comment->created_at)->format('Y-m-d') }}
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-2"> <p class="comment-text"> {{ $comment->comment }} </p> </div>
+
+                                        @endforeach
+
+                                    </div>
+                                    <div class="bg-white">
+                                        
+                                    </div>
+                                    <div class="bg-light p-2">
+                                        <form class="postCommentForm" >
+                                            <div class="d-flex flex-row align-items-start">
+                                                <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                                <textarea class="form-control ml-1 shadow-none textarea" name="comment"></textarea>
+                                                <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                            </div>
+                                            <div class="mt-2 text-right">
+                                                <button class="btn btn-primary btn-sm shadow-none postComment" type="button">Post comment</button>
+                                                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
             </div> 
+
+
+            
 
             <div class="col-md-2">
 
-                @include('layout.rightSidebar')
+                @include('layout.rightSidebar')  
 
             </div>
 
@@ -348,3 +409,39 @@
      --}}
 
 @endsection
+
+
+<style type="text/css">
+    
+.date {
+    font-size: 11px
+}
+
+.comment-text {
+    font-size: 12px
+}
+
+.fs-12 {
+    font-size: 12px
+}
+
+.shadow-none {
+    box-shadow: none
+}
+
+.name {
+    color: #007bff
+}
+
+.cursor:hover {
+    color: blue
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.textarea {
+    resize: none
+}
+</style>

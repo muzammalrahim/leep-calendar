@@ -55,6 +55,7 @@ class User extends Authenticatable  implements MustVerifyEmail
         return $this->hasOne(Roles::class,'id','role_id');
     }
 
+
     /* Start: Zeeshan code */
     public function getUserByRoleSlug( $slug )
     {
@@ -62,6 +63,7 @@ class User extends Authenticatable  implements MustVerifyEmail
         return User::where( 'role_id', '=', $role->id )->get();
     }
     /* End: Zeeshan code */
+
     
 
 }
