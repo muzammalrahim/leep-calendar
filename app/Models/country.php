@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class country extends Model
 {
     use HasFactory;
+
+    /* Start: Zeeshan code */
+    public function getCountriesList()
+    {
+        return country::orderBy('country1','ASC')->get();
+    }
+    /* End: Zeeshan code */
+
 }
 // $a="All Worldwide, All
 // ;United States Only, US
@@ -268,3 +276,4 @@ class country extends Model
 //     $c->country2=$pieces[1];
 //     $c->save();
 // }
+

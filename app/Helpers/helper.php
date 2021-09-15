@@ -25,6 +25,7 @@ function getMonthName($month){
     return (isset($months[$month]))?($months[$month]):$month;
 } 
 
+
 function isEventChamp(){
     $user = Auth::user();
     if ($user->isPaidSubscriber->slug == 'event_champ') {
@@ -45,4 +46,17 @@ function hasMemberShip(){
     }
 }
 
+
+
+/* Start: Zeeshan code */
+function getEventTypesList()
+{
+    return ['Daily', 'Weekly', 'Monthly'];
+}
+
+function getStaticChangesList()
+{
+    return ['Same', 'Changes'];
+}
+/* End: Zeeshan code */
 

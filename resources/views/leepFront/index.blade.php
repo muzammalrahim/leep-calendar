@@ -78,7 +78,7 @@
               <div class="col-md-4">
 
                 <div class="card" style="width: 16rem;">
-
+                  
                   @if(File::exists(public_path()."/leep_calender/event/img/".$eve->events->extra_image1) && isset($eve->events->extra_image1))
 
                     <img src="{{asset('leep_calender/event/img/'.$eve->event->extra_image1)}}" class="card-img-top" alt="...">

@@ -8,5 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class category extends Model
 {
     use HasFactory;
-    // public function 
+    
+
+    /* Start: Zeeshan code */
+    public function getCategoriesList()
+    {
+        return category::orderBy('name','ASC')->get();
+    }
+    /* End: Zeeshan code */
 }
