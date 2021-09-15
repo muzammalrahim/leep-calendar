@@ -273,20 +273,46 @@
 
             </div>
 
-            <div class="advertising-box">
+            {{-- @if (Auth::check()) --}}
 
-              <h6>Advertising Space</h6>
+              @if (Auth::check())
+                @if (hasMemberShip())
+                  {{-- @dump('hi how are you') --}}
+                  @else
+                    <div class="advertising-box">
 
-              <div class="advertising-pic">
+                      <h6>Advertising Space</h6>
 
-                <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
+                      <div class="advertising-pic">
 
-              </div>
+                        <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
 
-            </div>
+                      </div>
 
+                    </div>
+                @endif
+                {{-- @dump('EVent Champ here') --}}
+                @else
+                
+                <div class="advertising-box">
 
+                  <h6>Advertising Space</h6>
 
+                  <div class="advertising-pic">
+
+                    <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
+
+                  </div>
+
+                </div>
+
+              @endif
+            
+            {{-- @else --}}
+              
+
+            {{-- @endif --}}
+            
 
 
           </div>

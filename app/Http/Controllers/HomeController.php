@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Session;
 use Stripe;
+
+use App\Models\Comments;
+
 // use TwitterStreamingApi;
 use Twitter;
 
@@ -42,7 +45,7 @@ class HomeController extends Controller
         $page_title = 'Dashboard';
         $page_description = 'Some description for the page';
         $d=date('d');     
-        $m=date('m');     
+        $m=date('m');
         $y=date('Y');     
         $events=events::all();   
         $date=date("Y-m-d");
@@ -50,8 +53,12 @@ class HomeController extends Controller
         $d_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
-        $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
-        $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
+        $m_events=events::where('start_date','=',$date)->where('type','Monthly')
+        // ->where('status','Approved')
+        ->orderBy('created_at','desc')->get();
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
+        // ->where('status','Approved')
+        ->orderBy('created_at','desc')->get();
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
@@ -833,7 +840,10 @@ class HomeController extends Controller
     {
         $page_title = 'Legend';
         $page_description = 'Legend Page';
-        $events=events::all();   
+        $events=events::all();
+        $m=date('m');
+        $d=date('d');     
+        
         $date=date("Y-m-d"); 
         $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
@@ -843,7 +853,7 @@ class HomeController extends Controller
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents'));
+        return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
         // return view('leepFront.legend');        
     }
     public function aboutUs($value='')

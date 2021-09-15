@@ -174,4 +174,6 @@ Route::get('/clear', function() {
 
 // Dynamic pages
 Route::get('/page/{slug}', 'PagesController@getDynamicPages')->name('page.detail.show');
+Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalDisclaimer');
+
 

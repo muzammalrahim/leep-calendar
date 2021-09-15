@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 function getMonths(){
     $months = array(
         '01' => 'Jan',
@@ -22,3 +24,25 @@ function getMonthName($month){
     $months = getMonths();
     return (isset($months[$month]))?($months[$month]):$month;
 } 
+
+function isEventChamp(){
+    $user = Auth::user();
+    if ($user->isPaidSubscriber->slug == 'event_champ') {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+function hasMemberShip(){
+    $user = Auth::user();
+    if ($user->membership->type != 'silver') {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+

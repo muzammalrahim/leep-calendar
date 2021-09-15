@@ -54,6 +54,8 @@ class User extends Authenticatable  implements MustVerifyEmail
         // dd($user);
         return $this->hasOne(Roles::class,'id','role_id');
     }
+
+    
     
 
 }

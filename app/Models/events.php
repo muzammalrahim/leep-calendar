@@ -216,4 +216,11 @@ class events extends Model
     }
     /* End: Zeeshan code */
 
+
+
+
+    public function EventComments(){
+        return $this->hasMany(Comments::class,'event_id','id');
+    }
+
 }
