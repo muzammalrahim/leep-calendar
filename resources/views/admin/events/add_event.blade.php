@@ -2,6 +2,14 @@
 
 @php($title = 'Add Event')
 
+@section('styles')
+<style> 
+    .font-weight-900 {
+        font-weight: 900;
+    }
+</style>
+@endsection
+
 @section('content')
 	
     {{-- Start: Alerts --}}
@@ -291,7 +299,7 @@
                                         @php($name = 'notesNP')
 
                                         <label>
-                                            <b>{{ $label }}
+                                            <b>{{ $label }} (Not Public)
                                                 <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
@@ -303,7 +311,7 @@
                                         @php($name = 'url')
 
                                         <label>
-                                            <b>{{ $label }}
+                                            <b>{{ $label }} 
                                                 <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
@@ -392,7 +400,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Country')
-                                            @php($name = 'country1')
+                                            @php($name = 'country')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -400,7 +408,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( $countries_list as $country )
-                                                    <option value="{{ $country->country1 }}" {{ $country->country1 == old($name) ? 'selected' : ''}}>{{ $country->country1 }}</option>
+                                                    <option value="{{ $country->name }}" {{ $country->name == old($name) ? 'selected' : ''}}>{{ $country->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -519,8 +527,207 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>
+
+                                    <div class="form-group">
+                                        @php($label = 'Video')
+                                        @php($name = 'video1')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>   
+
+                                    <div class="form-group">
+                                        @php($label = 'Video')
+                                        @php($name = 'video2')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Video')
+                                        @php($name = 'video3')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>  
 
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <span class="font-weight-900">Attachments:</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download')
+                                            @php($name = 'download1')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download Title')
+                                            @php($name = 'download_title1')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div> 
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download')
+                                            @php($name = 'download2')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download Title')
+                                            @php($name = 'download_title2')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div>
+                                     
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download')
+                                            @php($name = 'download3')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Download Title')
+                                            @php($name = 'download_title3')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div>    
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Extra Image 1')
+                                            @php($name = 'extra_image1')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Image Title 1')
+                                            @php($name = 'image_tile1')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div> 
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Extra Image 2')
+                                            @php($name = 'extra_image2')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Image Title 2')
+                                            @php($name = 'image_tile2')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div>
+                                     
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Extra Image 3')
+                                            @php($name = 'extra_image3')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div>  
+
+                                        <div class="form-group col-md-6">
+                                            @php($label = 'Image Title 3')
+                                            @php($name = 'image_tile3')
+
+                                            <label>
+                                                <b>{{ $label }}
+                                                    <span class="text-danger">*</span></label>
+                                                </b>
+                                            </label>
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        </div> 
+                                    </div>  
 
                                     
                                 </div>

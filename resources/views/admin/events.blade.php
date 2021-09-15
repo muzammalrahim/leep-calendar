@@ -59,9 +59,9 @@
                             <span class="text-danger">*</span></label>
                             <select class="form-control" aria-label="Default select example" name="country">
                                 <option class="active" value="">All</option>
-                                    @foreach(App\Models\events::distinct()->get(['country1']) as $us)
-                                        <option value="{{$us->country1}}">
-                                            {{$us->country1}}
+                                    @foreach(App\Models\events::distinct()->get(['name']) as $us)
+                                        <option value="{{$us->name}}">
+                                            {{$us->name}}
                                         </option>
                                     @endforeach
                                 

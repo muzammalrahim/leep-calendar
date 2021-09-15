@@ -12,7 +12,7 @@ class country extends Model
     /* Start: Zeeshan code */
     public function getCountriesList()
     {
-        return country::orderBy('country1','ASC')->get();
+        return country::orderBy('name','ASC')->get();
     }
     /* End: Zeeshan code */
 

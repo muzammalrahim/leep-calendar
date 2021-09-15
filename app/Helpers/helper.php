@@ -51,7 +51,7 @@ function hasMemberShip(){
 /* Start: Zeeshan code */
 function getEventTypesList()
 {
-    return ['Daily', 'Weekly', 'Monthly'];
+    return ['Daily', 'Weekly', 'Monthly', 'Annual', 'Decade'];
 }
 
 function getStaticChangesList()
