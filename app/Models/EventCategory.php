@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class EventCategory extends Model
 {
     use HasFactory;
+
+    public function event(){
+        // dd($user);
+        return $this->belongsTo(events::class,'event_id','id');
+    }
 }
