@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('ajax/add-comment', 'CommentsController@addComment')->name('addComment');
+
+
 // Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 // Route::get('/login/admin', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm']);
 Route::get('/login/admin', "PagesController@login11");
@@ -185,3 +188,4 @@ Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalD
 
 // Check Dead Links
 Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'])->name('checkDeadLink');
+
