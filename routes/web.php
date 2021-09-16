@@ -78,7 +78,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     // Events routes
     Route::get('admin/event/add-new-event', 'EventsController@addEventByAdmin')->name('admin.event.add');
-    Route::post('admin/event/store', 'EventsController@store')->name('admin.event.store');
+    Route::post('admin/event/store', 'EventsController@addEventByAdmin')->name('admin.event.store');
 
 });
 

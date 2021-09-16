@@ -378,19 +378,42 @@ class EventsController extends Controller
 
     /* Start: Zeeshan code */
     // Admin add new event
-    public function addEventByAdmin()
+    public function addEventByAdmin( Request $request )
     {
-        // Initialization
-            $data = [];
-        // End Initialization
+        try 
+        {
+            if($request->isMethod('get'))
+            {
+                // Initialization
+                    $data = [];
+                // End Initialization
 
-        $data['countries_list'] = $this->country->getCountriesList();
-        
-        $data['categories_list'] = $this->category->getCategoriesList();
+                $data['countries_list'] = $this->country->getCountriesList();
+            
+                $data['categories_list'] = $this->category->getCategoriesList();
 
-        $data['event_champions'] = $this->user->getUserByRoleSlug('event_champ');
+                $data['event_champions'] = $this->user->getUserByRoleSlug('event_champ');
 
-        return view('admin.events.add_event', $data);
+                return view('admin.events.add_event', $data);
+            }
+            else
+            {
+                // Initialization
+                    $data = $request->input();
+                // End Initialization
+
+                $event = $this->event->storeEvent($data);
+
+                if ( $event->id ) {
+                    return redirect()->route('admin.events')->with('success', 'Event Has Been Successfully Stored.');
+                }
+                else {
+                    return redirect()->back()->with('error', 'Something Went Wrong!');
+                }
+            }
+        } catch (DecryptException $e) {
+            //
+        }
     }
     /* End: Zeeshan code */
 }
