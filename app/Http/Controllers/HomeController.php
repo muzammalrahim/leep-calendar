@@ -221,18 +221,15 @@ class HomeController extends Controller
         // return view('leepFront.searchEvents');
     }
     public function eventDetail($id){
-        // $user = true;
-        // dd($id);
-        $event=events::find($id);
-        // dd($event);
-        if(isset($event->id)){
-            if($event->status=='Approved' || Auth::id()==$event->user_id){
+        $eventCategory=EventCategory::find($id);
+        if(isset($eventCategory->event->id)){
+            if($eventCategory->event->status=='Approved' || Auth::id()==$event->user_id){
 
             }else{
                 return redirect()->back()->with(['error'=>'Unknown Event']);                
             }
-            $category = $event->cat1;
-            $d=date('d');   
+            $category = category::where('cat_id',$eventCategory->category_1)->first();
+            $d=date('d');
             $m=date('m');   
             $events=events::all();   
             $date=date("Y-m-d");
@@ -244,8 +241,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('event','d_events','m_events','week_events','d','m','category')); // leepFront/eventDetail
-
+            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category')); // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
     }
