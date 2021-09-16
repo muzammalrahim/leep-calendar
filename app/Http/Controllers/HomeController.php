@@ -24,6 +24,8 @@ use Session;
 use Stripe;
 
 use App\Models\Comments;
+use App\Models\EventCategory;
+
 
 // use TwitterStreamingApi;
 use Twitter;
@@ -70,6 +72,7 @@ class HomeController extends Controller
     public function categoryDetail($id)
     {
         $category=category::where('id',$id)->first();
+        // dd($category);
         $m=date('m');
         $d=date('d');
         $date=date("Y-m-d");
@@ -80,8 +83,10 @@ class HomeController extends Controller
         if(!isset($category->id))
             return redirect()->back()->with(['errorMsg','Undefined Category']);
 
-        $events=events::where('cat_1',$category->cat_id)->orWhere('cat_2',$category->cat_id)->orWhere('cat_3',$category->cat_id)->orWhere('cat_4',$category->cat_id)->orWhere('cat_5',$category->cat_id)->orWhere('cat_6',$category->cat_id)->paginate(8);
-        return view('leepFront.myEvents',compact('events', 'm','d','d_events', 'category', 'id')); // leepFront/myEvents
+        $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->paginate(10);
+
+        // dd($eventCategory);
+        return view('leepFront.myEvents',compact('eventCategory', 'm','d','d_events', 'category', 'id')); // leepFront/myEvents
     }
     public function downloadpdf($eveId,$filesId)
     {
@@ -216,8 +221,10 @@ class HomeController extends Controller
         // return view('leepFront.searchEvents');
     }
     public function eventDetail($id){
-        $user = Auth::user();
+        // $user = true;
+        // dd($id);
         $event=events::find($id);
+        // dd($event);
         if(isset($event->id)){
             if($event->status=='Approved' || Auth::id()==$event->user_id){
 
@@ -237,7 +244,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('event','d_events','m_events','week_events','d','m','category','user')); // leepFront/eventDetail
+            return view('leepFront.eventDetail',compact('event','d_events','m_events','week_events','d','m','category')); // leepFront/eventDetail
 
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
