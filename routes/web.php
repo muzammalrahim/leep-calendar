@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\SiteFunctionsController;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -181,3 +183,5 @@ Route::get('/page/{slug}', 'PagesController@getDynamicPages')->name('page.detail
 Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalDisclaimer');
 
 
+// Check Dead Links
+Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'])->name('checkDeadLink');

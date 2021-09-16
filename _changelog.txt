@@ -13,6 +13,8 @@
 - remove physical_addr from events table in db.
 - event_id added in event_attachments migration.
 - added states in events migrations
+Important:- 
+- Add this function for urls: onblur="checkDeadLink(this)"
 ============================================================================================
 
 =========================== Hassaan ========================================================
