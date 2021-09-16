@@ -16,6 +16,7 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->longText('name')->nullable();
+            $table->longText('states')->nullable();
             $table->string('start_month')->nullable();
             $table->string('start_day')->nullable();
             $table->string('start_year')->nullable();
@@ -43,13 +44,14 @@ class CreateEventsTable extends Migration
             $table->string('ph_num')->nullable();
             $table->string('email_form')->nullable();
             $table->string('contact_person')->nullable();
-            $table->longText('contact_link')->nullable();
+            $table->longText('contact_link')->nullable();//
             $table->longText('physical_address')->nullable();
-            $table->longText('physical_addr')->nullable();
-            $table->string('purchas_reserve')->nullable();
+            // $table->longText('physical_addr')->nullable();
+            $table->string('purchase_reserve')->nullable();
             $table->longText('location_based')->nullable();
             $table->string('manager')->nullable();
             $table->integer('user_id')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
