@@ -17,32 +17,32 @@
         {{-- Fonts --}}
         {{ Metronic::getGoogleFontsInclude() }}
 
-        
+
         <link href="{{asset('/plugins/custom/datatables/datatables.bundle.css')}}" rel="stylesheet" type="text/css" />
-        
+
         <link href="{{asset('/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
-        
+
         <link async href="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/css/style.bundle.css?v=7.2.8" rel="stylesheet" type="text/css" />
-        
-        
+
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
         <!--end::Fonts-->
         <!--begin::Page Vendors Styles(used by this page)-->
-       
+
         <!--end::Global Theme Styles-->
         <!--begin::Layout Themes(used by all pages)-->
         <link href="{{ asset('/css/themes/layout/header/base/light.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/css/themes/layout/header/menu/light.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/css/themes/layout/brand/dark.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('/css/themes/layout/aside/dark.css')}}" rel="stylesheet" type="text/css" />
-        
+
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//lib/css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//lib/css/prettify.css"></link>
         <link rel="stylesheet" type="text/css" href="https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.css"></link>
 
         {{-- Fontawesome Icons --}}
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
-      
+
 
         {{-- Includable CSS --}}
         @yield('styles')
@@ -144,10 +144,10 @@
        <script src="{{ asset('plugins/global/plugins.bundle.js') }}" type="text/javascript"></script>
        -->
        <script src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/plugins/global/plugins.bundle.js?v=7.2.8" type="text/javascript"></script>
-        
+
 
         {{-- Previous Code Commented By Zeeshan
-        <script src="{{ asset('js/scripts.bundle.js') }}" type="text/javascript"></script> 
+        <script src="{{ asset('js/scripts.bundle.js') }}" type="text/javascript"></script>
         --}}
         <script src="https://preview.keenthemes.com/metronic/theme/html/demo1/dist/assets/js/scripts.bundle.js?v=7.2.8" type="text/javascript"></script>
 
@@ -159,10 +159,42 @@
        <!-- Start: Datatables -->
             <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-            
+
         <!-- End: Datatables -->
 
         {{-- Includable JS --}}
+        {{-- Dead Links Start Akmal --}}
+        <script type="text/javascript">
+            function checkDeadLink(event){
+                if (event.value){
+                    let _token = $('meta[name="csrf-token"]').attr('content');
+                    $.ajax({
+                        url: "{{ route('checkDeadLink') }}",
+                        type: "POST",
+                        data: {
+                            url: event.value,
+                            _token: _token
+                        },
+                        beforeSend: function (){
+                            $(event).css({"background" : "url({{asset('assets/images/loading.gif')}}) no-repeat right center"});
+                        },
+                        success: function (resp){
+                            if (resp){
+                                if ($(event).next('div').length){
+                                    $(event).next('div').remove();
+                                }
+                            } else {
+                                if (!$(event).next('div').length) {
+                                    $(event).after('<div class="alert alert-danger font-weight-bold" role="alert">You Have Entered Dead Link!</div>');
+                                }
+                            }
+                            $(event).removeAttr('style');
+                        },
+                    });
+                }
+            }
+        </script>
+        {{-- Dead Links End Akmal --}}
         @yield('scripts')
 
     </body>
