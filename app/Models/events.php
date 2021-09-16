@@ -99,6 +99,62 @@ class events extends Model
 
     /* Start: Zeeshan code */
 
+    public function storeEvent( $data ) 
+    {
+        
+        $this->name        = $data['name'];
+        if ( isset($data['states']) && $data['states'] ) {
+            $states = implode (", ", array_filter($data['states']));
+            $this->states = $states;
+        }
+        $this->start_month = $data['start_month'];
+        $this->start_day   = $data['start_day'];
+        $this->start_year  = $data['start_year'];
+        $this->start_date  = $data['start_date'];
+        $this->end_month   = $data['end_month'];
+        $this->end_day     = $data['end_day'];
+        $this->end_year    = $data['end_year'];
+        $this->end_date    = $data['end_date'];
+        
+        $this->type = $data['type'];
+        $this->static_change = $data['static_change'];
+        $this->notes_not_public = $data['notes_not_public'];
+        $this->url = $data['url'];
+        $this->picture_name = $data['picture_name'];
+        $this->alt_text = $data['alt_text'];
+        $this->estimated = $data['estimated'];
+        $this->description = $data['description'];
+        $this->event_champion = $data['event_champion'];
+        $this->country_code = $data['country_code'];
+        $this->state = $data['state'];
+        $this->city = $data['city'];
+        $this->zip = $data['zip'];
+        $this->event_address1 = $data['event_address1'];
+        $this->event_address2 = $data['event_address2'];
+        $this->ph_num = $data['ph_num'];
+        $this->email_form = $data['email_form'];
+        $this->contact_person = $data['contact_person'];
+        $this->contact_link = $data['contact_link'];
+
+        
+        $this->physical_address = $data['physical_address'];
+        $this->purchase_reserve = $data['purchase_reserve'];
+        $this->location_based = $data['location_based'];
+        $this->manager = $data['manager'];
+
+        $this->save();
+
+        // store event categories
+        $event_categories = new EventCategory;
+        $event_attachments = new EventAttachment;
+
+        $event_categories->storeEventCategories($this->id, $data);
+        $event_attachments->storeEventAttachments($this->id, $data);
+
+
+        return with($this);
+    }
+
     // parsing imported file to db
     public function importToDb()
     {
@@ -198,7 +254,7 @@ class events extends Model
                                     'socail_link3'=>( isset($row[51]) )? $row[51]:'',
                                     'physical_address'=>( isset($row[52]) )? $row[52]:'',
                                     // 'physical_addr'=>( isset($row[53]) )? $row[53]:'',
-                                    'purchas_reserve'=>( isset($row[54]) )? $row[54]:'',
+                                    'purchase_reserve'=>( isset($row[54]) )? $row[54]:'',
                                     'location_based'=>( isset($row[55]) )? $row[55]:'',
                                     'manager'=>( isset($row[56]) )? $row[56]:'',
                                 ]);

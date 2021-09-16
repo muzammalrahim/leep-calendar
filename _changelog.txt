@@ -7,6 +7,14 @@
 - /layout/alerts.blade.php
 - resources/views/admin/pages/*
 :386 at EventsController
+
+-> 09-16-2021
+- commented physical_addr from events migration in line: 48.
+- remove physical_addr from events table in db.
+- event_id added in event_attachments migration.
+- added states in events migrations
+Important:- 
+- Add this function for urls: onblur="checkDeadLink(this)"
 ============================================================================================
 
 =========================== Hassaan ========================================================

@@ -44,11 +44,25 @@
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                     </div>
 
+                                    <div class="form-group">
+                                        @php($label = 'Select Nations / States')
+                                        @php($name = 'states')
+
+                                        <label >{{ $label }}
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select multiple class="form-control selectpicker" aria-label="Default select example" name="{{ $name }}[]">
+                                            <option value="">Select</option>
+                                            @foreach( $countries_list as $nation )
+                                                <option>{{ $nation->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                     
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Month Start')
-                                            @php($name = 'm_start')
+                                            @php($name = 'start_month')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -63,7 +77,7 @@
 
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Day Start')
-                                            @php($name = 'd_start')
+                                            @php($name = 'start_day')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -80,7 +94,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Year Start')
-                                            @php($name = 'y_start')
+                                            @php($name = 'start_year')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -109,7 +123,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Month End')
-                                            @php($name = 'm_end')
+                                            @php($name = 'end_month')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -124,7 +138,7 @@
 
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Day End')
-                                            @php($name = 'd_end')
+                                            @php($name = 'end_day')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -141,7 +155,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Year End')
-                                            @php($name = 'y_end')
+                                            @php($name = 'end_year')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -168,9 +182,15 @@
                                     </div>
 
                                     <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <span class="font-weight-900">Categories:</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 1')
-                                            @php($name = 'cat_1')
+                                            @php($name = 'category_1')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -185,7 +205,7 @@
 
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 2')
-                                            @php($name = 'cat_2')
+                                            @php($name = 'category_2')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -200,7 +220,7 @@
 
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 3')
-                                            @php($name = 'cat_3')
+                                            @php($name = 'category_3')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -218,7 +238,7 @@
                                         
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 4')
-                                            @php($name = 'cat_4')
+                                            @php($name = 'category_4')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -233,7 +253,7 @@
 
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 5')
-                                            @php($name = 'cat_5')
+                                            @php($name = 'category_5')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -248,7 +268,7 @@
 
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 6')
-                                            @php($name = 'cat_6')
+                                            @php($name = 'category_6')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -296,7 +316,7 @@
 
                                     <div class="form-group">
                                         @php($label = 'Enter Notes')
-                                        @php($name = 'notesNP')
+                                        @php($name = 'notes_not_public')
 
                                         <label>
                                             <b>{{ $label }} (Not Public)
@@ -318,19 +338,19 @@
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                     </div>
 
+                                    <div class="col-md-6 form-group">
+                                        @php($label = 'Featured Picture')
+                                        @php($name = 'feature_picture')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>
+
                                     <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            @php($label = 'Featured Picture')
-                                            @php($name = 'feature_picture')
-
-                                            <label>
-                                                <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
-                                                </b>
-                                            </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>
-
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Enter Picture Name')
                                             @php($name = 'picture_name')
@@ -342,9 +362,7 @@
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                         </div>
-                                    </div>
 
-                                    <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Enter Alt Text')
                                             @php($name = 'alt_text')
@@ -356,18 +374,18 @@
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                         </div>
+                                    </div>
 
-                                        <div class="col-md-6 form-group">
-                                            @php($label = 'Enter Estimated')
-                                            @php($name = 'estimated')
+                                    <div class="form-group">
+                                        @php($label = 'Enter Estimated')
+                                        @php($name = 'estimated')
 
-                                            <label>
-                                                <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
-                                                </b>
-                                            </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
-                                        </div>
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                     </div>
 
                                     <div class="form-group">
@@ -400,7 +418,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Country')
-                                            @php($name = 'country')
+                                            @php($name = 'country_code')
 
                                             <label >{{ $label }}
                                                 <span class="text-danger">*</span>
@@ -456,7 +474,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Address 1')
-                                            @php($name = 'address1')
+                                            @php($name = 'event_address1')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -468,7 +486,7 @@
 
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Address 2')
-                                            @php($name = 'address2')
+                                            @php($name = 'event_address2')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -498,7 +516,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}">
@@ -511,7 +529,7 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
+                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -523,43 +541,43 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
+                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
-                                        @php($label = 'Video')
+                                        @php($label = 'Video 1')
                                         @php($name = 'video1')
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
+                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>   
 
                                     <div class="form-group">
-                                        @php($label = 'Video')
+                                        @php($label = 'Video 2')
                                         @php($name = 'video2')
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
+                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div> 
 
                                     <div class="form-group">
-                                        @php($label = 'Video')
+                                        @php($label = 'Video 3')
                                         @php($name = 'video3')
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
+                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -573,12 +591,12 @@
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            @php($label = 'Download')
+                                            @php($label = 'Download Attachment 1')
                                             @php($name = 'download1')
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -590,7 +608,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -599,12 +617,12 @@
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            @php($label = 'Download')
+                                            @php($label = 'Download Attachment 2')
                                             @php($name = 'download2')
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -616,7 +634,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -626,12 +644,12 @@
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            @php($label = 'Download')
+                                            @php($label = 'Download Attachment 3')
                                             @php($name = 'download3')
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -643,12 +661,18 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div> 
-                                    </div>    
+                                    </div>  
+
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <span class="font-weight-900">Extra Images:</span>
+                                        </div>
+                                    </div>  
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -657,7 +681,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -669,7 +693,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -683,7 +707,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -695,7 +719,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -710,7 +734,7 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -722,12 +746,101 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div> 
                                     </div>  
+
+
+                                    <div class="form-group">
+                                        <span class="font-weight-900">Social Links:</span>
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Social Link 1')
+                                        @php($name = 'socail_link1')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span></label>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Social Link 2')
+                                        @php($name = 'socail_link2')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+                                    
+                                    <div class="form-group">
+                                        @php($label = 'Social Link 3')
+                                        @php($name = 'socail_link3')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Physical Address')
+                                        @php($name = 'physical_address')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Link to Purchase/Reserve Tickets')
+                                        @php($name = 'purchase_reserve')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div> 
+
+                                    <div class="form-group">
+                                        @php($label = 'Location Based')
+                                        @php($name = 'location_based')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>
+
+                                    <div class="form-group">
+                                        @php($label = 'Event Manager')
+                                        @php($name = 'manager')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                                <span class="text-danger">*</span>
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>
 
                                     
                                 </div>

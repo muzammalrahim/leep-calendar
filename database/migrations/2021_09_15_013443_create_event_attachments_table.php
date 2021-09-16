@@ -15,6 +15,7 @@ class CreateEventAttachmentsTable extends Migration
     {
         Schema::create('event_attachments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('event_id')->nullable();
             $table->longText('video1')->nullable();
             $table->longText('video2')->nullable();
             $table->longText('video3')->nullable();

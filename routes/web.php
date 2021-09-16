@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\SiteFunctionsController;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +80,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     // Events routes
     Route::get('admin/event/add-new-event', 'EventsController@addEventByAdmin')->name('admin.event.add');
-    Route::post('admin/event/store', 'EventsController@store')->name('admin.event.store');
+    Route::post('admin/event/store', 'EventsController@addEventByAdmin')->name('admin.event.store');
 
 });
 
@@ -181,3 +183,5 @@ Route::get('/page/{slug}', 'PagesController@getDynamicPages')->name('page.detail
 Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalDisclaimer');
 
 
+// Check Dead Links
+Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'])->name('checkDeadLink');
