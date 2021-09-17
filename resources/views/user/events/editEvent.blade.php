@@ -85,7 +85,7 @@
                           </div>
                           <div class="form-group">
                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="Event Reference URL" name="url">
+                              placeholder="Event Reference URL" name="url" value="{{$event->url}}">
                           </div>
                           <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name='type'>
@@ -152,12 +152,19 @@
                               placeholder="End Date" value="{{$event->end_date}}" name="endDate">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
-                          <div class="form-group">
+
+                          {{-- commented on 17-09-2021 --}}
+
+                          {{-- <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="startTime" value="{{$event->time_start}}" placeholder="Start Time">
                           </div>
                           <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="endTime"  value="{{$event->time_end}}" placeholder="End Time">
-                          </div>
+                          </div> --}}
+
+                          {{-- commented on 17-09-2021 end here--}}
+
+
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Event Length</label>
                             <select class="form-control" name="eventDuration">
@@ -237,7 +244,7 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <input type="text" class="form-control" id="zip"
-                                    placeholder="Zip Code" name="zip" value="{{$event->champ_zip}}">
+                                    placeholder="Zip Code" name="zip" value="{{$event->zip}}">
                                 </div>
                               </div>
                             </div>
@@ -281,7 +288,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="facebook" value="{{$event->socail_link1}}" 
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" onblur="checkDeadLink(this)" name="facebook" 
+                                    value="{{$event->eventAttachments->socail_link1}}" 
                                       placeholder="URL">
                                   </div>
                                 </div>
@@ -296,7 +304,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="instagram"  value="{{$event->socail_link3}}"
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" onblur="checkDeadLink(this)" name="instagram"
+                                    value="{{$event->eventAttachments->socail_link2}}"
                                       placeholder="URL">
                                   </div>
                                 </div>
@@ -311,7 +320,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="twitter"  value="{{$event->socail_link2}}"
+                                    <input type="text" class="form-control" onblur="checkDeadLink(this)" id="exampleFormControlInput1" name="twitter"  
+                                    value="{{$event->eventAttachments->socail_link3}}"
                                       placeholder="URL">
                                   </div>
                                 </div>
@@ -557,6 +567,9 @@
   }
 
 </script>
+
+
+
 @endsection
 
 
