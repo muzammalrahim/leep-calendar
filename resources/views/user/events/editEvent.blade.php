@@ -4,6 +4,7 @@
 
 
 <!-- update-steps -->
+{{-- @dd($event); --}}
 <div class="add-event-wrapper">
   <div class="event-heading">
     <h4>Add an Event</h4>
@@ -67,11 +68,11 @@
                           <div class="form-group">
                             <select class="form-select form-control" aria-label="Default select example" name="country">
                               {{-- <option class="active" selected="">Country</option> --}}
-            									@foreach(App\Models\country::get(['country1','country2']) as $us)
-                                @if($us->country1==="{{$event->country1}}")
-                									<option value="{{$us->country1}},{{$us->country2}}" selected="">{{$us->country1}}</option>
+            									@foreach(App\Models\country::get(['name','code']) as $us)
+                                @if($us->name==="{{$event->name}}")
+                									<option value="{{$us->name}},{{$us->code}}" selected="">{{$us->name}}</option>
                                 @else
-                                  <option value="{{$us->country1}},{{$us->country2}}">{{$us->country1}}</option>
+                                  <option value="{{$us->name}},{{$us->code}}">{{$us->name}}</option>
                                 @endif
             									@endforeach
                             </select>
@@ -112,21 +113,23 @@
                             </select>
                           </div>
                           <div class="move-container" ></div>
+
+                          {{-- @dd($event->eventCategory) --}}
                           <div class="form-group">
                             <select class="form-control js-example-basic-multiple"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
                               <option>Cat</option>
                               @foreach(App\Models\category::all() as $cat1)
-                                 @if($event->cat_1==$cat1->cat_id)
+                                 @if($event->eventCategory->category_1==$cat1->cat_id)
   	                               <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->cat_2==$cat1->cat_id)
+                                 @elseif($event->eventCategory->category_2==$cat1->cat_id)
                                    <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->cat_3==$cat1->cat_id)
+                                 @elseif($event->eventCategory->category_3==$cat1->cat_id)
                                    <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->cat_4==$cat1->cat_id)
+                                 @elseif($event->eventCategory->category_4==$cat1->cat_id)
                                    <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->cat_5==$cat1->cat_id)
+                                 @elseif($event->eventCategory->category_5==$cat1->cat_id)
                                    <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->cat_6==$cat1->cat_id)
+                                 @elseif($event->eventCategory->category_6==$cat1->cat_id)
                                    <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
                                  @else
                                    <option id="{{$cat1->id}}" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
@@ -210,22 +213,22 @@
 
                             <div class="form-group">
                               <label for="exampleFormControlInput1">Event Champions</label>
-                              <input type="text" class="form-control" id="champName" name="champ_name" value="{{$event->champ_name}}" 
+                              <input type="text" class="form-control" id="champName" name="champ_name" value="{{$event->physical_address}}" 
                                 placeholder="Address 1 / Referral Name">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="province" name="province" value="{{$event->champ_address}}" 
+                              <input type="text" class="form-control" id="province" name="province" value="{{$event->physical_address}}" 
                                 placeholder="Address 2: State / Province">
                             </div>
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <select class="form-select form-control" aria-label="Default select example" name="champ_country">
-                                    @foreach(App\Models\country::get(['country1','country2']) as $us)
-                                      @if($us->country1==="{{$event->country1}}")
-                                        <option value="{{$us->country1}},{{$us->country2}}" selected="">{{$us->country1}}</option>
+                                    @foreach(App\Models\country::get(['name','code']) as $us)
+                                      @if($us->name==="{{$event->name}}")
+                                        <option value="{{$us->name}},{{$us->code}}" selected="">{{$us->name}}</option>
                                       @else
-                                        <option value="{{$us->country1}},{{$us->country2}}">{{$us->country1}}</option>
+                                        <option value="{{$us->name}},{{$us->code}}">{{$us->name}}</option>
                                       @endif
                                     @endforeach
                                   </select>

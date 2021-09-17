@@ -353,7 +353,7 @@ class EventsController extends Controller
         $event=events::find($value);
         if($user->id ==$event->user_id)
         {
-            return view('user.events.editEvent',compact('event'));            
+            return view('user.events.editEvent',compact('event')); // user/events/editEvent
         }else{
             return redirect('/');
         }

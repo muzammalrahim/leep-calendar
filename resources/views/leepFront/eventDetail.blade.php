@@ -334,12 +334,6 @@
                 {{-- Comments on event --}}
 
                 <div class="borderBottom">
-                    {{-- <p class="commen-header">  Comments  </p> --}}
-
-                    @php
-                        // $hasMemberShip = hasMemberShip();
-                        // dd($hasMemberShip);
-                    @endphp
 
                     <h4 class="font-weight-bold">Comments</h4>
 
@@ -372,21 +366,25 @@
                                     </div>
 
                                     @if (Auth::check())
-                                        {{-- expr --}}
-                                    <div class="bg-light p-2">
-                                        <form class="postCommentForm" method="POST" action="">
-                                            @csrf
-                                            <div class="d-flex flex-row align-items-start">
-                                                <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
-                                                <textarea class="form-control ml-1 shadow-none textarea" name="comment"></textarea>
-                                                <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                            </div>
-                                            <div class="mt-2 text-right">
-                                                <a class="btn btn-primary btn-sm shadow-none postComment" >Post comment</a>
-                                                <a class="btn btn-outline-primary btn-sm ml-1 shadow-none">Cancel</a>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        @if (isEventChamp())
+                                            <div class="bg-light p-2">
+                                            <form class="postCommentForm" method="POST" action="">
+                                                @csrf
+                                                <div class="d-flex flex-row align-items-start">
+                                                    <img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                                    <textarea class="form-control ml-1 shadow-none textarea" name="comment"></textarea>
+                                                    <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                                </div>
+                                                <div class="mt-2 text-right">
+                                                    <a class="btn btn-primary btn-sm shadow-none postComment" >Post comment</a>
+                                                    <a class="btn btn-outline-primary btn-sm ml-1 shadow-none">Cancel</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        
+                                        @endif
+
+                                    
                                     @endif
                                     
                                 </div>
