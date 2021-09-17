@@ -15,6 +15,12 @@
 - added states in events migrations
 Important:- 
 - Add this function for urls: onblur="checkDeadLink(this)"
+
+-> 9-17-2021 (Today)
+- EventsController.php
+- helper.php
+- events.php
+- views/admin/add_event.blade.php
 ============================================================================================
 
 =========================== Hassaan ========================================================
