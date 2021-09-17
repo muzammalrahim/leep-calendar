@@ -58,5 +58,34 @@ function getStaticChangesList()
 {
     return ['Same', 'Changes'];
 }
+
+function storeFiles($path = null , $table = null, $where_clause =null, $column_name = null, $file = null)
+{
+    // Initialization
+        $extension = $file->getClientOriginalExtension();
+    // End Initialization
+
+    // getting old file
+    $old_file_name = \DB::table($table)->where($where_clause)->orderBy('id', 'desc')->first($column_name)->$column_name;
+
+    // adding new file
+    $name = time().'.'.$file->getClientOriginalExtension();
+
+  
+    $destinationPath = public_path($path);
+    
+
+    $file->move($destinationPath, $name);
+    $status = \DB::table($table)->where($where_clause)->update([$column_name => $name]);
+
+    if ( $status == 1 ) {
+        // removing old file
+        if ( $old_file_name ) {
+            unlink( $destinationPath .'/'. $old_file_name );
+        }
+    }
+
+    return $status;
+}
 /* End: Zeeshan code */
 

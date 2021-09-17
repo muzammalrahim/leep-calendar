@@ -99,6 +99,30 @@ class events extends Model
 
     /* Start: Zeeshan code */
 
+    // Validation Rules
+    public function validations($rules = []) {
+        return $rules += [
+            'name'  => 'required|unique:events,name|max:500',
+            'states'  => 'required',
+            'start_month'  => 'required',
+            'start_day'  => 'required',
+            'start_year'  => 'required',
+            'end_month'  => 'required',
+            'end_day'  => 'required',
+            'end_year'  => 'required',
+            'start_date'  => 'required|date',
+            'end_date'  => 'required|date|after_or_equal:start_date',
+            'category_1' => 'required_without_all:category_2,category_3, category_4, category_5, category_6|nullable|string|max:50',
+            'category_2' => 'required_without_all:category_1,category_3, category_4, category_5, category_6|nullable|string|max:50',
+            'category_3' => 'required_without_all:category_1,category_2, category_4, category_5, category_6|nullable|string|max:50',
+            'category_4' => 'required_without_all:category_1,category_2, category_3, category_5, category_6|nullable|string|max:50',
+            'category_6' => 'required_without_all:category_1,category_2, category_3, category_5, category_4|nullable|string|max:50',
+            'description'  => 'required|max:2000',
+            'country_code'  => 'required',
+            'status'  => 'required|in:Approved,Pending',
+        ];
+    }
+
     public function storeEvent( $data ) 
     {
         
@@ -141,6 +165,8 @@ class events extends Model
         $this->purchase_reserve = $data['purchase_reserve'];
         $this->location_based = $data['location_based'];
         $this->manager = $data['manager'];
+        $this->user_id = auth()->user()->id;
+        $this->status = $data['status'];
 
         $this->save();
 

@@ -54,7 +54,7 @@
                                         <select multiple class="form-control selectpicker" aria-label="Default select example" name="{{ $name }}[]">
                                             <option value="">Select</option>
                                             @foreach( $countries_list as $nation )
-                                                <option>{{ $nation->name }}</option>
+                                                <option {{ (collect(old($name))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -70,7 +70,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}">{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == old($name) ? 'selected' : ''}} >{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -85,7 +85,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
-                                                    <option value="{{ $day }}"> {{ $day }} </option>
+                                                    <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor 
                                             </select>
                                         </div>
@@ -102,7 +102,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
-                                                    <option value="{{ $year }}"> {{ $year }} </option>
+                                                    <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
                                                 @endfor  
                                             </select>
                                         </div>
@@ -131,7 +131,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}">{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == old($name) ? 'selected' : ''}}>{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -146,7 +146,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
-                                                    <option value="{{ $day }}"> {{ $day }} </option>
+                                                    <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor 
                                             </select>
                                         </div>
@@ -163,7 +163,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
-                                                    <option value="{{ $year }}"> {{ $year }} </option>
+                                                    <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
                                                 @endfor  
                                             </select>
                                         </div>
@@ -184,6 +184,8 @@
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <span class="font-weight-900">Categories:</span>
+                                            <br>
+                                            <strong>Notice:- Atleast One category is required.</strong>
                                         </div>
                                     </div>
 
@@ -193,12 +195,11 @@
                                             @php($name = 'category_1')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -208,12 +209,11 @@
                                             @php($name = 'category_2')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -223,12 +223,11 @@
                                             @php($name = 'category_3')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -241,12 +240,11 @@
                                             @php($name = 'category_4')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -256,12 +254,11 @@
                                             @php($name = 'category_5')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -271,12 +268,11 @@
                                             @php($name = 'category_6')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -288,12 +284,11 @@
                                             @php($name = 'type')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Type</option>
                                                 @foreach( getEventTypesList() as $type )
-                                                    <option value="{{ $type }}">{{ $type }}</option>
+                                                    <option value="{{ $type }}" {{ $type == old($name) ? 'selected' : ''}}>{{ $type }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -303,12 +298,11 @@
                                             @php($name = 'static_change')
 
                                             <label >{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Static Change</option>
                                                 @foreach( getStaticChangesList() as $static_change )
-                                                    <option value="{{ $static_change }}">{{ $static_change }}</option>
+                                                    <option value="{{ $static_change }}" {{ $static_change == old($name) ? 'selected' : ''}}>{{ $static_change }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -320,7 +314,6 @@
 
                                         <label>
                                             <b>{{ $label }} (Not Public)
-                                                <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
                                         <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
@@ -331,8 +324,7 @@
                                         @php($name = 'url')
 
                                         <label>
-                                            <b>{{ $label }} 
-                                                <span class="text-danger">*</span></label>
+                                            <b>{{ $label }}
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -344,10 +336,9 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
-                                        <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="Enter {{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>
 
                                     <div class="row">
@@ -357,7 +348,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -369,7 +359,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -382,7 +371,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -405,19 +393,29 @@
                                         @php($name = 'event_champion')
 
                                         <label >{{ $label }}
-                                            <span class="text-danger">*</span>
                                         </label>
-                                        <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+
+                                        <input list="browsers" name="event_champion" id="event_champion" class="form-control" value="{{ old($name) }}">
+
+                                        <datalist id="browsers">
+                                          @foreach( $event_champions as $event_champ )
+                                                <option value="{{ $event_champ->fname.' '.$event_champ->lname }}">{{ $event_champ->fname.' '.$event_champ->lname }} | {{ $event_champ->email }}</option>
+                                            @endforeach
+                                        </datalist>
+
+                                        {{-- <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        
+                                        <datalist id="{{ $name }}">
                                             <option value="">Select {{ $label }}</option>
                                             @foreach( $event_champions as $event_champ )
                                                 <option value="{{ $event_champ->fname.' '.$event_champ->lname }}">{{ $event_champ->fname.' '.$event_champ->lname }} | {{ $event_champ->email }}</option>
                                             @endforeach
-                                        </select>
+                                        </datalist> --}}
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Country')
+                                            @php($label = 'Select Country Code')
                                             @php($name = 'country_code')
 
                                             <label >{{ $label }}
@@ -426,7 +424,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( $countries_list as $country )
-                                                    <option value="{{ $country->name }}" {{ $country->name == old($name) ? 'selected' : ''}}>{{ $country->name }}</option>
+                                                    <option value="{{ $country->code }}" {{ $country->code == old($name) ? 'selected' : ''}}>{{ $country->code }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -437,7 +435,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -451,7 +448,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -464,7 +460,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
@@ -478,7 +473,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
@@ -490,7 +484,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
@@ -504,19 +497,17 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div>
 
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Enter Email')
+                                            @php($label = 'Enter Email Form')
                                             @php($name = 'email_form')
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}">
@@ -529,7 +520,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -541,7 +531,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -553,7 +542,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -565,7 +553,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -577,7 +564,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -596,7 +582,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -608,7 +593,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -622,7 +606,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -634,7 +617,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -649,7 +631,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -661,7 +642,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -681,10 +661,9 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div>  
 
                                         <div class="form-group col-md-6">
@@ -693,7 +672,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -707,10 +685,9 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file" name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div>  
 
                                         <div class="form-group col-md-6">
@@ -719,7 +696,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -734,10 +710,9 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                         </div>  
 
                                         <div class="form-group col-md-6">
@@ -746,7 +721,6 @@
 
                                             <label>
                                                 <b>{{ $label }}
-                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -764,7 +738,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -776,7 +749,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -788,7 +760,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -800,7 +771,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -812,7 +782,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -824,7 +793,6 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
@@ -836,10 +804,23 @@
 
                                         <label>
                                             <b>{{ $label }}
-                                                <span class="text-danger">*</span>
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                    </div>
+
+                                    <div class="form-group">
+                                        @php($label = 'Select Status')
+                                        @php($name = 'status')
+
+                                        <label >{{ $label }}
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <option value="">Select</option>
+                                            <option value="Approved" {{ "Approved" == old($name) ? 'selected' : ''}}>Approved</option>
+                                            <option value="Pending" {{ "Pending" == old($name) ? 'selected' : ''}}>Pending</option>
+                                        </select>
                                     </div>
 
                                     
