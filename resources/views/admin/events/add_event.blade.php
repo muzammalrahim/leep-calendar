@@ -327,7 +327,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                     </div>
 
                                     <div class="col-md-6 form-group">
