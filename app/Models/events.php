@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\EventCategory;
 // use Illuminate\Database\Eloquent\Model featedEvents;
 
 class events extends Model
@@ -303,6 +304,10 @@ class events extends Model
 
     public function EventComments(){
         return $this->hasMany(Comments::class,'event_id','id');
+    }
+
+    public function eventCategory(){
+        return $this->belongsTo(EventCategory::class,'id', 'event_id');        
     }
 
 }
