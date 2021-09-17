@@ -533,7 +533,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -740,7 +740,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div> 
 
                                     <div class="form-group">
@@ -751,7 +751,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div> 
                                     
                                     <div class="form-group">
@@ -762,7 +762,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div> 
 
                                     <div class="form-group">
