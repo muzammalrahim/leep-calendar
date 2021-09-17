@@ -116,7 +116,7 @@
                                                     <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
-                                            <input type="date"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="date" name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                         </div>
                                     </div>
 
