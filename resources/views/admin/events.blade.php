@@ -145,9 +145,9 @@
                         @foreach($events as $e)
                     <tr>
                         <td id="name" > {{$e->name}}    </td>
-                        <td id='country1'>{{$e->country1}}</td>
-                        <td id='m_start'>{{$e->m_start}}-{{$e->d_start}}-{{$e->y_start}}</td>
-                        <td id='d_end'>{{$e->m_end}}-{{$e->d_end}}-{{$e->y_end}}</td>
+                        <td id='country1'>{{$e->states}}</td>
+                        <td id='m_start'>{{$e->start_month}}-{{$e->start_day}}-{{$e->start_year}}</td>
+                        <td id='d_end'>{{$e->end_month}}-{{$e->end_day}}-{{$e->end_year}}</td>
                         <td id='static_change'>{{$e->static_change}}</td>
                         <td id='feature'>@isset($e->feature->id)<a href="{{URL::asset('admin/unFeature/'.$e->id) }}" class="btn-danger">UnFeature</a>@else <a href="{{URL::asset('admin/feature/'.$e->id) }}">Feature</a>@endif</td>
                         <td id='publish'>@if($e->status=="Pending")<a href="{{URL::asset('admin/publishEvent/'.$e->id) }}" >Publish</a>@else <a href="{{URL::asset('admin/unPublishEvent/'.$e->id) }}" class="btn-danger">UnPublish</a>@endif</td>
