@@ -19,6 +19,9 @@
 	})(window,document,'script','dataLayer','GTM-NNTKK5C');</script>
 	<!-- End Google Tag Manager -->
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 	<meta charset="UTF-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1252,6 +1255,39 @@ $(document).ready(function(){
 
 </script>
 
+
+ {{-- Dead Links Start Akmal --}}
+        <script type="text/javascript">
+            function checkDeadLink(event){
+                if (event.value){
+                    let _token = $('meta[name="csrf-token"]').attr('content');
+                    $.ajax({
+                        url: "{{ route('checkDeadLink') }}",
+                        type: "POST",
+                        data: {
+                            url: event.value,
+                            _token: _token
+                        },
+                        beforeSend: function (){
+                            $(event).css({"background" : "url({{asset('assets/images/loading.gif')}}) no-repeat right center"});
+                        },
+                        success: function (resp){
+                            if (resp){
+                                if ($(event).next('div').length){
+                                    $(event).next('div').remove();
+                                }
+                            } else {
+                                if (!$(event).next('div').length) {
+                                    $(event).after('<div class="alert alert-danger font-weight-bold" role="alert">You Have Entered Dead Link!</div>');
+                                }
+                            }
+                            $(event).removeAttr('style');
+                        },
+                    });
+                }
+            }
+        </script>
+        {{-- Dead Links End Akmal --}}
       
 
 </body>
