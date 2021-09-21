@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/users','EventsController@users');
     Route::post('admin/users','EventsController@searchUsers');
     Route::get('admin/events','EventsController@events')->name('admin.events');
+    Route::get('admin/event/{id}','EventsController@adminEditEvent')->name('admin.event.edit');
     Route::post('admin/searchEvents','EventsController@searchEvents')->name('admin/searchEvents');
     Route::get('admin/eve','EventsController@evecc');
     Route::get('admin/eventRegUsers/{id}','EventsController@eventRegUsers');
@@ -130,7 +131,7 @@ Route::get('login', 'PagesController@index');
 Auth::routes();
 
 
-Route::post('addBtcAddress', 'EventsController@addBtcAddress'); 
+Route::post('addBtcAddress', 'EventsController@addBtcAddress');
 Auth::routes(['verify' => true]);
 
 // Demo routes

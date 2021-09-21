@@ -3,15 +3,16 @@
 @php($title = 'Add Event')
 
 @section('styles')
-<style> 
+<style>
     .font-weight-900 {
         font-weight: 900;
     }
+
 </style>
 @endsection
 
 @section('content')
-	
+
     {{-- Start: Alerts --}}
     	@include('layout.alerts')
     {{-- End: Alerts --}}
@@ -44,21 +45,6 @@
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                     </div>
 
-                                    <div class="form-group">
-                                        @php($label = 'Select Nations / States')
-                                        @php($name = 'states')
-
-                                        <label >{{ $label }}
-                                            <span class="text-danger">*</span>
-                                        </label>
-                                        <select multiple class="form-control selectpicker" aria-label="Default select example" name="{{ $name }}[]">
-                                            <option value="">Select</option>
-                                            @foreach( $countries_list as $nation )
-                                                <option {{ (collect(old($name))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Month Start')
@@ -86,7 +72,7 @@
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
                                                     <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
-                                                @endfor 
+                                                @endfor
                                             </select>
                                         </div>
                                     </div>
@@ -103,7 +89,7 @@
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
                                                     <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
-                                                @endfor  
+                                                @endfor
                                             </select>
                                         </div>
 
@@ -147,11 +133,11 @@
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
                                                     <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
-                                                @endfor 
+                                                @endfor
                                             </select>
                                         </div>
                                     </div>
-                                        
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Select Year End')
@@ -164,7 +150,7 @@
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
                                                     <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
-                                                @endfor  
+                                                @endfor
                                             </select>
                                         </div>
 
@@ -179,6 +165,21 @@
                                             </label>
                                             <input type="date"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
                                         </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @php($label = 'Select Nations / States')
+                                        @php($name = 'states')
+
+                                        <label >{{ $label }}
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <select multiple class="form-control selectpicker" size="3" aria-label="Default select example" name="{{ $name }}[]">
+                                            <option value="">Select</option>
+                                            @foreach( $countries_list as $nation )
+                                                <option {{ (collect(old($name))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                     <div class="row">
@@ -234,7 +235,7 @@
                                     </div>
 
                                     <div class="row">
-                                        
+
                                         <div class="col-md-4 form-group">
                                             @php($label = 'Select Category 4')
                                             @php($name = 'category_4')
@@ -404,7 +405,7 @@
                                         </datalist>
 
                                         {{-- <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
-                                        
+
                                         <datalist id="{{ $name }}">
                                             <option value="">Select {{ $label }}</option>
                                             @foreach( $event_champions as $event_champ )
@@ -489,7 +490,7 @@
                                             <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Enter Phone Number')
@@ -522,7 +523,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text" name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -545,7 +546,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div>   
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Video 2')
@@ -556,7 +557,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Video 3')
@@ -567,7 +568,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div>  
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -585,7 +586,7 @@
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Download Title')
@@ -596,8 +597,8 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
-                                    </div> 
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -609,7 +610,7 @@
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Download Title')
@@ -620,9 +621,9 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
+                                        </div>
                                     </div>
-                                     
+
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -634,7 +635,7 @@
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Download Title')
@@ -645,14 +646,14 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
-                                    </div>  
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <span class="font-weight-900">Extra Images:</span>
                                         </div>
-                                    </div>  
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -664,7 +665,7 @@
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Image Title 1')
@@ -675,8 +676,8 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
-                                    </div> 
+                                        </div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -688,7 +689,7 @@
                                                 </b>
                                             </label>
                                             <input type="file" name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Image Title 2')
@@ -699,9 +700,9 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
+                                        </div>
                                     </div>
-                                     
+
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -713,7 +714,7 @@
                                                 </b>
                                             </label>
                                             <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div>  
+                                        </div>
 
                                         <div class="form-group col-md-6">
                                             @php($label = 'Image Title 3')
@@ -724,13 +725,13 @@
                                                 </b>
                                             </label>
                                             <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                        </div> 
-                                    </div>  
+                                        </div>
+                                    </div>
 
 
                                     <div class="form-group">
                                         <span class="font-weight-900">Social Links:</span>
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Social Link 1')
@@ -741,7 +742,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Social Link 2')
@@ -752,8 +753,8 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
-                                    
+                                    </div>
+
                                     <div class="form-group">
                                         @php($label = 'Social Link 3')
                                         @php($name = 'socail_link3')
@@ -763,7 +764,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Physical Address')
@@ -774,7 +775,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Link to Purchase/Reserve Tickets')
@@ -785,7 +786,7 @@
                                             </b>
                                         </label>
                                         <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
-                                    </div> 
+                                    </div>
 
                                     <div class="form-group">
                                         @php($label = 'Location Based')
@@ -823,7 +824,7 @@
                                         </select>
                                     </div>
 
-                                    
+
                                 </div>
 
                                 <div>
@@ -857,7 +858,7 @@
 {{-- Scripts Section --}}
 @section('scripts')
 
-   <script type="text/javascript"> 
+   <script type="text/javascript">
     $(document).ready(function() {
         $('.wysihtml5').wysihtml5();
 
@@ -907,7 +908,5 @@
 		}
 
     });
-   </script> 
+   </script>
 @endsection
-
- 
