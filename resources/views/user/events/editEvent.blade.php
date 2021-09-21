@@ -5,6 +5,7 @@
 
 <!-- update-steps -->
 {{-- @dd($event); --}}
+{{-- @dd($event->eventAttachment) --}}
 <div class="add-event-wrapper">
   <div class="event-heading">
     <h4>Add an Event</h4>
@@ -85,7 +86,7 @@
                           </div>
                           <div class="form-group">
                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="Event Reference URL" name="url">
+                              placeholder="Event Reference URL" value="{{$event->url}}" name="url" />
                           </div>
                           <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name='type'>
@@ -114,30 +115,7 @@
                           </div>
                           <div class="move-container" ></div>
 
-                          {{-- @dd($event->eventCategory) --}}
-                          <div class="form-group">
-                            <select class="form-control js-example-basic-multiple"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
-                              <option>Cat</option>
-                              @foreach(App\Models\category::all() as $cat1)
-                                 @if($event->eventCategory->category_1==$cat1->cat_id)
-  	                               <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_2==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_3==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_4==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_5==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_6==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @else
-                                   <option id="{{$cat1->id}}" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @endif
-                              @endforeach
-
-                            </select>
-                          </div>
+                          
 
                         </div>
                         <div class="col-md-6">
@@ -152,12 +130,14 @@
                               placeholder="End Date" value="{{$event->end_date}}" name="endDate">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
-                          <div class="form-group">
+
+                          {{-- <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="startTime" value="{{$event->time_start}}" placeholder="Start Time">
                           </div>
                           <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="endTime"  value="{{$event->time_end}}" placeholder="End Time">
-                          </div>
+                          </div> --}}
+
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Event Length</label>
                             <select class="form-control" name="eventDuration">
@@ -194,6 +174,33 @@
                                   @endif
                             </select>
                           </div>
+
+                          {{-- @dd($event->eventCategory) --}}
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Event Categories</label>
+                            <select class="form-control js-example-basic-multiple"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
+                              <option>Cat</option>
+                              @foreach(App\Models\category::all() as $cat1)
+                                 @if($event->eventCategory->category_1==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_2==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_3==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_4==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_5==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_6==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @else
+                                   <option id="{{$cat1->id}}" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @endif
+                              @endforeach
+
+                            </select>
+                          </div>
+
                           {{-- <div class="form-group">
                             <select class="form-control" name="eventYDate">
                               <option>Select Event Date Each Year</option>
@@ -213,12 +220,12 @@
 
                             <div class="form-group">
                               <label for="exampleFormControlInput1">Event Champions</label>
-                              <input type="text" class="form-control" id="champName" name="champ_name" value="{{$event->physical_address}}" 
-                                placeholder="Address 1 / Referral Name">
+                              <input type="text" class="form-control" id="champName" name="event_champion" value="{{$event->event_champion}}" 
+                                placeholder="Champion Name">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="province" name="province" value="{{$event->physical_address}}" 
-                                placeholder="Address 2: State / Province">
+                              <input type="text" class="form-control" id="province" name="champ_address1" value="{{$event->champ_address1}}" 
+                                placeholder="Address 1">
                             </div>
                             <div class="row">
                               <div class="col-md-6">
@@ -237,34 +244,26 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <input type="text" class="form-control" id="zip"
-                                    placeholder="Zip Code" name="zip" value="{{$event->champ_zip}}">
+                                    placeholder="Zip Code" name="zip" value="{{$event->zip}}">
                                 </div>
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="text" class="form-control" id="contactName" name="contactName" value="{{$event->contact_person}}" 
+                                  <input type="text" class="form-control" id="contactName" name="contact_person" value="{{$event->contact_person}}" 
                                     placeholder="Contact Person">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="tel" class="form-control" id="phNo" name="ph_number" value="{{$event->ph_num}}" 
+                                  <input type="tel" class="form-control" id="phNo" name="ph_num" value="{{$event->ph_num}}" 
                                     placeholder="Phone Number">
                                 </div>
                               </div>
                             </div>
 
-                            <div class="form-group">
-                              <input type="email" class="form-control" id="email" name="email" value="{{$event->email_form}}" 
-                                placeholder="E-mail or Social Media Handle">
-                            </div>
-
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="url" name="contactUrl" value="{{$event->contact_link}}" 
-                                placeholder="ContacTURL">
-                            </div>
+                            
                           </div>
 
 
@@ -281,8 +280,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="facebook" value="{{$event->socail_link1}}" 
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="facebook" value="{{$event->eventAttachment->socail_link1}}" 
+                                      placeholder="Facebook Link">
                                   </div>
                                 </div>
                               </div>
@@ -296,8 +295,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="instagram"  value="{{$event->socail_link3}}"
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="instagram"  value="{{$event->eventAttachment->socail_link3}}"
+                                      placeholder="Instagram Link">
                                   </div>
                                 </div>
                               </div>
@@ -311,11 +310,22 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="twitter"  value="{{$event->socail_link2}}"
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="twitter"  value="{{$event->eventAttachment->socail_link2}}"
+                                      placeholder="Twitter Link">
                                   </div>
                                 </div>
                               </div>
+
+                              <div class="form-group">
+                                  <input type="email" class="form-control" id="email" name="email" value="{{$event->email_form}}" 
+                                    placeholder="E-mail or Social Media Handle">
+                                </div>
+
+                                <div class="form-group">
+                                  <input type="text" class="form-control" id="url" name="contact_link" value="{{$event->contact_link}}" 
+                                    placeholder="Contact URL">
+                                </div>
+
                             </div>
 
                           </div>

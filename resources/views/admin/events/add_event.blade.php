@@ -851,6 +851,9 @@
     li a .btn{
         display: none !important;
     }
+    .dropdown-menu{
+        transform: none !important;
+    }
 </style>
 
 
@@ -910,4 +913,3 @@
    </script> 
 @endsection
 
- 
