@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', 'HomeController@index');
 
+Route::post('ajax/add-comment', 'CommentsController@addComment')->name('addComment');
+
+
 // Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
 // Route::get('/login/admin', 'App\Http\Controllers\Auth\LoginController@showAdminLoginForm']);
 Route::get('/login/admin', "PagesController@login11");
@@ -49,6 +52,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/users','EventsController@users');
     Route::post('admin/users','EventsController@searchUsers');
     Route::get('admin/events','EventsController@events')->name('admin.events');
+    Route::get('admin/event/{id}','EventsController@adminEditEvent')->name('admin.event.edit');
     Route::post('admin/searchEvents','EventsController@searchEvents')->name('admin/searchEvents');
     Route::get('admin/eve','EventsController@evecc');
     Route::get('admin/eventRegUsers/{id}','EventsController@eventRegUsers');
@@ -94,7 +98,7 @@ Route::get('/', 'HomeController@index');
 });
 Route::post('searchEvents', 'HomeController@userSearchEvents');
 Route::get('searchEvents', 'HomeController@userSearchEvents');
-Route::get('event/{id}', 'HomeController@eventDetail');
+Route::get('event/{id}', 'HomeController@eventDetail')->name('eventDetail');
 Route::get('becomeMember', 'HomeController@becomeMember')->middleware('auth');;
 Route::get('becomeFreeMember', 'HomeController@becomeFreeMember')->middleware('auth');
 Route::get('becomeGoldMember', 'HomeController@becomeGoldMember')->middleware('auth');
@@ -127,7 +131,7 @@ Route::get('login', 'PagesController@index');
 Auth::routes();
 
 
-Route::post('addBtcAddress', 'EventsController@addBtcAddress'); 
+Route::post('addBtcAddress', 'EventsController@addBtcAddress');
 Auth::routes(['verify' => true]);
 
 // Demo routes
