@@ -13,14 +13,18 @@
 - remove physical_addr from events table in db.
 - event_id added in event_attachments migration.
 - added states in events migrations
-Important:- 
+Important:-
 - Add this function for urls: onblur="checkDeadLink(this)"
 
--> 9-17-2021 (Today)
+-> 9-17-2021
 - EventsController.php
 - helper.php
 - events.php
 - views/admin/add_event.blade.php
+
+-> 9-20-2021 (Today)
+- admin/events.blade.php
+- routes/web.php :55,
 ============================================================================================
 
 =========================== Hassaan ========================================================
