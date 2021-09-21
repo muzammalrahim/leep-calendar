@@ -189,3 +189,4 @@ Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalD
 
 // Check Dead Links
 Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'])->name('checkDeadLink');
+

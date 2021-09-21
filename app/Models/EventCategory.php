@@ -10,6 +10,11 @@ class EventCategory extends Model
     use HasFactory;
 
 
+    public function event(){
+        // dd($user);
+        return $this->belongsTo(events::class,'event_id','id');
+    }
+
     public function storeEventCategories($event_id, $data)
     {
         $this->event_id    = $event_id;
@@ -19,9 +24,8 @@ class EventCategory extends Model
         $this->category_4  = $data['category_4'];
         $this->category_5  = $data['category_5'];
         $this->category_6  = $data['category_6'];
-
         $this->save();
-
         return with($this);
+
     }
 }
