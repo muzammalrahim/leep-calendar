@@ -60,14 +60,14 @@
                               placeholder="Event Title/Name">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control" name="location" id="elocation" placeholder="Event Location">
+                            <input type="text" class="form-control" name="physical_address" id="elocation" placeholder="Event Address">
                           </div>
 
                           <div class="form-group">
                             <select class="form-select form-control" aria-label="Default select example" name="country">
                               {{-- <option class="active" selected="">Country</option> --}}
-            									@foreach(App\Models\country::get(['country1','country2']) as $us)
-            									<option value="{{$us->country1}},{{$us->country2}}">{{$us->country1}}</option>
+            									@foreach(App\Models\country::get(['name','code']) as $country)
+            									<option value="{{$country->name}},{{$country->code}}">{{$country->name}}</option>
             									@endforeach
                             </select>
                           </div>
@@ -89,40 +89,29 @@
 
                             </select>
                           </div>
-                          <div class="form-group">
-                            <div class="move-container" ></div>
-                            <select  class="form-control js-example-basic-multiple category"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
-                              {{-- <option>Category</option> --}}
-                              <?php $i=0;?>
-                              @foreach(App\Models\category::all() as $cat1)
-                                <option value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                <?php $i=$i+1;?>
-                              @endforeach
-
-                            </select>
-                          </div>
+                          
 
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="startDate">Event Schedule</label>
-                            <input type="date" class="form-control datepicker" id="startDate" placeholder="Start Date" name="startDate">
+                            <input type="date" class="form-control datepicker" id="startDate" placeholder="Start Date" name="start_date">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
 
                            <div class="form-group">
                             <input type="date" class="form-control datepicker" id="endDate"
-                              placeholder="End Date" name="endDate">
+                              placeholder="End Date" name="end_date">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
-                          <div class="form-group">
+                          {{-- <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="startTime" 
                               placeholder="Start Time">
                           </div>
                           <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="endTime" 
                               placeholder="End Time">
-                          </div>
+                          </div> --}}
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Event Length</label>
                             <select class="form-control" name="eventDuration">
@@ -135,6 +124,23 @@
                               <option value='6d'>6 Day</option>
                             </select>
                           </div>
+
+                          <div class="form-group">
+
+                            <label for="startDate">Event Categories</label>
+
+                            <div class="move-container" ></div>
+                            <select  class="form-control js-example-basic-multiple category"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
+                              {{-- <option>Category</option> --}}
+                              <?php $i=0;?>
+                              @foreach(App\Models\category::all() as $cat1)
+                                <option value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                <?php $i=$i+1;?>
+                              @endforeach
+
+                            </select>
+                          </div>
+
                           {{-- <div class="form-group">
                             <select class="form-control" name="eventYDate">
                               <option>Select Event Date Each Year</option>
@@ -155,19 +161,19 @@
 
                             <div class="form-group">
                               <label for="exampleFormControlInput1">Event Champions</label>
-                              <input type="text" class="form-control" id="champName" name="champ_name" 
-                                placeholder="Referral Name">
+                              <input type="text" class="form-control" id="champName" name="event_champion" 
+                                placeholder="Champion Name">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="province" name="province" 
-                                placeholder="Address : State / Province">
+                              <input type="text" class="form-control" id="province" name="champ_address1" 
+                                placeholder="Address 1">
                             </div>
                             <div class="row">
                               <div class="col-md-6">
                                 <div class="form-group">
                                   <select class="form-select form-control" aria-label="Default select example" name="champ_country">
-                                    @foreach(App\Models\country::get(['country1']) as $us)
-                                    <option value="{{$us->country1}},{{$us->country2}}">{{$us->country1}}</option>
+                                    @foreach(App\Models\country::get(['name']) as $country)
+                                    <option value="{{$country->name}},{{$country->code}}">{{$country->name}}</option>
                                     @endforeach
                                   </select>
                                 </div>
@@ -180,29 +186,21 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="text" class="form-control" id="contactName" name="contactName" 
+                                  <input type="text" class="form-control" id="contactName" name="contact_person" 
                                     placeholder="Contact Person">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="tel" class="form-control" id="phNo" name="ph_number" 
+                                  <input type="tel" class="form-control" id="phNo" name="ph_num" 
                                     placeholder="Phone Number">
                                 </div>
                               </div>
                             </div>
 
-                            <div class="form-group">
-                              <input type="email" class="form-control" id="email" name="email" 
-                                placeholder="E-mail or Social Media Handle">
-                            </div>
-
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="url" name="contactUrl" 
-                                placeholder="Contact URL">
-                            </div>
+                            
                           </div>
 
 
@@ -254,36 +252,17 @@
                                   </div>
                                 </div>
                               </div>
-                              {{-- <div class="row">
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Linkedin</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                  <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="linkedIn" 
-                                      placeholder="URL">
-                                  </div>
-                                </div>
+
+                              <div class="form-group">
+                                <input type="email" class="form-control" id="email" name="email" 
+                                  placeholder="E-mail or Social Media Handle">
                               </div>
-                              <div class="row">
-                                <div class="col-md-4">
-                                  <div class="form-group">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                      <option>Youtube</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                <div class="col-md-8">
-                                  <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="youTube" 
-                                      placeholder="URL">
-                                  </div>
-                                </div>
-                              </div> --}}
+
+                              <div class="form-group">
+                                <input type="text" class="form-control" id="url" name="contact_link" 
+                                  placeholder="Contact URL">
+                              </div>
+
                             </div>
 
                           </div>

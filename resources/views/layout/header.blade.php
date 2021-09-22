@@ -43,17 +43,17 @@
     			<a class="nav-link" href="{{URL::asset('legend')}}">Legend</a>
     		</li>
 
-    		@guest
+{{--     		@guest
     		<li class="nav-item">
     			<a class="nav-link" href="{{asset('becomeEventChamp') }}"> Become a member </a>
     		</li>
-    		@endguest
+    		@endguest --}}
 
-    		@auth
+    		{{-- @auth --}}
     		<li class="nav-item">
     			<a class="nav-link" href="{{ asset('becomeMember') }}"> Membership </a>
     		</li>
-    		@endauth
+    		{{-- @endauth --}}
 
 
 

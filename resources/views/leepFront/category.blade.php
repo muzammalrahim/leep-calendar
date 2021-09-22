@@ -4,7 +4,7 @@
 
 
     
- <!-- caegories-section -->
+<!-- caegories-section -->
 {{-- <a href="event-search.html"> --}}
 <div class="categories-page">
     <div class="cat-heading">
@@ -27,7 +27,7 @@
                   @endif
         
     </div>
-    <div class="categories-box" style="padding-bottom: 85px !important;">
+    <div class="categories-box">
         <?php $categoryA=App\Models\category::where('name','like','A'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryA[0]->name))
             <div class="cat-box">
@@ -41,7 +41,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryA as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div>{{$c->name}}</div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -61,7 +61,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryB as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -81,7 +81,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryC as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -101,7 +101,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryD as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div></a>
                             @endforeach
                         </p>
                     </div>
@@ -121,7 +121,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryE as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -141,7 +141,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryA as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -163,7 +163,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryC as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -183,7 +183,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryD as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -203,7 +203,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryE as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div></a>
                             @endforeach
                         </p>
                     </div>
@@ -223,7 +223,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryC as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -243,7 +243,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryD as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -265,7 +265,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryE as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -287,7 +287,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryA as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -307,7 +307,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryB as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -327,7 +327,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryC as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}}  </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -347,7 +347,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryD as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -367,7 +367,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryE as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -387,7 +387,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryA as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -407,7 +407,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryB as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -429,7 +429,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryC as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -449,7 +449,7 @@
                     <div class="cat-data">
                         <p>
                             @foreach($categoryD as $c)
-                                <a href="{{'category/'.$c->id}}">{{$c->name}}</a>
+                                <a href="{{'category/'.$c->id}}"> <div> {{$c->name}} </div> </a>
                             @endforeach
                         </p>
                     </div>
@@ -459,12 +459,11 @@
     </div>
 </div>
 <style type="text/css">
-        categories-page .categories-box .cat-box a:hover{
-            color: white !important;
-        }
+        
+
         .categories-page .categories-box .cat-box a{
             text-decoration: none;
-            color: #FFFFFF !important;
+            color: black !important;
         }
 </style>
 @endsection

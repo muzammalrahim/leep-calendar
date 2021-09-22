@@ -24,7 +24,7 @@
 
                             <div class="col-md-4 text-right">
                                 <h6>{{$eventCategory->count()}} Results</h6>
-                            </div>
+                            </div> 
                         </div>
                     </div>
 

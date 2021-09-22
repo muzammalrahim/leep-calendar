@@ -1,71 +1,77 @@
 {{-- Extends layout --}}
 @section('content')
 @extends('layout.layoutLeep')
- 
-         <div class="container">
-            <div class="event-page">
-               <div class="search-title-box">
-                <div class="row">
-                    <div class="col-md-8">
-                        <h3><small>Your Events <b></b> </small></h3>
-                    </div>
 
-                    <div class="col-md-4 text-right">
-                        {{-- <h6>{{$blogs->total()}} Results</h6> --}}
-                    </div>
-                </div>
-            </div>
-                <div class="event-box">
-                @foreach($blogs as $b)
-	                <div class="event-title"  onclick="window.location.replace('{{URL::asset('Blog/'.$b->id)}}','self'); " style=" cursor:pointer;">
-	                    <div class="row">	                    	
-		                        <div class="col-md-10">
-		                            <h4>{{\Illuminate\Support\Str::limit($b->title,42)}}</h4>
-		                            {{-- <p class="event-type">{{$e->type}}</p> --}}
-		                            <p>{!!\Illuminate\Support\Str::limit($b->description,204)!!}</p>
+{{-- Content --}}
 
-		                        </div>
-		                        <div class="col-md-2" style="padding-left: 0px; text-align: center;">
-		                            <h5 class="date-year">{{$b->d_start}} {{date("F", strtotime(date("Y")."-".$b->m_start."-01"))}}</h5>
-                                    {{-- <lable>{{$b->status}}</label> --}}
-		                        </div>	                    	
-	                    </div>
-	                </div>
-                @endforeach
-                {{-- {{ $events->links() }} --}}
-                 <style type="text/css">
-                 	/*w-5 h-5                 	*/
-                 </style>
+    <!-- hero-box -->
+    <div class="hero-wrapper mb-4">
 
+      <div class="container123">
 
-            </div>
-                <div class="w3-center w3-bar w3-border w3-round" style="text-align: center;">
-                     {{$blogs->appends(Request::except('page'))->links('pagination::default') }}
-                 </div>
+        <div class="row m-0">
 
-            {{-- <div class="w3-center">
+          <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
 
-                <div class="w3-bar w3-border w3-round">
-                  <a href="#" class="w3-bar-item w3-button">&laquo;</a>
-                  <a href="#" class="w3-bar-item w3-button">Previous</a>
-                  <a href="#" class="w3-bar-item w3-button">1</a>
-                  <a href="#" class="w3-bar-item w3-button">2</a>
-                  <a href="#" class="w3-bar-item w3-button">3</a>
-                  <a href="#" class="w3-bar-item w3-button">4</a>
-                  <a href="#" class="w3-bar-item w3-button">5</a>
-                  <a href="#" class="w3-bar-item w3-button">6</a>
+            <div class="calender m-auto">
 
-                  <a href="#" class="w3-bar-item w3-button">7</a>
-                  <a href="#" class="w3-bar-item w3-button">8</a>
-                  <a href="#" class="w3-bar-item w3-button">9</a>
-                  <a href="#" class="w3-bar-item w3-button">Next</a>
-                  <a href="#" class="w3-bar-item w3-button">&raquo;</a>
-                </div>
-                </div>
+              <div class="calender-head mt-3">
+
+                <h3> Today Is ...</h3>
+
+              </div>
+
+              <!-- Tabs -->
+
+              <section id="tabs">
+
+                  @include('leepFront.parts.calendar') {{-- leepFront/parts/calendar --}}  
                 
-            </div> --}}
+              </section>
 
-      
+              <!-- ./Tabs -->
+
+            </div>
+
+          </div>
+
+
+          <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+            @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
+          </div>
+
         </div>
 
+      </div>
+
+    </div>
+
+
+    
+    <!-- End hero-box -->
+    {{-- LEGEND --}}
+    <div class="legend-wrapper p-4">
+        <div class="row">
+          <div class="col-2">
+                @include('layout.leftSidebar')
+          </div>
+
+          <div class="col-8">
+            <div class="legend-content">
+                <h2 class="font-weight-bold"> {{ $page_title }} </h2>
+            </div>
+          </div>
+
+          <div class="col-2">
+                @include('layout.rightSidebar')
+          </div>
+        </div>
+    </div>
+    {{-- END LENGEND --}}
 @endsection
+
+<style type="text/css">
+  p{
+    color: black !important;
+  }
+</style>

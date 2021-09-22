@@ -41,7 +41,7 @@
 
 header{
 
-    margin: 20px 0px 20px 20px;
+    margin: 20px 20px 20px 20px;
 
 }
 
@@ -435,7 +435,7 @@ padding: 12px 12px;
 
 .hero-wrapper{
 
-    background-color: #60012C;
+    background-color: #7a003b;
 
 }
 
@@ -2483,17 +2483,17 @@ opacity: 1;
     height: auto !important;
 }
 .bg-site{
-    background-color: #60012C; 
+    background-color: #7a003b; 
 }
 .bg-yellow{
     background-color: #c8b08b;
 }
 
 .font-color{
-    color: #60012C; 
+    color: #7a003b; 
 }
 a.nav-item.active{
-    color: #60012C !important;
+    color: #7a003b !important;
 }
 a.nav-item{
     color: #c8b08b !important;

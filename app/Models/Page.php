@@ -16,7 +16,7 @@ class Page extends Model
             'title'  => 'required|string|max:300',
             'slug'  => 'required|unique:pages,slug',
             'heading'  => 'required|string|max:300',
-            'content'  => 'required|string|max:5000',
+            'content'  => 'required|string|max:10000',
             'meta_title'  => 'nullable|string|max:300',
             'meta_description'  => 'nullable|string|max:1000',
             'meta_keywords'  => 'nullable|string|max:300',
