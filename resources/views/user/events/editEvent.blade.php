@@ -5,6 +5,7 @@
 
 <!-- update-steps -->
 {{-- @dd($event); --}}
+{{-- @dd($event->eventAttachment) --}}
 <div class="add-event-wrapper">
   <div class="event-heading">
     <h4>Add an Event</h4>
@@ -16,7 +17,7 @@
           <div class="card px-0 pb-0  mb-3">
               
               <form id="msform" method='POST' class="" action="{{URL::asset('editEventFrom')}}"  onsubmit = "eventFormValidation();">
-              	@csrf
+                @csrf
                   @if(session()->has('errorMsg'))
                       <div class="alert alert-danger">
                           <ul style="text-align: center;">
@@ -61,20 +62,20 @@
                               placeholder="Event Title/Name">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control" name="location" id="elocation" value="{{$event->physical_address}}"
+                            <input type="text" class="form-control" name="physical_address" id="elocation" value="{{$event->physical_address}}"
                               placeholder="Event Location">
                           </div>
 
                           <div class="form-group">
                             <select class="form-select form-control" aria-label="Default select example" name="country">
                               {{-- <option class="active" selected="">Country</option> --}}
-            									@foreach(App\Models\country::get(['name','code']) as $us)
+                              @foreach(App\Models\country::get(['name','code']) as $us)
                                 @if($us->name==="{{$event->name}}")
-                									<option value="{{$us->name}},{{$us->code}}" selected="">{{$us->name}}</option>
+                                  <option value="{{$us->name}},{{$us->code}}" selected="">{{$us->name}}</option>
                                 @else
                                   <option value="{{$us->name}},{{$us->code}}">{{$us->name}}</option>
                                 @endif
-            									@endforeach
+                              @endforeach
                             </select>
                           </div>
                           <input type="text" name="event_id" hidden="" value="{{$event->id}}">
@@ -85,7 +86,7 @@
                           </div>
                           <div class="form-group">
                             <input type="text" class="form-control" id="exampleFormControlInput1"
-                              placeholder="Event Reference URL" name="url" value="{{$event->url}}">
+                              placeholder="Event Reference URL" value="{{$event->url}}" name="url" />
                           </div>
                           <div class="form-group">
                             <select class="form-control" id="exampleFormControlSelect1" name='type'>
@@ -114,46 +115,21 @@
                           </div>
                           <div class="move-container" ></div>
 
-                          {{-- @dd($event->eventCategory) --}}
-                          <div class="form-group">
-                            <select class="form-control js-example-basic-multiple"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
-                              <option>Cat</option>
-                              @foreach(App\Models\category::all() as $cat1)
-                                 @if($event->eventCategory->category_1==$cat1->cat_id)
-  	                               <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_2==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_3==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_4==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_5==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @elseif($event->eventCategory->category_6==$cat1->cat_id)
-                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @else
-                                   <option id="{{$cat1->id}}" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
-                                 @endif
-                              @endforeach
-
-                            </select>
-                          </div>
+                          
 
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="startDate">Event Schedule</label>
-                            <input type="date" class="form-control datepicker" id="startDate" placeholder="Start Date" value="{{$event->start_date}}" name="startDate">
+                            <input type="date" class="form-control datepicker" id="startDate" placeholder="Start Date" value="{{$event->start_date}}" name="start_date">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
 
                            <div class="form-group">
                             <input type="date" class="form-control datepicker" id="endDate"
-                              placeholder="End Date" value="{{$event->end_date}}" name="endDate">
+                              placeholder="End Date" value="{{$event->end_date}}" name="end_date">
                             {{-- <i class="fa fa-calendar field-icon-one" aria-hidden="true"></i> --}}
                           </div>
-
-                          {{-- commented on 17-09-2021 --}}
 
                           {{-- <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="startTime" value="{{$event->time_start}}" placeholder="Start Time">
@@ -161,9 +137,6 @@
                           <div class="form-group">
                             <input type="datetime" class="form-control" id="exampleFormControlInput1" name="endTime"  value="{{$event->time_end}}" placeholder="End Time">
                           </div> --}}
-
-                          {{-- commented on 17-09-2021 end here--}}
-
 
                           <div class="form-group">
                             <label for="exampleFormControlInput1">Event Length</label>
@@ -201,6 +174,33 @@
                                   @endif
                             </select>
                           </div>
+
+                          {{-- @dd($event->eventCategory) --}}
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Event Categories</label>
+                            <select class="form-control js-example-basic-multiple"  name='category[]' id="js-example-basic-multiple" style="border: none !important;"   multiple="multiple">
+                              <option>Cat</option>
+                              @foreach(App\Models\category::all() as $cat1)
+                                 @if($event->eventCategory->category_1==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_2==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_3==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_4==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_5==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @elseif($event->eventCategory->category_6==$cat1->cat_id)
+                                   <option id="{{$cat1->id}}" selected="" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @else
+                                   <option id="{{$cat1->id}}" value="{{$cat1->cat_id}}">{{$cat1->name}}</option>
+                                 @endif
+                              @endforeach
+
+                            </select>
+                          </div>
+
                           {{-- <div class="form-group">
                             <select class="form-control" name="eventYDate">
                               <option>Select Event Date Each Year</option>
@@ -220,12 +220,12 @@
 
                             <div class="form-group">
                               <label for="exampleFormControlInput1">Event Champions</label>
-                              <input type="text" class="form-control" id="champName" name="champ_name" value="{{$event->physical_address}}" 
-                                placeholder="Address 1 / Referral Name">
+                              <input type="text" class="form-control" id="champName" name="event_champion" value="{{$event->event_champion}}" 
+                                placeholder="Champion Name">
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" id="province" name="province" value="{{$event->physical_address}}" 
-                                placeholder="Address 2: State / Province">
+                              <input type="text" class="form-control" id="province" name="champ_address1" value="{{$event->champ_address1}}" 
+                                placeholder="Address 1">
                             </div>
                             <div class="row">
                               <div class="col-md-6">
@@ -249,29 +249,21 @@
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="text" class="form-control" id="contactName" name="contactName" value="{{$event->contact_person}}" 
+                                  <input type="text" class="form-control" id="contactName" name="contact_person" value="{{$event->contact_person}}" 
                                     placeholder="Contact Person">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-12">
                                 <div class="form-group">
-                                  <input type="tel" class="form-control" id="phNo" name="ph_number" value="{{$event->ph_num}}" 
+                                  <input type="tel" class="form-control" id="phNo" name="ph_num" value="{{$event->ph_num}}" 
                                     placeholder="Phone Number">
                                 </div>
                               </div>
                             </div>
 
-                            <div class="form-group">
-                              <input type="email" class="form-control" id="email" name="email" value="{{$event->email_form}}" 
-                                placeholder="E-mail or Social Media Handle">
-                            </div>
-
-                            <div class="form-group">
-                              <input type="text" class="form-control" id="url" name="contactUrl" value="{{$event->contact_link}}" 
-                                placeholder="ContacTURL">
-                            </div>
+                            
                           </div>
 
 
@@ -288,9 +280,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" onblur="checkDeadLink(this)" name="facebook" 
-                                    value="{{$event->eventAttachments->socail_link1}}" 
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="facebook" value="{{$event->eventAttachments->socail_link1}}" 
+                                      placeholder="Facebook Link">
                                   </div>
                                 </div>
                               </div>
@@ -304,9 +295,8 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" onblur="checkDeadLink(this)" name="instagram"
-                                    value="{{$event->eventAttachments->socail_link2}}"
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="instagram"  value="{{$event->eventAttachments->socail_link3}}"
+                                      placeholder="Instagram Link">
                                   </div>
                                 </div>
                               </div>
@@ -320,12 +310,22 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" onblur="checkDeadLink(this)" id="exampleFormControlInput1" name="twitter"  
-                                    value="{{$event->eventAttachments->socail_link3}}"
-                                      placeholder="URL">
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="twitter"  value="{{$event->eventAttachments->socail_link2}}"
+                                      placeholder="Twitter Link">
                                   </div>
                                 </div>
                               </div>
+
+                              <div class="form-group">
+                                  <input type="email" class="form-control" id="email" name="email" value="{{$event->email_form}}" 
+                                    placeholder="E-mail or Social Media Handle">
+                                </div>
+
+                                <div class="form-group">
+                                  <input type="text" class="form-control" id="url" name="contact_link" value="{{$event->contact_link}}" 
+                                    placeholder="Contact URL">
+                                </div>
+
                             </div>
 
                           </div>
@@ -370,7 +370,7 @@
                               <img src="{{URL::asset('leep_calender/images/Developer Assets/Add an eVent (Not Confirmed)/Icon ionic-ios-images.svg')}}"
                                 alt="">
                               <p>Drag an image or <u>
-                              	<input type="file" id='imageUploadd' style="   " class="form-control-file text-danger font-weight-bold"  onchange="readUrl(this,'mediaImage')" data-title="Drag and drop a file">					
+                                <input type="file" id='imageUploadd' style="   " class="form-control-file text-danger font-weight-bold"  onchange="readUrl(this,'mediaImage')" data-title="Drag and drop a file">         
 
                                </u></p>
                             </div>
@@ -409,9 +409,9 @@
 
                             <div class="img-box text-center"  style="clear: both;">
                               <img src="{{URL::asset('leep_calender/images/Developer Assets/Add an eVent (Not Confirmed)/Group 1578.svg')}}" alt="">
-                              <p>								        
-                              	Drag a document or <u>
-                              	<input type="file" id='imageUploaddF' style="   " class="form-control-file text-danger font-weight-bold"  onchange="readUrl(this,'mediaFile')" data-title="Drag and drop a file">		</u></p>
+                              <p>                       
+                                Drag a document or <u>
+                                <input type="file" id='imageUploaddF' style="   " class="form-control-file text-danger font-weight-bold"  onchange="readUrl(this,'mediaFile')" data-title="Drag and drop a file">   </u></p>
                             </div>
                           </div>
                         </div>
@@ -439,115 +439,115 @@
 </div>
 </div>
 <style type="text/css">
-	.uploadimg{
-		    height: auto;
-		    height: 85px;
-		    max-width: 86px;		    
-	}
+  .uploadimg{
+        height: auto;
+        height: 85px;
+        max-width: 86px;        
+  }
 </style>
 <script type="text/javascript">
-	var i=0;
-	var mi=0;
-	var mf=0;
-	function readUrl(input, arg) {
- 	  	if (input.files && input.files[0] ) 
-	  	{
-		    let reader = new FileReader();
-	  		if(arg=='mediaImage')
-	  		{
-	  			var fileType='mediaImage';
-	  			var id='#media1';
-	  		}
-	  		else{
-	  			var fileType='mediaFile';
-	  			var id='#media2';
-	  		}
-	  		// alert(document.getElementById('imageUploadd').value);
-	  		if((mi<3 && fileType=='mediaImage')||(mf<3 && fileType=='mediaFile')){
-			    reader.onload = (e) => 
-			    {
-					let imgData = e.target.result;
-					let imgName = input.files[0].name;
-					input.setAttribute("data-title", 'imgName');
-					var imgSrc1=e.target.result;
-			  		if(arg=='mediaImage')
-			  		{	
-  						var imgSrc=e.target.result;
-  						i=mi;						
-			  		}
-			  		else{
-			  			var imgSrc="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}";
-			  			i=mf;
-			  		}
-			  		var fieldVal='';
-			  		if(arg=='mediaImage')
-			  		{					
-					    // fieldVal='imageUploadd';
-					    // fieldVal=document.getElementById('imageUploadd').attr('src');
-					}else{
-					    // fieldVal=document.getElementById('imageUploaddF').attr('src');
-					}
+  var i=0;
+  var mi=0;
+  var mf=0;
+  function readUrl(input, arg) {
+      if (input.files && input.files[0] ) 
+      {
+        let reader = new FileReader();
+        if(arg=='mediaImage')
+        {
+          var fileType='mediaImage';
+          var id='#media1';
+        }
+        else{
+          var fileType='mediaFile';
+          var id='#media2';
+        }
+        // alert(document.getElementById('imageUploadd').value);
+        if((mi<3 && fileType=='mediaImage')||(mf<3 && fileType=='mediaFile')){
+          reader.onload = (e) => 
+          {
+          let imgData = e.target.result;
+          let imgName = input.files[0].name;
+          input.setAttribute("data-title", 'imgName');
+          var imgSrc1=e.target.result;
+            if(arg=='mediaImage')
+            { 
+              var imgSrc=e.target.result;
+              i=mi;           
+            }
+            else{
+              var imgSrc="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}";
+              i=mf;
+            }
+            var fieldVal='';
+            if(arg=='mediaImage')
+            {         
+              // fieldVal='imageUploadd';
+              // fieldVal=document.getElementById('imageUploadd').attr('src');
+          }else{
+              // fieldVal=document.getElementById('imageUploaddF').attr('src');
+          }
 
-					var x="<div id='"+fileType+i+"'"+" class='media' >"+"<input type='text' hidden  name='"+fileType+'N'+i+"' value='"+input.files[0].name+"'>"+
-					  "<img class='mr-3 uploadimg'  src='"+ imgSrc  +"'alt='Generic placeholder image'>"+
-					  "<input type='text' hidden  name='"+fileType+i+"' value='"+imgSrc1+"'>"
-					  +"<div class='media-body'>"+
-					    "<div class='row'>"+
-					      "<div class='col-md-10'>"+
-					        "<h5 class='mt-0' id='alt'>"+input.files[0].name.substring(0, 21)+"</h5>"+
-					      "</div>"+
-					      "<div class='col-md-2' onclick=deleteDiv"+fileType+"('"+fileType+i+"') ><i class='fa fa-times' aria-hidden='true'></i></div>"+
-					    "</div>"+
-					    "<b>"+input.files[0].size+' Bytes'+"</b>"+
-					    "<div class='progress'>"+
-					      "<div class='progress-bar' style='background-color: white;' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100'>"+
-					        "<span class='sr-only'>100% Complete</span>"+
-					      "</div>"+
-					    "</div>"+
-					  "</div>"+
-					"</div>";
-					// i+=1;
-			  		if(arg=='mediaImage')
-			  		{
-						mi+=1;
-					}else
-						mf+=1;
-					$(id).append(x); //append image to output element
-			  		if(arg=='mediaImage')
-			  		{					
-					    document.getElementById('imageUploadd').value=null;
-					}else{
-					    document.getElementById('imageUploaddF').value=null;						
-					}
-			    }
-			}else{
-		  		if(arg=='mediaImage')
-		  		{
-		  		 alert('Maximum 3 Images are Allowed');
-		  		}
-		  		else{
-		  		 alert('Maximum 3 Pdf files are Allowed');
-		  		}
+          var x="<div id='"+fileType+i+"'"+" class='media' >"+"<input type='text' hidden  name='"+fileType+'N'+i+"' value='"+input.files[0].name+"'>"+
+            "<img class='mr-3 uploadimg'  src='"+ imgSrc  +"'alt='Generic placeholder image'>"+
+            "<input type='text' hidden  name='"+fileType+i+"' value='"+imgSrc1+"'>"
+            +"<div class='media-body'>"+
+              "<div class='row'>"+
+                "<div class='col-md-10'>"+
+                  "<h5 class='mt-0' id='alt'>"+input.files[0].name.substring(0, 21)+"</h5>"+
+                "</div>"+
+                "<div class='col-md-2' onclick=deleteDiv"+fileType+"('"+fileType+i+"') ><i class='fa fa-times' aria-hidden='true'></i></div>"+
+              "</div>"+
+              "<b>"+input.files[0].size+' Bytes'+"</b>"+
+              "<div class='progress'>"+
+                "<div class='progress-bar' style='background-color: white;' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100'>"+
+                  "<span class='sr-only'>100% Complete</span>"+
+                "</div>"+
+              "</div>"+
+            "</div>"+
+          "</div>";
+          // i+=1;
+            if(arg=='mediaImage')
+            {
+            mi+=1;
+          }else
+            mf+=1;
+          $(id).append(x); //append image to output element
+            if(arg=='mediaImage')
+            {         
+              document.getElementById('imageUploadd').value=null;
+          }else{
+              document.getElementById('imageUploaddF').value=null;            
+          }
+          }
+      }else{
+          if(arg=='mediaImage')
+          {
+           alert('Maximum 3 Images are Allowed');
+          }
+          else{
+           alert('Maximum 3 Pdf files are Allowed');
+          }
 
-			}
-	    	reader.readAsDataURL(input.files[0]);
-		}else{
-				document.getElementById('imageUploadd').value='';	  	
-		}
+      }
+        reader.readAsDataURL(input.files[0]);
+    }else{
+        document.getElementById('imageUploadd').value='';     
+    }
 
-	}
-	// deleteDivmediaFile 
-	function deleteDivmediaFile(id) {
+  }
+  // deleteDivmediaFile 
+  function deleteDivmediaFile(id) {
 
-		document.getElementById(id).remove();
-		// i-=1;
-		mf=mf-1;
-	}
-	function deleteDivmediaImage(id) {
-		document.getElementById(id).remove();
-		// i-=1;
-		mi=mi-1;
-	}
+    document.getElementById(id).remove();
+    // i-=1;
+    mf=mf-1;
+  }
+  function deleteDivmediaImage(id) {
+    document.getElementById(id).remove();
+    // i-=1;
+    mi=mi-1;
+  }
 
   function deleteDoc(id) {
 
@@ -567,18 +567,4 @@
   }
 
 </script>
-
-
-
 @endsection
-
-
-
-
-
-
-
-
-
-
-

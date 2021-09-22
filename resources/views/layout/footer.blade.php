@@ -34,7 +34,7 @@
 </div> --}}
 
 <div class="dynamicPages123">
-	<div class="row ml-5">
+	<div class="row mx-5">
 
 		<div class="col-md-2 col-lg-2">
 			<div class="float-left">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-10 col-lg-10">
+		<div class="col-md-8 col-lg-8">
 			<div class="text-center">
     			<span class="font-weight-bold">
          			<a class="colorSkin" href="{{ asset('home') }}">Home </a> |
@@ -55,21 +55,20 @@
 		            <a class="colorSkin" href="{{URL::asset('login')}}">Login</a> |
 		            <a class="colorSkin" href="{{URL::asset('register')}}">Sign up</a> |
 		            <a class="colorSkin" href="{{URL::asset('legal-desclaimer')}}">Legal Disclaimer</a> 
-
 		         
     			</span>
 
 	      
-
 	        	<div class="text-dark mt-2">
 					<p class="m-0 text-dark"> Jubilee LLC, 1712 Pioneer Avenue, Suite 2019, Cheyenne, WY 82001 (307) 222.4729  </p>
 					<div class=""><p class="text-dark"> Copyright (C) 2018-2019 Jubilee LLC. All Rights Reserved  </p></div>
 				</div>
-
 	        </div>
 
 
 		</div>
+
+		<div class="col-md-2 col-lg-2"> </div>
 
 		
 	</div>

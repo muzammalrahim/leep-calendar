@@ -135,6 +135,6 @@ class PagesController extends Controller
 
         $data['page_detail'] = $this->page->getPageDetail(null,$slug);
 
-        return view('leepFront.page_detail', $data);
+        return view('leepFront.page_detail', $data); // leepFront/page_detail
     }
 }

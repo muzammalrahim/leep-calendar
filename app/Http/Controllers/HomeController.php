@@ -25,6 +25,8 @@ use Stripe;
 
 use App\Models\Comments;
 use App\Models\EventCategory;
+use App\Models\EventAttachment;
+
 
 
 // use TwitterStreamingApi;
@@ -86,7 +88,7 @@ class HomeController extends Controller
         $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->paginate(10);
 
         // dd($eventCategory);
-        return view('leepFront.myEvents',compact('eventCategory', 'm','d','d_events', 'category', 'id')); // leepFront/myEvents
+        return view('leepFront.categoryDetail',compact('eventCategory', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
     }
     public function downloadpdf($eveId,$filesId)
     {
@@ -256,7 +258,7 @@ class HomeController extends Controller
             return redirect('becomeMember')->with(['errorMsg'=>'Please Upgrade Your Membership Plan']);
         }
         $this->middleware('auth');
-        return view('leepFront.addEvent');
+        return view('leepFront.addEvent'); // leepFront/addEvent
     }
     public function editEvent($value='')
     {
@@ -290,19 +292,35 @@ class HomeController extends Controller
     {
 
         $request->validate([
-            'name' =>'required',
-            'location' =>'required',
+            // 'name' =>'required',
+            // 'location' =>'required',
+            // 'description' =>'required',
+            // 'category' =>'required',
+            // 'champ_name' =>'required',
+            // 'province' =>'required',
+            // 'zip' =>'required',
+            // 'contactName' =>'required',
+            // 'ph_number' =>'required',
+            // 'email' =>'required',
+            // // 'contactUrl' =>'required',
+            // 'startDate'    => 'required|date',
+            // 'endDate'      => 'required|date|after_or_equal:startDate',
+
+            'name' =>'required', 
+            'physical_address' =>'required',
             'description' =>'required',
             'category' =>'required',
-            'champ_name' =>'required',
-            'province' =>'required',
+            'event_champion' =>'required',
+            'champ_address1' =>'required',
             'zip' =>'required',
-            'contactName' =>'required',
-            'ph_number' =>'required',
+            'contact_person' =>'required',
+            'ph_num' =>'required',
             'email' =>'required',
-            // 'contactUrl' =>'required',
-            'startDate'    => 'required|date',
-            'endDate'      => 'required|date|after_or_equal:startDate',
+            'email' =>'required',
+            'start_date'    => 'required|date',
+            'end_date'      => 'required|date|after_or_equal:start_date',
+
+
         ]);
         // dd($request->all());
         $memberRegDate=Auth::user()->membership_date;
@@ -417,50 +435,60 @@ class HomeController extends Controller
         $em=(date("m",strtotime($request->endDate)));
         $ey=(date("y",strtotime($request->endDate)));
         $country=explode(' ', $request->country);
-        // EVENT DETAILS
+        // =======================================  EVENT DETAILS ======================================= 
         $events->name=$request->name;
-        $events->physical_address=$request->location;
-        $events->country1=$country[0];//$request->country;
-        $events->country2= str_replace(' ', '', $country[1]);//$request->country;
+        $events->physical_address=$request->physical_address;
+        $events->states=$country[0];//$request->country;
+        $events->country_code= str_replace(' ', '', $country[1]);//$request->country;
         $events->description=$request->description;
         $events->url=$request->url;
         $events->type=$request->type;
-        $events->d_start=$sd;
-        $events->m_start=$sm;
-        $events->y_start=$sy;
-        $events->d_end=$ed;
-        $events->m_end=$em;
-        $events->y_end=$ey;
-        $events->start_date=$request->startDate;
-        $events->end_date=$request->endDate;
-        $events->time_start=$request->startTime;
-        // dd($request->endTime);
-        $events->time_end=$request->endTime;
-        $events->duration=$request->eventDuration;
-        $events->year_date=$request->eventYDate;
+        $events->start_day=$sd;
+        $events->start_month=$sm;
+        $events->start_year=$sy;
+        $events->end_day=$ed;
+        $events->end_month=$em;
+        $events->end_year=$ey;
+        $events->start_date=$request->start_date;
+        $events->end_date=$request->end_date;
 
-        for($c=0;$c<count($request->category);$c++)
-        {
-            $c_no='cat_'.($c+1);
-            if($c<=5)
-            $events->$c_no=$request->category[$c];
-        }
-        // Event Champion Details
-        $events->champ_name=$request->champ_name;
-        $Champ_country=explode(',', $request->country);
-        $events->champ_country=$Champ_country[0];//$request->champ_country; // issue
-        $events->champ_address=$request->province;
-        $events->champ_zip=$request->zip;
+        // =======================================  Event Champion Details ======================================= 
+        // dd('sdjkfjdsf');
+
+        $events->event_champion=$request->event_champion;
+        // $Champ_country=explode(',', $request->country);
+        // $events->champ_country=$Champ_country[0];//$request->champ_country; // issue
+        $events->champ_address1=$request->champ_address1;
         $events->zip=$request->zip;
-        $events->contact_person=$request->contactName;
-        $events->ph_num=$request->ph_number;
+        $events->contact_link=$request->contact_link;
+        $events->ph_num=$request->ph_num;
         $events->email_form=$request->email;
         $events->contact_link=$request->contactUrl;
-        $events->socail_link1=$request->facebook;
-        $events->socail_link2=$request->twitter;
-        $events->socail_link3=$request->instagram;
+        // $events->eventAttachments->socail_link1=$request->facebook;
+        // $events->eventAttachments->socail_link2=$request->twitter;
+        // $events->eventAttachments->socail_link3=$request->instagram;
         $events->user_id=Auth::id();
         $events->save();
+
+
+        $eventCategory = new eventCategory;
+        $eventCategory->event_id = $events->id;
+        for($c=0;$c<count($request->category);$c++)
+        {
+            $c_no='category_'.($c+1);
+            if($c<=5)
+            $eventCategory->$c_no=$request->category[$c];
+        }
+        $eventCategory->save();
+
+        $events->save();
+        $eventAttachment = new EventAttachment;
+        $eventAttachment->event_id = $events->id;
+        $eventAttachment->socail_link1=$request->facebook;
+        $eventAttachment->socail_link2=$request->twitter;
+        $eventAttachment->socail_link3=$request->instagram;
+        $eventAttachment->save();
+
         // $events->=$request->;
         // $events->=$request->;
 
@@ -471,51 +499,41 @@ class HomeController extends Controller
     public function editEventFrom(Request $request)
     {
         // dd($request->all());
-
-        // cat_1
         $request->validate([
             'name' =>'required', 
-            'location' =>'required',
+            'physical_address' =>'required',
             'description' =>'required',
             'category' =>'required',
-            'champ_name' =>'required',
-            'province' =>'required',
+            'event_champion' =>'required',
+            'champ_address1' =>'required',
             'zip' =>'required',
-            'contactName' =>'required',
-            'ph_number' =>'required',
+            'contact_person' =>'required',
+            'ph_num' =>'required',
             'email' =>'required',
-            // 'contactUrl' =>'required',
             'email' =>'required',
-            'startDate'    => 'required|date',
-            'endDate'      => 'required|date|after_or_equal:startDate',
+            'start_date'    => 'required|date',
+            'end_date'      => 'required|date|after_or_equal:start_date',
         ]);  
         // dd($request->all());
         $a=0;
         $reqImage='mediaImage'.$a;
         $reqImageN='mediaImage'.$a;
+        $events=events::find($request->event_id); 
 
-        $events=events::find($request->event_id);
-
-        // dd($request->all());
         if(!isset($request->oDoc1)){
             if($request->oDoc1=='' && $events->download1!=''){ 
-                // dd($events->download1);
                $image_path1=public_path()."/leep_calender/event/pdf/".$events->download1;
-               // dd($image_path1);
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
                     $events->download_title1=null;
             }
         }
         if(!isset($request->oDoc2)){
-            // dd('z');
             if($request->oDoc2=='' && $events->download2!=''){ 
                $image_path1=public_path()."/leep_calender/event/pdf/".$events->download2;
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
                     $events->download2=null;
                     $events->download_title2=null;
@@ -526,7 +544,6 @@ class HomeController extends Controller
                $image_path1=public_path()."/leep_calender/event/pdf/".$events->download3;
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
                     $events->download3=null;
                     $events->download_title3=null;
@@ -535,62 +552,49 @@ class HomeController extends Controller
         // Images
         if(!isset($request->oImg1)){
             if($request->oImg1=='' && $events->extra_image1!=''){ 
-                // dd($request->oImg1);
                $image_path1=public_path()."/leep_calender/event/img/".$events->extra_image1;
                // dd($image_path1);
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
-                    $events->extra_image1=null;
+                $events->extra_image1=null;
             }
         }
         if(!isset($request->oImg2)){
-            // dd('z');
             if($request->oImg2=='' && $events->extra_image2!=''){ 
                $image_path1=public_path()."/leep_calender/event/img/".$events->extra_image2;
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
-                    $events->extra_image2=null;
+                $events->extra_image2=null;
             }
         }
-        // dd($events->extra_image2);
         if(!isset($request->oImg3)){
             if($request->oImg3=='' && $events->extra_image3!=''){ 
                $image_path1=public_path()."/leep_calender/event/img/".$events->extra_image3;
                 if (File::exists($image_path1)) {
                     File::delete($image_path1);
-                    // unlink($image_path1);
                 }
-                    $events->extra_image3=null;
+                $events->extra_image3=null;
             }
-        }//dd($events->extra_image3);
-        // dd($request->all());
-        // End delete Images AND Doc's
+        }
 
         $im1=0;
         $im2=0;
-        // mediaImage0
         if(isset($request->mediaImage0)  && $events->extra_image1=='')
             if($events->extra_image1==null)
         {
             $image1 =$request->mediaImage0;
             $im1=1;
-
             $image_parts = explode(";base64,", $image1);
             $image_type_aux = explode("image/", $image_parts[0]);
             $image_type = $image_type_aux[1];
             $image_base64 = base64_decode($image_parts[1]);
             $imgN= uniqid().date('mdyhms').'.'.$image_type;
             $file = public_path().'/leep_calender/event/img/' . $imgN;
-            // dd($file);
             $events->extra_image1=$imgN;
             file_put_contents($file, $image_base64);
-            // file_put_contents($file, $image_base64);
         } 
-        // mediaImage1
         if(isset($request->mediaImage0) || isset($request->mediaImage1) || isset($request->mediaImage2) )
             if($events->extra_image2==null)
         {
@@ -599,13 +603,10 @@ class HomeController extends Controller
                 if($request->mediaImage0!=''){
                     $mImage2 =$request->mediaImage0;
                     $im1=1;
-                    // $events->download_title2=$request->mediaFileN0;
-
                 }
             }elseif($request->mediaImage1!=''){
                 $mImage2 =$request->mediaImage1;
                 $im2=1;
-                // $events->download_title2=$request->mediaFileN1;
             }
             if($mImage2!=''){
                 $image_parts = explode(";base64,", $mImage2);
@@ -617,9 +618,7 @@ class HomeController extends Controller
                 $events->extra_image2=$imgN;
                 file_put_contents($file, $image_base64);
             }
-            // file_put_contents($file, $image_base64);
         }
-        //mediaImage2
         if(isset($request->mediaImage0) || isset($request->mediaImage1) || isset($request->mediaImage2))
             if($events->extra_image3=='')
         {
@@ -633,13 +632,7 @@ class HomeController extends Controller
                 }
             }else
                     $mImage3 =$request->mediaImage2;                    
-            // $image_path3=public_path()."/leep_calender/event/img/".$events->extra_image3;
-            // if (File::exists($image_path3)) {
-            //     //File::delete($image_path);
-            //     unlink($image_path3);
-            // }
 
-            // $image1 =$request->mediaImage2;
             if($mImage3!=''){
                 $image_parts = explode(";base64,", $mImage3);
                 $image_type_aux = explode("image/", $image_parts[0]);
@@ -650,27 +643,16 @@ class HomeController extends Controller
                 $events->extra_image3=$imgN;
                 file_put_contents($file, $image_base64);
             }
-            // file_put_contents($file, $image_base64);
         }
-        // FILE
         $f1=0;
         $f2=0;
         $f3=0;
 
         if(isset($request->mediaFile0)  && $events->download1=='')
-            // if(isset($request->mediaFile0) || isset($request->mediaFile1) || isset($request->mediaFile3) && $events->download1=='' && $events->download2=='' && $events->download3=='')
             if($events->download1==null)
-
-
         {
-            // $file_path0=public_path()."/leep_calender/event/pdf/".$events->download1;
-            // if (File::exists($file_path0)) {
-            //     //File::delete($image_path);
-            //     unlink($file_path0);
-            // }
             $image1 =$request->mediaFile0;
             $f1=1;
-            // dd($image1);    
             $mediaFile0 = explode(";base64,", $image1);
             $image_type_aux = explode("application/", $mediaFile0[0]);
             $image_type = $image_type_aux[1];
@@ -679,9 +661,7 @@ class HomeController extends Controller
             $file = public_path().'/leep_calender/event/pdf/' . $imgN;
             $events->download1=$imgN;
             $events->download_title1=$request->mediaFileN0;
-
             file_put_contents($file, $image_base64);
-            // file_put_contents($file, $image_base64);
         }
         if(isset($request->mediaFile0) || isset($request->mediaFile1) || isset($request->mediaFile2)  && $events->download1!='' || $events->download2=='')
             if($events->download2==null)
@@ -706,8 +686,7 @@ class HomeController extends Controller
                 $events->download2=$imgN;
                 file_put_contents($file, $image_base64);
             }
-            // dd($image_type);
-            // file_put_contents($file, $image_base64);
+
         }
         if(isset($request->mediaFile0) || isset($request->mediaFile1) || isset($request->mediaFile2))
             if($events->download3=='')
@@ -730,26 +709,21 @@ class HomeController extends Controller
                 $imgN= uniqid().date('mdyhms').'.'.$image_type;
                 $file = public_path().'/leep_calender/event/pdf/' . $imgN;
                 $events->download3=$imgN;
-                // $events->download_title3=$request->mediaFileN2;
                file_put_contents($file, $image_base64);
-                // file_put_contents($file, $image_base64);
            }
         }
 
-
-        // dd($request->all());
-
-        $sd=(date("d",strtotime($request->startDate)));
-        $sm=(date("m",strtotime($request->startDate)));
-        $sy=(date("y",strtotime($request->startDate)));
-        
-        $ed=(date("d",strtotime($request->endDate)));
-        $em=(date("m",strtotime($request->endDate)));
-        $ey=(date("y",strtotime($request->endDate)));
+        $sd=(date("d",strtotime($request->start_date)));
+        // dd($sd);
+        $sm=(date("m",strtotime($request->start_date)));
+        $sy=(date("y",strtotime($request->start_date)));
+        $ed=(date("d",strtotime($request->end_date)));
+        $em=(date("m",strtotime($request->end_date)));
+        $ey=(date("y",strtotime($request->end_date)));
         $country=explode(' ', $request->country);
-        // EVENT DETAILS
+        // ======================================= EVENT DETAILS =======================================
         $events->name=$request->name;
-        $events->physical_address=$request->location;
+        $events->physical_address=$request->physical_address;
         $events->states=$country[0];//$request->country;    
         $events->country_code= str_replace(' ', '', $country[1]);//$request->country;
         $events->description=$request->description;
@@ -761,8 +735,8 @@ class HomeController extends Controller
         $events->end_day=$ed;
         $events->end_month=$em;
         $events->end_year=$ey;
-        $events->start_date=$request->startDate;
-        $events->end_date=$request->endDate;
+        $events->start_date=$request->start_date;
+        $events->end_date=$request->end_date;
         // $events->time_start=$request->startTime;
         // dd($request->endTime);
         // $events->time_end=$request->endTime;
@@ -776,17 +750,17 @@ class HomeController extends Controller
             if($c<=5)
             $events->eventCategory->$c_no=$request->category[$c];
         }
-        // Event Champion Details
+        // ======================================= Event Champion Details =======================================
 
         // dd('sdjkfjdsf');
 
-        $events->event_champion=$request->champ_name;
+        $events->event_champion=$request->event_champion;
         // $Champ_country=explode(',', $request->country);
         // $events->champ_country=$Champ_country[0];//$request->champ_country; // issue
-        $events->event_address1=$request->province;
+        $events->champ_address1=$request->champ_address1;
         $events->zip=$request->zip;
-        $events->contact_person=$request->contactName;
-        $events->ph_num=$request->ph_number;
+        $events->contact_link=$request->contact_link;
+        $events->ph_num=$request->ph_num;
         $events->email_form=$request->email;
         $events->contact_link=$request->contactUrl;
         $events->eventAttachments->socail_link1=$request->facebook;
@@ -1020,14 +994,30 @@ class HomeController extends Controller
     }
     public function userBlogs()
     {
-        $events=events::all();   
+        $page_title = 'Blogs';
+        $page_description = 'Blogs Page';
+        $events=events::all();
+        $m=date('m');
+        $d=date('d');     
+        
         $date=date("Y-m-d"); 
         $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
+        $wSD=date("Y-m-d", strtotime( 'monday this week' ));
+        $wED=date("Y-m-d", strtotime( 'sunday this week' ));
+        $featureEvents=featuredEvents::all()->take(3) ;
+        
+        // return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
+
+        // $events=events::all();   
+        // $date=date("Y-m-d"); 
+        // $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
+        // $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
+        // $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
        
         $blogs=blogs::paginate(8);
         $page_title = "Blogs";
-            return view('leepFront.blogs',compact('blogs','d_events','m_events','week_events','page_title'));
+            return view('leepFront.blogs',compact('blogs','events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
     }
 }
