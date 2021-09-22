@@ -87,5 +87,10 @@ function storeFiles($path = null , $table = null, $where_clause =null, $column_n
 
     return $status;
 }
+
+function getEventImage( $image )
+{
+    return url('/assets/events/images/'.$image);
+}
 /* End: Zeeshan code */
 

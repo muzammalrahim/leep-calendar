@@ -121,15 +121,28 @@ class events extends Model
             'category_4' => 'required_without_all:category_1,category_2, category_3, category_5, category_6|nullable|string|max:50',
             'category_6' => 'required_without_all:category_1,category_2, category_3, category_5, category_4|nullable|string|max:50',
             'description'  => 'required|max:2000',
-            'country_code'  => 'required',
+            'country_code'  => 'nullable',
             'status'  => 'required|in:Approved,Pending',
         ];
     }
 
+
+    // Get event detail
+    public function getEventDetail( $id = null, $slug = null ) {
+        return events::
+        when($id, function($query) use ($id) {
+            $query->where('id', '=', $id);
+        })
+        ->when($slug, function($query) use ($slug) {
+            $query->where('slug', '=', $slug);
+        })->first();
+    }
+
+    // store event
     public function storeEvent( $data ) 
     {
         
-        $this->name        = $data['name'];
+        $this->name = $data['name'];
         if ( isset($data['states']) && $data['states'] ) {
             $states = implode (", ", array_filter($data['states']));
             $this->states = $states;
@@ -179,6 +192,69 @@ class events extends Model
 
         $event_categories->storeEventCategories($this->id, $data);
         $event_attachments->storeEventAttachments($this->id, $data);
+
+
+        return with($this);
+    }
+
+    // update event
+    public function updateEvent( $data ) 
+    {
+
+        $event = new events;
+
+        $event = $event->getEventDetail( $data['event_id'] );
+        
+        $event->name = $data['name'];
+        if ( isset($data['states']) && $data['states'] ) {
+            $states = implode (", ", array_filter($data['states']));
+            $event->states = $states;
+        }
+        $event->start_month = $data['start_month'];
+        $event->start_day   = $data['start_day'];
+        $event->start_year  = $data['start_year'];
+        $event->start_date  = $data['start_date'];
+        $event->end_month   = $data['end_month'];
+        $event->end_day     = $data['end_day'];
+        $event->end_year    = $data['end_year'];
+        $event->end_date    = $data['end_date'];
+        
+        $event->type = $data['type'];
+        $event->static_change = $data['static_change'];
+        $event->notes_not_public = $data['notes_not_public'];
+        $event->url = $data['url'];
+        $event->picture_name = $data['picture_name'];
+        $event->alt_text = $data['alt_text'];
+        $event->estimated = $data['estimated'];
+        $event->description = $data['description'];
+        $event->event_champion = $data['event_champion'];
+        $event->country_code = $data['country_code'];
+        $event->state = $data['state'];
+        $event->city = $data['city'];
+        $event->zip = $data['zip'];
+        $event->event_address1 = $data['event_address1'];
+        $event->event_address2 = $data['event_address2'];
+        $event->ph_num = $data['ph_num'];
+        $event->email_form = $data['email_form'];
+        $event->contact_person = $data['contact_person'];
+        $event->contact_link = $data['contact_link'];
+
+        
+        $event->physical_address = $data['physical_address'];
+        $event->purchase_reserve = $data['purchase_reserve'];
+        $event->location_based = $data['location_based'];
+        $event->manager = $data['manager'];
+        $event->user_id = auth()->user()->id;
+        $event->status = $data['status'];
+
+        $event->update();
+
+        // store event categories
+        $event_categories = new EventCategory;
+        $event_attachments = new EventAttachment;
+
+        $event_categories->updateEventCategories($event->id, $data);
+        $event_attachments->updateEventAttachments($event->id, $data);
 
 
         return with($this);
@@ -298,6 +374,17 @@ class events extends Model
     		
     		unlink($file);
     	}
+    }
+
+
+    // Foreign key relashioships
+    public function eventAttachment() {
+        return $this->hasOne(EventAttachment::class,'event_id','id');
+    }
+
+    // used underscore for decalaration b/c same funtion name exists
+    public function event_category() {
+        return $this->hasOne(EventCategory::class,'event_id','id');
     }
     /* End: Zeeshan code */
 

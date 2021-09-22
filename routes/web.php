@@ -52,7 +52,6 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/users','EventsController@users');
     Route::post('admin/users','EventsController@searchUsers');
     Route::get('admin/events','EventsController@events')->name('admin.events');
-    Route::get('admin/event/{id}','EventsController@adminEditEvent')->name('admin.event.edit');
     Route::post('admin/searchEvents','EventsController@searchEvents')->name('admin/searchEvents');
     Route::get('admin/eve','EventsController@evecc');
     Route::get('admin/eventRegUsers/{id}','EventsController@eventRegUsers');
@@ -85,6 +84,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     // Events routes
     Route::get('admin/event/add-new-event', 'EventsController@addEventByAdmin')->name('admin.event.add');
     Route::post('admin/event/store', 'EventsController@addEventByAdmin')->name('admin.event.store');
+    Route::get('admin/edit-event/{id}','EventsController@editEventByAdmin')->name('admin.event.edit');
+    Route::post('admin/edit-event/update','EventsController@editEventByAdmin')->name('admin.event.update');
 
 });
 

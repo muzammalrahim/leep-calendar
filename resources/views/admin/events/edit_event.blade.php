@@ -1,11 +1,19 @@
+@php
+    $selected_states = explode(",", $event->states);
+@endphp
+
 @extends('layout.default')
 
-@php($title = 'Add Event')
+@php($title = 'Edit Event')
 
 @section('styles')
 <style>
     .font-weight-900 {
         font-weight: 900;
+    }
+
+    .height-122 {
+        height: 122px;
     }
 
 </style>
@@ -28,7 +36,7 @@
             	</div>
 
                 <div class="col-lg-12 col-xxl-12">
-                    <form  method="post" action="{{ route('admin.event.store') }}"  enctype="multipart/form-data">
+                    <form  method="post" action="{{ route('admin.event.update') }}"  enctype="multipart/form-data">
                         <div class="row">
                         @csrf
                             <div class="col-md-12" style="padding-top: 5px;">
@@ -42,7 +50,7 @@
                                         		<span class="text-danger">*</span></label>
                                         	</b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                     </div>
 
                                     <div class="form-group">
@@ -52,12 +60,19 @@
                                         <label >{{ $label }}
                                             <span class="text-danger">*</span>
                                         </label>
+
+                                        <label> <strong>Previously selected states:</strong> {{ $event->states }}</label>
+
                                         <select multiple class="form-control selectpicker" size="3" aria-label="Default select example" name="{{ $name }}[]">
                                             <option value="">Select</option>
                                             @foreach( $countries_list as $nation )
                                                 <option {{ (collect(old($name))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
                                             @endforeach
                                         </select>
+
+                                        <label>
+                                            <strong>Note:</strong> Selecting states will override all previous once.
+                                        </label>
                                     </div>
 
                                     <div class="row">
@@ -71,7 +86,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}" {{ $key == old($name) ? 'selected' : ''}} >{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == $event->$name ? 'selected' : ''}} >{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -85,8 +100,8 @@
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
-                                                @for ( $day=1; $day<32; $day++ )
-                                                    <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
+                                                @for ( $day=1; $day < 32; $day++ )
+                                                    <option value="{{ $day }}" {{ $day == $event->$name ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -102,8 +117,8 @@
                                             </label>
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
-                                                @for ($year=date("Y"); $year>1900; $year--)
-                                                    <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
+                                                @for ($year=date("Y"); $year > 1900; $year--)
+                                                    <option value="{{ $year }}" {{ $year == $event->$name ? 'selected' : '' }} > {{ $year }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -117,7 +132,7 @@
                                                     <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
-                                            <input type="date" name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="date" name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -132,7 +147,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}" {{ $key == old($name) ? 'selected' : ''}}>{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == $event->$name ? 'selected' : '' }}>{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -147,7 +162,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
-                                                    <option value="{{ $day }}" {{ $day == old($name) ? 'selected' : ''}}> {{ $day }} </option>
+                                                    <option value="{{ $day }}" {{ $day == $event->$name ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -164,7 +179,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
-                                                    <option value="{{ $year }}" {{ $year == old($name) ? 'selected' : ''}}> {{ $year }} </option>
+                                                    <option value="{{ $year }}" {{ $year == $event->$name ? 'selected' : ''}}> {{ $year }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -178,7 +193,7 @@
                                                     <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
-                                            <input type="date"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="date"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -200,7 +215,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -214,7 +229,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -228,7 +243,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -245,7 +260,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -259,7 +274,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -273,7 +288,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == old($name) ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -289,7 +304,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Type</option>
                                                 @foreach( getEventTypesList() as $type )
-                                                    <option value="{{ $type }}" {{ $type == old($name) ? 'selected' : ''}}>{{ $type }}</option>
+                                                    <option value="{{ $type }}" {{ $type == $event->$name ? 'selected' : ''}}>{{ $type }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -303,7 +318,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select Static Change</option>
                                                 @foreach( getStaticChangesList() as $static_change )
-                                                    <option value="{{ $static_change }}" {{ $static_change == old($name) ? 'selected' : ''}}>{{ $static_change }}</option>
+                                                    <option value="{{ $static_change }}" {{ $static_change == $event->$name ? 'selected' : ''}}>{{ $static_change }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -317,7 +332,7 @@
                                             <b>{{ $label }} (Not Public)
                                             </b>
                                         </label>
-                                        <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
+                                        <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ $event->$name }}</textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -328,10 +343,10 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                     </div>
 
-                                    <div class="col-md-6 form-group">
+                                    <div class="form-group">
                                         @php($label = 'Featured Picture')
                                         @php($name = 'feature_picture')
 
@@ -339,8 +354,14 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="Enter {{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="Enter {{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
+
+                                    @if( $event->feature_picture && !is_null( $event->feature_picture ) )
+                                        <div class="form-group">
+                                            <img src="{{ getEventImage( $event->feature_picture ) }}" class="img-thumbnail height-122" width="300">
+                                        </div>
+                                    @endif
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
@@ -351,7 +372,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
 
                                         <div class="col-md-6 form-group">
@@ -362,7 +383,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -374,7 +395,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                     </div>
 
                                     <div class="form-group">
@@ -386,7 +407,7 @@
                                                 <span class="text-danger">*</span></label>
                                             </b>
                                         </label>
-                                        <textarea  name="{{ $name }}"  class="form-control wysihtml5" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
+                                        <textarea  name="{{ $name }}"  class="form-control wysihtml5" placeholder="Enter {{ $label }}">{!! $event->$name !!}</textarea>
                                     </div>
 
                                     <div class="form-group">
@@ -396,7 +417,7 @@
                                         <label >{{ $label }}
                                         </label>
 
-                                        <input list="browsers" name="event_champion" id="event_champion" class="form-control" value="{{ old($name) }}">
+                                        <input list="browsers" name="event_champion" id="event_champion" class="form-control" value="{{ $event->$name }}">
 
                                         <datalist id="browsers">
                                           @foreach( $event_champions as $event_champ )
@@ -404,14 +425,14 @@
                                             @endforeach
                                         </datalist>
 
-                                        {{-- <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
 
                                         <datalist id="{{ $name }}">
                                             <option value="">Select {{ $label }}</option>
                                             @foreach( $event_champions as $event_champ )
                                                 <option value="{{ $event_champ->fname.' '.$event_champ->lname }}">{{ $event_champ->fname.' '.$event_champ->lname }} | {{ $event_champ->email }}</option>
                                             @endforeach
-                                        </datalist> --}}
+                                        </datalist>
                                     </div>
 
                                     <div class="row">
@@ -424,7 +445,7 @@
                                             <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( $countries_list as $country )
-                                                    <option value="{{ $country->code }}" {{ $country->code == old($name) ? 'selected' : ''}}>{{ $country->code }}</option>
+                                                    <option value="{{ $country->code }}" {{ $country->code == $event->$name ? 'selected' : ''}}>{{ $country->code }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -437,7 +458,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -450,7 +471,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
 
 
@@ -462,7 +483,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -475,7 +496,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
+                                            <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ $event->$name }}</textarea>
                                         </div>
 
                                         <div class="col-md-6 form-group">
@@ -486,7 +507,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ old($name) }}</textarea>
+                                            <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ $event->$name }}</textarea>
                                         </div>
                                     </div>
 
@@ -499,7 +520,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                         </div>
 
                                         <div class="col-md-6 form-group">
@@ -510,7 +531,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}">
                                         </div>
                                     </div>
 
@@ -522,7 +543,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text" name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text" name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -533,7 +554,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -544,7 +565,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -555,7 +576,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -566,7 +587,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="row">
@@ -584,7 +605,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -595,7 +616,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
 
@@ -608,7 +629,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -619,7 +640,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
 
@@ -633,7 +654,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -644,7 +665,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
 
@@ -663,7 +684,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -674,9 +695,16 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
+
+                                    @if( $event->eventAttachment->extra_image1 && !is_null( $event->eventAttachment->extra_image1 ) )
+                                        <div class="form-group">
+                                            <img src="{{ getEventImage( $event->eventAttachment->extra_image1 ) }}" class="img-thumbnail height-122" width="300">
+                                        </div>
+                                    @endif
+
 
                                     <div class="row">
                                         <div class="form-group col-md-6">
@@ -687,7 +715,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file" name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file" name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -698,9 +726,15 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
+
+                                    @if( $event->eventAttachment->extra_image2 && !is_null( $event->eventAttachment->extra_image2 ) )
+                                        <div class="form-group">
+                                            <img src="{{ getEventImage( $event->eventAttachment->extra_image2 ) }}" class="img-thumbnail height-122" width="300">
+                                        </div>
+                                    @endif
 
 
                                     <div class="row">
@@ -712,7 +746,7 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="file"  name="{{ $name }}" id="{{ $name }}" class="form-control" accept="image/png, image/jpg, image/jpeg" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                         </div>
 
                                         <div class="form-group col-md-6">
@@ -723,9 +757,15 @@
                                                 <b>{{ $label }}
                                                 </b>
                                             </label>
-                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                            <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                         </div>
                                     </div>
+
+                                    @if( $event->eventAttachment->extra_image3 && !is_null( $event->eventAttachment->extra_image3 ) )
+                                        <div class="form-group">
+                                            <img src="{{ getEventImage( $event->eventAttachment->extra_image3 ) }}" class="img-thumbnail height-122" width="300">
+                                        </div>
+                                    @endif
 
 
                                     <div class="form-group">
@@ -740,7 +780,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -751,7 +791,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -762,7 +802,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->eventAttachment->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -773,7 +813,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -784,7 +824,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -795,7 +835,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -806,7 +846,7 @@
                                             <b>{{ $label }}
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ old($name) }}" style="height: auto;">
+                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="{{ $label }}" value="{{ $event->$name }}" style="height: auto;">
                                     </div>
 
                                     <div class="form-group">
@@ -818,13 +858,17 @@
                                         </label>
                                         <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                             <option value="">Select</option>
-                                            <option value="Approved" {{ "Approved" == old($name) ? 'selected' : ''}}>Approved</option>
-                                            <option value="Pending" {{ "Pending" == old($name) ? 'selected' : ''}}>Pending</option>
+                                            <option value="Approved" {{ "Approved" == $event->$name ? 'selected' : ''}}>Approved</option>
+                                            <option value="Pending" {{ "Pending" == $event->$name ? 'selected' : ''}}>Pending</option>
                                         </select>
                                     </div>
 
 
                                 </div>
+
+                                {{-- Start: Input Hidden Fields --}}
+                                    <input type="hidden" name="event_id" value="{{Crypt::encrypt($event->id)}}">
+                                {{-- End: Input Hidden Fields --}}
 
                                 <div>
 				                    <button class="mb-7 btn btn-primary font-weight-bold btn-lg float-left mt-4" type="submit">

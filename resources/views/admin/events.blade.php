@@ -139,6 +139,7 @@
                         <th title="Field ">Publish Type</th>
                         <th title="Field ">Event URL</th>
                         <th title="Field ">User</th>
+                        <th title="Field ">Actions</th>
                     </tr>
                     </thead>
                     <tbody id='event_body zah'>
@@ -154,6 +155,15 @@
                         <td id='type'>{{$e->type}}</td>
                         <td id="url">{{$e->url}}</td>
                         <td id="url">@isset($e->user->email){{$e->user->fname}} {{$e->user->lname}}@endif</td>
+                        <td> 
+                            <a href="{{ route('admin.event.edit',["id"=>Crypt::encrypt($e->id)]) }}">
+                              <i class="fas fa-edit fa-2x text-primary"></i>
+                            </a> 
+                            {{-- / 
+                            <a onclick="return confirm('Do you want to delete the page?')" href="#">
+                                <i class="fas fa-trash fa-2x text-danger"></i>
+                            </a>  --}}
+                        </td>
                     </tr>
                     @endforeach
                     </tbody>
