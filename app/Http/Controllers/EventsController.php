@@ -26,6 +26,7 @@ use DateTime;
 use DateInterval;
 use DatePeriod;
 use Validator;
+use Crypt;
 
 class EventsController extends Controller
 {
@@ -381,7 +382,6 @@ class EventsController extends Controller
     // Admin add new event
     public function addEventByAdmin( Request $request )
     {
-        // dd($request->file('feature_picture'));
         try 
         {
             // dd($request->file('download1'));
@@ -543,6 +543,184 @@ class EventsController extends Controller
                 }
             }
         } catch (DecryptException $e) {
+            //
+        }
+    }
+
+    public function editEventByAdmin( Request $request, $id = null )
+    {
+        try 
+        {
+            if($request->isMethod('get'))
+            {
+                // Initialization
+                    $id = Crypt::decrypt($id);
+                    $data = [];
+                // End Initialization
+                   
+                $data['countries_list'] = $this->country->getCountriesList();
+            
+                $data['categories_list'] = $this->category->getCategoriesList();
+
+                $data['event_champions'] = $this->user->getUserByRoleSlug('event_champ');
+
+                $data['event'] = $this->event->getEventDetail( $id, null );
+                
+                return view('admin.events.edit_event', $data);
+            }
+            else
+            {
+                // Initialization
+                    $data = $request->input();
+                    $data['event_id'] = Crypt::decrypt($data['event_id']);
+                    $feature_image  = $request->file('feature_picture');
+                    $download1      = $request->file('download1');
+                    $download2      = $request->file('download2');
+                    $download3      = $request->file('download3');
+                    $extra_image1   = $request->file('extra_image1');
+                    $extra_image2   = $request->file('extra_image2');
+                    $extra_image3   = $request->file('extra_image3');
+                // End Initialization
+
+                $rules = $this->event->validations(
+                    [
+                        'name' => 'required|unique:events,name,'.$data['event_id'],
+                        'states' => 'nullable',
+                    ]
+                );
+                $validator = Validator::make($request->all(), $rules);
+
+
+                if ($validator->fails()) {
+                    return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+                }
+
+                $event = $this->event->updateEvent($data); 
+
+                if ( $event->id ) {
+                    // storing event feature image
+                    if ( isset($feature_image) ) {
+                        $path = '/assets/events/images';
+                        $table = $event->getTable();
+                        $where_clause = [
+                            'id' => $event->id,
+                        ];
+                        $column_name = 'feature_picture';
+                        
+
+                        $status = storeFiles($path, $table, $where_clause, $column_name, $feature_image);
+                        if ( $status && $status != 1 ) {
+                            return redirect()->back()->with('error', 'Feature image not stored!');
+                        }
+                    }
+
+                    /* Start: Store Attachments */
+                        // storing Attachment download1
+                        if ( $download1 ) {
+                            $path = '/assets/events/attachments';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'download1';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $download1);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Download 1 attachment not stored!');
+                            }
+                        }
+
+                        // storing Attachment download2
+                        if ( $download2 ) {
+                            $path = '/assets/events/attachments';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'download2';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $download2);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Download 2 attachment not stored!');
+                            }
+                        }
+
+                        // storing Attachment download3
+                        if ( $download3 ) {
+                            $path = '/assets/events/attachments';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'download3';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $download3);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Download 3 attachment not stored!');
+                            }
+                        }
+                    /* End: Store Attachments */
+
+                    /* Start: Store Extra Images */
+                        // storing Attachment extra_image1
+                        if ( $extra_image1 ) {
+                            $path = '/assets/events/images';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'extra_image1';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $extra_image1);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Extra image1 attachment not stored!');
+                            }
+                        }
+
+                        // storing Attachment extra_image2
+                        if ( $extra_image2 ) {
+                            $path = '/assets/events/attachments';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'extra_image2';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $extra_image2);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Extra image 2 attachment not stored!');
+                            }
+                        }
+
+                        // storing Attachment extra_image3
+                        if ( $extra_image3 ) {
+                            $path = '/assets/events/attachments';
+                            $table = 'event_attachments';
+                            $where_clause = [
+                                'event_id' => $event->id,
+                            ];
+                            $column_name = 'extra_image3';
+
+                            $status = storeFiles($path, $table, $where_clause, $column_name, $extra_image3);
+                            if ( $status && $status != 1 ) {
+                                return redirect()->back()->with('error', 'Extra image3 attachment not stored!');
+                            }
+                        }
+                    /* End: Store Extra Images */
+
+                    return redirect()->route('admin.events')->with('success', 'Event Has Been Successfully Updated.');
+                }
+                else {
+                    return redirect()->back()->with('success', 'Event Has Been Successfully Updated.');
+                    //return redirect()->back()->with('error', 'Something Went Wrong!');
+                }
+
+            }
+        } 
+        catch (DecryptException $e) {
             //
         }
     }

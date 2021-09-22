@@ -45,6 +45,8 @@ class SiteFunctionsController extends Controller
         $data = curl_exec($ch);
         $headers = curl_getinfo($ch);
         curl_close($ch);
+
+        //dd($headers);
         return $headers;
     }
 }
