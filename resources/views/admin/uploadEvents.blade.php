@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label>Upload Event (csv file)
                                     <span class="text-danger">*</span></label>
-                                    <input type="file"  name="file" class="form-controlss">
+                                    <input type="file" accept=".csv" name="file" class="form-controlss">
                                     <!-- <span class="form-text text-muted">We'll never share your email with anyone else.</span> -->
                                 </div>
                             </div>

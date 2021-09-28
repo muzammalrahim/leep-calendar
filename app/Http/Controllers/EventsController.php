@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 use App\Imports\eventImport;
 
+use App\Imports\eventsImport; // Added on 24-09-2021
+
+
 use App\Models\events;
 use App\Models\membership;
 use App\Models\admin;
@@ -244,10 +247,13 @@ class EventsController extends Controller
 
     public function addBtcAddress(Request $request)
     {
-        // Initialization
-            $data = [];
-        // End Initialization
+        // dd($request->all());
 
+
+        Excel::import(new eventsImport, $request->file('file')->store('temp'));
+        return back();
+
+        $data = [];
         $request->validate([
             'file' => ['required',function ($attribute, $value, $fail) {
                 if (!in_array($value->getClientOriginalExtension(), ['csv'])) {
@@ -257,22 +263,17 @@ class EventsController extends Controller
         ]);
 
         $file = file($request->file->getRealPath());
-        
-        // Inorder to remove header use: // $data = array_slice($file, 1);
 
+        // Inorder to remove header use: // $data = array_slice($file, 1);
         // Splitting data after every 1000 lines
         $parts = (array_chunk($file, 5000));
-
         foreach ($parts as $index=>$part) {
-            $file_name = resource_path('pending-files/'.date('y-m-d-H-i-s').$index. '.csv');
-
+            $file_name = public_path('pending-files/'.date('y-m-d-H-i-s').$index. '.csv');
             file_put_contents($file_name, $part);
         }
 
         $this->event->importToDb();
-
         session()->flash('status', 'Queued for importing');
-        
         return redirect()->route('admin.events')->with($data);
     }
 

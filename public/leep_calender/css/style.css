@@ -16,7 +16,9 @@
     /*margin-right: 18px !important;*/
 
 }
-
+#nav-tabContent{
+    width: -webkit-fill-available;
+}
 @font-face {
 
     font-family: Questrial;
