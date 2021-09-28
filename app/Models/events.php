@@ -155,7 +155,6 @@ class events extends Model
         $this->end_day     = $data['end_day'];
         $this->end_year    = $data['end_year'];
         $this->end_date    = $data['end_date'];
-        
         $this->type = $data['type'];
         $this->static_change = $data['static_change'];
         $this->notes_not_public = $data['notes_not_public'];
@@ -175,8 +174,6 @@ class events extends Model
         $this->email_form = $data['email_form'];
         $this->contact_person = $data['contact_person'];
         $this->contact_link = $data['contact_link'];
-
-        
         $this->physical_address = $data['physical_address'];
         $this->purchase_reserve = $data['purchase_reserve'];
         $this->location_based = $data['location_based'];
@@ -218,7 +215,6 @@ class events extends Model
         $event->end_day     = $data['end_day'];
         $event->end_year    = $data['end_year'];
         $event->end_date    = $data['end_date'];
-        
         $event->type = $data['type'];
         $event->static_change = $data['static_change'];
         $event->notes_not_public = $data['notes_not_public'];
@@ -238,8 +234,6 @@ class events extends Model
         $event->email_form = $data['email_form'];
         $event->contact_person = $data['contact_person'];
         $event->contact_link = $data['contact_link'];
-
-        
         $event->physical_address = $data['physical_address'];
         $event->purchase_reserve = $data['purchase_reserve'];
         $event->location_based = $data['location_based'];
@@ -263,7 +257,8 @@ class events extends Model
     // parsing imported file to db
     public function importToDb()
     {
-    	$path = resource_path('pending-files/*.csv');
+
+    	$path = public_path('pending-files/*.csv');
 
     	$files = glob($path);
 
