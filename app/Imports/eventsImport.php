@@ -24,8 +24,6 @@ class eventsImport implements ToModel
                 $start_date=date('Y-m-d',$start_date);
             }
             
-                
-
             $event =  new events;
             $event->name = ( isset($row[0]) )? $row[0]:'';
             $event->states = ( isset($row[1]) )? $row[1]:'';
