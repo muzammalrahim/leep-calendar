@@ -124,7 +124,7 @@ class EventsController extends Controller
         return redirect('admin/events')->with("['success'=>'added']");
     }
     public function searchEvents(Request $request){
-
+        dd('com'); exit;
       // $msg='hi a.o.a';
       // return response()->json(array('msg'=> $msg), 200);
         $sDate=null;
