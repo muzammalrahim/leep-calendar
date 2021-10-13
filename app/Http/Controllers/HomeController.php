@@ -134,21 +134,30 @@ class HomeController extends Controller
             $search=$request->event_Name;
             $events->where('name','like','%'.$request->event_Name .'%');
         }
-        // dd($request->all());
+        
         if(isset($request->country)){
             $search=$search.' , '.$request->country;
             $events->where('country1',$request->country);
         }
-
+        
         if (isset($request->category)) {
             $cat=category::where('name',$request->category)->first();
             if(isset($cat->id))
             $search=$search.' , '.$cat->name;
             // $events->where('cat_1',$request->category)->Orwhere('cat_2',$request->category)->Orwhere('cat_3',$request->category)->Orwhere('cat_4',$request->category)->Orwhere('cat_5',$request->category)->Orwhere('cat_6',$request->category);
             $cat=$cat->cat_id;
+            
+            /* previous query commented by zeeshan
             $events->where(function($q) use($cat){
                 $q->where('cat_1',$cat)->orWhere('cat_2',$cat)->orWhere('cat_3',$cat)->orWhere('cat_4',$cat)->orWhere('cat_5',$cat)->orWhere('cat_6',$cat);
             });
+            */
+
+            // getting events against category entered
+            $events->join('event_categories', 'events.id','=','event_categories.event_id')->where(function($q) use($cat){
+                $q->where('event_categories.category_1',$cat)->orWhere('event_categories.category_2',$cat)->orWhere('event_categories.category_3',$cat)->orWhere('event_categories.category_4',$cat)->orWhere('event_categories.category_5',$cat)->orWhere('event_categories.category_6',$cat);
+            });
+
         }
 
         if (isset($request->daily) && isset($request->weekly) && isset($request->annual) || isset($request->type_all)) {

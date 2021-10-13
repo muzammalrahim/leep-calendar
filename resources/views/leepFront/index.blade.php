@@ -1,5 +1,4 @@
 {{-- Extends layout --}}
-
 @section('content')
 
 @extends('layout.layoutLeep') {{-- layout/layoutLeep --}}
