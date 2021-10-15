@@ -342,10 +342,14 @@ class EventsController extends Controller
 
     public function usersEvents(Request $request){
         $user = Auth::user();
-        $events = events::where('user_id',$user->id)->where('status', '!=', 'Deleted')->get();
+        $events = events::where('user_id',$user->id)
+        // ->where('status', 'Deleted')
+        ->get();
+        // dd($events);
+
         $data['user'] = $user;
         $data['events'] = $events;
-        return view('user.events.index',$data);
+        return view('user.events.index',$data); // user/events/index
     }
 
     // ========================================== Edit event of user ==========================================
