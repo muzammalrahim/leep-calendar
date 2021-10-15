@@ -128,6 +128,9 @@ class HomeController extends Controller
     public function userSearchEvents(Request $request){
         
         $search='';
+
+        // dd($request->all());
+
         $events=events::select('events.*');
         $events->where('status','Approved');
         if (isset($request->event_Name)) {
@@ -316,7 +319,7 @@ class HomeController extends Controller
             // 'endDate'      => 'required|date|after_or_equal:startDate',
 
             'name' =>'required', 
-            'physical_address' =>'required',
+            'event_address1' =>'required',
             'description' =>'required',
             'category' =>'required',
             'event_champion' =>'required',
@@ -325,13 +328,13 @@ class HomeController extends Controller
             'contact_person' =>'required',
             'ph_num' =>'required',
             'email' =>'required',
-            'email' =>'required',
             'start_date'    => 'required|date',
             'end_date'      => 'required|date|after_or_equal:start_date',
 
 
         ]);
-        // dd($request->all());
+        $data = $request->all();
+
         $memberRegDate=Auth::user()->membership_date;
         $e=events::where('user_id',Auth::id())->where('created_at','>=',$memberRegDate)->count();           
         if(Auth::user()->membership->limitation<=$e){
@@ -448,7 +451,7 @@ class HomeController extends Controller
         $events->name=$request->name;
         $events->physical_address=$request->physical_address;
         $events->states=$country[0];//$request->country;
-        $events->country_code= str_replace(' ', '', $country[1]);//$request->country;
+        $events->country_code= str_replace(' ', '', $country[0]);//$request->country;
         $events->description=$request->description;
         $events->url=$request->url;
         $events->type=$request->type;
@@ -465,17 +468,12 @@ class HomeController extends Controller
         // dd('sdjkfjdsf');
 
         $events->event_champion=$request->event_champion;
-        // $Champ_country=explode(',', $request->country);
-        // $events->champ_country=$Champ_country[0];//$request->champ_country; // issue
         $events->champ_address1=$request->champ_address1;
         $events->zip=$request->zip;
         $events->contact_link=$request->contact_link;
         $events->ph_num=$request->ph_num;
         $events->email_form=$request->email;
         $events->contact_link=$request->contactUrl;
-        // $events->eventAttachments->socail_link1=$request->facebook;
-        // $events->eventAttachments->socail_link2=$request->twitter;
-        // $events->eventAttachments->socail_link3=$request->instagram;
         $events->user_id=Auth::id();
         $events->save();
 
@@ -491,12 +489,13 @@ class HomeController extends Controller
         $eventCategory->save();
 
         $events->save();
-        $eventAttachment = new EventAttachment;
-        $eventAttachment->event_id = $events->id;
-        $eventAttachment->socail_link1=$request->facebook;
-        $eventAttachment->socail_link2=$request->twitter;
-        $eventAttachment->socail_link3=$request->instagram;
-        $eventAttachment->save();
+        $event_attachments = new EventAttachment;
+        // $event_categories = new EventCategory;
+        
+        // $event_categories->storeEventCategories($events->id, $data);
+
+        $event_attachments->storeEventAttachments($events->id, $data);
+
 
         // $events->=$request->;
         // $events->=$request->;

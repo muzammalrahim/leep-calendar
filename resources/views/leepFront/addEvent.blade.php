@@ -60,11 +60,11 @@
                               placeholder="Event Title/Name">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control" name="physical_address" id="elocation" placeholder="Event Address">
+                            <input type="text" class="form-control" name="event_address1" id="elocation" placeholder="Event Address">
                           </div>
 
                           <div class="form-group">
-                            <select class="form-select form-control" aria-label="Default select example" name="country">
+                            <select class="form-select form-control" aria-label="Default select example" name="state">
                               {{-- <option class="active" selected="">Country</option> --}}
             									@foreach(App\Models\country::get(['name','code']) as $country)
             									<option value="{{$country->name}},{{$country->code}}">{{$country->name}}</option>
@@ -217,7 +217,7 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="facebook" 
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="socail_link1" 
                                       placeholder="URL">
                                   </div>
                                 </div>
@@ -232,7 +232,7 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="instagram" 
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="socail_link2" 
                                       placeholder="URL">
                                   </div>
                                 </div>
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="col-md-8">
                                   <div class="form-group">
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="twitter" 
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="socail_link3" 
                                       placeholder="URL">
                                   </div>
                                 </div>

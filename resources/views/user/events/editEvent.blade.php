@@ -62,7 +62,7 @@
                               placeholder="Event Title/Name">
                           </div>
                           <div class="form-group">
-                            <input type="text" class="form-control" name="physical_address" id="elocation" value="{{$event->physical_address}}"
+                            <input type="text" class="form-control" name="event_address1" id="elocation" value="{{$event->event_address1}}"
                               placeholder="Event Location">
                           </div>
 
