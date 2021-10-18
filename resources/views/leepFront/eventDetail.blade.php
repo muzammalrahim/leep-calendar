@@ -14,12 +14,12 @@
     
     <div class="eventDetailDiv m-4">
         <div class="row">
-            <div class="col-md-2"> 
+            <div class="col-md-2 pt-4"> 
 
                 @include('layout.leftSidebar')
 
             </div>
-            <div class="col-md-8"> 
+                <div class="col-md-8 pt-4 ml-5"> 
                 <div class="event-main blockCopy">
                     <div class="eventsDetail">
                         <div class="event-detail-container">
@@ -28,22 +28,23 @@
                               
 
                             <div class="borderBottom">
-                                <div class="row">
+                                <div class="container">
+                                     <div class="row">
                                     <div class="col-md-10 event-detail-left">
                                         @if(isset($event->name))
-                                            <h1 class="font-weight-bold text-dark">{{$event->alt_text}}</h1>
+                                            <h1 class="font-weight-bold text-dark top-heading">{{$event->alt_text}}</h1>
                                         @endif
                                     </div>
 
                                     <div class="col-md-12">
-                                        <span class="float-right font-color font18 font-weight-bold"> This Date is Estimated </span> 
+                                        <span class="float-right font-color font18 font-weight-bold estimate-date"> This Date is Estimated </span> 
                                     </div>
+                                </div>
                                 </div>
                             </div>
                             <div class="eventDetailAndRegions m-4 ">
                                 <div class="borderBottom">
-                                    
-                                    <div class="row">
+                                        <div class="row">
                                         <div class="col-md-6">
                                             <div class="country mb-3"> 
                                                 <span class="font-weight-bold"> Country/Region: </span> {{ $event->country1 }} 
@@ -101,7 +102,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="source mb-3">
-                                               <span class="font-weight-bold"> Source/Reference URL: </span> {{ $event->url }}
+                                               <span class="font-weight-bold"> Source/Reference URL: </span> <!-- {{ $event->url }} -->
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +144,7 @@
                                         <div class="col-md-12">
                                             <div class="events-description">
                                                 <h4 class="font-weight-bold">Description</h4>
-                                                <p>@isset($event->description){{$event->description}}@endif</p>
+                                                <p class="description-text">@isset($event->description){{$event->description}}@endif</p>
                                             </div>
                                         </div>
                                     </div>
@@ -227,7 +228,7 @@
                         <!-- champion-contact-information -->
                         <div class="champ-contact-info m-4">
 
-                            <h4 class="font-weight-bold">EVENT CHAMPION CONTACT INFORMATION</h4>
+                            <h4 class="font-weight-bold event-champ">EVENT CHAMPION CONTACT INFORMATION</h4>
 
                             @isset((Auth::user()->membership->type))
                                     
@@ -262,26 +263,48 @@
                             @endif
                         </div>
                         <!-- Video-box-->
-                        <div class="video-wrapper">
-                            <div class="container">
-                                <p>TOPIC & SUPPORTING VIDEOS</p>
-                                <div class="videos">
-                                    <div class="one">
-                                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/photo-1.svg')}}" alt="">
-                                    </div>
-                                    <div class="two"> <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Image 1.svg')}}" alt="">
-                                    </div>
-                                    <div class="one"> <img
-                                            src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/photo-1511578314322-379afb476865.svg')}}"
-                                            alt=""></div>
-                                </div>
-                            </div>
+                        <div class="video-wrapper m-4">
+                            <div class="borderBottom"> </div>
+                             <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING VIDEOS</h4>
+                            
+                               <div class="row row d-flex justify-content-around ">
+                                   <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                       VIDEO 1
+                                   </div>
+                                   <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                        VIDEO 2
+                                   </div>
+                                   <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                     VIDEO 3
+                                   </div>
+
+                               </div>
+                                
+                         
                         </div>
 
 
                         <!-- supporting-box -->
-                        <div class="supporting-wrapper">
-                            <p>TOPIC & SUPPORTING DOCUMENTS</p>
+                        <div class="supporting-wrapper m-4">
+                           <div class="borderBottom"> </div> 
+                           <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING DOCUMENTS</h4>
+                            <div class="row d-flex justify-content-around">
+                            <div class="col-md-3 text-center">
+                            <span class="imagenum ">Doucement 1</span>
+                            <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 1</div>
+                            <p class="column-text">Text from column AO</p>
+                           </div>
+                           <div class="col-md-3 text-center">
+                               <span class="imagenum">Document 2</span>
+                               <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 2</div>
+                            <p class="column-text">Text from column AP</p>
+                           </div>
+                           <div class="col-md-3 text-center">
+                                 <span class="imagenum">Document 3</span>
+                                <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 3</div>
+                            <p class="column-text">Text from column AQ</p>
+                           </div>
+                           </div>
                             <div class="download-header">
                               @isset($event->download1)
                                 <div class="download-box">
@@ -327,6 +350,46 @@
                               @endif
                             </div>
                         </div>
+                            <!-- Supporting Images  -->
+                            <div class="supportingimg-wrapper m-4">
+                           <div class="borderBottom"> </div> 
+                           <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING IMAGES</h4> 
+                           <div class="row d-flex justify-content-around">
+                           <div class="col-md-3 text-center">
+                            <span class="imagenum ">Image 1</span>
+                            <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
+                            <p class="column-text">Text from column AU</p>
+                           </div>
+                           <div class="col-md-3 text-center">
+                               <span class="imagenum">Image 2</span>
+                               <div class="supportimg bg-dark text-warning text- my-2">IMAGE 2</div>
+                            <p class="column-text">Text from column AV</p>
+                           </div>
+                           <div class="col-md-3  supportingimg text-center">
+                                 <span class="imagenum">Image 3</span>
+                                 <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
+                            <p class="column-text">Text from column AW</p>
+                           </div>
+                           </div>
+                          </div>
+                          <!-- ============Event Update============ -->
+                           
+                           <div class="borderBottom"> </div>
+                           <div class="eventupdate">
+                                 <div class="row row m-5 d-flex justify-content-around">
+                               <div class="col-md-4 text-center">
+                                   <p class="column-text">Event Last Updated:</p>
+                                   <span>January 15, 2021</span>
+                               </div>
+                               <div class="col-md-4 text-center">
+                                   <p class="column-text">REPORT CHANGES TO THIS EVENT</p>
+                               </div>
+                               <div class="col-md-4 text-center">
+                                   <p class="column-text">Event Maintenance:</p>
+                                   <span>Column BD Text</span>
+                               </div>
+                           </div>
+                           </div> 
                     </div>
 
                 </div>
@@ -335,7 +398,7 @@
 
                 <div class="borderBottom">
 
-                    <h4 class="font-weight-bold">Comments</h4>
+                    <h4 class="font-weight-bold ml-4">COMMENTS</h4>
 
                 </div>
 
@@ -392,19 +455,15 @@
                         </div>
                     </div>
 
+           </div>
 
 
 
-            </div> 
 
 
             
 
-            <div class="col-md-2">
-
-                @include('layout.rightSidebar')  
-
-            </div>
+           
 
         </div>
     </div>
@@ -427,6 +486,11 @@
 .cursor:hover { color: blue }
 .cursor { cursor: pointer }
 .textarea { resize: none}
+.top-heading{padding-top: 75px;font-family: 'Helvetica Nueue';}
+.estimate-date{font-family: 'Helvetica Nueue';}
+.description-text {font-family: 'Helvetica Nueue';}
+.column-text {font-family: 'Helvetica Nueue';}
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -132,7 +132,7 @@ class HomeController extends Controller
         // dd($request->all());
 
         $events=events::select('events.*');
-        $events->where('status','Approved');
+        // $events->where('status','Approved');
         if (isset($request->event_Name)) {
             $search=$request->event_Name;
             $events->where('name','like','%'.$request->event_Name .'%');
@@ -237,7 +237,7 @@ class HomeController extends Controller
     public function eventDetail($id){
         $eventCategory=EventCategory::find($id);
         if(isset($eventCategory->event->id)){
-            if($eventCategory->event->status=='Approved' || Auth::id()==$event->user_id){
+            if($eventCategory->event->status=='' || Auth::id()==$eventCategory->event->user_id){
 
             }else{
                 return redirect()->back()->with(['error'=>'Unknown Event']);                
