@@ -1,3 +1,14 @@
+.center-content {
+    margin-left: 120px;
+}
+.supportingvideo{
+    height: 150px;
+}
+.supportingdoc {
+    height: 170px;
+    margin: 60px 75px;
+}
+
 /* login-hover-box-start */
 
 .login-hover{
@@ -613,7 +624,7 @@ padding: 0px 40px;
 
 padding-top: 30px;
 
-width: 310px;
+width: 250px;
 
 }
 
@@ -842,6 +853,7 @@ height: 40px;
     
 
 }
+
 
 /* media-queries-for laptop-screen */
 
@@ -1473,5 +1485,4 @@ width: 45%;
     font-size: 10px;
 
 }
-
 }
