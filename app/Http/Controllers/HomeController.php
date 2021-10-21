@@ -1028,4 +1028,14 @@ class HomeController extends Controller
         $page_title = "Blogs";
             return view('leepFront.blogs',compact('blogs','events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
     }
+
+
+    // Get event champion detail
+    public function getEventChampionDetail($id)
+    {
+        $data = [];
+        $data['champ_details'] = events::where('id','=',$id)->first();
+
+        return view('leepFront.championInformation', $data);
+    }
 }
