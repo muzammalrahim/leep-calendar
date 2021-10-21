@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SiteFunctionsController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -90,7 +91,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 });
 
 Route::get('logout', [LoginController::class,'logout']);
-Route::get('Blogs', 'HomeController@userBlogs');
+Route::get('Blogs', ' eController@userBlogs');
 Route::get('Blog/{id}', 'HomeController@userViewBlogDetail');
 
 
@@ -191,3 +192,5 @@ Route::get('/legal-desclaimer', 'BlogsController@legalDisclaimer')->name('legalD
 // Check Dead Links
 Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'])->name('checkDeadLink');
 
+// Event Champion details
+Route::get('/event-champion/{id}', 'HomeController@getEventChampionDetail')->name('champion.detail');

@@ -78,7 +78,7 @@
 
 <style type="text/css">
     .icons img {
-        height: 65px;
+        height: 60px;
     }
     .twitter-post{
         text-transform: uppercase;

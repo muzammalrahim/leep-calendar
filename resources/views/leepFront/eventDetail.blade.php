@@ -168,7 +168,12 @@
                                                     <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
                                                         alt="">
                                                 </div>
-                                                <div class="col-md-8 ser-name"><b>{{ $event->event_champion }}</b>
+                                                <div class="col-md-8 ser-name">
+                                                    <b>
+                                                        <a href="{{ route('champion.detail',['id' => $event->id]) }}" class="event-champion text-dark">
+                                                        {{ $event->event_champion }}
+                                                        </a>
+                                                    </b>
                                                     {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
                                                 </div>
                                                 <!-- hover-box-start-->
@@ -490,7 +495,6 @@
 .estimate-date{font-family: 'Helvetica Nueue';}
 .description-text {font-family: 'Helvetica Nueue';}
 .column-text {font-family: 'Helvetica Nueue';}
-
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
