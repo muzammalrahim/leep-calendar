@@ -86,7 +86,10 @@ The appearance of an event in LEEP Calendar does not imply endorsement of the ev
 	</div>
 
 <style type="text/css">
-	.copyrighttext{font-size: 15px;}
+	.copyrighttext{
+		font-size: 15px;
+		text-align: justify;
+	}
 	.jubillelc{font-size: 15px;}
 	
 </style>
