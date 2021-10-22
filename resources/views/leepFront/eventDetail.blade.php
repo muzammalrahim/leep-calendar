@@ -156,45 +156,53 @@
                         <!-- champion-box -->
 
                         <div class="m-4 event-card1 borderBottom pb-2">
+                            
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="event-champion">
-                                        <h4 class="font-weight-bold">Event Champion</h4>
-                                    </div>
-                                    <div class="focal-contact1 mt-4">
-                                        <div class="row m-0">
-                                            <div class="focal-person">
-                                                <div class="col-md-4 ">
-                                                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                                        alt="">
-                                                </div>
-                                                <div class="col-md-8 ser-name">
-                                                    <b>
-                                                        <a href="{{ route('champion.detail',['id' => $event->id]) }}" class="event-champion text-dark">
-                                                        {{ $event->event_champion }}
-                                                        </a>
-                                                    </b>
-                                                    {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
-                                                </div>
-                                                <!-- hover-box-start-->
-                                               {{--  <div class="hover-card">
-                                                    <div class="col-md-12 focal-hover">
-                                                        <div><img
-                                                                src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                                                alt=""></div>
-                                                        <div class="user-name"><b> {{ $event->event_champion }} </b>
+
+                                <a href="{{ route('champion.detail',['id' => $event->id]) }}" target="_blank" class="eventChampionLink text-dark">
+                                    <div class="col-md-12">
+                                        <div class="event-champion">
+                                            <h4 class="font-weight-bold">Event Champion</h4>
+                                        </div>
+                                        <div class="focal-contact1 mt-4">
+                                            <div class="row m-0">
+                                                
+                                                    <div class="focal-person">
+                                                        <div class="col-md-4 ">
+                                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
+                                                                alt="">
                                                         </div>
+                                                        <div class="col-md-8 ser-name">
+                                                            <b>
+                                                                
+                                                                {{ $event->event_champion }}
+
+                                                            </b>
+                                                            {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
+                                                        </div>
+                                                        <!-- hover-box-start-->
+                                                       {{--  <div class="hover-card">
+                                                            <div class="col-md-12 focal-hover">
+                                                                <div><img
+                                                                        src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
+                                                                        alt=""></div>
+                                                                <div class="user-name"><b> {{ $event->event_champion }} </b>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <hr>
+                                                            </div>                                                    
+                                                        </div> --}}
+                                                        <!-- hover-box-end-->
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <hr>
-                                                    </div>                                                    
-                                                </div> --}}
-                                                <!-- hover-box-end-->
+                                 
+                                                
                                             </div>
-                                            
                                         </div>
                                     </div>
-                                </div>
+                                </a>
+
+
                                 {{-- To be removed --}}
                                 @if($event->socail_link1!='' || $event->socail_link1!='' || $event->socail_link1!='')
                                   <div class="col-md-4"></div>
@@ -495,6 +503,7 @@
 .estimate-date{font-family: 'Helvetica Nueue';}
 .description-text {font-family: 'Helvetica Nueue';}
 .column-text {font-family: 'Helvetica Nueue';}
+.eventChampionLink:hover{ text-decoration: underline;}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
