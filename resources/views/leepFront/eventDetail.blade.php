@@ -1,6 +1,7 @@
 {{-- Extends layout --}}
-@section('content')
 @extends('layout.layoutLeep')
+@section('content')
+
 
 {{-- Content --}}
 

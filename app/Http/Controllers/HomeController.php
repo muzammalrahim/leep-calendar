@@ -1039,4 +1039,9 @@ class HomeController extends Controller
 
         return view('leepFront.championInformation', $data);
     }
+     // Get Advance search
+    public function gotoAdvanceSearch()
+    {
+        return view('leepFront.advanceSearch');
+    }
 }

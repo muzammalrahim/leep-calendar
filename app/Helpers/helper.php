@@ -24,11 +24,39 @@ function getMonths(){
     return $months;
 }
 
+
 function getMonthName($month){
     $months = getMonths();
     return (isset($months[$month]))?($months[$month]):$month;
 } 
 
+
+/* Start: Zeshan Code */
+    // Get full month names
+    function getMonthsFullName(){
+        $months = array(
+            '01' => 'JANUARY',
+            '02' => 'FEBRUARY',
+            '03' => 'MARCH',
+            '04' => 'APRIL',
+            '05' => 'MAY',
+            '06' => 'JUNE',
+            '07' => 'JULY',
+            '08' => 'AUGUST',
+            '09' => 'SEPTEMBER',
+            '10' => 'OCTOBER',
+            '11' => 'NOVEMBER',
+            '12' => 'DECEMBER',
+        );
+        return $months;
+    }
+
+
+    function getMonthFullName($month){
+        $months = getMonthsFullName();
+        return (isset($months[$month]))?($months[$month]):$month;
+    } 
+/* End: Zeshan Code */
 
 function isEventChamp(){
     $user = Auth::user();
