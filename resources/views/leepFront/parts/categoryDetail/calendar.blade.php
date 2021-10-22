@@ -54,7 +54,7 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($d_e->name,17)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($d_e->description,60)}}</p>
+                      <!--   <p>{{\Illuminate\Support\Str::limit($d_e->description,60)}}</p> -->
                       </div>
                     </div>
                   </div>
@@ -80,7 +80,7 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($m_e->name,17)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> 
+                        <!-- <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p>  -->
                       </div>
                     </div>
                   </div>
@@ -106,7 +106,7 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($m_e->name,17)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p>
+                        <!-- <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> -->
                       </div>
                     </div>
                   </div>
@@ -132,7 +132,7 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$w_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($w_e->name,17)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($w_e->description,60)}}</p>
+                        <!-- <p>{{\Illuminate\Support\Str::limit($w_e->description,60)}}</p> -->
                       </div>
                     </div>
                   </div>

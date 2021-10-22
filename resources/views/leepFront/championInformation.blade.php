@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="championDetail">
-	<div class="row">
+	<div class="row m-0">
 		<div class="col-md-2"></div>
-		<div class="col-md-8 ml-5">
+		<div class="col-md-8">
 			<h1 class="font-weight-bold text-center">Champion Information</h1>
 		
 			<div class="champ-info">
@@ -65,7 +65,7 @@
 				</div>
 				<div class="col-md-11  rounded py-2">
 						<h4 class="font-weight-bold">Contact-link: </h4>
-						<a href="" target="_blank" class="text-dark"><h4>{{ $champ_details->contact_link }}</h4></a>
+						<a href="" target="_blank" class="text-dark text-break"><h4>{{ $champ_details->contact_link }}</h4></a>
 				</div>
 			   </div>
 			   

@@ -717,24 +717,27 @@
 
 	            	<div class="col-md-6 col-lg-6 col-sm-6 col-12">
 	            		<div class="professional-heading">
-					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar.</h6>
+					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 					    </div>
 	            	</div>
-
-	            	<div class="col-md-2 col-lg-2 col-sm-1 col-3">
-	            		<p class="float-right"> <small class="position-relative"> Search Filters </small> </p>
+	            	<div class="col-md-6 col-lg-6 col-sm-6 col-12 text-center">
+	            		<a href="{{route('advance.search')}}" class="btn btn btn-secondary rounded-0 ">Advance Search</a>
 	            	</div>
+        
+                   <!-- <div class="col-md-2 col-lg-2 col-sm-1 col-3 ">
+	            		 <p class="float-right "> <small class="position-relative"> Search Filters </small> </p> -->
+	             
 
-	                <div class="col-md-4 col-lg-4 col-sm-5 col-9 drop-left drop-left">
+	                <!-- <div class="col-md-4 col-lg-4 col-sm-5 col-9 drop-left drop-left ">
 
 	                    <div class="my-btn btn-group col-md-2 col-lg-2 col-4 drop">
 
 	                        <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	                            Category
-	                        </span>
+	                        </span> -->
 
 	                            <!-- Category -->
-	                        <div class="search-category">
+	                        <!-- <div class="search-category">
 	                        	<div class="category-search sticky-top">
 		                            <div class="input-group md-form form-sm form-2">
 		                                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" 
@@ -757,11 +760,11 @@
 	                                </div>
 	                            </div>
 
-	                        </div>
+	                        </div> -->
 
 	                            <!-- End Category -->
 
-	                	</div>
+	                	<!-- </div>
 
 		                <div class="xyz btn-group col-md-2 col-lg-2 col-4 drop">
 
@@ -776,10 +779,10 @@
 					                </div>
 					                <div class="checkbox col-md-6">
 					                	<label><input type="checkbox" name="weekly" value="Weekly"><span>Weekly</span></label>
-					                </div>
+					                </div> -->
 					                <!-- </form>
 					                	<form class="row"> -->
-					                <div class="checkbox col-md-6">
+					               <!--  <div class="checkbox col-md-6">
 					                	<label><input type="checkbox" name="daily" value="Daily"><span>Daily</span> </label>
 					                </div>
 					                <div class="checkbox col-md-6">
@@ -811,16 +814,16 @@
 
 	                            <div class="selections">
 
-		                            <div class="col-12 mt-3">
+		                            <div class="col-12 mt-3"> -->
 		                                <!-- <select class="form-select" aria-label="Default select example"> -->
-		                                <select id="selectOne" size="10" onchange='changeOne()'  name="state">
+		                               <!--  <select id="selectOne" size="10" onchange='changeOne()'  name="state">
 							              	<option value="" selected="">Select</option>
 							              	@foreach(App\Models\events::distinct()->get(['name']) as $us)
 								              	<option value="{{$us->name}}">{{$us->name}}</option>
 							              	@endforeach
-		                                </select>
+		                                </select> -->
 		                                <!-- </select> -->
-		                            </div>
+		                         <!--    </div>
 
 	                            </div>
 
@@ -842,7 +845,8 @@
 
 	                    </div> --}}
 
-	                </div>
+	                </div> -->
+                   
 
 	                <div class="col-md-4 drop-right">
 	                    {{-- <i class="fa fa-filter"> Advanced Filters</i> --}}
@@ -1168,7 +1172,7 @@
 	.selections select{
 	    margin-top: 8px;
 	    padding: 0px !important;
-	    width: 230px !important;
+	    width: 430px !important;
 	    background-color: #000 !important;
 	    color: #ffffff !important;
 	    border: none !important;
