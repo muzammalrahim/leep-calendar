@@ -56,7 +56,26 @@
     		{{-- @endauth --}}
 
 
-
+           <li class="nav-item">
+    			<div class="dropdown show">
+                    <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow:none;">About us </a>
+                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+               </div>
+    		</li>
+    		<li class="nav-item">
+    			<div class="dropdown show">
+                    <a class="btn dropdown-toggle font-weight-bold box-shadow-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="box-shadow:none;">FAQ</a>
+                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+               </div>
+    		</li>
 
 
     	</ul>
@@ -65,8 +84,8 @@
 
         <form class="form-inline my-2 my-lg-0 right-login">
         	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary" type="submit">Login</a>
-        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success" type="submit">Sign up</a>
+        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0"  type="submit">Login</a>
+        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0" type="submit" style="background-color:#003300 !important;">Register</a>
         </form>
 
         @else
