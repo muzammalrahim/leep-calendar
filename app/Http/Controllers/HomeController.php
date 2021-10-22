@@ -255,7 +255,8 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category')); // leepFront/eventDetail
+            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category'));
+            // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
     }
