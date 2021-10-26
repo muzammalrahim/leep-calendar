@@ -1727,7 +1727,7 @@ ul {
 
     .calender-body {
 
-        height: 80px;
+        /*height: 80px;*/
 
     }
 
@@ -1900,7 +1900,7 @@ ul {
 
     .calender {
 
-        width: 350px;
+        /*width: 350px;*/
 
     }
 
@@ -2547,4 +2547,10 @@ a.colorSkin:hover {
     color: #ffffff;
     padding: 8em;
     text-align: center;
+}
+
+.calendarScrolls{
+    height: 139px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
