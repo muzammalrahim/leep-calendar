@@ -410,7 +410,7 @@
 
                 {{-- Comments on event --}}
 
-                <div class="borderBottom">
+                {{-- <div class="borderBottom">
 
                     <h4 class="font-weight-bold ml-4">COMMENTS</h4>
 
@@ -467,7 +467,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
            </div>
 
