@@ -247,11 +247,19 @@ class HomeController extends Controller
             $m=date('m');   
             $events=events::all();   
             $date=date("Y-m-d");
-            $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
+            
+            // dump($date);
+            
+            $d_events=events::where('start_date',$date)->where('type','Daily')->where('status','Approved')->get();
+            
+            // dd($d_events);
+
             $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
             $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
             $wSD=date("Y-m-d", strtotime( 'monday this week' ));
             $wED=date("Y-m-d", strtotime( 'sunday this week' ));
+
+            // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
@@ -1042,6 +1050,6 @@ class HomeController extends Controller
      // Get Advance search
     public function gotoAdvanceSearch()
     {
-        return view('leepFront.advanceSearch');
+        return view('leepFront.advanceSearch'); // leepFront/advanceSearch
     }
 }
