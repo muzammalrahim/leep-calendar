@@ -37,18 +37,18 @@
 
           <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
             
-            <div class="calender-scroll">
+            <div class="calendarScrolls">
               
               {{-- @dump('$d_events'); --}}
               @foreach($d_events as $d_e)
                 @isset($d_e->id)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
-                    <div class="row event_detail ">
+                    <div class="row event_detail">
                       <!--<div class="col-md-2 date-box">-->
                       <!--  <span>{{$d_e->d_start}}</span>-->
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$d_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div style=" padding-left:30px;" class="col-md-12 date-data m-0">
+                      <div class="col-md-12 date-data m-0 pl-4">
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($d_e->name,17)}}
                         </h6>
