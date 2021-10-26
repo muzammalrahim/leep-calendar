@@ -490,8 +490,11 @@ hr {
     font-weight: bold;
     /*border-radius: 10px;*/
     /*background-color: white;*/
+    font-family: 'impact', sans-serif !important;
 }
-
+.calendar-foot{
+    font-family: 'impact', sans-serif !important; 
+}
 
 .calender-scroll {
 
@@ -784,7 +787,7 @@ ul {
 
     border-radius: 12px;
 
-    width: 324px;
+    /*width: 324px;*/
 
     max-height: 445px;
 
@@ -973,7 +976,8 @@ ul {
 #tabs .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
 
-    color: #000 !important;
+    /*color: #000 !important;*/
+    color: #fff !important;
 
     background-color: red;
 
@@ -1026,7 +1030,9 @@ ul {
     padding: 0 !important;
 
 }
-
+.calender-tab{
+    font-family: 'impact', sans-serif !important; 
+}
 .main-featured-events {
 
     padding: 20px 10px 0px 14px
@@ -1087,7 +1093,7 @@ ul {
 
 .advertising-pic img {
 
-    width: 320px;
+    width: -webkit-fill-available;
 
 }
 
@@ -2273,11 +2279,11 @@ ul {
 
     }
 
-    .media-object-wrappper {
+/*    .media-object-wrappper {
 
         width: 350px;
 
-    }
+    }*/
 
     .media-object-wrappper .media-objects .col-md-8 {
 
@@ -2293,7 +2299,7 @@ ul {
 
     .advertising-pic img {
 
-        width: 342px;
+        /*width: 342px;*/
 
     }
 
@@ -2470,6 +2476,12 @@ ul {
 .bg-site {
     background-color: #7a003b;
 }
+.bg-week{
+    background-color: #5c012d;
+}
+.bg-month{
+    background-color: #500027;
+}
 
 .bg-yellow {
     background-color: #c8b08b;
@@ -2503,9 +2515,7 @@ a.nav-item {
     text-decoration: underline;
 }
 
-.calender {
-    width: 350px !important;
-}
+
 
 .borderline {
     border-top: 2px solid #60012c;

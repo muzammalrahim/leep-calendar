@@ -20,7 +20,7 @@
 
           <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
 
-            <div class="calender m-auto">
+            <div class="calender m-auto ">
 
               <div class="calender-head mt-3">
 

@@ -1,5 +1,5 @@
 
-            <div class="">
+            {{-- <div class=""> --}}
 
               <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
 
@@ -15,10 +15,6 @@
                     <div class="carousel-caption  d-md-block">
 
                       <div class="warmup-after mt-5">
-
-
-
-
 
                       </div>
 
@@ -86,4 +82,4 @@
 
               </div>
 
-            </div>
+            {{-- </div> --}}

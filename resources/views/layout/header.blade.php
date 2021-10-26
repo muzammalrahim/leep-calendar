@@ -58,7 +58,7 @@
 
            <li class="nav-item">
     			<div class="dropdown show">
-                    <a class="btn dropdown-toggle font-weight-bold" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow:none;">About us </a>
+                    <a class="btn dropdown-toggle font-weight-bold nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow:none;">About us </a>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="#">Action</a>
                       <a class="dropdown-item" href="#">Another action</a>
@@ -68,7 +68,7 @@
     		</li>
     		<li class="nav-item">
     			<div class="dropdown show">
-                    <a class="btn dropdown-toggle font-weight-bold box-shadow-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="box-shadow:none;">FAQ</a>
+                    <a class="btn dropdown-toggle font-weight-bold box-shadow-0 nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="box-shadow:none;">FAQ</a>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="#">Action</a>
                       <a class="dropdown-item" href="#">Another action</a>
