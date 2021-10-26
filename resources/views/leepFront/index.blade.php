@@ -17,7 +17,7 @@
 
           <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
 
-            <div class="calender m-auto">
+            <div class="calender m-auto px-sm-0 px-md-0 px-lg-5">
 
               <div class="calender-head mt-3">
 
@@ -60,11 +60,11 @@
 
     <div class="feature-events-wrapper">
 
-      <div class="container">
+      {{-- <div class="container"> --}}
 
-        <div class="row">
+        <div class="row p-3 m-0">
 
-          <div class="col-md-9">
+          <div class="col-md-8 col-lg-8 col-sm-7 col-12">
 
             <div class="today-events">
 
@@ -200,7 +200,7 @@
 
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4 col-lg-4 col-sm-5 col-12">
 
             <div class="today-events">
 
@@ -320,7 +320,7 @@
 
         </div>
 
-      </div>
+      {{-- </div> --}}
 
     </div>
 
