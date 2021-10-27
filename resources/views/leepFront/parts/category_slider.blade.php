@@ -6,7 +6,7 @@
 
       <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
 
-        <div class="calender m-auto">
+        <div class="calender m-auto px-sm-0 px-md-0 px-lg-5">
 
           <div class="calender-head mt-3">
 
