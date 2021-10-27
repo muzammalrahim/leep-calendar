@@ -720,8 +720,10 @@
 					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 					    </div>
 	            	</div>
+
 	            	<div class="col-md-6 col-lg-5 col-sm-6 col-12 text-center">
 	            		<a href="{{route('advance.search')}}" class="text-dark fs-6">Advanced Search</a>
+
 	            	</div>
         
                    <!-- <div class="col-md-2 col-lg-2 col-sm-1 col-3 ">

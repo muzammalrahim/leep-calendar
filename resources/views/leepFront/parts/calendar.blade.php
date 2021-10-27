@@ -39,7 +39,8 @@
             
             <div class="calendarScrolls">
               
-              {{-- @dump('$d_events'); --}}
+              {{-- ========================================== Date Events ========================================== --}}
+
               @foreach($full_events as $d_e)
                 @isset($d_e->id)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
@@ -48,11 +49,10 @@
                       <!--  <span>{{$d_e->d_start}}</span>-->
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$d_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div class="col-md-12 date-data m-0 pl-4">
+                      <div class="col-md-12 m-0 pl-4 pt-2">
 
                         @php
-                          $removIngday =  str_replace($d, '', $d_e->name);
-                          $eventName =  str_replace($monthName, '', $removIngday);
+                          $eventName = substr($d_e->name, 0, strpos($d_e->name, ":"));
                         @endphp
 
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
@@ -71,8 +71,11 @@
 
           <div class="tab-pane fade" id="nav-day" role="tabpanel" aria-labelledby="nav-day-tab">
             
-            <div class="calender-scroll">
+            <div class="calendarScrolls">
               {{-- @dump('here') --}}
+
+              {{-- ========================================== Daily Type Events ========================================== --}}
+
               
               {{-- @isset($daily_events->id) --}}
                 @foreach($daily_events as $m_e)
@@ -82,11 +85,18 @@
                       <!--  <span>{{$m_e->d_start}}</span>--> 
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$m_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div class="col-md-11 date-data" style='padding-left: 30px;'>
+                      <div class="col-md-12 m-0 pl-4 pt-2">
+
+                        @php
+                          $eventName = substr($m_e->name, 0, strpos($m_e->name, ":"));
+                        @endphp
+
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
-                          {{\Illuminate\Support\Str::limit($m_e->name,17)}}
+                          {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> </div> </div>
+                        {{-- <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p>  --}}
+                      </div> 
+                    </div>
                   </div>
                 @endforeach
                 {{-- @else  --}}
@@ -97,7 +107,10 @@
 
           <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
             
-            <div class="calender-scroll">
+            <div class="calendarScrolls">
+
+              {{-- ========================================== Weekly Type Events ========================================== --}}
+
               @isset($m_events[0]->id)
                 @foreach($m_events as $m_e)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
@@ -106,11 +119,15 @@
                       <!--  <span>{{$m_e->d_start}}</span>-->
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$m_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div class="col-md-11 date-data" style='padding-left: 30px;'>
+                      <div class="col-md-12 m-0 pl-4 pt-2">
+                        @php
+                          $eventName = substr($m_e->name, 0, strpos($m_e->name, ":"));
+                        @endphp
+
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
-                          {{\Illuminate\Support\Str::limit($m_e->name,17)}}
+                          {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
-                    <!--     <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> -->
+                          {{-- <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> --}}
                       </div>
                     </div>
                   </div>
@@ -123,26 +140,34 @@
 
           <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
             
-            <div class="calender-scroll">
-              @isset($week_events[0]->id)
-                @foreach($week_events as $w_e)
+            <div class="calendarScrolls">
+
+              {{-- ========================================== Monthly Type Events ========================================== --}}
+
+              {{-- @isset($week_events[0]->id) --}}
+                @foreach($monthly_events as $event)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row">
                       <!--<div class="col-md-2 date-box">-->
-                      <!--  <span>{{$w_e->d_start}}</span>-->
-                      <!--  <b> {{date("M", strtotime(date("Y")."-".$w_e->m_start."-01"))}}</b>-->
+                      <!--  <span>{{$event->d_start}}</span>-->
+                      <!--  <b> {{date("M", strtotime(date("Y")."-".$event->m_start."-01"))}}</b>-->
                       <!--</div>-->
-                      <div class="col-md-11 date-data" style='padding-left: 30px;'>
-                        <h6  onclick="window.location.replace('{{URL::asset('event/'.$w_e->id)}}','self'); " style=" cursor:pointer;">
-                          {{\Illuminate\Support\Str::limit($w_e->name,17)}}
+                      <div class="col-md-12 m-0 pl-4 pt-2">
+
+                        @php
+                          $eventName = substr($event->name, 0, strpos($event->name, ":"));
+                        @endphp
+
+                        <h6  onclick="window.location.replace('{{URL::asset('event/'.$event->id)}}','self'); " style=" cursor:pointer;">
+                          {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
-                        <!-- <p>{{\Illuminate\Support\Str::limit($w_e->description,60)}}</p> -->
+                        <!-- <p>{{\Illuminate\Support\Str::limit($event->description,60)}}</p> -->
                       </div>
                     </div>
                   </div>
                 @endforeach
-                @else
-                @endif
+                {{-- @else --}}
+                {{-- @endif --}}
             </div>
 
           </div>

@@ -71,6 +71,14 @@ class HomeController extends Controller
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
+
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+        // ->where('status','Approved')
+        ->orderBy('created_at','desc')->get();
+
+        // dd($monthly_events);
+
+
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
@@ -78,7 +86,7 @@ class HomeController extends Controller
         // dd($monthName);
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.index',compact('events','page_title', 'page_description','full_events','m_events','week_events','featureEvents','tweets','d','m','monthName','daily_events'));
+        return view('leepFront.index',compact('events','page_title', 'page_description','full_events','m_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events'));
         // return view('auth.verify');
         //  leepFront/index
     }
