@@ -54,20 +54,31 @@ class HomeController extends Controller
         $events=events::all();   
         $date=date("Y-m-d");
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-        $d_events=events::where('start_date','=',$date)->where('type','Daily')
+        $full_events=events::where('start_date','=',$date)
         // ->where('status','Approved')
         ->get();
+
+        $daily_events=events::where('start_date','=',$date)->where('type','Daily')
+        // ->where('status','Approved')
+        ->get();
+
+        // dd($daily_events);
+
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
+
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
+        $monthName = getMonthFullName($m);
+        // dd($monthName);
+
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.index',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','tweets','d','m'));
+        return view('leepFront.index',compact('events','page_title', 'page_description','full_events','m_events','week_events','featureEvents','tweets','d','m','monthName','daily_events'));
         // return view('auth.verify');
         //  leepFront/index
     }
@@ -259,11 +270,21 @@ class HomeController extends Controller
             $wSD=date("Y-m-d", strtotime( 'monday this week' ));
             $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
+            $full_events=events::where('start_date','=',$date)
+            // ->where('status','Approved')
+            ->get();
+
+            $daily_events=events::where('start_date','=',$date)->where('type','Daily')
+            // ->where('status','Approved')
+            ->get();
+
+            $monthName = getMonthFullName($m);
+
             // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category'));
+            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category','full_events','daily_events','monthName'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);

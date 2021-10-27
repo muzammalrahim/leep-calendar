@@ -11,7 +11,7 @@
         $event = $eventCategory->event
     @endphp
     
-    @include('leepFront.parts.category_slider')
+    @include('leepFront.parts.category_slider') {{-- leepFront/parts/category_slider --}}
     
     <div class="eventDetailDiv m-4">
         <div class="row">
