@@ -18,7 +18,7 @@
 
           <section id="tabs">
 
-              @include('leepFront.parts.categoryDetail.calendar') {{-- leepFront/parts/categoryDetail/calendar --}} 
+              @include('leepFront.parts.calendar') {{-- leepFront/parts/categoryDetail/calendar --}} 
             
           </section>
 

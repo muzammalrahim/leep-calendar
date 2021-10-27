@@ -40,7 +40,7 @@
             <div class="calendarScrolls">
               
               {{-- @dump('$d_events'); --}}
-              @foreach($d_events as $d_e)
+              @foreach($full_events as $d_e)
                 @isset($d_e->id)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row event_detail">
@@ -49,8 +49,14 @@
                       <!--  <b> {{date("M", strtotime(date("Y")."-".$d_e->m_start."-01"))}}</b>-->
                       <!--</div>-->
                       <div class="col-md-12 date-data m-0 pl-4">
+
+                        @php
+                          $removIngday =  str_replace($d, '', $d_e->name);
+                          $eventName =  str_replace($monthName, '', $removIngday);
+                        @endphp
+
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$d_e->id)}}','self'); " style=" cursor:pointer;">
-                          {{\Illuminate\Support\Str::limit($d_e->name,17)}}
+                          {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
                        <!--  <p>{{\Illuminate\Support\Str::limit($d_e->description,60)}}</p> -->
                       </div>
@@ -66,8 +72,10 @@
           <div class="tab-pane fade" id="nav-day" role="tabpanel" aria-labelledby="nav-day-tab">
             
             <div class="calender-scroll">
-              @isset($m_events[0]->id)
-                @foreach($m_events as $m_e)
+              {{-- @dump('here') --}}
+              
+              {{-- @isset($daily_events->id) --}}
+                @foreach($daily_events as $m_e)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row">
                       <!--<div class="col-md-2 date-box">-->
@@ -78,13 +86,11 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$m_e->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($m_e->name,17)}}
                         </h6>
-                        <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> 
-                      </div>
-                    </div>
+                        <p>{{\Illuminate\Support\Str::limit($m_e->description,60)}}</p> </div> </div>
                   </div>
                 @endforeach
-                @else 
-                @endif
+                {{-- @else  --}}
+                {{-- @endif --}}
             </div>
           
           </div>

@@ -8,18 +8,18 @@ use App\Models\EventAttachment;
 
 function getMonths(){
     $months = array(
-        '01' => 'Jan',
-        '02' => 'Feb',
-        '03' => 'Mar',
-        '04' => 'Apr',
-        '05' => 'May',
-        '06' => 'Jun',
-        '07' => 'Jul',
-        '08' => 'Aug',
-        '09' => 'Sep',
-        '10' => 'Oct',
-        '11' => 'Nov',
-        '12' => 'Dec',
+        '01' => 'JAN',
+        '02' => 'FEB',
+        '03' => 'MAR',
+        '04' => 'APR',
+        '05' => 'MAY',
+        '06' => 'JUN',
+        '07' => 'JUL',
+        '08' => 'AUG',
+        '09' => 'SEP',
+        '10' => 'OCT',
+        '11' => 'NOV',
+        '12' => 'DEC',
     );
     return $months;
 }
@@ -35,18 +35,18 @@ function getMonthName($month){
     // Get full month names
     function getMonthsFullName(){
         $months = array(
-            '01' => 'JANUARY',
-            '02' => 'FEBRUARY',
-            '03' => 'MARCH',
-            '04' => 'APRIL',
-            '05' => 'MAY',
-            '06' => 'JUNE',
-            '07' => 'JULY',
-            '08' => 'AUGUST',
-            '09' => 'SEPTEMBER',
-            '10' => 'OCTOBER',
-            '11' => 'NOVEMBER',
-            '12' => 'DECEMBER',
+            '01' => 'January',
+            '02' => 'February',
+            '03' => 'March',
+            '04' => 'April',
+            '05' => 'May',
+            '06' => 'June',
+            '07' => 'July',
+            '08' => 'August',
+            '09' => 'September',
+            '10' => 'October',
+            '11' => 'November',
+            '12' => 'December',
         );
         return $months;
     }
