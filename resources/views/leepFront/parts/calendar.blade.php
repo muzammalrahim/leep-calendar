@@ -17,13 +17,15 @@
             <a class="nav-item nav-link col-xs-2 col-2 font15 rounded-0 mr-3 calender-tab bg-site" id="nav-day-tab" data-toggle="tab" href="#nav-day" 
             role="tab" aria-controls="nav-day" aria-selected="false">Day</a>
 
-            <a class="nav-item nav-link col-xs-2 col-2 font15 rounded-0 mr-3 calender-tab bg-week" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" 
-
-            role="tab" aria-controls="nav-profile" aria-selected="false">Week</a>
-
             <a class="nav-item nav-link col-xs-2 col-2 font15 rounded-0 mr-3 calender-tab bg-month" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
 
-              role="tab" aria-controls="nav-contact" aria-selected="false">Month</a>
+              role="tab" aria-controls="nav-contact" aria-selected="false">Week</a>
+
+            <a class="nav-item nav-link col-xs-2 col-2 font15 rounded-0 mr-3 calender-tab bg-week" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" 
+
+            role="tab" aria-controls="nav-profile" aria-selected="false">Month</a>
+
+            
 
           </div>
 
@@ -78,6 +80,9 @@
 
               
               {{-- @isset($daily_events->id) --}}
+
+              @if ($daily_events->count() > 0)
+              
                 @foreach($daily_events as $m_e)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row">
@@ -99,6 +104,12 @@
                     </div>
                   </div>
                 @endforeach
+
+              @else
+                <h6 class="text-white"> None Daily event exist </h6>
+              @endif
+
+
                 {{-- @else  --}}
                 {{-- @endif --}}
             </div>
@@ -111,8 +122,11 @@
 
               {{-- ========================================== Weekly Type Events ========================================== --}}
 
-              @isset($m_events[0]->id)
-                @foreach($m_events as $m_e)
+              {{-- @isset($m_events[0]->id) --}}
+              @if ($week_events->count() > 0)
+
+                @foreach($week_events as $m_e)
+                  {{-- @dump($m_e); --}}
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row">
                       <!--<div class="col-md-2 date-box">-->
@@ -132,8 +146,11 @@
                     </div>
                   </div>
                 @endforeach
-                @else 
-                @endif
+              @else
+                <h6 class="text-white"> None Weekly event exist </h6>
+              @endif
+                {{-- @else  --}}
+                {{-- @endif --}}
             </div>
 
           </div>
@@ -145,7 +162,13 @@
               {{-- ========================================== Monthly Type Events ========================================== --}}
 
               {{-- @isset($week_events[0]->id) --}}
+
+              {{-- @dump('Weekly event') --}}
+              @if ($monthly_events->count() > 0)
+                {{-- expr --}}
                 @foreach($monthly_events as $event)
+
+                  {{-- @dump($event); --}}
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row">
                       <!--<div class="col-md-2 date-box">-->
@@ -166,6 +189,11 @@
                     </div>
                   </div>
                 @endforeach
+                
+              @else
+                <h6 class="text-white"> None Monthly event exist </h6>
+              @endif
+
                 {{-- @else --}}
                 {{-- @endif --}}
             </div>

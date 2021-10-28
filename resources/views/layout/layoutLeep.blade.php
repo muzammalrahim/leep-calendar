@@ -694,13 +694,93 @@
 
 			    	{{-- </div> --}}
 
+			    <div class="row m-0">	
+			    	
+			    	<div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+			    		<div class="search">
+					    	<input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
+					    	<button type="submit" class="searchButton">
+					    		<i class="fa fa-search"></i>
+					    	</button>
+					    </div>
+			    	</div>
 
-			    <div class="search">
-			    	<input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
-			    	<button type="submit" class="searchButton">
-			    		<i class="fa fa-search"></i>
-			    	</button>
-			    </div>
+			    	<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+	            		<a href="{{route('advance.search')}}" class="btn btn-outline-secondary rounded-0 ">Advanced Search</a>
+
+	            	</div>
+
+			    	<div class="col-6 col-sm-6 col-md-3 col-lg-3">
+			    		<div class="float-right">
+				    		@guest
+
+						        <form class="form-inline my-2 my-lg-0 right-login">
+						        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
+						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0"  type="submit">Login</a>
+						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
+						        </form>
+
+						        @else
+
+						        @if(Auth::User()->email_verified_at=='')
+							    	<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+							        	@csrf
+							        	<button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
+							        </form>&nbsp
+
+							        <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+						        	{{ __('Logout') }}
+							        </a>
+
+							        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+							        	@csrf
+							        </form>
+						        @else
+
+
+									<div class="user-img"> 
+										<a href="{{URL::asset('settings')}}">
+											@if(Auth::user()->image!='')
+												<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
+											@else
+												<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
+											@endif
+
+											
+										</a>
+									</div>
+
+									<div class="nav-item dropdown">
+					                    <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
+					                    <div class="dropdown-menu">
+
+						                        <a class="dropdown-item">
+						                        	<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
+						                        		{{Auth::user()->fname}} 
+						                        	</b>
+						                        </a>
+												<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary dropdown-item" type="submit">Create Event</a>
+
+						                        <a class="dropdown-item">
+						                        	<label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
+						                        		My Events
+						                        	</label>
+						                        </a>
+
+						                        <a class="dropdown-item text-dark" href="{{ route('logoutRoute') }}"> Logout
+							                        {{-- <a href="{{ route('logoutRoute') }}" class="text-dark"> Logout </a> --}}
+						                        </a>
+						                    </div>
+					                </div>
+
+						        @endif
+
+						        @endguest
+
+						    </div>
+			    	</div>
+			    </div>	
+			    
 
 			    {{-- </div> --}}
 
@@ -721,10 +801,9 @@
 					    </div>
 	            	</div>
 
-	            	<div class="col-md-6 col-lg-5 col-sm-6 col-12 text-center">
+	            	{{-- <div class="col-md-6 col-lg-5 col-sm-6 col-12 text-center">
 	            		<a href="{{route('advance.search')}}" class="text-dark fs-6">Advanced Search</a>
-
-	            	</div>
+	            	</div> --}}
         
                    <!-- <div class="col-md-2 col-lg-2 col-sm-1 col-3 ">
 	            		 <p class="float-right "> <small class="position-relative"> Search Filters </small> </p> -->
@@ -1292,12 +1371,41 @@ $(document).ready(function(){
                     });
                 }
             }
+
+
+
+
+
+
+
+            $(document).ready(function(){
+
+            	console.log('this is dropdown');
+
+			    $(".dropdown").hover(function(){
+			        var dropdownMenu = $(this).children(".dropdown-menu");
+			        if(dropdownMenu.is(":visible")){
+			            dropdownMenu.parent().toggleClass("open");
+			        }
+			    });
+			});
         </script>
+
+
         {{-- Dead Links End Akmal --}}
       
 
 </body>
 
+<style type="text/css">	
+	
+	.dropdown:hover .dropdown-menu{
+        display: block;
+    }
+    .dropdown-menu{
+        margin-top: 0;
+    }
+</style>
 
 
 </html>

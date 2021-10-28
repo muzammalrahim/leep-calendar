@@ -18,7 +18,7 @@
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    	<ul class="navbar-nav mr-auto">
+    	<ul class="navbar-nav mr-lg-auto my-md-5 my-sm-5 my-5">
 
     		<li class="nav-item active">
     			<a class="nav-link" href="{{ asset('home') }}">Home </a>
@@ -57,7 +57,7 @@
 
 
            <li class="nav-item">
-    			<div class="dropdown show">
+    			<div class="dropdown show float-left">
                     <a class="btn dropdown-toggle font-weight-bold nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="box-shadow:none;">About Us </a>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="#">Action</a>
@@ -67,7 +67,7 @@
                </div>
     		</li>
     		<li class="nav-item">
-    			<div class="dropdown show">
+    			<div class="dropdown show float-left">
                     <a class="btn dropdown-toggle font-weight-bold box-shadow-0 nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="box-shadow:none;">FAQ</a>
                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                       <a class="dropdown-item" href="#">Action</a>
@@ -80,69 +80,7 @@
 
     	</ul>
 
-        @guest
-
-        <form class="form-inline my-2 my-lg-0 right-login">
-        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0"  type="submit">Login</a>
-        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0" type="submit" style="background-color:#003300 !important;">Register</a>
-        </form>
-
-        @else
-
-        @if(Auth::User()->email_verified_at=='')
-	    	<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-	        	@csrf
-	        	<button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
-	        </form>&nbsp
-        @else
-
-			<div class="createbtn">
-
-				<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary" type="submit">Create an Event</a>
-
-			</div>
-
-			<div class="user">
-
-				<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
-
-					{{Auth::user()->fname}} 
-
-				</b>
-
-				<p style="margin-bottom:0px">{{Auth::user()->email}}</p>
-
-				<label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
-
-					My Events
-
-				</label>
-
-			</div>
-			<div class="user-img"> 
-				<a href="{{URL::asset('settings')}}">
-					@if(Auth::user()->image!='')
-						<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
-					@else
-						<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
-					@endif
-				</a>
-			</div>
-
-
-
-        @endif
-
-        <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        	{{ __('Logout') }}
-        </a>
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-        	@csrf
-        </form>
-
-        @endguest
+        
 
     </div>
 

@@ -90,7 +90,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
 });
 
-Route::get('logout', [LoginController::class,'logout']);
+Route::get('logout', [LoginController::class,'logout'])->name('logoutRoute');
 Route::get('Blogs', ' eController@userBlogs');
 Route::get('Blog/{id}', 'HomeController@userViewBlogDetail');
 
