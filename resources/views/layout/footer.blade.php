@@ -74,7 +74,7 @@
 
 		
 	</div>
-	<div class="row d-flex justify-content-center">
+	<div class="row justify-content-center m-0">
 		<div class="col-md-5 my-3 copyright">
 			<p class="text-dark copyrighttext">
 © Jubilee LLC and LEEPCalendar.com 2021. All Rights Reserved. Unauthorized use site’s author and/or owner is strictly prohibited. Excerpts and links may be used,provided that full and clear credit is given to Jubilee LLC andLEEPCalendar.com with appropriate and specific direction to the original content. Additional documents,embedded videos and additional image rights retained by their creators.</p>

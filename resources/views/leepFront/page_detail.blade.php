@@ -25,7 +25,7 @@
                       <h2 class="font-weight-bold">{{ $page_detail->heading }}</h2>
                   </div>
                   <div class="about-detail">
-                      <p>{!! $page_detail->content !!}</p>
+                      <p class="text-justify">{!! $page_detail->content !!}</p>
                   </div>
                   {{-- <div class="about-line"> <hr>
                   </div> --}}

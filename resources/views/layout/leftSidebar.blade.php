@@ -1,8 +1,8 @@
 <div class="becomeProfessional pb-5"> 
 <div class="container">
     <h5 class="font-weight-bold  "> BECOME A MEMBER </h5>
-    <a href="{{ asset('login') }}" class="text-dark d-block my-2"> Professionals </a>
-    <a href="{{ asset('register') }}" class="text-dark d-block my-2"> Event Champions </a>
+    <a href="{{ asset('login') }}" class="text-dark d-block"> Professionals </a>
+    <a href="{{ asset('register') }}" class="text-dark d-block"> Event Champions </a>
 </div>                   
 </div>
 
@@ -78,7 +78,7 @@
 
 <style type="text/css">
     .icons img {
-        height: 41px;
+        height: 40px;
     }
     .twitter-post{
         text-transform: uppercase;
