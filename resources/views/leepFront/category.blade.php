@@ -7,7 +7,7 @@
 <!-- caegories-section -->
 {{-- <a href="event-search.html"> --}}
 <div class="categories-page">
-    <div class="cat-heading">
+    <div class="cat-heading ml-5">
         <h3>Categories</h3>
                   @if(session()->has('successMsg'))
                       <div class="alert alert-success">
@@ -31,8 +31,8 @@
         <?php $categoryA=App\Models\category::where('name','like','A'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryA[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryA[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -51,8 +51,8 @@
             <?php $categoryB=App\Models\category::where('name','like','B'.'%')->orderBy('name','Asc')->get();?>
             @if(isset($categoryB[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryB[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -71,8 +71,8 @@
             <?php $categoryC=App\Models\category::where('name','like','C'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryC[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryC[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -91,11 +91,11 @@
             <?php $categoryD=App\Models\category::where('name','like','D'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryD[0]->name))
             <div class="cat-box">
-                <div class="box-one">
+                <div class="box-one ml-5">
                     <div class="heading">
                         <h1>{{$categoryD[0]->name[0]}}</h1>
                     </div>
-                    <div class="underline">
+                    <div class="underline py-4">
                         <hr>
                     </div>
                     <div class="cat-data">
@@ -111,8 +111,8 @@
             <?php $categoryE=App\Models\category::where('name','like','E'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryE[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryE[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -131,8 +131,8 @@
         <?php $categoryA=App\Models\category::where('name','like','F'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryA[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryA[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -153,8 +153,8 @@
         <?php $categoryC=App\Models\category::where('name','like','H'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryC[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryC[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -173,8 +173,8 @@
             <?php $categoryD=App\Models\category::where('name','like','I'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryD[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryD[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -193,8 +193,8 @@
             <?php $categoryE=App\Models\category::where('name','like','J'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryE[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryE[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -213,8 +213,8 @@
             <?php $categoryC=App\Models\category::where('name','like','L'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryC[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryC[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -233,8 +233,8 @@
             <?php $categoryD=App\Models\category::where('name','like','M'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryD[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryD[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -255,8 +255,8 @@
         <?php $categoryE=App\Models\category::where('name','like','N'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryE[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryE[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -277,8 +277,8 @@
         <?php $categoryA=App\Models\category::where('name','like','N'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryA[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryA[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -297,8 +297,8 @@
             <?php $categoryB=App\Models\category::where('name','like','O'.'%')->orderBy('name','Asc')->get();?>
             @if(isset($categoryB[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryB[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -317,8 +317,8 @@
             <?php $categoryC=App\Models\category::where('name','like','P'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryC[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryC[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -337,8 +337,8 @@
             <?php $categoryD=App\Models\category::where('name','like','Q'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryD[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryD[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -357,8 +357,8 @@
             <?php $categoryE=App\Models\category::where('name','like','R'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryE[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryE[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -377,8 +377,8 @@
         <?php $categoryA=App\Models\category::where('name','like','T'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryA[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryA[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -397,8 +397,8 @@
             <?php $categoryB=App\Models\category::where('name','like','U'.'%')->orderBy('name','Asc')->get();?>
             @if(isset($categoryB[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryB[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -419,8 +419,8 @@
         <?php $categoryC=App\Models\category::where('name','like','V'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryC[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryC[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">
@@ -439,8 +439,8 @@
             <?php $categoryD=App\Models\category::where('name','like','W'.'%')->orderBy('name','Asc')->get();?>
         @if(isset($categoryD[0]->name))
             <div class="cat-box">
-                <div class="box-one">
-                    <div class="heading">
+                <div class="box-one ml-5">
+                    <div class="heading py-4">
                         <h1>{{$categoryD[0]->name[0]}}</h1>
                     </div>
                     <div class="underline">

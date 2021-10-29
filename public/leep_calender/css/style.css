@@ -521,7 +521,7 @@ hr {
 
     height: 36px;
 
-    margin-left: 74px;
+    margin-left: 60px;
 
     border-radius: 4px 0 0 4px;
 
@@ -2563,6 +2563,10 @@ a.colorSkin:hover {
         margin: 60px 0px 0px 0px;
 
     }
+    .searchTerm {
+     margin-left: 1px;
+    }
+
 
 }
 
@@ -2571,6 +2575,9 @@ a.colorSkin:hover {
 
         margin: 0px 0px 0px 0px;
 
+    }
+    .searchTerm {
+     margin-left: 0px;
     }
 
 }

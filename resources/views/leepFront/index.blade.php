@@ -138,7 +138,7 @@
 
 
 
-                <p class="main-featured-data">LEEP Calendar is created by marketing and editorial professionals, public
+                <p class="main-featured-data text-justify">LEEP Calendar is created by marketing and editorial professionals, public
 
                   relations professionals,
 
@@ -174,7 +174,7 @@
 
 
 
-                <p class="main-featured-data">Event champions, LEEP Calendar provides you a rich media platform to
+                <p class="main-featured-data text-justify">Event champions, LEEP Calendar provides you a rich media platform to
 
                   promote your on-site event,
 

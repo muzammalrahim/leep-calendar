@@ -696,7 +696,7 @@
 
 			    <div class="row m-0">	
 			    	
-			    	<div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
+			    	<div class="col-12 col-sm-12 col-md-5 col-lg-6 mb-3">
 			    		<div class="search">
 					    	<input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
 					    	<button type="submit" class="searchButton">
@@ -705,18 +705,13 @@
 					    </div>
 			    	</div>
 
-			    	<div class="col-6 col-sm-6 col-md-3 col-lg-3">
-	            		<a href="{{route('advance.search')}}" class="btn btn-outline-secondary rounded-0 ">Advanced Search</a>
-
-	            	</div>
-
-			    	<div class="col-6 col-sm-6 col-md-3 col-lg-3">
-			    		<div class="float-right">
+			    	<div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-3">
+			    		<div class="d-flex justify-content-center">
 				    		@guest
 
 						        <form class="form-inline my-2 my-lg-0 right-login">
 						        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0"  type="submit">Login</a>
+						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-2"  type="submit">Login</a>
 						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
 						        </form>
 
@@ -750,7 +745,7 @@
 										</a>
 									</div>
 
-									<div class="nav-item dropdown">
+									<div class="nav-item dropdown mt-1">
 					                    <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
 					                    <div class="dropdown-menu">
 
@@ -779,6 +774,11 @@
 
 						    </div>
 			    	</div>
+
+
+			    	<div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
+	            		<a href="{{route('advance.search')}}" class="btn btn-outline-secondary rounded-0 ">Advanced Search</a>
+                   </div>
 			    </div>	
 			    
 
@@ -795,7 +795,7 @@
 
 	            <div class="row m-0">
 
-	            	<div class="col-md-6 col-lg-7 col-sm-6 col-12">
+	            	<div class="col-md-12 col-lg-12 col-sm-12 col-12">
 	            		<div class="professional-heading">
 					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 					    </div>

@@ -120,9 +120,14 @@
 
 .user-img{
 
-    padding-top: 2px;
-
     margin-right: 16px;
+
+   }
+   .user-img img{
+
+    border-radius: 50px;
+    width: 130%;
+    margin-top: -10px;
 
    }
 
