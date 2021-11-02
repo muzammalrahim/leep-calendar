@@ -20,7 +20,7 @@
                 @include('layout.leftSidebar')
 
             </div>
-                <div class="col-md-8 pt-4 ml-5"> 
+                <div class="col-md-8 pt-4 ml-lg-5 ml-md-5"> 
                 <div class="event-main blockCopy">
                     <div class="eventsDetail">
                         <div class="event-detail-container">
