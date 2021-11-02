@@ -2590,3 +2590,6 @@ a.colorSkin:hover {
 
     }
 }
+
+.advanceSearchLink{ text-decoration: underline;}
+.advanceSearchLink: hover{text-decoration: none;}

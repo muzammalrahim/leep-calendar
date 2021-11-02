@@ -705,14 +705,14 @@
 					    </div>
 			    	</div>
 
-			    	<div class="col-12 col-sm-12 col-md-4 col-lg-3 mb-3">
-			    		<div class="d-flex justify-content-center">
+			    	<div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3 m-0 p-0 ml-3 ml-sm-0 ml-md-0 ml-lg-0">
+			    		{{-- <div class="d-flex justify-content-center"> --}}
 				    		@guest
 
 						        <form class="form-inline my-2 my-lg-0 right-login">
 						        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-2"  type="submit">Login</a>
-						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
+						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-2 mx-1"  type="submit">Login</a>
+						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-2 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
 						        </form>
 
 						        @else
@@ -772,12 +772,12 @@
 
 						        @endguest
 
-						    </div>
+						    {{-- </div> --}}
 			    	</div>
 
 
-			    	<div class="col-12 col-sm-12 col-md-3 col-lg-3 text-center">
-	            		<a href="{{route('advance.search')}}" class="btn btn-outline-secondary rounded-0 ">Advanced Search</a>
+			    	<div class="col-5 col-sm-6 col-md-3 col-lg-3 text-center">
+	            		<a href="{{route('advance.search')}}" class="text-dark advanceSearchLink">Advanced Search</a>
                    </div>
 			    </div>	
 			    
