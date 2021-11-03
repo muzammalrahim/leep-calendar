@@ -459,12 +459,17 @@
     </div>
 </div>
 <style type="text/css">
-        
-
-        .categories-page .categories-box .cat-box a{
-            text-decoration: none;
-            color: black !important;
-        }
+  .heading h1{
+    font-family: 'impact';
+    color: black;
+  }
+  .cat-heading h3{
+    font-weight: bold;
+  }
+  .categories-page .categories-box .cat-box a{
+    text-decoration: none;
+    color: black !important;
+  }
 </style>
 @endsection
     {{-- END About Us --}}

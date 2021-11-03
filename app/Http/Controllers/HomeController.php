@@ -899,8 +899,22 @@ class HomeController extends Controller
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
 
+        $full_events=events::where('start_date','=',$date)
+                // ->where('status','Approved')
+        ->get();
+        $daily_events=events::where('start_date','=',$date)->where('type','Daily')
+                // ->where('status','Approved')
+                ->get();
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
+                // ->where('status','Approved')
+                ->orderBy('created_at','desc')->get();
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+                // ->where('status','Approved')
+                ->orderBy('created_at','desc')->get();
+
+
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
+        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
         // return view('leepFront.legend');        
     }
     public function aboutUs($value='')
@@ -1059,6 +1073,19 @@ class HomeController extends Controller
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
         $featureEvents=featuredEvents::all()->take(3) ;
+
+        $full_events=events::where('start_date','=',$date)
+                // ->where('status','Approved')
+        ->get();
+        $daily_events=events::where('start_date','=',$date)->where('type','Daily')
+                // ->where('status','Approved')
+                ->get();
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
+                // ->where('status','Approved')
+                ->orderBy('created_at','desc')->get();
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+                // ->where('status','Approved')
+                ->orderBy('created_at','desc')->get();
         
         // return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
 
@@ -1070,7 +1097,7 @@ class HomeController extends Controller
        
         $blogs=blogs::paginate(8);
         $page_title = "Blogs";
-            return view('leepFront.blogs',compact('blogs','events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
+            return view('leepFront.blogs',compact('blogs','events','page_title', 'full_events','daily_events' ,'week_events', 'monthly_events', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
     }
 
 

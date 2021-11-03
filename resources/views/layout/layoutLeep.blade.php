@@ -706,7 +706,7 @@
 			    	</div>
 
 			    	<div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3 m-0 p-0 ml-3 ml-sm-0 ml-md-0 ml-lg-0">
-			    		{{-- <div class="d-flex justify-content-center"> --}}
+			    		 <div class="d-flex">
 				    		@guest
 
 						        <form class="form-inline my-2 my-lg-0 right-login">
@@ -772,12 +772,12 @@
 
 						        @endguest
 
-						    {{-- </div> --}}
+						     </div> 
 			    	</div>
 
 
 			    	<div class="col-5 col-sm-6 col-md-3 col-lg-3 text-center">
-	            		<a href="{{route('advance.search')}}" class="text-dark advanceSearchLink">Advanced Search</a>
+	            		<a href="{{route('advance.search')}}" class="advanceSearchLink font-weight-bold">Advanced Search</a>
                    </div>
 			    </div>	
 			    
@@ -797,7 +797,7 @@
 
 	            	<div class="col-md-12 col-lg-12 col-sm-12 col-12">
 	            		<div class="professional-heading">
-					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
+					        <h4 class="font-weight-bold font-italic">The PROFESSIONAL Event, Editorial and Promotional Calendar</h4>
 					    </div>
 	            	</div>
 

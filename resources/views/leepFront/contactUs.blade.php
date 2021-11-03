@@ -17,7 +17,7 @@
                           </div>
                       @endif                        
             <div class="row">
-                <div class="col-md-7 about-left"> 
+                <div class="col-md-7 col-lg-8 ml-lg-5 ml-md-3 about-left"> 
                     <div class="about-heading">
                         <h3>Contact Us</h3>
                     </div>

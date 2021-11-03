@@ -11,11 +11,11 @@
 
         <div class="row m-0">
 
-          <div class="col-12 col-sm-12 col-md-5 col-lg-5" style="bottom:10px">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-lg-3 px-md-5 px-0">
 
-            <div class="calender m-auto">
+            <div class="calender m-auto m-auto px-sm-0 px-md-0 px-lg-5 mx-lg-4 mx-md-0 mx-sm-3">
 
-              <div class="calender-head mt-3">
+              <div class="calender-head mt-3 mt-md-0">
 
                 <h3> Today Is ...</h3>
 
@@ -36,7 +36,7 @@
           </div>
 
 
-          <div class="col-12 col-sm-12 col-md-7 col-lg-7">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-0">
             @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
           </div>
 
@@ -52,11 +52,11 @@
     {{-- LEGEND --}}
     <div class="legend-wrapper p-4">
         <div class="row">
-          <div class="col-2">
+          <div class="col-lg-2 col-md-3">
                 @include('layout.leftSidebar')
           </div>
 
-          <div class="col-8">
+          <div class="col-lg-8 col-md-7 ml-lg-5 ml-md-5">
             <div class="legend-content">
                 <h3 class="font-weight-bold font-color"> Legend </h3>
                 <div class="header">
@@ -80,10 +80,10 @@
                     <p class="ml-3">The United States of America is the default country. </p>
 
                     <div class="example-box p-4">
-                        <h5 class="font-color font-weight-bold">Example: iPod Day, Intl. (2001): October 23</h5>
+                        <h5 class="font-color font-weight-bold font-italic">Example: iPod Day, Intl. (2001): October 23</h5>
                         <p>Translation: International iPod Day celebrates the anniversary of the premiere of theiPod
                             on October 23, 2001.</p>
-                        <h5 class="font-color font-weight-bold">Example: Sausage Week, (UK): October 28 - November 3 (est)</h5>
+                        <h5 class="font-color font-weight-bold font-italic">Example: Sausage Week, (UK): October 28 - November 3 (est)</h5>
 
                         <p>Translation: International iPod Day celebrates the anniversary of the premiere of theiPod
                             on October 23, 2001.</p>
@@ -94,7 +94,7 @@
                     <h3 class="font-weight-bold font-color my-4"> TITLE ABBREVIATIONS </h3>
                     <div class="row">
                         <div class="col-md-6">
-                            <h4 class="text-dark font-weight-bold borderBottom">General</h4>
+                            <h4 class="text-dark font-weight-bold font-italic borderBottom">General</h4>
                             
                             <div class="row">
                               <div class="col-1"> <span class="font-weight-bold"> (est) </span> </div>
@@ -139,7 +139,7 @@
                               </div>
                             </div>
 
-                            <h4 class="text-dark font-weight-bold borderBottom mb-2">Religious Designations</h4>
+                            <h4 class="text-dark font-weight-bold font-italic borderBottom mb-2">Religious Designations</h4>
 
                             <p class="m-0"> <b> (c) </b> <span class="mx-4"> = </span> Christian Event </p>
                             <p class="m-0"> <b> (B) </b> <span class="mx-4"> = </span> Buddhist Event </p>
@@ -150,7 +150,7 @@
 
                         </div>
                         <div class="col-md-6">
-                            <h4 class="text-dark font-weight-bold borderBottom">Location Designations</h4>
+                            <h4 class="text-dark font-weight-bold font-italic borderBottom">Location Designations</h4>
                             
                             <div class="row m-0">
                               <p> <b>2-letter ISO Country Codes = Nation where the event takes place. </b>
@@ -175,14 +175,14 @@
 
                             {{-- <h4>States & Provinces</h4> --}}
 
-                            <h4 class="text-dark font-weight-bold borderBottom">Dates</h4>
+                            <h4 class="text-dark font-weight-bold font-italic borderBottom">Dates</h4>
 
                               <div class="row m-0">
                                 <p><span>Date includes / or </span> – = Begins at Sundown/Ends at Sundown or Begins this day
                                   – Ends this day.</p>
                               </div>
 
-                            <h4 class="text-dark font-weight-bold borderBottom">States & Provinces</h4>
+                            <h4 class="text-dark font-weight-bold font-italic borderBottom">States & Provinces</h4>
                               
                             <div class="row m-0"> 
                               <p><Span>(AU-NSW)</Span> Two letter Country Code followed by em-dash and initials = <br>
@@ -199,17 +199,17 @@
                         
                     </div>
                     <div class="example-box p-4">
-                        <h5 class="font-color font-weight-bold" >Example 1: Yom Kippur (J): October 7/8</h5>
+                        <h5 class="font-color font-weight-bold font-italic" >Example 1: Yom Kippur (J): October 7/8</h5>
                         <p>Translation: The international Jewish observance of Yom Kippur begins at sundown on
                             October 7 and ends at sundown on October 8, 2019.</p>
-                        <h5 class="font-color font-weight-bold">Example 2: Rosh Hashanah (J): September 29-October 1</h5>
+                        <h5 class="font-color font-weight-bold font-italic">Example 2: Rosh Hashanah (J): September 29-October 1</h5>
                     </div>
                 </div>
 
             </div>
           </div>
 
-          <div class="col-2">
+          <div class="col-md-2">
                 @include('layout.rightSidebar')
           </div>
         </div>
