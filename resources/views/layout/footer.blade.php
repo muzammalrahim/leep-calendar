@@ -75,24 +75,17 @@
 		
 	</div>
 	<div class="row justify-content-center m-0">
-		<div class="col-md-5 my-3 copyright">
-			<p class="text-dark copyrighttext">
+		<div class="col-md-5 my-3">
+			<p class="text-dark text-justify">
 © Jubilee LLC and LEEPCalendar.com 2021. All Rights Reserved. Unauthorized use site’s author and/or owner is strictly prohibited. Excerpts and links may be used,provided that full and clear credit is given to Jubilee LLC andLEEPCalendar.com with appropriate and specific direction to the original content. Additional documents,embedded videos and additional image rights retained by their creators.</p>
 		</div>
 		<div class="col-md-5 my-3 ">
-			<p class="text-dark copyrighttext">
+			<p class="text-dark text-justify">
 The appearance of an event in LEEP Calendar does not imply endorsement of the event nor the organization championing the event by Jubilee LLC, its stakeholders, customers or subsidiaries. All dates, contact information, URLs, addresses, and information relating to any event, promotion or holiday are subject to change without notice and should be treated as estimated. Jubilee LLC, our stakeholders, customers and subsidiaries cannot warrant accuracy. Users of this application are solely responsible for verifying actual event date with organizers and additional sources prior to committing resources, including financial resources.</p>
 		</div>
 	</div>
 
-<style type="text/css">
-	.copyrighttext{
-		font-size: 15px;
-		text-align: justify;
-	}
-	.jubillelc{font-size: 15px;}
-	
-</style>
+
 
 
 </div>

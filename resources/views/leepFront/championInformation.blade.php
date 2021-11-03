@@ -9,7 +9,7 @@
 		
 			<div class="champ-info">
 					 {{ $champ_details->image }}
-				 <div class="user-img d-flex justify-content-center "> 
+				 <div class="champ-img d-flex justify-content-center "> 
 					@if($champ_details->image)
 						<img src="{{URL::asset('leep_calender/images/userProfilePic/'.$champ_details->image)}}" alt="" >
 					@else
@@ -19,53 +19,53 @@
 				<div class="row mt-4 d-flex justify-content-around">
 					
 			   <div class="col-md-5 border-bottom border-dark border-2 py-2">
-			   	<h4 class="font-weight-bold">Name: </h4>
+			   	<h4 class="font-weight-bold font-italic">Name: </h4>
 						<h4>{{ $champ_details->event_champion }}</h4>	
 			   </div>
 			   <div class="col-md-5 border-bottom border-dark border-2 py-2">
-			   	<h4 class="font-weight-bold">City: </h4>
+			   	<h4 class="font-weight-bold font-italic">City: </h4>
 						<h4>{{ $champ_details->champ_city }}</h4>
 			   </div>
 			   <div class="col-md-5 border-bottom border-dark border-2 py-2">
-			   	<h4 class="font-weight-bold">State: </h4>
+			   	<h4 class="font-weight-bold font-italic">State: </h4>
 						<h4>{{ $champ_details->champ_state }}</h4>
 			   </div>
 			   <div class="col-md-5 border-bottom border-dark border-2 py-2">
-			   	<h4 class="font-weight-bold">Country: </h4>
+			   	<h4 class="font-weight-bold font-italic">Country: </h4>
 						<h4>{{ $champ_details->champ_country }}</h4>
 			   </div>
 			   <div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Address 1: </h4>
+						<h4 class="font-weight-bold font-italic">Address 1: </h4>
 						<h4>{{ $champ_details->champ_address1 }}</h4>
 				</div>
 				<div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Zip-Code: </h4>
+						<h4 class="font-weight-bold champInfo">Zip-Code: </h4>
 						<h4>{{ $champ_details->zip }}</h4>
 				</div>
 					<div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Address 2: </h4>
+						<h4 class="font-weight-bold font-italic">Address 2: </h4>
 						<h4>{{ $champ_details->champ_address2 }}</h4>
 				</div>
 					<div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Country-Code: </h4>
+						<h4 class="font-weight-bold font-italic">Country-Code: </h4>
 						<h4>{{ $champ_details->country_code }}</h4>
 				</div>
 				<div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Phone: </h4>
+						<h4 class="font-weight-bold font-italic">Phone: </h4>
 						<h4>{{ $champ_details->ph_num }}</h4>
 				</div>
 
 				<div class="col-md-5 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Email: </h4>
+						<h4 class="font-weight-bold font-italic">Email: </h4>
 						<h4>{{ $champ_details->email_form }}</h4>
 				</div>
 				<div class="col-md-11 border-bottom border-dark border-2 py-2">
-						<h4 class="font-weight-bold">Contact-Person: </h4>
+						<h4 class="font-weight-bold font-italic">Contact-Person: </h4>
 						<h4>{{ $champ_details->contact_person }}</h4>
 				</div>
 				<div class="col-md-11  rounded py-2">
-						<h4 class="font-weight-bold">Contact-link: </h4>
-						<a href="" target="_blank" class="text-dark text-break"><h4>{{ $champ_details->contact_link }}</h4></a>
+						<h4 class="font-weight-bold font-italic">Contact-link: </h4>
+						<a class="contact" href="" target="_blank" class="text-dark"><h4>{{ $champ_details->contact_link }}</h4></a>
 				</div>
 			   </div>
 			   
@@ -77,4 +77,3 @@
 
 
 @endsection
-

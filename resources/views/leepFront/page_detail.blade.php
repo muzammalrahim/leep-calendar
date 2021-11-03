@@ -13,10 +13,10 @@
 
 <div class="row m-4">
 
-    <div class="col-md-2"> 
+    <div class="col-md-3 col-lg-2"> 
         @include('layout.leftSidebar')
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7 col-lg-8 ml-lg-5 ml-md-3">
         <div class="container">
           <div class="aboutus">
             <div class="">

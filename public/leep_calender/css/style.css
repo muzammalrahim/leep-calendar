@@ -1,12 +1,12 @@
 .hero-wrapper .carousel-item img {
 
-    height: 350px !important;
+    height: 300px !important;
 
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-family: 'Halvetica Nueue';
+    font-size: 16px;
     font-weight: 500;
     word-spacing: -1px;
 }
@@ -70,8 +70,7 @@ header .bg-light {
 }
 
 .navbar-light .navbar-nav .nav-link {
-    font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: bold !important;
 
     color: #60012C !important;
 
@@ -474,7 +473,7 @@ hr {
 
     height: 40px;
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 
     /*background-color: #fff;*/
 
@@ -490,10 +489,10 @@ hr {
     font-weight: bold;
     /*border-radius: 10px;*/
     /*background-color: white;*/
-    font-family: 'impact', sans-serif !important;
+    font-family: 'impact' !important;
 }
 .calendar-foot{
-    font-family: 'impact', sans-serif !important; 
+    font-family: 'impact' !important; 
 }
 
 .calender-scroll {
@@ -874,13 +873,12 @@ ul {
 
 .media-object-wrappper p {
     color: #000000;
-    font-size: 12px !important;
+    font-size: 14px !important;
 
 }
 
 .media-object-wrappper h6 {
     font-weight: 800;
-    font-size: 14px;
 
     margin-bottom: .1rem;
 
@@ -1004,14 +1002,10 @@ ul {
 .today-events h6 {
 
     text-align: left;
-
-
     letter-spacing: 0px;
-
     color: #60012C;
-
     opacity: 1;
-    font-weight: 800;
+    font-size: 20px !important;
 }
 
 #tabs .nav-tabs .nav-link {
@@ -1031,7 +1025,7 @@ ul {
 
 }
 .calender-tab{
-    font-family: 'impact', sans-serif !important; 
+    font-family: 'impact' !important; 
 }
 .main-featured-events {
 
@@ -1041,12 +1035,10 @@ ul {
 .main-featured-events h6 {
 
     text-align: left;
-
+    font-size: 20px !important;
     font-weight: 800;
     letter-spacing: 0px;
-
     color: #60012C;
-
     opacity: 1;
 
 }
@@ -1076,15 +1068,9 @@ ul {
 }
 
 .main-featured-data {
-
-    text-align: left;
-
-    font-size: 13px !important;
-
+    line-height: 1.25;
     letter-spacing: 0px;
-
     color: #000000;
-
     opacity: 1;
 
 }
@@ -1510,7 +1496,9 @@ ul {
         height: 400px !important;
 
     }
-
+    .calendarScrolls {
+        height:200px !important;
+    }
     .hero-wrapper .calender #tabs nav a {
 
         width: 108px !important;
@@ -1944,7 +1932,7 @@ ul {
 
     .hero-wrapper .carousel-item img {
 
-        height: 348px !important;
+        height: 300px !important;
 
     }
 
@@ -1999,6 +1987,12 @@ ul {
 
         /*height:150px !important;*/
 
+    }
+    .hero-wrapper .carousel-item img {
+    height: 250px !important;
+    }
+    .calendarScrolls {
+    height: 105px !important;
     }
 
     .hero-wrapper .calender #tabs nav a {
@@ -2556,8 +2550,65 @@ a.colorSkin:hover {
     overflow-y: auto;
     overflow-x: hidden;
 }
+.top-heading{
+    padding-top: 75px;
+    font-family: 'impact'!important;
+    color: black !important;
 
-@media screen and (min-width:768px) and (max-width: 1023px) {
+}
+.estimate-date{
+}
+.description-text {
+    line-height: 1.25;
+}
+.eventChampionLink{
+    text-decoration: underline; 
+    color: #60012C !important;
+ }
+.eventChampionLink:hover{ 
+    text-decoration: none;
+}
+
+.advanceSearchLink{
+    text-decoration: none; color: #60012C !important;
+}
+.advanceSearchLink: hover{
+    text-decoration: underline;
+}
+.championDetail h1{
+    font-family: 'impact';
+    color: black;
+}
+
+.contact{
+    color: #60012C !important;
+    text-decoration: underline;
+}
+.contact:hover{
+    text-decoration: none;
+}
+
+@media screen and (min-width:768px) and (max-width: 991px){
+    
+    .wrap {
+
+        margin: 60px 0px 0px 0px;
+
+    }
+    .searchTerm {
+      margin-left: 1px;
+    }
+    .hero-wrapper .carousel-item img {
+     height: 230px !important;
+    }
+    .calendarScrolls {
+     height: 85px;
+    }
+    .top-heading{
+      padding-top: 45px;
+    }
+}
+@media screen and (min-width:992px) and (max-width: 1023px) {
     .wrap {
 
         margin: 60px 0px 0px 0px;
@@ -2566,8 +2617,12 @@ a.colorSkin:hover {
     .searchTerm {
      margin-left: 1px;
     }
-
-
+    .hero-wrapper .carousel-item img {
+    height: 250px !important;
+    }
+    .calendarScrolls {
+    height: 105px !important;
+    }
 }
 
 @media screen and (min-width:320px) and (max-width: 767px) {
@@ -2578,6 +2633,9 @@ a.colorSkin:hover {
     }
     .searchTerm {
      margin-left: 0px;
+    }
+    .top-heading{
+      padding-top: 15px;
     }
 
 }
@@ -2591,5 +2649,3 @@ a.colorSkin:hover {
     }
 }
 
-.advanceSearchLink{ text-decoration: underline;}
-.advanceSearchLink: hover{text-decoration: none;}
