@@ -13,7 +13,7 @@
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-lg-3 px-md-5 px-0">
 
-            <div class="calender m-auto px-sm-0 px-md-0 px-lg-5 mx-lg-4 mx-md-0 mx-sm-3">
+            <div class="calender m-auto px-sm-0 px-md-0 px-lg-5 mx-lg-5 mx-md-0 mx-sm-3">
 
               <div class="calender-head mt-3 mt-md-0">
 
@@ -56,7 +56,7 @@
                 @include('layout.leftSidebar')
           </div>
 
-          <div class="col-lg-8 col-md-7 ml-lg-5 ml-md-5">
+          <div class="col-lg-8 col-md-7 ml-lg-5 ml-md-3">
             <div class="legend-content">
                 <h2 class="font-weight-bold"> {{ $page_title }} </h2>
             </div>

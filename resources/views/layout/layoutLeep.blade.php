@@ -797,7 +797,7 @@
 
 	            	<div class="col-md-12 col-lg-12 col-sm-12 col-12">
 	            		<div class="professional-heading">
-					        <h4 class="font-weight-bold font-italic">The PROFESSIONAL Event, Editorial and Promotional Calendar</h4>
+					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 					    </div>
 	            	</div>
 
