@@ -1,6 +1,6 @@
 <div class="becomeProfessional pb-5"> 
   <div class="container">
-      <h5 class="font-weight-bold font-italic"> BECOME A MEMBER </h5>
+      <h5> BECOME A MEMBER </h5>
       <a href="{{ asset('login') }}" class="d-block"> Professionals </a>
       <a href="{{ asset('register') }}" class="d-block"> Event Champions </a>
   </div>                   
@@ -9,7 +9,7 @@
 
 <div class="follow-us">
     <div class="container">
-         <h5 class="borderBottom font-weight-bold font-italic"> Follow Us </h5>
+         <h5 class="borderBottom"> Follow Us </h5>
     </div>
 </div>
 
@@ -45,7 +45,7 @@
 <div class="latest-posts">
     <div class="container">
         <div class="latest-posts1 borderBottom">
-            <h5 class=" font-weight-bold font-italic leftHeadings"> Latests Twitter Posts </h5>
+            <h5 class="leftHeadings"> Latests Twitter Posts </h5>
         </div>
      <div class="row">
          <div class="col-md-10 m-3 border border-dark text-center twitterpost d-flex align-items-center justify-content-center">

@@ -144,7 +144,7 @@ $event = $eventCategory->event
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="events-description">
-                            <h4 class="font-weight-bold font-italic">Description</h4>
+                            <h4 class="font-weight-bold">Description</h4>
                             <p class="description-text">@isset($event->description){{$event->description}}@endif</p>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ $event = $eventCategory->event
 
             <div class="col-md-12">
                 <div class="event-champion">
-                    <h4 class="font-weight-bold font-italic">Event Champion</h4>
+                    <h4 class="font-weight-bold">Event Champion</h4>
                 </div>
 
                 <a href="{{ route('champion.detail',['id' => $event->id]) }}" target="_blank" class="eventChampionLink">
@@ -244,7 +244,7 @@ $event = $eventCategory->event
                                   <!-- champion-contact-information -->
                                   <div class="champ-contact-info m-4">
 
-                                    <h4 class="font-weight-bold event-champ font-italic">EVENT CHAMPION CONTACT INFORMATION</h4>
+                                    <h4 class="font-weight-bold event-champ">EVENT CHAMPION CONTACT INFORMATION</h4>
 
                                     @isset((Auth::user()->membership->type))
                                     
@@ -257,7 +257,7 @@ $event = $eventCategory->event
                                         <div class="blurr-back">
                                           <div class="blurry text-center">
                                             <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                            <h4 class="font-weight-bold font-italic">PREMIUM ACCESS ONLY</h4>
+                                            <h4 class="font-weight-bold">PREMIUM ACCESS ONLY</h4>
                                             <h6>Upgrade to Premium/Gold Membership to View</h6>
                                             <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
                                         </div>
@@ -270,7 +270,7 @@ $event = $eventCategory->event
                                     <div class="blurr-back">
                                       <div class="blurry text-center">
                                         <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                        <h4 class="font-weight-bold font-italic">PREMIUM ACCESS ONLY</h4>
+                                        <h4 class="font-weight-bold">PREMIUM ACCESS ONLY</h4>
                                         <h6>Upgrade to Premium/Gold Membership to View</h6>
                                         <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
                                     </div>
@@ -281,7 +281,7 @@ $event = $eventCategory->event
                         <!-- Video-box-->
                         <div class="support-wrapper m-4">
                             <div class="borderBottom"> </div>
-                            <h4 class="font-weight-bold ml-5 mt-4 font-italic">TOPIC & SUPPORTING VIDEOS</h4>
+                            <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING VIDEOS</h4>
                             
                             <div class="row row d-flex justify-content-around ">
                                <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
@@ -303,7 +303,7 @@ $event = $eventCategory->event
                  <!-- supporting-box -->
                  <div class="supporting-wrapper m-4">
                    <div class="borderBottom"> </div> 
-                   <h4 class="font-weight-bold mt-4 font-italic">TOPIC & SUPPORTING DOCUMENTS</h4>
+                   <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING DOCUMENTS</h4>
                    <div class="row d-flex justify-content-around">
                       <div class="col-md-3 text-center">
                         <span class="imagenum ">Doucement 1</span>
@@ -369,7 +369,7 @@ $event = $eventCategory->event
                             <!-- Supporting Images  -->
                             <div class="supporting-wrapper m-4">
                              <div class="borderBottom"> </div> 
-                             <h4 class="font-weight-bold ml-5 mt-4 font-italic">TOPIC & SUPPORTING IMAGES</h4> 
+                             <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING IMAGES</h4> 
                              <div class="row d-flex justify-content-around">
                                  <div class="col-md-3 text-center">
                                      <span class="imagenum ">Image 1</span>
