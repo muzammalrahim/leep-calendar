@@ -62,9 +62,9 @@
 
       {{-- <div class="container"> --}}
 
-        <div class="today-events pl-md-4">
+        <div class="today-events">
 
-            <h1>Welcome to LEEP Calendar</h1>
+            <h1 class="ml-md-4 ml-sm-4">Welcome to LEEP Calendar</h1>
 
         </div>
 

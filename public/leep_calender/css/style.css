@@ -2573,10 +2573,10 @@ a.colorSkin:hover {
     text-decoration: none;
 }
 
-.advanceSearchLink{
+.advanceSearchLink a{
     text-decoration: none; color: #60012C !important;
 }
-.advanceSearchLink: hover{
+.advanceSearchLink a:hover{
     text-decoration: underline !important;
 }
 .championDetail h1{
@@ -2591,11 +2591,11 @@ a.colorSkin:hover {
 .contact:hover{
     text-decoration: none;
 }
-.cat-data a{
-    color: #60012C !important;
+.cat-data a {
     text-decoration: underline !important;
+    color: #60012C;
 }
-.cat-data a :hover{
+.cat-data a:hover{
     text-decoration: none !important;
 }
 .disclaimer-text{
@@ -2655,14 +2655,16 @@ a.colorSkin:hover {
     .top-heading{
       padding-top: 15px;
     }
-
+    .today-events h1 {
+        padding-left: 30px !important;
+    }
 }
 
 
 @media screen and (min-width:1200px) and (max-width: 2000px) {
 
     .calender{
-            padding:0 5rem !important;
+            padding:0 6rem !important;
     }
     .today-features{
         padding-left: 120px;

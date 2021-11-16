@@ -776,8 +776,8 @@
 			    	</div>
 
 
-			    	<div class="col-5 col-sm-6 col-md-3 col-lg-3 text-center">
-	            		<a href="{{route('advance.search')}}" class="advanceSearchLink font-weight-bold">Advanced Search</a>
+			    	<div class="col-5 col-sm-6 col-md-3 col-lg-3 text-center advanceSearchLink">
+	            		<a href="{{route('advance.search')}}" class="font-weight-bold">Advanced Search</a>
                    </div>
 			    </div>	
 			    
