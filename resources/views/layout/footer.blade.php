@@ -93,24 +93,24 @@
  	
 			<div class="row p-4">
 				<div class="col-4">
-					<a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('login')}}">Login</a> <br>
-		            <a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('register')}}">Register</a><br> 
-	        		<a class="advanceSearchLink font-weight-bold font18" href="{{ URL::asset('categories') }}">Categories</a><br> 
-		            <a class="advanceSearchLink font-weight-bold font18" href="{{ route('page.detail.show',["slug"=>'about-us']) }}">About Us</a><br>
-		            <a class="advanceSearchLink font-weight-bold font18" href="{{ route('page.detail.show',["slug"=>'privacy-policy']) }}">Privacy Policy</a><br>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('login')}}">Login</a> <br>
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('register')}}">Register</a><br> 
+	        		<a class="advanceSearchLink font-weight-bold font17" href="{{ URL::asset('categories') }}">Categories</a><br> 
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'about-us']) }}">About Us</a><br>
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'privacy-policy']) }}">Privacy Policy</a><br>
 				</div>
 				<div class="col-4">
 
-					<a class="advanceSearchLink font-weight-bold font18" href="{{route('advance.search')}}">Advanced Search</a>
-					<a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('becomeMember')}}">Membership</a> <br>
-		            <a class="advanceSearchLink font-weight-bold font18" href="{{ route('page.detail.show',["slug"=>'FAQ']) }}">FAQs</a><br>
-		            <a class="advanceSearchLink font-weight-bold font18" href="{{ route('page.detail.show',["slug"=>'contact-us']) }}">Contact Us</a><br>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{route('advance.search')}}">Advanced Search</a>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('becomeMember')}}">Membership</a> <br>
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'FAQ']) }}">FAQs</a><br>
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'contact-us']) }}">Contact Us</a><br>
 
 				</div>
 				<div class="col-4">
-					<a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('addNewEvent')}}">Submit an Event</a><br>
-					<a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('report-an-error')}}">Report an Error</a>
-					<a class="advanceSearchLink font-weight-bold font18" href="{{URL::asset('media')}}">Media</a>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('addNewEvent')}}">Submit an Event</a><br>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('report-an-error')}}">Report an Error</a>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('media')}}">Media</a>
 				</div>
 
 				<div class="copyright m-auto" style="margin-top: 70px !important;">
