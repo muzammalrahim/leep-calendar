@@ -54,6 +54,7 @@ class HomeController extends Controller
         $events=events::all();   
         $date=date("Y-m-d");
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
+        
         $full_events=events::where('start_month','=',$m)
         // ->where('status','Approved')
         ->get();
@@ -62,23 +63,13 @@ class HomeController extends Controller
         // ->where('status','Approved')
         ->get();
 
-        // dd($daily_events);
-
-        $m_events=events::where('start_month','=',$m)->where('type','Monthly')
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $week_events=events::where('start_month','=',$m)->where('type','Weekly')
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
-
-        // dd($week_events);
-
-        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
-        // ->where('status','Approved')
-        ->orderBy('created_at','desc')->get();
-
-        // dd($monthly_events);
 
 
         $wSD=date("Y-m-d", strtotime( 'monday this week' ));
@@ -88,10 +79,12 @@ class HomeController extends Controller
         // dd($monthName);
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.index',compact('events','page_title', 'page_description','full_events','m_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events'));
+        return view('leepFront.index',compact('events','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events'));
         // return view('auth.verify');
         //  leepFront/index
     }
+
+
     public function categoryDetail($id)
     {
         $category=category::where('id',$id)->first();
@@ -283,29 +276,19 @@ class HomeController extends Controller
             $full_events=events::where('start_month','=',$m)
             // ->where('status','Approved')
             ->get();
-            
+
             $daily_events=events::where('start_date','=',$date)->where('type','Daily')
             // ->where('status','Approved')
             ->get();
 
-            // dd($daily_events);
-
-            $m_events=events::where('start_month','=',$m)->where('type','Monthly')
+            $week_events=events::where('start_date','=',$date)->where('type','Weekly')
             // ->where('status','Approved')
             ->orderBy('created_at','desc')->get();
 
-            $week_events=events::where('start_month','=',$m)->where('type','Weekly')
+            $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
             // ->where('status','Approved')
             ->orderBy('created_at','desc')->get();
 
-            // dd($week_events);
-
-            $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
-            // ->where('status','Approved')
-            ->orderBy('created_at','desc')->get();
-
-
-            
 
             $monthName = getMonthFullName($m);
 
@@ -313,7 +296,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('eventCategory','d_events','m_events','week_events','d','m','category','full_events','daily_events','monthName','monthly_events'));
+            return view('leepFront.eventDetail',compact('eventCategory','d_events','week_events','d','m','category','full_events','daily_events','monthName','monthly_events'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -331,6 +314,12 @@ class HomeController extends Controller
         $this->middleware('auth');
         return view('leepFront.addEvent'); // leepFront/addEvent
     }
+
+    public function report_an_error()
+    {
+        dd( 'Report an error' );
+    }
+
     public function editEvent($value='')
     {
         $this->middleware('auth');
@@ -917,30 +906,22 @@ class HomeController extends Controller
         $full_events=events::where('start_month','=',$m)
         // ->where('status','Approved')
         ->get();
-        
+
         $daily_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
 
-        // dd($daily_events);
-
-        $m_events=events::where('start_month','=',$m)->where('type','Monthly')
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $week_events=events::where('start_month','=',$m)->where('type','Weekly')
-        // ->where('status','Approved')
-        ->orderBy('created_at','desc')->get();
-
-        // dd($week_events);
-
-        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
+        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','d_events','week_events','featureEvents','m','d'));
         // return view('leepFront.legend');        
     }
     public function aboutUs($value='')
@@ -1103,24 +1084,16 @@ class HomeController extends Controller
         $full_events=events::where('start_month','=',$m)
         // ->where('status','Approved')
         ->get();
-        
+
         $daily_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
 
-        // dd($daily_events);
-
-        $m_events=events::where('start_month','=',$m)->where('type','Monthly')
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $week_events=events::where('start_month','=',$m)->where('type','Weekly')
-        // ->where('status','Approved')
-        ->orderBy('created_at','desc')->get();
-
-        // dd($week_events);
-
-        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
+        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
         
