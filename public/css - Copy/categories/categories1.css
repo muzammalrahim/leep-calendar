@@ -17,13 +17,13 @@ a:hover{
 
 
 
-.categories-page .categories-box .cat-box a:hover{
-    color: white !important;
+/*.categories-page .categories-box .cat-box a:hover{
+   text-decoration: none !important;
 }
 .categories-page .categories-box .cat-box a{
-    text-decoration: none;
-    color: #ffffff;
-}
+    text-decoration: underline !important;
+    color: #60012C;
+}*/
 /* a:hover{
 color: transparent;
 } */
