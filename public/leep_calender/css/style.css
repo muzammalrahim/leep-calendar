@@ -1822,7 +1822,7 @@ ul {
 
         font-weight: 600;
 
-        font-size: 21px;
+        /*font-size: 21px;*/
 
     }
 
@@ -2682,3 +2682,12 @@ a.colorSkin:hover {
     
 }
 
+.font18{
+    font-size: 18px;
+}
+.font12{
+    font-size: 12px;
+}
+.bg_black{
+    background:#231f20;
+}

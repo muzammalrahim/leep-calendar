@@ -119,6 +119,9 @@ Route::get('categories', 'HomeController@categories');
 Route::get('category/{id}', 'HomeController@categoryDetail');
 Route::get('downloadPdf/{eveId}/{filesId}', 'HomeController@downloadpdf');
 Route::get('addNewEvent', 'HomeController@addNewEvent')->middleware('auth');
+Route::get('report-an-error', 'HomeController@report_an_error')->middleware('auth');
+Route::get('media', 'HomeController@media')->middleware('auth');
+
 Route::post('addNewEventform', 'HomeController@addNewEventFrom')->middleware('auth');
 Route::post('editEventFrom', 'HomeController@editEventFrom')->middleware('auth');
 Route::get('stripeCheck', 'HomeController@stripeCheck')->middleware('auth');
