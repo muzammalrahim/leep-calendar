@@ -80,7 +80,7 @@
 
 <style type="text/css">
     .icons img {
-        height: 40px;
+        height: 46px;
     }
     .twitterpost{
         height: 130px;

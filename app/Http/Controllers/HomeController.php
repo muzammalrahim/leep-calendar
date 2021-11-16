@@ -55,7 +55,7 @@ class HomeController extends Controller
         $date=date("Y-m-d");
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         
-        $full_events=events::where('start_month','=',$m)
+        $full_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
 
@@ -67,7 +67,7 @@ class HomeController extends Controller
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
@@ -95,6 +95,23 @@ class HomeController extends Controller
         $d_events=events::where('start_date','=',$date)->where('type','Daily')
                 // ->where('status','Approved') 
         ->get();
+
+        $full_events=events::where('start_date','=',$date)->where('type','Daily')
+        // ->where('status','Approved')
+        ->get();
+
+        $daily_events=events::where('start_date','=',$date)->where('type','Daily')
+        // ->where('status','Approved')
+        ->get();
+
+        $week_events=events::where('start_date','=',$date)->where('type','Weekly')
+        // ->where('status','Approved')
+        ->orderBy('created_at','desc')->get();
+
+        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
+        // ->where('status','Approved')
+        ->orderBy('created_at','desc')->get();
+
         
         if(!isset($category->id))
             return redirect()->back()->with(['errorMsg','Undefined Category']);
@@ -102,7 +119,7 @@ class HomeController extends Controller
         $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->paginate(10);
 
         // dd($eventCategory);
-        return view('leepFront.categoryDetail',compact('eventCategory', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
+        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
     }
     public function downloadpdf($eveId,$filesId)
     {
@@ -273,7 +290,7 @@ class HomeController extends Controller
             $wSD=date("Y-m-d", strtotime( 'monday this week' ));
             $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
-            $full_events=events::where('start_month','=',$m)
+            $full_events=events::where('start_date','=',$date)->where('type','Daily')
             // ->where('status','Approved')
             ->get();
 
@@ -285,7 +302,7 @@ class HomeController extends Controller
             // ->where('status','Approved')
             ->orderBy('created_at','desc')->get();
 
-            $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+            $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
             // ->where('status','Approved')
             ->orderBy('created_at','desc')->get();
 
@@ -903,7 +920,7 @@ class HomeController extends Controller
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
 
 
-        $full_events=events::where('start_month','=',$m)
+        $full_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
 
@@ -915,7 +932,7 @@ class HomeController extends Controller
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
@@ -930,7 +947,7 @@ class HomeController extends Controller
     }
     public function categories($value='')
     {
-        return view('leepFront.category'); // leepFront/category        
+        return view('leepFront.category'); // leepFront/category
     }
     public function becomeFreeMember($value='')
     {
@@ -1081,7 +1098,7 @@ class HomeController extends Controller
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
         $featureEvents=featuredEvents::all()->take(3) ;
 
-        $full_events=events::where('start_month','=',$m)
+        $full_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
 
@@ -1093,7 +1110,7 @@ class HomeController extends Controller
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        $monthly_events=events::where('start_date','=',$date)->where('type','Monthly')
+        $monthly_events=events::where('start_month','=',$m)->where('type','Monthly')
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
         
