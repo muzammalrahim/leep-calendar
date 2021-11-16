@@ -2503,8 +2503,8 @@ a.nav-item {
     font-size: 15px !important;
 }
 
-.font18 {
-    font-size: 18px !important;
+.font17 {
+    font-size: 17px !important;
 }
 
 .pointer {
@@ -2573,10 +2573,10 @@ a.colorSkin:hover {
     text-decoration: none;
 }
 
-.advanceSearchLink a{
+.advanceSearch a{
     text-decoration: none; color: #60012C !important;
 }
-.advanceSearchLink a:hover{
+.advanceSearch a:hover{
     text-decoration: underline !important;
 }
 .championDetail h1{
@@ -2600,6 +2600,10 @@ a.colorSkin:hover {
 }
 .disclaimer-text{
     line-height: 1.25;
+}
+.advanceSearchLink {
+    text-decoration: none !important;
+    color: #60012C !important;
 }
 
 @media screen and (min-width:768px) and (max-width: 991px){
