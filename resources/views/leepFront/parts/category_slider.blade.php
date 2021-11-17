@@ -10,7 +10,7 @@
 
           <div class="calender-head mt-3 mt-md-0">
 
-            <h3> Today Is ...</h3>
+            <h3> Today Is ... {{ getMonthName($m) }} {{ $d  }}</h3>
 
           </div>
 
