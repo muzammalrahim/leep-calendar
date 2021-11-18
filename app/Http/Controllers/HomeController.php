@@ -89,7 +89,11 @@ class HomeController extends Controller
         // dd($monthName);
 
         $featureEvents=featuredEvents::all()->take(3) ;
+
+        // return view('maintenance.comingsoon');
+
         return view('leepFront.index',compact('events','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events'));
+        
         // return view('auth.verify');
         //  leepFront/index
     }
