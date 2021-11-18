@@ -26,6 +26,7 @@ use Stripe;
 use App\Models\Comments;
 use App\Models\EventCategory;
 use App\Models\EventAttachment;
+use Illuminate\Support\Facades\App;
 
 
 
@@ -43,7 +44,7 @@ class HomeController extends Controller
         // $this->middleware(['auth','verified']);
     }
 
-    public function index()
+    public function index(request $request)
     {
         
         $page_title = 'Dashboard';
@@ -55,6 +56,15 @@ class HomeController extends Controller
         $date=date("Y-m-d");
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         
+        // $locale = App::currentLocale();
+        $client = new Client;
+        $ip = $request->ip();
+        // dd($ip);
+
+        $ipdat = $client->get( "http://www.geoplugin.net/php.gp?ip=" . $ip);
+        // dd($ipdat); 
+
+
         $full_events=events::where('start_date','=',$date)->where('type','Daily')
         // ->where('status','Approved')
         ->get();
