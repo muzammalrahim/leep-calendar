@@ -178,6 +178,12 @@ Route::get('/clear', function() {
 });
 
 
+Route::get('/down', function() {
+
+    $down = \Artisan::call('down --secret="harrypotter"');
+    dd(' down= ' .$down);
+});
+
 
 // Auth::routes();
 
