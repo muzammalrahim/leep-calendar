@@ -1,0 +1,121 @@
+.contact-box{
+    /*margin-top: 50px;*/
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    padding: 15px;
+}
+.contact-box h3{
+text-align: left;
+color: #60012C;
+}
+.contact-box .form-control{
+    outline: #60012C !important;
+    box-shadow: #60012C !important;
+}
+.contact-box .form-control:focus{
+    border-color: rgb(151, 144, 144) !important;
+}
+.contact-box  .form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem 0.75rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid#60012C ;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.about-left {
+    padding: 5px 5px 0px 128px !important;
+}
+.contact-box{
+    /*padding-bottom: 25px;*/
+    /*margin-right: 67px;*/
+    text-align: center;
+    /*margin-left: 35px;*/
+}
+.contact-box .btn-danger{
+    background-color: #60012C !important;
+    border: 1px solid #60012C !important;
+    text-align: center;
+    width: 125px;
+    height: 39px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+@media screen and (max-width: 1980px) and (min-width: 1920px){
+.leep-img-about img {
+    margin-top: 40px;
+    height: 170px;
+}
+.contact-box {
+    padding-bottom: 30px;
+    margin-right: 112px;
+    text-align: center;
+    margin-left: 50px;
+}
+.contact-box .form-control {
+    font-size: 22px;
+}
+.contact-box .btn-danger {
+    width: 140px;
+    height: 45px;
+    font-size: 22px;
+    font-weight: 600;
+}
+.contact-box h3 {
+    font-size: 38px;
+}
+}
+@media screen and (max-width: 1919px) and (min-width: 1600px){
+    .about-left {
+        padding: 15px !important; 
+    }
+    .leep-img-about img {
+        margin-top: 40px;
+        height: 170px;
+    }
+    .contact-box {
+        padding-bottom: 30px;
+        margin-right: 112px;
+        text-align: center;
+        margin-left: 50px;
+    }
+    .contact-box .form-control {
+        font-size: 22px;
+    }
+    .contact-box .btn-danger {
+        width: 140px;
+        height: 45px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .contact-box h3 {
+        font-size: 38px;
+    }
+    .contact-box {
+        padding-bottom: 25px;
+        margin-right: 0px;
+    }
+}
+@media screen and (max-width: 1365px) and (min-width: 1280px){
+    .contact-box {
+        padding-bottom: 25px;
+        margin-right: 105px;
+    }
+}
+    @media screen and  (max-width:767px){
+    .about-left {
+        padding: 10px !important;
+    }
+    .about-detail p {
+        font-size: 12px;
+    }
+    .contact-box {
+        margin-right: 0px !important; 
+        text-align: center;
+        margin-left: 0px !important; 
+        margin-bottom: 15px;
+    }
+}
