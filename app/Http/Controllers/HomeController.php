@@ -129,8 +129,21 @@ class HomeController extends Controller
         
         if(!isset($category->id))
             return redirect()->back()->with(['errorMsg','Undefined Category']);
+        if (Auth::check()) {
+            // code...
+            if (hasMemberShip()) {
+                $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->paginate(10);
+            }
 
-        $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->paginate(10);
+            else{
+                $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->take(10)->get();
+            }
+        }
+        
+        else{
+            $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->take(10)->get();
+        }
+        
 
         // dd($eventCategory);
         return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail

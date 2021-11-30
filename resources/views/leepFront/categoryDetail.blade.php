@@ -29,7 +29,10 @@
                     </div>
 
                     <div class="event-box">
+
+                        
                         @foreach($eventCategory as $e)
+                            {{-- @dump($e->id) --}}
         	               <a href=" {{ route('eventDetail',['id'=>$e->event_id]) }} ">
                             <div class="event-title" style=" cursor:pointer;">
         	                    <div class="row">	                    	
@@ -53,7 +56,11 @@
 
 
                     <div class="w3-center w3-bar w3-border w3-round" style="text-align: center;">
+                        @if (Auth::check() && hasMemberShip())
+                            {{-- expr --}}
                          {{$eventCategory->appends(Request::except('page'))->links('pagination::default') }}
+
+                        @endif
                      </div>
 
                 </div>

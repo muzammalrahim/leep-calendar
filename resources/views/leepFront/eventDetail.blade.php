@@ -279,136 +279,165 @@ $event = $eventCategory->event
                             @endif
                         </div>
                         <!-- Video-box-->
-                        <div class="support-wrapper m-4">
+
+                        {{-- @dump($event->eventAttachment->id) --}}
+                            {{-- expr --}}
+                        <div class="supporting-wrapper p m-4">
                             <div class="borderBottom"> </div>
-                            <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING VIDEOS</h4>
-                            
+                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING VIDEOS</h4>
+                            @if ($event->eventAttachment->video1 != '' || $event->eventAttachment->video2 != '' || $event->eventAttachment->video3 != '')
+
+
                             <div class="row row d-flex justify-content-around ">
-                               <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                                   VIDEO 1
-                               </div>
-                               <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                                VIDEO 2
+                                @if ($event->eventAttachment->video1 != '')
+                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                        VIDEO 1
+                                    </div>
+                                @else
+
+                                @endif
+
+                                @if ($event->eventAttachment->video2 != '')
+                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                        VIDEO 2
+                                    </div>
+                                @else
+                                @endif
+
+                                @if ($event->eventAttachment->video3 != '')
+                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                                        VIDEO 3
+                                    </div>
+                                @else
+                                @endif
+                                
                             </div>
-                            <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                             VIDEO 3
-                         </div>
 
-                     </div>
+                            @else
+                            <p> None supporting video found </p>
+                            @endif
 
-
-                 </div>
-
-
-                 <!-- supporting-box -->
-                 <div class="supporting-wrapper m-4">
-                   <div class="borderBottom"> </div> 
-                   <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING DOCUMENTS</h4>
-                   <div class="row d-flex justify-content-around">
-                      <div class="col-md-3 text-center">
-                        <span class="imagenum ">Doucement 1</span>
-                        <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 1</div>
-                        <p>Text from column AO</p>
-                    </div>
-                    <div class="col-md-3 text-center">
-                       <span class="imagenum">Document 2</span>
-                       <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 2</div>
-                       <p>Text from column AP</p>
-                   </div>
-                   <div class="col-md-3 text-center">
-                     <span class="imagenum">Document 3</span>
-                     <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 3</div>
-                     <p>Text from column AQ</p>
-                 </div>
-             </div>
-             <div class="download-header">
-              @isset($event->download1)
-              <div class="download-box">
-                <div class="col-md-12 text-right download">
-                    <a  href="{{URL::asset('downloadPdf/'.$event->id.'/1')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"
-                        alt=""></a>
-                    </div>
-                    <div class="col-md-12 text-center media-link">
-                        <a href=""><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"
-                            alt=""></a>
-                            <p>{{substr($event->download_title1,0,22)}}</p>
                         </div>
 
-                    </div>
-                    @endif
-                    @isset($event->download2)
-                    <div class="download-box">
-                        <div class="col-md-12 text-right download">
-                            <a href="{{URL::asset('downloadPdf/'.$event->id.'/2')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"
-                                alt=""></a>
-                            </div>
-                            <div class="col-md-12 text-center media-link">
-                                <a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"
-                                    alt=""></a>
-                                    <p>{{substr($event->download_title2,0,20)}}</p>
+                        <!-- supporting-box -->
+                        <div class="supporting-wrapper m-4">
+                            <div class="borderBottom"> </div> 
+                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING DOCUMENTS</h4>
+                            {{-- <div class="row d-flex justify-content-around">
+                                <div class="col-md-3 text-center">
+                                    <span class="imagenum ">Doucement 1</span>
+                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 1</div>
+                                    <p>Text from column AO</p>
                                 </div>
+                                <div class="col-md-3 text-center">
+                                    <span class="imagenum">Document 2</span>
+                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 2</div>
+                                    <p>Text from column AP</p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <span class="imagenum">Document 3</span>
+                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 3</div>
+                                    <p>Text from column AQ</p>
+                                </div>
+                            </div> --}}
+                            @if ($event->eventAttachment->download1 != '' || $event->eventAttachment->download2 != '' || $event->eventAttachment->download3 != '')
 
-                            </div>
-                            @endif
-                            @isset($event->download3)
-                            <div class="download-box">
-                                <div class="col-md-12 text-right download">
-                                    <a href="{{URL::asset('downloadPdf/'.$event->id.'/3')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"
-                                        alt=""></a>
+                            <div class="download-header">
+                                @if($event->eventAttachment->download1 != '')
+                                <div class="download-box">
+                                    <div class="col-md-12 text-right download">
+                                        <a  href="{{URL::asset('downloadPdf/'.$event->id.'/1')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt=""></a>
                                     </div>
                                     <div class="col-md-12 text-center media-link">
-                                        <a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"
-                                            alt=""></a>
-                                            <p>{{substr($event->download_title3,0,20)}}</p>
-                                        </div>
-
+                                        <a href="">
+                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt="">
+                                        </a>
+                                        <p>{{substr($event->download_title1,0,22)}}</p>
                                     </div>
-                                    @endif
+                                </div>
+                                @endif
+                                @if($event->eventAttachment->download2 != '')
+                                <div class="download-box">
+                                    <div class="col-md-12 text-right download">
+                                        <a href="{{URL::asset('downloadPdf/'.$event->id.'/2')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-12 text-center media-link">
+                                        <a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt=""></a>
+                                        <p>{{substr($event->download_title2,0,20)}}</p>
+                                    </div>
+                                </div>
+                                @endif
+
+                                @if($event->eventAttachment->download3 != '')
+                                <div class="download-box">
+                                    <div class="col-md-12 text-right download">
+                                        <a href="{{URL::asset('downloadPdf/'.$event->id.'/3')}}">
+                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-12 text-center media-link">
+                                        <a href="#">
+                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}" alt="">
+                                        </a>
+                                        <p>{{substr($event->download_title3,0,20)}}</p>
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
+                            @else
+                                <p> None Supporting document found </p>
+                            @endif
+                        </div>
+
+                        <!-- Supporting Images  -->
+                        <div class="supporting-wrapper m-4">
+                            <div class="borderBottom"> </div> 
+                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING IMAGES</h4> 
+                            
+                            @if ($event->eventAttachment->extra_image1 != '' || $event->eventAttachment->extra_image2 != '' || $event->eventAttachment->extra_image3 != '')
+                            
+                            <div class="row d-flex justify-content-around">
+                                <div class="col-md-3 text-center">
+                                    <span class="imagenum ">Image 1</span>
+                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
+                                    <p>Text from column AU</p>
+                                </div>
+                                <div class="col-md-3 text-center">
+                                    <span class="imagenum">Image 2</span>
+                                    <div class="supportimg bg-dark text-warning text- my-2">IMAGE 2</div>
+                                    <p>Text from column AV</p>
+                                </div>
+                                <div class="col-md-3 supportingimg text-center">
+                                    <span class="imagenum">Image 3</span>
+                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
+                                    <p>Text from column AW</p>
                                 </div>
                             </div>
-                            <!-- Supporting Images  -->
-                            <div class="supporting-wrapper m-4">
-                             <div class="borderBottom"> </div> 
-                             <h4 class="font-weight-bold ml-5 mt-4">TOPIC & SUPPORTING IMAGES</h4> 
-                             <div class="row d-flex justify-content-around">
-                                 <div class="col-md-3 text-center">
-                                     <span class="imagenum ">Image 1</span>
-                                     <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
-                                     <p>Text from column AU</p>
-                                 </div>
-                                 <div class="col-md-3 text-center">
-                                   <span class="imagenum">Image 2</span>
-                                   <div class="supportimg bg-dark text-warning text- my-2">IMAGE 2</div>
-                                   <p>Text from column AV</p>
-                               </div>
-                               <div class="col-md-3  supportingimg text-center">
-                                  <span class="imagenum">Image 3</span>
-                                  <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
-                                  <p>Text from column AW</p>
-                              </div>
-                          </div>
-                      </div>
-                      <!-- ============Event Update============ -->
+                            @else
+                                <p> None Supporting image found </p>
+                            @endif
+                        </div>
+                        <!-- ============Event Update============ -->
 
-                      <div class="borderBottom"> </div>
-                      <div class="eventupdate">
-                        <div class="row row m-5 d-flex justify-content-around">
-                           <div class="col-md-4 text-center">
-                              <p>Event Last Updated:</p>
-                              <span>January 15, 2021</span>
-                          </div>
-                          <div class="col-md-4 text-center">
-                              <p>REPORT CHANGES TO THIS EVENT</p>
-                          </div>
-                          <div class="col-md-4 text-center">
-                             <p>Event Maintenance:</p>
-                             <span>Column BD Text</span>
-                         </div>
-                     </div>
-                 </div> 
-             </div>
-
-         </div>
+                        <div class="borderBottom"> </div>
+                        <div class="eventupdate">
+                            <div class="row row m-5 d-flex justify-content-around">
+                                <div class="col-md-4 text-center">
+                                    <p>Event Last Updated:</p>
+                                    <span>{{ $event->updated_at->format('d-m-y') }}</span>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <p>REPORT CHANGES TO THIS EVENT</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <p>Event Maintenance:</p>
+                                    <span>Column BD Text</span>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
 
          {{-- Comments on event --}}
 
