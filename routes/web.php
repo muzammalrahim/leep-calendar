@@ -204,5 +204,5 @@ Route::post('/check-dead-link', [SiteFunctionsController::class, 'checkDeadLink'
 // Event Champion details
 Route::get('/event-champion/{id}', 'HomeController@getEventChampionDetail')->name('champion.detail');
 
-//Adavnce Search
+//Adavnce Search Page
 Route::get('/advance-search', 'HomeController@gotoAdvanceSearch')->name('advance.search');
