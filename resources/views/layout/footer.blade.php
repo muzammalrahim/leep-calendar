@@ -77,7 +77,7 @@
 
  <div class="footer">
  	<div class="row m-0">
- 		<div class="col-12 col-sm-12 col-md-12 col-lg-2 px-5 bg_black pt-5">
+ 		<div class="col-12 col-sm-12 col-md-12 col-lg-2 px-5 bg_black py-5 footerImage">
  			<img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/logo.png')}}" class = "img-fluid" alt="">
  			
  			<p class="mt-4 text-white ml-2">Jubilee LLC, <br>
@@ -101,7 +101,7 @@
 				</div>
 				<div class="col-4">
 
-					<a class="advanceSearchLink font-weight-bold font17" href="{{route('advance.search')}}">Advanced Search</a>
+					<a class="advanceSearchLink font-weight-bold font17" href="{{route('advance.search')}}">Advanced Search</a> <br>
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('becomeMember')}}">Membership</a> <br>
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'FAQ']) }}">FAQs</a><br>
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'contact-us']) }}">Contact Us</a><br>

@@ -23,13 +23,13 @@
         <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/twitter.png') }}"/>
     </a>
 
-    <a href="https://www.facebook.com/LEEP-Calendar-641349726026657/" target="_blank">
+   {{--  <a href="https://www.facebook.com/LEEP-Calendar-641349726026657/" target="_blank">
         <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/facebook.png') }}"/>
     </a>
 
     <a href="https://www.instagram.com/leepcalendar/" target="_blank">
         <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/instagram.png') }}"/>
-    </a>
+    </a> --}}
 
     <a href="https://www.youtube.com/channel/UC6w_ytF-mK3p3aJVq96c32A" target="_blank">
         <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/youtube.png') }}"/>
@@ -80,7 +80,7 @@
 
 <style type="text/css">
     .icons img {
-        height: 46px;
+        height: 52px;
     }
     .twitterpost{
         height: 130px;

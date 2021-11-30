@@ -1,0 +1,452 @@
+.event-page{
+
+    padding: 20px 215px;
+
+  
+
+}
+
+.search-title-box{
+
+    background-color: #fff;
+
+}
+
+.event-box{
+
+    height: 400px;
+
+    /* width: 690px; */
+
+    overflow-y: scroll;
+
+    overflow-x: hidden;
+
+ 
+
+}
+
+.event-box::-webkit-scrollbar {
+
+    width: 10px;               /* width of the entire scrollbar */
+
+  }
+
+  
+
+  .event-box::-webkit-scrollbar-track {
+
+    background: transparent;        /* color of the tracking area */
+
+  }
+
+  
+
+  .event-box::-webkit-scrollbar-thumb {
+
+    background-color: transparent;    /* color of the scroll thumb */
+
+    border-radius: 20px;       /* roundness of the scroll thumb */
+
+    border: 2px solid transparent;  /* creates padding around scroll thumb */
+
+  }
+
+.event-title .date-year{
+
+    color: #60012C !important;
+
+    white-space: nowrap;
+
+    margin: 0px -15px;
+
+}
+
+
+
+
+
+.event-title .event-type{
+
+    text-align: left;
+
+    font: normal normal medium 16px/20px Poppins;
+
+    letter-spacing: 0px;
+
+    color: #60012C;
+
+    opacity: 1;
+
+    font-weight: 500;
+
+ margin-bottom: 0px;
+
+}
+
+.event-title p{
+
+    
+
+    margin-bottom: 0px; 
+
+}
+
+.event-title{
+    padding: 15px;
+    /*background: #EDE1D2 0% 0% no-repeat padding-box;*/
+    border-radius: 20px;
+    opacity: 1;
+    margin-bottom: 10px;
+}
+
+   /* drop-down-css-end*/
+
+.user{
+
+    color: #60012C !important;
+
+    text-align: right;
+
+    margin-top: 10px;
+
+    font-size: 10px;
+
+    margin-right: 10px;
+
+
+
+   }
+
+ .user-img{ 
+
+    margin-right: 16px;
+  }
+  
+  .user-img img{ 
+    
+    border-radius: 50px;
+    width: 135%;
+ }
+
+
+
+   .createbtn .btn-secondary{
+
+    margin-right: 55px;
+
+    height: 36px;
+
+    width: 150px;
+
+    padding: 3px;
+
+       background-color: #60012C;
+
+       border: 1px solid #60012C;
+
+   }
+
+.w3-center a{
+
+
+
+    margin-left: 10px;
+
+    text-align: center;
+
+    color: #000 !important;
+
+    border: 1px solid grey;
+
+    padding: 4px 9px;
+
+    border-radius: 3px;
+
+}
+
+.w3-center a:hover{
+
+    background-color: #60012C;
+
+    color: #fff !important;
+
+    text-decoration: none;
+
+}
+
+    .w3-bar{
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+   @media screen and (min-width:1920px) and (max-width:1980px){
+
+    .createbtn .btn-secondary {
+
+        margin-right: 65px;
+
+        height: 46px;
+
+    padding: 5px;
+
+        width: 200px;
+
+        font-size: 22px;
+
+    }
+
+    .user b{
+
+        font-size: 17px;
+
+    }
+
+    .user p{
+
+        font-size: 17px;
+
+    }
+
+    .user {
+
+        margin-top: 8px;
+
+    }
+
+    .event-box {
+
+        height: 600px;
+
+        width: 1200px;
+
+    }
+
+    .event-page {
+
+        padding: 20px 215px 0px 265px;
+
+    }
+
+    .event-title .date-year {
+
+        margin: 0px 30px;
+
+        font-size: 26px;
+
+    }
+
+    .search-title-box h6{
+
+        font-size: 1.3rem;
+
+    }
+
+    .event-title h4{
+
+        font-size: 2rem;
+
+    }
+
+    .event-title .event-type {
+
+        font-size: 20px;
+
+    }
+
+    .event-title p {
+
+        font-size: 22px;
+
+    }
+
+    .w3-bar {
+
+        font-size: 22px;
+
+    }
+
+   }
+
+   @media screen and (min-width:1600px) and (max-width:1919px){
+
+    .createbtn .btn-secondary {
+
+        margin-right: 25px;
+
+        height: 46px;
+
+    padding: 5px;
+
+        width: 175px;
+
+        font-size: 22px;
+
+    }
+
+    .user b{
+
+        font-size: 17px;
+
+    }
+
+    .user p{
+
+        font-size: 17px;
+
+    }
+
+    .user {
+
+        margin-top: 8px;
+
+    }
+
+    .event-box {
+
+        height: 600px;
+
+        width: 820px;
+
+    }
+
+    .event-page {
+
+        padding: 20px 135px 0px 165px;
+
+    }
+
+    .event-title .date-year {
+
+        margin: 0px -10px;
+
+        font-size: 24px;
+
+    }
+
+    .search-title-box h6{
+
+        font-size: 1.3rem;
+
+    }
+
+    .event-title h4{
+
+        font-size: 2rem;
+
+    }
+
+    .event-title .event-type {
+
+        font-size: 20px;
+
+    }
+
+    .event-title p {
+
+        font-size:16px;
+
+    }
+
+    .w3-bar {
+
+        font-size: 22px;
+
+    }
+
+   }
+
+   
+
+   @media screen and (min-width:1440px) and (max-width:1599px){
+
+    .user b{
+
+        font-size: 16px;
+
+    }
+
+    .user p{
+
+        font-size: 16px;
+
+    }
+
+    .user {
+
+        margin-top: 6px;
+
+    }
+
+    .createbtn .btn-secondary {
+
+        margin-right: 0px;
+
+    }
+
+    .event-title p {
+
+        font-size:15px;
+
+    }
+
+   }
+
+   @media screen and (min-width:1280px) and (max-width:1365px){
+
+    .event-page {
+
+        padding: 20px 224px 0px 275px;
+
+    }
+
+    .event-title .date-year {
+
+        white-space: nowrap;
+
+        margin: 0px -27px;
+
+    }
+
+    .w3-center a {
+
+        margin-left: 5px;
+
+    }
+
+   }
+
+   @media screen and (max-width:767px){
+
+    .search-title-box h3{
+
+font-size: 1.5rem;
+
+    }
+
+    .event-title .date-year {
+
+        white-space: nowrap;
+
+        margin: 0px 0px;
+
+    }
+
+    .event-page {
+
+        padding: 0px;
+
+    }
+
+   .w3-center a {
+
+     margin-left: 0px; 
+
+    padding: 0px 2px;
+
+}
+
+}
