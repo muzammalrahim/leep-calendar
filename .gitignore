@@ -1,7 +1,7 @@
 /.idea/*
 /.phpintel/*
 /node_modules
-/public/css
+# /public/css
 /public/js
 /public/media
 /public/plugins

@@ -1,0 +1,516 @@
+/* .media-url .col-md-4 .form-control{
+        padding: .375rem .5rem;
+        font-size: 13px !important;
+        color: #60012C; 
+}
+.media-url .col-md-8{
+    margin-left: -15px;
+} */
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+p {
+    color: grey
+}
+
+#heading {
+    text-transform: uppercase;
+    color:#60012C;
+    font-weight: normal
+}
+.field-icon-one {
+    float: right;
+    margin-left: 0px;
+    margin-top: -28px;
+    padding-right: 15px;
+    position: relative;
+    z-index: 0;
+}
+.alcohol-btn .btn-outline-success {
+    background-color: #60012C !important;
+    border: 1px solid #60012C !important;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: none;
+}
+.add-event-wrapper label {
+    text-align: left;
+    font: normal normal 600 18px/27px Poppins;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+#msform {
+
+    position: relative;
+    margin-top: 20px;
+    width: 690px;
+    margin-left: 140px;
+}
+.media-url .col-md-4 .form-control {
+    color: #60012C;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+.add-event-wrapper {
+    padding-left: 240px;
+}
+.add-event-wrapper .event-heading h4 {
+    color: #60012C;
+}
+.form-card {
+    text-align: left
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+li.select2-results__option:hover {
+  background-color: #60012C;
+  color: white;
+}
+.select2-search__field{ 
+    /*width:auto !important; */
+    width: 19.75em !important;
+}  
+.select2-selection__rendered .select2-selection__choice{
+  background-color: #60012C;
+
+}
+.select2-selection__clear{background-color: #60012C !important;}
+.select2-results__option .select2-results__option--highlighted{
+    background-color: #60012C !important;
+}
+.select2-search__field{
+
+}
+#msform input,
+#msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #60012C;
+    border-radius: 0px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color:black;
+    /* background-color: #ECEFF1; */
+    font-size: 16px;
+    letter-spacing: 1px
+}
+.form-control {
+    border: 1px solid #60012C;
+    text-decoration: none;
+    box-shadow: none;
+}
+.alcohol-btn .fa-times {
+    padding-left: 10px;
+}
+#progressbar li strong{
+    color: black;
+}
+.progress {
+    height: 20px
+}
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid#60012C;
+    outline-width: 0
+}
+.continue-previous #msform .action-button {
+    background-color: white !important;
+    border: #60012C !important;
+    }
+#msform .action-button {
+    width: 120px;
+    background:#60012C;
+    color: white;
+    border: 0 none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 30px 0px 10px 5px;
+ 
+}
+.add-pre-btn input{
+    text-align: center;
+}
+/* #msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #311B92
+} */
+
+#msform .action-button-previous {
+    width: 120px;
+    background: transparent;
+    border: 1px solid #60012C !important;
+    color:#60012C !important;
+    border: 0 none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 30px 5px 10px 0px;
+
+}
+
+/* #msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+} */
+
+.card {
+    z-index: 0;
+    border: none;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color:#60012C;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left
+}
+
+.purple-text {
+    color:#60012C;
+    font-weight: normal
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+.fieldlabels {
+    color: gray;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar #account .active  {
+    color:#60012C;
+    
+
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "1"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "2"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "3"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "4"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 20%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background:#60012C;
+    font-family: FontAwesome !important;
+    content: "\f00c" !important;
+    
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color:#60012C
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+/* add-event-page-three-start*/
+.four label{
+    color: black !important;
+}
+.four .img-box{
+    height: 200px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: black !important;
+    padding: 15px auto;
+    background: #ebe4e4 0% 0% no-repeat padding-box;
+border: 1px solid #ebe4e4;
+border-radius: 5px;
+}
+.img-box input{
+    padding: 3px 15px 8px 15px !important;
+}
+.four .img-box p{
+    color: black !important;
+    padding-top: 6px;
+}
+.four .img-box u{
+    color: #60012C;
+}
+.link-media  .img-box p{
+    /*padding-top: 18px !important;*/
+}
+
+.four .media{
+    height: 85px;
+    margin-top: 15px !important;
+    box-shadow: -5px 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.four .media h5{
+    font-size: 18px;
+    color: #60012C;
+    padding-top: 4px;
+    }
+.progress {
+    display: -ms-flexbox;
+    display: flex;
+    height: 4px;
+    width: 90%;
+    overflow: hidden;
+    line-height: 0;
+    font-size: .75rem;
+    background-color: #e9ecef;
+    border-radius: .25rem;
+    margin-top: 14px;
+}
+.progress-bar {
+   background-color:  #60012C !important;
+  width: 80% !important;
+}
+
+/* add-event-page-three-end*/
+@media screen and (min-width:1920px) and (max-width:1980px){
+    #progressbar li strong {
+        font-size: 22px;
+    }
+    .add-event-wrapper label {
+        text-align: left;
+        font: normal normal 600 20px/27px Poppins;
+    }
+    #msform {
+        width: 1100px;
+        margin-left: 190px;
+    }
+    #msform input, #msform textarea {
+        font-size: 22px;
+    }
+    .form-control {
+        font-size: 22px;
+    }
+    #msform .action-button {
+        width: 160px;
+    }
+    #msform .action-button-previous {
+        width: 160px;
+    }
+    .four .img-box p {
+        font-size: 22px;
+    }
+    .four .img-box {
+        height: 190px;
+    }
+    .four .media h5 {
+        font-size: 22px;
+    }
+    .fa-times:before {
+        font-size: 25px;
+    }
+    b, strong {
+        /* font-weight: bolder; */
+        font-size: 20px;
+    }
+    .progress {
+        margin-top: 6px;
+    }
+    .alcohol-btn .btn-outline-success {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width:1600px) and (max-width:1919px){
+    #progressbar li strong {
+        font-size: 22px;
+    }
+    .add-event-wrapper label {
+        text-align: left;
+        font: normal normal 600 20px/27px Poppins;
+    }
+    #msform {
+        width: 830px;
+        margin-left: 190px;
+    }
+    #msform input, #msform textarea {
+        font-size: 20px;
+    }
+    .form-control {
+        font-size: 20px;
+    }
+    #msform .action-button {
+        width: 160px;
+    }
+    #msform .action-button-previous {
+        width: 160px;
+    }
+    .four .img-box p {
+        font-size: 20px;
+    }
+    .four .img-box {
+        height: 190px;
+    }
+    .four .media h5 {
+        font-size: 20px;
+    }
+    .fa-times:before {
+        font-size: 22px;
+    }
+    b, strong {
+        /* font-weight: bolder; */
+        font-size: 20px;
+    }
+    .progress {
+        margin-top: 6px;
+    }
+    .alcohol-btn .btn-outline-success {
+        font-size: 16px;
+    }
+}
+@media screen and (min-width:1400px) and (max-width:1599px){
+    #msform {
+        width: 750px;
+    }
+}
+@media screen and (min-width:1280px) and (max-width:1365px){
+    #msform {
+        width: 615px;
+    }
+}
+@media screen and (min-width:1024px) and (max-width:1279px){
+   
+    #msform {
+        position: relative;
+        margin-top: 20px;
+        width: 520px;
+        margin-left: 100px;
+    }
+}
+@media screen and  (max-width:767px){
+    .add-event-wrapper  {
+        padding: 5px; 
+    }
+    .add-event-wrapper {
+        padding-left: 0px; 
+    }
+    #msform {
+        width: 340px;
+        margin-left: 10px;
+    }
+    .add-event-wrapper .event-heading h4 {
+        color: #60012C;
+        margin-left: 12px;
+    }
+    .media-body .col-md-10{
+   width: 80%;
+    }
+    .media-body .col-md-2{
+        width: 18%;
+         }
+}
+/* @media screen and (min-width:411px) and (max-width:413px){
+    #msform {
+        width: 370px;
+        margin-left: 10px;
+    }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*<!-- add-event-2.css -->*/
+
