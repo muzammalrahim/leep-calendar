@@ -77,7 +77,6 @@
                </div>
     		</li>
       </ul>
-      <a href="https://twitter.com/PromoCalendar?ref_src=twsrc%5Etfw" class="twitter-timeline btn btn-outline-success rounded-0 text-white mr-5" type="submit" style="background-color:#003300 !important;">Follow LEEP</a>
       {{-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> --}}
     </div>
 

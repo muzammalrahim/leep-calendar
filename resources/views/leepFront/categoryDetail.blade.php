@@ -36,7 +36,7 @@
         	               <a href=" {{ route('eventDetail',['id'=>$e->event_id]) }} ">
                             <div class="event-title" style=" cursor:pointer;">
         	                    <div class="row">	                    	
-        		                        <div class="col-md-10">
+        		                        <div class="col-md-10 categoryEvent">
         		                            <h4>{{\Illuminate\Support\Str::limit($e->event->name,42)}}</h4>
         		                            <p class="event-type">{{$e->event->type}}</p>
         		                            <p>{{\Illuminate\Support\Str::limit($e->event->description,204)}}</p>

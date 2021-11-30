@@ -17,11 +17,11 @@
 
           <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-md-5 px-lg-3 px-0">
 
-            <div class="calender m-auto px-sm-5 px-md-0 px-lg-5 mx-lg-5 mx-md-0 mx-sm-5">
+            <div class="calender m-auto px-sm-5 px-md-0 px-lg-5 mx-lg-5 mx-md-0 mx-sm-5  mt-lg-2 mt-md-2">
 
-              <div class="calender-head mt-3 mt-md-0">
+              <div class="calender-head">
 
-                <h3> Today Is ... {{ getMonthName($m) }} {{ $d  }}</h3>
+                <h3> Today Is ... {{ getMonthFullName($m) }} {{ $d  }}</h3>
               </div>
 
               <!-- Tabs -->
@@ -60,12 +60,19 @@
     <div class="feature-events-wrapper">
 
       {{-- <div class="container"> --}}
-
-        <div class="today-events">
-
-            <h1 class="ml-md-4 ml-sm-4">Welcome to LEEP Calendar</h1>
-
+        <div class="row m-0 p-0">
+          <div class="col-md-8 col-lg-8 col-sm-7 col-12">
+            <div class="today-events">
+              <h1 class="ml-lg-1 ml-md-3 ml-sm-3">Welcome to LEEP Calendar</h1>
+           </div>
+          </div>
+          <div class="col-md-4 col-lg-4 col-sm-5 col-12">
+            <div class="followLeep float-right">
+              <a href="https://twitter.com/PromoCalendar?ref_src=twsrc%5Etfw" class="mr-md-5 mr-sm-5 font-weight-bold">Follow LEEP</a>
+            </div>
+          </div>
         </div>
+       
 
         <div class="row m-0">
 

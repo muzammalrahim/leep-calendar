@@ -166,7 +166,7 @@ $event = $eventCategory->event
                     <h4 class="font-weight-bold">Event Champion</h4>
                 </div>
 
-                <a href="{{ route('champion.detail',['id' => $event->id]) }}" target="_blank" class="eventChampionLink">
+                
                     <div class="focal-contact1 mt-4">
                         <div class="row m-0">
 
@@ -176,11 +176,10 @@ $event = $eventCategory->event
                                     alt="">
                                 </div>
                                 <div class="col-md-8 ser-name">
-                                    <b>
+                                    <a href="{{ route('champion.detail',['id' => $event->id]) }}" target="_blank" class="eventChampionLink font-weight-bold">{{ $event->event_champion }}</a>
 
-                                        {{ $event->event_champion }}
+                                        
 
-                                    </b>
                                     {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
                                 </div>
                                 <!-- hover-box-start-->

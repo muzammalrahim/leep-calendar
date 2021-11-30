@@ -1,0 +1,1488 @@
+.center-content {
+    margin-left: 120px;
+}
+.supportingvideo{
+    height: 150px;
+}
+.supportingdoc {
+    height: 170px;
+    margin: 60px 75px;
+}
+
+/* login-hover-box-start */
+
+.login-hover{
+
+    position: absolute;
+
+    display: none;
+
+    z-index: 1;
+
+    margin-top: 12px;
+
+    margin-left: -114px;
+
+}
+
+.user-img:hover .login-hover{
+
+    display: block;
+
+
+
+}
+
+.login-hover{
+
+    height: 240px;
+
+    width: 170px;
+
+    background-color: #000;
+
+    color: #fff;
+
+    padding: 15px;
+
+
+
+}
+
+.login-hover .fa{
+
+margin-bottom: 4px;
+
+margin-right: 10px;
+
+}
+
+.login-hover .fa-calendar-o{
+
+    margin-bottom: 40px;
+
+}
+
+.login-hover p{
+
+font-size: 14px;
+
+}
+
+/* login-hover-box-end */
+
+.event-detail-wrapper {
+
+    margin-top: 20px;
+
+    padding-left: 60px;
+
+}
+
+.event-detail-right{
+
+    text-align: right;
+
+}
+
+.event-description{
+
+box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+}
+
+.event-detail-left h4{
+
+    color: #60012C;
+
+}
+
+.event-detail-left p{
+
+font-weight: 500;
+
+}
+
+.event-detail-wrapper .event-detail-right .btn-outline-secondary{
+
+    text-decoration: none;
+
+    border: 1px solid #60012C;
+
+    color: #60012C;
+
+    background-color: transparent;
+
+    margin-right: 16px;
+
+    font-weight: 500;
+
+    width: 130px;
+
+}
+
+.event-detail-wrapper .event-detail-right .btn-outline-success{
+
+color: #fff;
+
+background-color: #60012C;
+
+border: 1px solid #60012C;
+
+width: 130px;
+
+
+
+}
+
+.event-description h6{
+
+    color: #60012C;
+
+}
+
+.event-description{
+
+    padding: 12px;
+
+}
+
+.event-description p{
+
+
+
+text-align: left;
+
+font: normal normal normal 14px/25px Poppins;
+
+letter-spacing: 0px;
+
+color: #000000;
+
+opacity: 1;
+
+}
+
+.schedule{
+
+    padding-left: 60px;
+
+    margin-top: 15px;
+
+}
+
+.schedule-one{
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    padding: 18px;
+
+    height: 280px;
+
+    }
+
+.schedule-one h6{
+
+    color: #60012C;
+
+
+
+}
+
+.schedule-one p{
+
+    text-align: left;
+
+    font: normal normal normal 14px/25px Poppins;
+
+    letter-spacing: 0px;
+
+    color: #000000;
+
+    opacity: 1;
+
+}
+
+.schedule-one .estimate-date{
+
+    text-align: center;
+
+    padding-left: 4px !important;
+
+}
+
+.schedule-one .estimate-date-one{
+
+    text-align: center;
+
+    font-weight: 600;
+
+    color: #60012C;
+
+  
+
+}
+
+.schedule-four{
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    padding: 18px;
+
+    height: 210px;
+
+    }
+
+.schedule-four h6{
+
+    color: #60012C;
+
+
+
+}
+
+.schedule-four p{
+
+  
+
+    font: normal normal normal 14px/25px Poppins;
+
+    letter-spacing: 0px;
+
+    color: #000000;
+
+    opacity: 1;
+
+}
+
+/* checkbox */
+
+.schedule-one .container {
+
+    display: block;
+
+    color: #60012C;
+
+    position: relative;
+
+    padding-left: 35px;
+
+    margin-top: 10px;
+
+    margin-bottom: 40px;
+
+    font-size: 16px;
+
+    font-weight: 500;
+
+    padding-left: 35px;
+
+    cursor: pointer;
+
+    -webkit-user-select: none;
+
+    -moz-user-select: none;
+
+    -ms-user-select: none;
+
+    user-select: none;
+
+  }
+
+  
+
+  /* Hide the browser's default checkbox */
+
+  .schedule-one .container input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    cursor: pointer;
+
+    height: 0;
+
+    width: 0;
+
+  }
+
+  
+
+  /* Create a custom checkbox */
+
+  .checkmark {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    height: 30px;
+
+    width: 30px;
+
+    background-color:  #60012C;
+
+    border-radius: 50%;
+
+  }
+
+  
+
+  /* On mouse-over, add a grey background color */
+
+  .schedule-one .container:hover input ~ .checkmark {
+
+    background-color: #ccc;
+
+    border-radius: 50%;
+
+  }
+
+  
+
+  /* When the checkbox is checked, add a blue background */
+
+  .schedule-one .container input:checked ~ .checkmark {
+
+    background-color: #60012C;
+
+  }
+
+  
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+
+  .checkmark:after {
+
+    content: "";
+
+    position: absolute;
+
+    display: none;
+
+  }
+
+  
+
+  /* Show the checkmark when checked */
+
+  .schedule-one .container input:checked ~ .checkmark:after {
+
+    display: block;
+
+  }
+
+  
+
+  /* Style the checkmark/indicator */
+
+  .schedule-one .container .checkmark:after {
+
+    left: 12px;
+
+    top: 8px;
+
+    width: 7px;
+
+    height: 12px;
+
+    border: solid white;
+
+    border-width: 0 3px 3px 0;
+
+    -webkit-transform: rotate(45deg);
+
+    -ms-transform: rotate(45deg);
+
+    transform: rotate(45deg);
+
+  }
+
+
+
+  /* champion-box */
+
+.event-card{
+
+    padding-left: 62px;
+
+    margin-top: 20px;
+
+}
+
+  .focal-contact{
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: space-evenly;
+
+    padding-left: 25px;
+
+    padding-top: 15px;
+
+}
+
+.focal-person{
+
+    display: flex;
+
+    flex-direction: row;
+
+    /* justify-content: space-evenly;    */
+
+}
+
+.focal-person img{
+
+ border-radius: 5px;
+
+ padding-right: 12px;   
+
+}
+
+.focal-person .user-name{
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+}
+
+    .focal-person .user-name b{
+
+    color: #60012C;
+
+   }
+
+   .event-champion h6{
+
+    color: #60012C;
+
+    padding-left: 19px;
+
+    padding-top: 15px;
+
+}
+
+.estimate-date a{
+
+    text-decoration: none;
+
+    color: #000;
+
+
+
+}
+
+.estimate-date a img{
+
+margin-right: 15px;
+
+}
+
+.champion-info-wrapper {
+
+    margin-top: 25px;
+
+   position: relative;
+
+}
+
+.champion-info-wrapper h6{
+
+    text-align: center;
+
+    color: #60012C;
+
+    padding-bottom: 15px;
+
+}
+.blurr-back .blurry .btn-outline-secondary{
+    color: #fff;
+background-color: #60012C;
+border: 1px solid #60012C;
+width: 205px;
+}
+.blurr-back .blurry{
+    padding-top: 30px;
+}
+.blurr-back .blurry img{
+z-index: 999;
+}
+.blurr-back .blurry h4{
+    font-weight: 800;
+}
+.blurr-back .blurry h6{
+    font-weight: 700;
+}
+.blurr-back{
+    position: absolute;
+    z-index: 1;
+    opacity:0.9;
+    background-color: white;
+    height: 300px;
+    width: 100%;
+}
+.champion-info-wrapper .champion-box{
+ position: relative;
+    padding-bottom: 25px;
+
+        padding-top: 15px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+}
+
+.champion-info-wrapper .champion-box span{
+
+    color: #60012C;
+
+}
+
+.champ-address {
+
+    padding-top: 25px;
+
+}
+
+.address-one{
+
+    color: #60012C;
+
+    text-align: right;
+
+font: normal normal 600 18px/20px Poppins;
+
+letter-spacing: 0px;
+
+color: #60012C;
+
+opacity: 1;
+
+}
+
+.vertical-line{
+
+height: 200px;
+
+
+
+}
+
+.video-wrapper p{
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px 0px !important;
+
+font: normal normal 600 23px/38px Poppins;
+
+letter-spacing: 0px;
+
+color: #60012C;
+
+opacity: 1;
+
+}
+
+.schedule-one .location-img{
+
+    margin-left: -8px;  
+
+}
+
+.schedule-one .cell-mail img{
+
+    margin-right: 12px;
+
+}
+
+.videos{
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+}
+
+.video-wrapper .container{
+
+padding: 0px 40px;
+
+}
+
+.videos .one img{
+
+padding-top: 30px;
+
+width: 250px;
+
+}
+
+.videos .two img{
+
+width: 500px;
+
+}
+
+.supporting-wrapper p{
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding-top: 20px 0px !important;
+
+font: normal normal 600 22px/38px Poppins;
+
+letter-spacing: 0px;
+
+color: #60012C;
+
+opacity: 1;
+
+}
+
+.supporting-wrapper .download{
+
+    padding-top: 6px;
+
+}
+
+.supporting-wrapper .media-link{
+
+padding-top: 15px;
+
+}
+
+.download-box{
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    height: 235px;
+
+    width: 200px;
+
+    margin-left: 35px;
+
+}
+
+.download-box p{
+
+text-align: center;
+
+font: normal normal 600 16px/38px Poppins;
+
+letter-spacing: 0px;
+
+color: #60012C;
+
+opacity: 1;
+
+}
+
+.download-header{
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    margin-bottom: 45px;
+
+}
+
+.event-line hr {
+
+    border: 1px solid #C8B08B !important;
+
+    z-index: 1;
+
+    position: relative;
+
+    margin: 30px 0px;
+
+}
+
+/* hover-card-start*/
+
+.hover-card{
+
+    /* height: 280px; */
+
+    width: 430px;
+
+    background-color: black;
+
+    border-radius: 5px;
+
+    padding: 15px;
+
+}
+
+.hover-card .focal-hover{
+
+    padding: 15px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    /* justify-content: space-evenly;    */
+
+}
+
+.hover-card .focal-hover img{
+
+ border-radius: 5px;
+
+ padding-right: 15px;   
+
+}
+
+.hover-card .focal-hover .user-name{
+
+    margin-top: 6px;
+
+    font-size: 16px;
+
+}
+
+.hover-card{
+
+    color: gainsboro;
+
+    font-size: 12px;
+
+   }
+
+   .hover-card  hr {
+
+    border: 2px solid seashell !important;
+
+    z-index: 1;
+
+    position: relative;
+
+    margin: 0px;
+
+    margin-bottom: 12px;
+
+}
+
+.hover-card .cell-mail i{
+
+    margin-right: 9px;
+
+}
+
+.hover-card .location-img{
+
+    margin-left: -15px;  
+
+}
+
+.hover-card{
+
+    position: absolute;
+
+    display: none;
+
+    left: -170px;
+
+    z-index: 1;
+
+    margin-top: 35px;
+
+}
+
+.focal-person:hover .hover-card{
+
+    display: block;
+
+
+
+}
+
+/* hover-card-end*/
+
+.addresing{
+
+    height: 15px;
+
+}
+
+.addresing-one{
+
+    height: 17px;  
+
+}
+
+.addresing-two{
+
+    height: 14px;  
+
+}
+
+.address-height-one{
+
+height: 40px;
+
+}
+
+.address-height{
+
+    height: 45px;
+
+}
+
+.address-two{
+
+    border-right: 1px solid #C8B08B !important;
+
+    
+
+}
+
+
+/* media-queries-for laptop-screen */
+
+@media screen and (min-width:1920px) and (max-width:1980px){
+
+    .blurr-back .blurry .btn-outline-secondary {
+        font-size: 22px;
+        width: 260px;
+    }
+    .login-hover p {
+
+        font-size: 20px;
+
+    }
+
+    .login-hover {
+
+        height: 290px;
+
+        width: 210px;
+
+    }
+
+    .login-hover {
+
+        margin-left: -153px;
+
+        padding: 20px;
+
+    }
+
+    .event-detail-left h4 {
+
+        font-size: 2rem;
+
+    }
+
+    .event-detail-wrapper .event-detail-right .btn-outline-secondary {
+
+        width: 170px;
+
+        font-size: 22px;
+
+        font-weight: 700;
+
+    }
+
+    .event-detail-wrapper .event-detail-right .btn-outline-success {
+
+        width: 170px;
+
+        font-size: 22px;
+
+    }
+
+    .event-detail-left p {
+
+        font-weight: 900;
+
+        font-size: 22px;
+
+    }
+
+    .event-description h6 {
+
+        font-size: 1.6rem;
+
+    }
+
+    .event-description p {
+
+        font: normal normal normal 21px/25px Poppins;
+
+    }
+
+    .schedule-one h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .schedule-one p {
+
+        font: normal normal normal 20px/25px Poppins;
+
+    }
+
+    .schedule-one img{
+
+        height: 26px;
+
+    }
+
+    .schedule-detail{
+
+        padding-top: 35px;
+
+    }
+
+    .schedule-one .container {
+
+        font-size: 20px;
+
+    }
+
+    .event-champion h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .focal-person .user-name {
+
+        margin-top: 0px;
+
+        font-size: 19px;
+
+    }
+
+    .schedule-four h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .schedule-four .schedule-detail{
+
+        text-align: center;
+
+    }
+
+    .schedule-four {
+
+        height: 250px;
+
+    }
+
+    .schedule-four p {
+
+        font: normal normal normal 20px/25px Poppins;
+
+    }
+
+    .champion-info-wrapper .champion-box {
+
+        padding-top: 25px;
+
+    }
+
+    .champion-info-wrapper h6 {
+
+            font-size: 1.6rem;
+
+            font-weight: 700;
+
+        }
+
+        .champion-info-wrapper .champion-box p{
+
+            font-size: 20px;
+
+        }
+
+        .champion-info-wrapper .champion-box span {
+
+            font-size: 24px;
+
+            font-weight: 700;
+
+        }
+
+        .download-box p {
+
+            text-align: center;
+
+            font: normal normal 600 18px/38px Poppins;
+
+        }
+
+}
+
+
+
+@media screen and (min-width:1600px) and (max-width:1919px){
+
+    .login-hover p {
+
+        font-size: 20px;
+
+    }
+
+    .login-hover {
+
+        height: 290px;
+
+        width: 210px;
+
+    }
+
+    .login-hover {
+
+        margin-left: -153px;
+
+        padding: 20px;
+
+    }
+
+    .event-detail-left h4 {
+
+        font-size: 2rem;
+
+    }
+
+    .event-detail-wrapper .event-detail-right .btn-outline-secondary {
+
+        width: 170px;
+
+        font-size: 22px;
+
+        font-weight: 700;
+
+    }
+
+    .event-detail-wrapper .event-detail-right .btn-outline-success {
+
+        width: 170px;
+
+        font-size: 22px;
+
+    }
+
+    .event-detail-left p {
+
+        font-weight: 900;
+
+        font-size: 20px;
+
+    }
+
+    .event-description h6 {
+
+        font-size: 1.6rem;
+
+    }
+
+    .event-description p {
+
+        font: normal normal normal 18px/25px Poppins;
+
+    }
+
+    .schedule-one h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .schedule-one p {
+
+        font: normal normal normal 16px/25px Poppins;
+
+    }
+
+    .schedule-one {
+
+        height: 300px;
+
+    }
+
+    .schedule-one img{
+
+        height: 16px;
+
+    }
+
+    .schedule-detail{
+
+        padding-top: 35px;
+
+    }
+
+    .schedule-one .container {
+
+        font-size: 16px;
+
+    }
+
+    .event-champion h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .focal-person .user-name {
+
+        margin-top: 0px;
+
+        font-size: 14px;
+
+    }
+
+    .schedule-four h6 {
+
+        font-size: 1.6rem;
+
+        font-weight: 700;
+
+    }
+
+    .schedule-four .schedule-detail{
+
+        text-align: center;
+
+    }
+
+    .schedule-four {
+
+        height: 250px;
+
+    }
+
+    .schedule-four p {
+
+        font: normal normal normal 20px/25px Poppins;
+
+    }
+
+    .champion-info-wrapper .champion-box {
+
+        padding-top: 25px;
+
+    }
+
+    .champion-info-wrapper h6 {
+
+            font-size: 1.6rem;
+
+            font-weight: 700;
+
+        }
+
+        .champion-info-wrapper .champion-box p{
+
+            font-size: 18px;
+
+        }
+
+        .champion-info-wrapper .champion-box span {
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+        }
+
+        .download-box p {
+
+            text-align: center;
+
+            font: normal normal 600 18px/38px Poppins;
+
+        }
+
+}
+
+@media screen and (min-width:1024px) and (max-width:1279px){
+
+    .event-description p {
+
+        font: normal normal normal 16px/25px Poppins;
+
+    }
+
+    .schedule-one {
+
+        height: 350px;
+
+    }
+
+    .cell-mail p{
+
+        font-size: 11px;
+
+    }
+
+    .schedule-one .container {
+
+        margin-top: 30px;
+
+        margin-bottom: 40px;
+
+        font-size: 14px;
+
+        white-space: nowrap;
+
+    }
+
+    .videos .one img {
+
+        width: 235px;
+
+    }
+
+    .address-one {
+
+        white-space: nowrap;
+
+        font: normal normal 600 16px/20px Poppins;
+
+    }
+
+}
+
+@media screen and (min-width:768px) and (max-width:1023px){
+
+    .videos .one img {
+
+        width: 170px;
+
+    }
+
+    .videos .two img {
+
+        width: 380px;
+
+    }
+
+}
+
+@media screen and  (max-width:767px){
+ .blurr-back {
+         width: auto; 
+        height: 350px;
+    }
+    .event-detail-wrapper {
+
+        margin-top: 20px;
+
+ padding-left: 5px; 
+
+    }
+
+    .event-description {
+
+        padding: 12px;
+
+        margin-top: 12px;
+
+    }
+
+    .schedule {
+
+        padding-left: 5px;
+
+        margin-top: 15p;
+
+    }
+
+    .schedule-one {
+
+        height: 380px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .schedule-one .col-md-1{
+
+width: 10%;
+
+    }
+
+    .schedule-one .col-md-11{
+
+        width: 85%;
+
+            }
+
+    .schedule-detail {
+
+        margin-top: 60px;
+
+    }
+
+.videos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+.videos .two img {
+
+    width: 310px;
+
+}
+
+.hover-card {
+
+    left: -21px;
+
+}
+
+.hover-card {
+
+    /* height: 280px; */
+
+    width: 354px;
+
+    padding: 10px 30px;
+
+}
+
+.event-card {
+
+    padding-left: 5px;
+
+    margin-top: 20px;
+
+}
+
+.video-wrapper .container {
+
+    padding: 0px 15px;
+
+    text-align: center;
+
+}
+
+.download-header {
+
+    display: inline-grid;
+
+}
+
+.download-box {
+
+    margin-top: 15px;
+
+}
+
+.schedule-one .col-md-6{
+
+width: 45%;
+
+}
+
+.schedule-one .container {
+
+    margin-top: 35px;
+
+    margin-bottom: 40px;
+
+    font-size: 12px;
+
+}
+
+.champion-info-wrapper .champion-box .col-md-3{
+
+    width: 45%;
+
+}
+
+.champion-info-wrapper .champ-address {
+
+    font-size: 11px;
+
+}
+
+.champion-info-wrapper .address-one {
+
+    font-size: 11px;
+
+}
+
+.champion-info-wrapper .champion-box {
+
+    padding: 5px;
+
+}
+
+.address-two {
+
+    border-right: none !important;
+
+}
+
+.addresing-one {
+
+    height: 10px;
+
+}
+
+.addresing {
+
+    height: 5px;
+
+    white-space: nowrap;
+
+}
+
+.addresing-two {
+
+    height: 5px;
+
+}
+
+.supporting-wrapper {
+
+    text-align: center;
+
+}
+
+.hover-card {
+
+    font-size: 10px;
+
+}
+}

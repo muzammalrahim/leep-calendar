@@ -15,11 +15,11 @@
             <a class="{{-- nav-item nav-link col-xs-2 col-2 font15 rounded-0 mr-3 calender-tab bg-site --}}nav-item nav-link active col-xs-2 col-4 font18 rounded-0 bg-site calender-tab" id="nav-home-tab" data-toggle="tab" href="#nav-home" 
             role="tab" aria-controls="nav-home" aria-selected="false">Day</a>
 
-            <a class="nav-item nav-link col-xs-2 col-3 font15 rounded-0 mr-3 calender-tab bg-month" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+            <a class="nav-item nav-link col-xs-2 col-3 font18 rounded-0 mr-3 calender-tab bg-month" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
 
               role="tab" aria-controls="nav-contact" aria-selected="false">Week</a>
 
-            <a class="nav-item nav-link col-xs-2 col-3 font15 rounded-0 mr-3 calender-tab bg-week" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" 
+            <a class="nav-item nav-link col-xs-2 col-3 font18 rounded-0 mr-3 calender-tab bg-week" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" 
 
             role="tab" aria-controls="nav-profile" aria-selected="false">Month</a>
 
