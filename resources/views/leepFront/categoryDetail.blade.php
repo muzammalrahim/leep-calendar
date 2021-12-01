@@ -29,11 +29,17 @@
                     </div>
 
                     <div class="event-box">
-
                         
                         @foreach($eventCategory as $e)
+                            @php
+                                $event_name = $e->event->name;
+                                $event_name = str_replace(' ', '_', $event_name);
+                                $event_name = str_replace("\'", '_', $event_name);
+
+                                // dump($event_name);
+                            @endphp
                             {{-- @dump($e->id) --}}
-        	               <a href=" {{ route('eventDetail',['id'=>$e->event_id]) }} ">
+        	               <a href=" {{ route('eventDetail',['name'=>$event_name, 'id'=>$e->event_id]  )}} ">
                             <div class="event-title" style=" cursor:pointer;">
         	                    <div class="row">	                    	
         		                        <div class="col-md-10 categoryEvent">

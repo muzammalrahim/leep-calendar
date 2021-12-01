@@ -100,7 +100,7 @@ Route::get('/', 'HomeController@index');
 });
 Route::post('searchEvents', 'HomeController@userSearchEvents');
 Route::get('searchEvents', 'HomeController@userSearchEvents');
-Route::get('event/{id}', 'HomeController@eventDetail')->name('eventDetail');
+Route::get('event/{name}', 'HomeController@eventDetail')->name('eventDetail');
 Route::get('becomeMember', 'HomeController@becomeMember')->middleware('auth');;
 Route::get('becomeFreeMember', 'HomeController@becomeFreeMember')->middleware('auth');
 Route::get('becomeGoldMember', 'HomeController@becomeGoldMember')->middleware('auth');

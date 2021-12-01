@@ -398,4 +398,27 @@ class events extends Model
         return $this->belongsTo(EventAttachment::class,'id', 'event_id');        
     }
 
+
+    public function full_events($m){
+
+        return $this->where('start_month',$m )->get();        
+    }
+
+    public function daily_events($date){
+
+        return $this->where('start_date',$date )->where('type','Daily')->get();        
+    }
+
+    public function week_events($date){
+
+        return $this->where('start_date',$date )->where('type','Weekly')->orderBy('created_at','desc')->get();        
+    }
+
+    public function monthly_events($m){
+
+        return $this->where('start_month',$m )->where('type','Monthly')->orderBy('created_at','desc')->get();        
+    }
+
+
+
 }
