@@ -15,7 +15,7 @@
 
               <div class="calender-head">
 
-                <h3> Today Is ... {{ getMonthFullName($m) }} {{ $d  }}</h3>
+                <h3> Today Is ... {{ getMonthFullName($m) }}<span class="ml-2"></span> {{ $d  }}</h3>
               </div>
 
               <!-- Tabs -->
