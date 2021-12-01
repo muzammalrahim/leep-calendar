@@ -53,6 +53,50 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="event-box">
+                        
+                        @foreach($eventCategory as $e)
+                            @php
+                                $event_name = $e->event->name;
+                                $event_name = str_replace(' ', '_', $event_name);
+                                $event_name = str_replace("\'", '_', $event_name);
+
+                                // dump($event_name);
+                            @endphp
+                            {{-- @dump($e->id) --}}
+        	               <a href=" {{ route('eventDetail',['name'=>$event_name, 'id'=>$e->event_id]  )}} ">
+                            <div class="event-title" style=" cursor:pointer;">
+        	                    <div class="row">	                    	
+        		                        <div class="col-md-10 categoryEvent">
+        		                            <h4>{{\Illuminate\Support\Str::limit($e->event->name,42)}}</h4>
+        		                            <p class="event-type">{{$e->event->type}}</p>
+        		                            <p>{{\Illuminate\Support\Str::limit($e->event->description,204)}}</p>
+
+        		                        </div>
+        		                        <div class="col-md-2" style="padding-left: 0px; text-align: center;">
+        		                            <h5 class="date-year">{{$e->event->d_start}} {{date("F", strtotime(date("Y")."-".$e->event->m_start."-01"))}}</h5>
+                                            <label class = "labelclass">{{$e->event->status}}</label>
+        		                        </div>	                    	
+        	                    </div>
+        	                </div>
+                            </a>
+                        @endforeach
+                    </div>
+
+                    <div class="borderline my-3"></div>
+
+
+                    <div class="w3-center w3-bar w3-border w3-round" style="text-align: center;">
+                        @if (Auth::check() && hasMemberShip())
+                            {{-- expr --}}
+                         {{$eventCategory->appends(Request::except('page'))->links('pagination::default') }}
+
+                        @endif
+                     </div>
+
+
                 </div>
             </div>
         </div>

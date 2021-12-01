@@ -137,7 +137,7 @@
                         @endphp
 
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$event->id)}}','self'); " style=" cursor:pointer;">
-                          {{\Illuminate\Support\Str::limit($event->name)}}
+                          {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
                         <!-- <p>{{\Illuminate\Support\Str::limit($event->description,60)}}</p> -->
                       </div>
