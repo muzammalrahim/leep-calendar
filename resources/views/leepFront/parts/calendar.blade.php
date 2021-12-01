@@ -31,7 +31,7 @@
 
       {{-- </div> --}}
 
-      <div class="event_detail px-2 pb-2 row m-0">
+      <div class="event_detail px-2 row m-0">
 
         <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
 

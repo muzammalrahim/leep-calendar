@@ -1,8 +1,8 @@
 <div class="becomeProfessional pb-5"> 
   <div class="container">
-      <h5> BECOME A MEMBER </h5>
-      <a href="{{ asset('login') }}" class="d-block"> Professionals </a>
-      <a href="{{ asset('register') }}" class="d-block"> Event Champions </a>
+      <h6 class="font-weight-bold text-center"> BECOME A MEMBER </h6>
+      <a href="{{ asset('login') }}" class="d-block text-center"> Professionals </a>
+      <a href="{{ asset('register') }}" class="d-block text-center"> Event Champions </a>
   </div>                   
 </div>
 

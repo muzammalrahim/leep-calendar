@@ -2716,3 +2716,18 @@ a.colorSkin:hover {
 .bg_black{
     background:#231f20;
 }
+.bg_maroon{
+    background-color: #60012C;
+}
+.bg_light{
+    background-color:#808080;
+}
+.bg_green{
+    background-color:#003300;
+}
+.custom_btn{
+    opacity: 0.8;
+}
+.custom_btn:hover{
+    opacity: 1.0;
+}

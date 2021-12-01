@@ -126,7 +126,8 @@ class HomeController extends Controller
         // ->where('status','Approved')
         ->orderBy('created_at','desc')->get();
 
-        
+        $eventCount=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->get()->count();
+
         if(!isset($category->id))
             return redirect()->back()->with(['errorMsg','Undefined Category']);
         if (Auth::check()) {
@@ -146,7 +147,7 @@ class HomeController extends Controller
         
 
         // dd($eventCategory);
-        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
+        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'eventCount', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
     }
     public function downloadpdf($eveId,$filesId)
     {
