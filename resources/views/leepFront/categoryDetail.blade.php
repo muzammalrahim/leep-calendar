@@ -55,17 +55,14 @@
                         </div>
                     </div>
 
-                    <div class="event-box">
+                    {{-- <div class="event-box">
                         
                         @foreach($eventCategory as $e)
                             @php
                                 $event_name = $e->event->name;
                                 $event_name = str_replace(' ', '_', $event_name);
                                 $event_name = str_replace("\'", '_', $event_name);
-
-                                // dump($event_name);
                             @endphp
-                            {{-- @dump($e->id) --}}
         	               <a href=" {{ route('eventDetail',['name'=>$event_name, 'id'=>$e->event_id]  )}} ">
                             <div class="event-title" style=" cursor:pointer;">
         	                    <div class="row">	                    	
@@ -90,11 +87,9 @@
 
                     <div class="w3-center w3-bar w3-border w3-round" style="text-align: center;">
                         @if (Auth::check() && hasMemberShip())
-                            {{-- expr --}}
                          {{$eventCategory->appends(Request::except('page'))->links('pagination::default') }}
-
                         @endif
-                     </div>
+                    </div> --}}
 
 
                 </div>

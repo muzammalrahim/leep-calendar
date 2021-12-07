@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\EventCategory;
 use App\Models\EventAttachment;
+use GuzzleHttp\Client;
 
 
 
@@ -180,4 +181,19 @@ function insertIntoAttachments($event_id,$data){
     $eventAttachment->socail_link2 = $data['socail_link2'] ;
     $eventAttachment->socail_link3 = $data['socail_link3'] ;
     $eventAttachment->save();
+}
+
+
+function dateAccordingToIp($ip){
+    $apiURL = 'https://api.ipgeolocation.io/timezone?apiKey=729b967c8e964a46bd2f3f7505ee01a1&ip='.$ip.''; 
+    $client = new \GuzzleHttp\Client();
+    $response = $client->request('GET', $apiURL);
+    $statusCode = $response->getStatusCode();
+    $responseBody = json_decode($response->getBody(), true);
+    // dd($responseBody);
+    $data['date'] = $responseBody['date'];
+    $data['day'] = substr($responseBody['date'], -2,2);
+    $data['month'] = substr($responseBody['date'], -5,2);
+    return $data;
+
 }

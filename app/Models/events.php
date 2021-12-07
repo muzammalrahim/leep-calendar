@@ -401,7 +401,7 @@ class events extends Model
 
     public function full_events($m){
 
-        return $this->where('start_month',$m )->get();        
+        return $this->where('start_month',$m )->where('type','Daily')->orWhere('type', 'Decade')->orWhere('type', 'Annual')->get();        
     }
 
     public function daily_events($date){
