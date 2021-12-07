@@ -689,13 +689,7 @@
 		    
 		    <div class="wrap">
 
-			    {{-- <div class="row"> --}}
-			    	{{-- <div class="col-6"> --}}
-
-			    	{{-- </div> --}}
-
 			    <div class="row m-0">	
-			    	
 			    	<div class="col-12 col-sm-12 col-md-5 col-lg-6 mb-3">
 			    		<div class="search">
 					    	<input type="text" class="searchTerm" name="event_Name"  placeholder="Search for an event">
@@ -705,16 +699,42 @@
 					    </div>
 			    	</div>
 
-			    	<div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3 m-0 p-0 ml-3 ml-sm-0 ml-md-0 ml-lg-0">
+			    	
+			    	<div class="col-5 col-sm-6 col-md-2 col-lg-2 text-center advanceSearch mt-3">
+	            		<a href="{{route('advance.search')}}" class="font-weight-bold">Advanced Search</a>
+                   </div>
+			    </div>	
+			    
+
+			    {{-- </div> --}}
+
+		    </div>
+
+
+
+
+		    <!-- DropDown-bar -->
+
+	        <div class="mt-5 mb-3 mx-4">
+
+	            <div class="row m-0">
+	            	<div class="col-1 mr-5"></div>
+	            	<div class="col-md-6 col-lg-6 col-sm-6 col-6 ml-4">
+	            		<div class="professional-heading ml_15">
+					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
+					    </div>
+	            	</div>
+
+	            	{{-- Login Button  --}}
+
+	            	<div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3 m-0 p-0 ml-3 ml-sm-0 ml-md-0 ml-lg-0">
 			    		 <div class="d-flex">
 				    		@guest
-
 						        <form class="form-inline my-2 my-lg-0 right-login">
 						        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-2 mx-1"  type="submit">Login</a>
-						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-2 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
+						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-3"  type="submit">Login</a>
+						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
 						        </form>
-
 						        @else
 
 						        @if(Auth::User()->email_verified_at=='')
@@ -775,158 +795,9 @@
 						     </div> 
 			    	</div>
 
+	            	{{-- Login Button --}}
 
-			    	<div class="col-5 col-sm-6 col-md-3 col-lg-3 text-center advanceSearch">
-	            		<a href="{{route('advance.search')}}" class="font-weight-bold">Advanced Search</a>
-                   </div>
-			    </div>	
-			    
-
-			    {{-- </div> --}}
-
-		    </div>
-
-
-
-
-		    <!-- DropDown-bar -->
-
-	        <div class="mt-5 mb-3 mx-4">
-
-	            <div class="row m-0">
-
-	            	<div class="col-md-12 col-lg-12 col-sm-12 col-12">
-	            		<div class="professional-heading">
-					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
-					    </div>
-	            	</div>
-
-	            	{{-- <div class="col-md-6 col-lg-5 col-sm-6 col-12 text-center">
-	            		<a href="{{route('advance.search')}}" class="text-dark fs-6">Advanced Search</a>
-	            	</div> --}}
-        
-                   <!-- <div class="col-md-2 col-lg-2 col-sm-1 col-3 ">
-	            		 <p class="float-right "> <small class="position-relative"> Search Filters </small> </p> -->
-	             
-
-	                <!-- <div class="col-md-4 col-lg-4 col-sm-5 col-9 drop-left drop-left ">
-
-	                    <div class="my-btn btn-group col-md-2 col-lg-2 col-4 drop">
-
-	                        <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	                            Category
-	                        </span> -->
-
-	                            <!-- Category -->
-	                        <!-- <div class="search-category">
-	                        	<div class="category-search sticky-top">
-		                            <div class="input-group md-form form-sm form-2">
-		                                <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" 
-		                                    aria-label="Search" id="search" name="category" value='' onkeyup="filter()">
-		                                <div class="input-group-append">
-		                                    <span class="input-group-text red lighten-3" id="basic-text1"><i class="fa fa-search text-grey" aria-hidden="true"></i></span>
-		                                </div>
-		                            </div>
-
-	                          	</div>
-
-	                            <div class="selections">
-	                                <div>
-	                                    <select id="select" size="10"   onchange='change()' name="category">
-										<option value="" selected="">Select</option>
-						              	@foreach(App\Models\category::all() as $cat)
-											<option value="{{$cat->name}}">{{$cat->name}}</option>
-										@endforeach	              	
-	                                    </select>
-	                                </div>
-	                            </div>
-
-	                        </div> -->
-
-	                            <!-- End Category -->
-
-	                	<!-- </div>
-
-		                <div class="xyz btn-group col-md-2 col-lg-2 col-4 drop">
-
-				            <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				              Duration
-				            </span>
-
-				            <div class="duration-box">
-				            	<div class="row">
-					                <div class="checkbox col-md-6">
-					                	<label><input type="checkbox"  name="type_all" value="All"><span>All</span> </label>
-					                </div>
-					                <div class="checkbox col-md-6">
-					                	<label><input type="checkbox" name="weekly" value="Weekly"><span>Weekly</span></label>
-					                </div> -->
-					                <!-- </form>
-					                	<form class="row"> -->
-					               <!--  <div class="checkbox col-md-6">
-					                	<label><input type="checkbox" name="daily" value="Daily"><span>Daily</span> </label>
-					                </div>
-					                <div class="checkbox col-md-6">
-					                	<label><input type="checkbox" name="annual" value="Annual"><span>Annual</span></label>
-					                </div>
-					            </div>
-				        	</div>
-
-			          	</div>
-
-	                    <div class="my-btn btn-group col-md-2 col-lg-2 col-4 drop">
-
-	                        <span class="btn-sm dropdown-toggle pointer" {{-- type="button" --}} data-toggle="dropdown"aria-haspopup="true" aria-expanded="false">
-	                            Country
-	                        </span>
-
-	                        <div class="search-category">
-	                            <div class="category-search sticky-top">
-	                                <div class="input-group md-form form-sm form-2">
-	                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" 
-	                                    aria-label="Search" id="searchOne" name="search"value='' onkeyup="filterOne()">
-	                                    <div class="input-group-append">
-	                                        <span class="input-group-text red lighten-3" id="basic-text1">
-	                                        	<i class="fa fa-search text-grey" aria-hidden="true"></i>
-	                                        </span>
-	                                    </div>
-	                                </div>
-	                            </div>
-
-	                            <div class="selections">
-
-		                            <div class="col-12 mt-3"> -->
-		                                <!-- <select class="form-select" aria-label="Default select example"> -->
-		                               <!--  <select id="selectOne" size="10" onchange='changeOne()'  name="state">
-							              	<option value="" selected="">Select</option>
-							              	@foreach(App\Models\events::distinct()->get(['name']) as $us)
-								              	<option value="{{$us->name}}">{{$us->name}}</option>
-							              	@endforeach
-		                                </select> -->
-		                                <!-- </select> -->
-		                         <!--    </div>
-
-	                            </div>
-
-	                        </div>
-
-	                    </div>
-
-	                    {{-- <div class="btn-group col-md-1 drop">
-
-	                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
-
-	                            aria-haspopup="true" aria-expanded="false">
-
-	                            Other Filters
-
-	                        </button>
-
-
-
-	                    </div> --}}
-
-	                </div> -->
+	            	
                    
 
 	                <div class="col-md-4 drop-right">

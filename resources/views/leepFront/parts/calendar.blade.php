@@ -43,7 +43,7 @@
 
               @foreach($daily_events as $d_e)
                 @isset($d_e->id)
-                  <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
+                  <div class="calender-body m-0 bg-white rounded-0 border-bottom">
                     <div class="row event_detail">
                       <!--<div class="col-md-2 date-box">-->
                       <!--  <span>{{$d_e->d_start}}</span>-->
@@ -82,7 +82,7 @@
 
                 @foreach($week_events as $m_e)
                   {{-- @dump($m_e); --}}
-                  <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
+                  <div class="calender-body m-0 bg-white rounded-0 border-bottom">
                     <div class="row">
                       <!--<div class="col-md-2 date-box">-->
                       <!--  <span>{{$m_e->d_start}}</span>-->
@@ -124,14 +124,11 @@
                 @foreach($monthly_events as $event)
 
                   {{-- @dump($event); --}}
-                  <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
+                  <div class="calender-body m-0 bg-white rounded-0 border-bottom">
                     <div class="row">
-                      <!--<div class="col-md-2 date-box">-->
-                      <!--  <span>{{$event->d_start}}</span>-->
-                      <!--  <b> {{date("M", strtotime(date("Y")."-".$event->m_start."-01"))}}</b>-->
-                      <!--</div>-->
+              
                       <div class="col-md-12 m-0 pl-4 pt-2">
-
+                        {{-- @dump($event->name) --}}
                         @php
                           $eventName = substr($event->name, 0, strpos($event->name, ":"));
                         @endphp
@@ -139,7 +136,7 @@
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$event->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
-                        <!-- <p>{{\Illuminate\Support\Str::limit($event->description,60)}}</p> -->
+                        {{-- {{\Illuminate\Support\Str::limit($event->description,60)}}</p> --}}
                       </div>
                     </div>
                   </div>
