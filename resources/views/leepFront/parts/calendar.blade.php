@@ -39,9 +39,9 @@
             
             <div class="calendarScrolls">
               
-              {{-- ========================================== Date Events ========================================== --}}
+              {{-- ========================================== Day Events ========================================== --}}
 
-              @foreach($full_events as $d_e)
+              @foreach($daily_events as $d_e)
                 @isset($d_e->id)
                   <div class="calender-body m-0 bg-white rounded-0 border-dark border-bottom">
                     <div class="row event_detail">

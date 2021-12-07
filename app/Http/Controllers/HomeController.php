@@ -53,49 +53,23 @@ class HomeController extends Controller
         
         $page_title = 'Dashboard';
         $page_description = 'Some description for the page';
-        $d=date('d');     
-        $m=date('m');
-        $y=date('Y');     
-        $events=events::all();   
-        $date=date("Y-m-d");
+        // $d=date('d');
+        // $m=date('m');
+        // $y=date('Y'); 
+        // $date=date("Y-m-d");
+        $events=events::all();
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-        
-        $date = Carbon::now();
-        //Get date and time
-        
-        $ip = $request->ip();
-        // dd($ip);
-
-        // $Vdata = file_get_contents('php.ini');
-        // dd($Vdata);
-        // $date_time = date("l j F Y  g:ia", time() - date("Z")) ;
-        // dd($date_time);
-        // $browser = $_SERVER['HTTP_USER_AGENT'];
-        // dd($browser);
-
-        /*$jsondata = file_get_contents("http://timezoneapi.io/api/ip/?" . $ip);
-        $data = json_decode($jsondata, true);*/
-
-        // dd($data);
-
-        // $ipdat = $client->get( "http://www.geoplugin.net/php.gp?ip=" . $ip);
-        // dd($ipdat); 
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
 
         $full_events = $this->events->full_events($m);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($m);
-
-
-        $wSD=date("Y-m-d", strtotime( 'monday this week' ));
-        $wED=date("Y-m-d", strtotime( 'sunday this week' ));
-
         $monthName = getMonthFullName($m);
-        // dd($monthName);
-
         $featureEvents=featuredEvents::all()->take(3) ;
-
-        // return view('maintenance.comingsoon');
 
         return view('leepFront.index',compact('events','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events'));
         
@@ -104,16 +78,19 @@ class HomeController extends Controller
     }
 
 
-    public function categoryDetail($id)
+    public function categoryDetail($id, request $request)
     {
         $category=category::where('id',$id)->first();
         // dd($category);
-        $m=date('m');
-        $d=date('d');
-        $date=date("Y-m-d");
-        $d_events=events::where('start_date','=',$date)->where('type','Daily')
-                // ->where('status','Approved') 
-        ->get();
+        // $m=date('m');
+        // $d=date('d');
+        // $date=date("Y-m-d");
+
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
+
 
         $full_events = $this->events->full_events($m);
         $daily_events = $this->events->daily_events($date); 
@@ -141,7 +118,7 @@ class HomeController extends Controller
         
 
         // dd($eventCategory);
-        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'eventCount', 'm','d','d_events', 'category', 'id')); // leepFront/categoryDetail
+        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'eventCount', 'm','d', 'category', 'id')); // leepFront/categoryDetail
     }
     public function downloadpdf($eveId,$filesId)
     {
@@ -298,35 +275,28 @@ class HomeController extends Controller
                 return redirect()->back()->with(['error'=>'Unknown Event']);                
             }
             $category = category::where('cat_id',$eventCategory->category_1)->first();
-            $d=date('d');
-            $m=date('m');   
             $events=events::all();   
-            $date=date("Y-m-d");
-            
-            // dump($date);
-            
-            $d_events=events::where('start_date',$date)->where('type','Daily')->where('status','Approved')->get();
-            
-            // dd($d_events);
 
-            $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
-            $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
-            $wSD=date("Y-m-d", strtotime( 'monday this week' ));
-            $wED=date("Y-m-d", strtotime( 'sunday this week' ));
+            // $d=date('d');
+            // $m=date('m');   
+            // $date=date("Y-m-d");
 
+            $ip_dates = dateAccordingToIp($request->ip());
+            $date = $ip_dates['date'];
+            $d = $ip_dates['day'];
+            $m = $ip_dates['month'];
+            
             $full_events = $this->events->full_events($m);
             $daily_events = $this->events->daily_events($date); 
             $week_events = $this->events->week_events($date);
             $monthly_events = $this->events->monthly_events($m);
-
-
             $monthName = getMonthFullName($m);
 
             // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('eventCategory','d_events','week_events','d','m','category','full_events','daily_events','monthName','monthly_events'));
+            return view('leepFront.eventDetail',compact('eventCategory','d','m','category','full_events','daily_events','monthName','monthly_events'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -917,21 +887,19 @@ class HomeController extends Controller
       });
         return redirect()->back()->with(['successMsg'=>'email sended successfully']);
     }
-    public function legend($value='')
+    public function legend($value='', request $request)
     {
         $page_title = 'Legend';
         $page_description = 'Legend Page';
         $events=events::all();
-        $m=date('m');
-        $d=date('d');     
-        
-        $date=date("Y-m-d"); 
-        $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
-        $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
-        $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
-        $wSD=date("Y-m-d", strtotime( 'monday this week' ));
-        $wED=date("Y-m-d", strtotime( 'sunday this week' ));
+        // $m=date('m');
+        // $d=date('d');     
+        // $date=date("Y-m-d"); 
 
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
 
         $full_events = $this->events->full_events($m);
         $daily_events = $this->events->daily_events($date); 
@@ -940,7 +908,7 @@ class HomeController extends Controller
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','d_events','week_events','featureEvents','m','d'));
+        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','week_events','featureEvents','m','d'));
         // return view('leepFront.legend');        
     }
     public function aboutUs($value='')
@@ -1088,11 +1056,19 @@ class HomeController extends Controller
     {
         $page_title = 'Blogs';
         $page_description = 'Blogs Page';
+        $blogs=blogs::paginate(8);
         $events=events::all();
-        $m=date('m');
-        $d=date('d');     
-        
-        $date=date("Y-m-d"); 
+
+        // $m=date('m');
+        // $d=date('d');     
+        // $date=date("Y-m-d"); 
+
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
+
+
         $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
@@ -1105,17 +1081,9 @@ class HomeController extends Controller
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($m);
         
-        // return view('leepFront.legend',compact('events','page_title', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
 
-        // $events=events::all();   
-        // $date=date("Y-m-d"); 
-        // $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
-        // $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
-        // $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
-       
-        $blogs=blogs::paginate(8);
         $page_title = "Blogs";
-            return view('leepFront.blogs',compact('blogs','events','page_title', 'full_events','daily_events' ,'week_events', 'monthly_events', 'page_description','d_events','m_events','week_events','featureEvents','m','d'));
+            return view('leepFront.blogs',compact('page_title','page_description','blogs','events', 'full_events','daily_events' ,'week_events', 'monthly_events', 'd_events','m_events','week_events','featureEvents','m','d'));
     }
 
 
