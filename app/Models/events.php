@@ -399,9 +399,47 @@ class events extends Model
     }
 
 
-    public function full_events($m){
+    public function full_events($date){
 
-        return $this->where('start_month',$m )->where('type','Daily')->orWhere('type', 'Decade')->orWhere('type', 'Annual')->get();        
+        $array = array();
+        $daily =  $this->where('start_date',$date )->where('type','Daily')->where('feature_picture', '!=', '')->pluck('id')->toArray();
+        foreach ($daily as $dail) {
+            $array[] = $dail;
+        }
+
+        // For Weekly events;
+        $start_date = date('Y-m-d', strtotime($date. ' - 7 days')); 
+        $end_date = date('Y-m-d', strtotime($date. ' + 1 days')); 
+        $weekly =  $this->whereBetween('start_date',[$start_date,$end_date])->where('end_date', '>=', $end_date)->where('type','Weekly')->where('feature_picture', '!=', '')->pluck('id')->toArray();
+        foreach ($weekly as $week) {
+            $array[] = $week;
+        }
+
+        // For Monthly Events
+        $start_date_monthly = date('Y-m-d', strtotime($date. ' - 31 days')); 
+        $end_date_onthly = date('Y-m-d', strtotime($date. ' + 1 days')); 
+        $monthly =  $this->whereBetween('start_date',[$start_date_monthly,$end_date] )->where('end_date', '>=', $end_date_onthly)->where('type','Monthly')->pluck('id')->where('feature_picture', '!=', '')->toArray();
+
+        foreach ($monthly as $month) {
+            $array[] = $week;
+        }
+
+        // Annual and Decade Events
+
+        $decade_anual = $this->where('type', 'Decade')->orWhere('type', 'Annual')->where('feature_picture', '!=', '')->pluck('id')->toArray();
+
+        foreach ($decade_anual as $events) {
+            $array[] = $events;
+        }
+        // dd($array);
+
+        return $this->whereIn('id', $array)->get();
+
+
+
+
+
+        return $this->where('start_date',$date )->where('type','Daily')->orWhere('type', 'Weekly')->orWhere('type', 'Decade')->orWhere('type', 'Annual')->get();        
     }
 
     public function daily_events($date){
@@ -410,13 +448,16 @@ class events extends Model
     }
 
     public function week_events($date){
-
-        return $this->where('start_date',$date )->where('type','Weekly')->orderBy('created_at','desc')->get();        
+        $start_date = date('Y-m-d', strtotime($date. ' - 7 days')); 
+        $end_date = date('Y-m-d', strtotime($date. ' + 1 days')); 
+        return $this->whereBetween('start_date',[$start_date,$end_date])->where('end_date', '>=', $end_date)->where('type','Weekly')->orderBy('created_at','desc')->get(); 
     }
 
-    public function monthly_events($m){
+    public function monthly_events($date){
+        $start_date = date('Y-m-d', strtotime($date. ' - 31 days')); 
+        $end_date = date('Y-m-d', strtotime($date. ' + 1 days')); 
 
-        return $this->where('start_month',$m )->where('type','Monthly')->orderBy('created_at','desc')->get();        
+        return $this->whereBetween('start_date',[$start_date,$end_date] )->where('end_date', '>=', $end_date)->where('type','Monthly')->orderBy('created_at','desc')->get();        
     }
 
 

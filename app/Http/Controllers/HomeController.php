@@ -51,8 +51,8 @@ class HomeController extends Controller
         // ini_set("allow_url_fopen", 1);
         // phpinfo();
         
-        $page_title = 'Dashboard';
-        $page_description = 'Some description for the page';
+        $page_title = 'Home';
+        $page_description = 'Leep Calendar';
         // $d=date('d');
         // $m=date('m');
         // $y=date('Y'); 
@@ -62,12 +62,14 @@ class HomeController extends Controller
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
+        // dd($d);
         $m = $ip_dates['month'];
 
-        $full_events = $this->events->full_events($m);
+
+        $full_events = $this->events->full_events($date);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($m);
+        $monthly_events = $this->events->monthly_events($date);
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3) ;
 
@@ -92,10 +94,10 @@ class HomeController extends Controller
         $m = $ip_dates['month'];
 
 
-        $full_events = $this->events->full_events($m);
+        $full_events = $this->events->full_events($date);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($m);
+        $monthly_events = $this->events->monthly_events($date);
 
         $eventCount=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->get()->count();
 
@@ -286,10 +288,10 @@ class HomeController extends Controller
             $d = $ip_dates['day'];
             $m = $ip_dates['month'];
             
-            $full_events = $this->events->full_events($m);
+            $full_events = $this->events->full_events($date);
             $daily_events = $this->events->daily_events($date); 
             $week_events = $this->events->week_events($date);
-            $monthly_events = $this->events->monthly_events($m);
+            $monthly_events = $this->events->monthly_events($date);
             $monthName = getMonthFullName($m);
 
             // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
@@ -901,10 +903,10 @@ class HomeController extends Controller
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
 
-        $full_events = $this->events->full_events($m);
+        $full_events = $this->events->full_events($date);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($m);
+        $monthly_events = $this->events->monthly_events($date);
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
@@ -1076,10 +1078,10 @@ class HomeController extends Controller
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
         $featureEvents=featuredEvents::all()->take(3) ;
 
-        $full_events = $this->events->full_events($m);
+        $full_events = $this->events->full_events($date);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($m);
+        $monthly_events = $this->events->monthly_events($date);
         
 
         $page_title = "Blogs";
