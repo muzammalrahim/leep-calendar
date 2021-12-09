@@ -2734,3 +2734,20 @@ a.colorSkin:hover {
 .ml_15{
     margin-left: 15px;
 }
+
+@media screen and (min-width:768px){
+
+    .search_bar {
+        margin-top: 40px;
+        margin-left: 224px;
+    }
+
+     
+}
+
+
+@media screen and (max-width:768px){
+    .professional-heading h6{
+        font-size:15px ;
+    }
+}

@@ -121,7 +121,7 @@
 
  		</div>
 
- 		<div class="col-12 col-sm-12 col-md-12 col-lg-4 p-4 bg_black">
+ 		<div class="col-12 col-sm-12 col-md-12 col-lg-4 p-4 bg_maroon">
  			<p class="text-white text-justify font12 m-4">
  				LEGAL: Excerpts and links may be used, provided that full and
 				clear attribution is given to Jubilee LLC and LEEPCalendar.com,

@@ -13,36 +13,41 @@
     </div>
 </div>
 
-<div class="icons m-md-0 m-2 pb-5">
-    <div class="container">
-         <a href="https://www.linkedin.com/company/leep-publishing" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/linkedin.png') }}"/>
-    </a>
+<div class="icons my-4">
+    <div class="container pl-4">
+        <div class="pl-3">
+            <a href="https://www.linkedin.com/company/leep-publishing" target="_blank">
+                <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/linkedin.png') }}"/>
+            </a>
 
-    <a href="https://twitter.com/PromoCalendar" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/twitter.png') }}"/>
-    </a>
+            <a href="https://twitter.com/PromoCalendar" target="_blank">
+                <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/twitter.png') }}"/><br>
+            </a>
+        </div>
+       {{--  <a href="https://www.facebook.com/LEEP-Calendar-641349726026657/" target="_blank">
+            <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/facebook.png') }}"/>
+        </a>
 
-   {{--  <a href="https://www.facebook.com/LEEP-Calendar-641349726026657/" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/facebook.png') }}"/>
-    </a>
+        <a href="https://www.instagram.com/leepcalendar/" target="_blank">
+            <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/instagram.png') }}"/>
+        </a> --}}
+        <div class="pl-3">
+            <a href="https://www.youtube.com/channel/UC6w_ytF-mK3p3aJVq96c32A" target="_blank">
+                <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/youtube.png') }}"/>
+            </a>
 
-    <a href="https://www.instagram.com/leepcalendar/" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/instagram.png') }}"/>
-    </a> --}}
-
-    <a href="https://www.youtube.com/channel/UC6w_ytF-mK3p3aJVq96c32A" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/youtube.png') }}"/>
-    </a>
-
-    <a href="Http://www.prplanningcalendar.com" target="_blank">
-        <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/wordpress.png') }}"/>
-    </a>
+            <a href="Http://www.prplanningcalendar.com" target="_blank">
+                <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/wordpress.png') }}"/>
+            </a>
+        </div>
     </div>
     
 </div>
 
-<div class="latest-posts">
+
+@include('layout.twitterFeed')
+
+{{-- <div class="latest-posts">
     <div class="container">
         <div class="latest-posts1 borderBottom">
             <h5 class="leftHeadings"> Latests Twitter Posts </h5>
@@ -76,7 +81,7 @@
     </div>
 </div>
 
-</div>
+</div> --}}
 
 <style type="text/css">
     .icons img {
