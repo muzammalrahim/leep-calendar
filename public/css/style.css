@@ -2495,6 +2495,10 @@ a.nav-item {
     font-size: 18px !important;
 }
 
+.font20 {
+    font-size: 20px !important;
+}
+
 .pointer {
     cursor: pointer;
 }
