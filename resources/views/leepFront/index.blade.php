@@ -62,12 +62,13 @@
 
       {{-- <div class="container"> --}}
         <div class="row m-0 p-0">
+          <div class="col-0 col-sm-2 col-md-2 col-lg-2"></div>
           <div class="col-md-8 col-lg-8 col-sm-7 col-12">
             <div class="today-events">
-              <h1 class="ml-lg-1 ml-md-3 ml-sm-3">Welcome to LEEP Calendar</h1>
+              <h1 class="ml-lg-1 ml-md-3 ml-sm-3 p-0">Welcome to LEEP Calendar</h1>
            </div>
           </div>
-          <div class="col-md-4 col-lg-4 col-sm-5 col-12">
+          <div class="col-md-2 col-lg-2 col-sm-5 col-12">
             <div class="followLeep float-right">
               <a href="https://twitter.com/PromoCalendar?ref_src=twsrc%5Etfw" class="mr-md-5 mr-sm-5 font-weight-bold">Follow LEEP</a>
             </div>
@@ -77,13 +78,12 @@
 
         <div class="row m-0">
 
-          
+          <div class="col-md-3 col-lg-2 mt-4 mx-md-4 mx-sm-4 mx-lg-4"> 
+              @include('layout.leftSidebar')
+          </div>
 
-          <div class="col-md-8 col-lg-8 col-sm-7 col-12 today-features">
-
-      
+          <div class="col-md-7 col-lg-7 col-sm-7 col-12">
             {{-- <div class="row"> --}}
-
               @foreach($featureEvents as $eve)
 
               <div class="col-md-4">
@@ -120,8 +120,6 @@
 
                       {{\Illuminate\Support\Str::limit($eve->events->description,70)}}
 
-                      
-
                     </p>
 
                   </div>
@@ -143,13 +141,8 @@
             {{-- <div class="row"> --}}
 
               <div class="main-featured-events">
-
                 <h6>Today's Featured Events</h6>
-
-
-
                 <p class="main-featured-data text-justify">LEEP Calendar is created by marketing and editorial professionals, public relations professionals, journalists, digital media professionals, teachers and event planners. Over 7,000 events in the United States,  United Kingdom, Canada, Australia and the world are accessible by industry, location, keyword, date, event champion, length, topic and type of event. Events are meticulously researched, verified and added by our staff and event champions daily. The dynamic nature of LEEP allows you to focus on your business, generate topic specific editorial and/or event calendars, plan travel, and execute strategy in minutes, rather than weeks. Memberships  view LEEP free of 3rd party advertising and can import results. Learn more. JOIN TODAY!
-
               </div>
 
             {{-- </div> --}}
@@ -170,123 +163,10 @@
 
           </div>
 
-          <div class="col-md-4 col-lg-4 col-sm-5 col-12">
+          {{-- <div class="col-md-3 col-lg-3 col-sm-5 col-12">
+            @include('layout.twitterFeed')
+          </div> --}}
 
-            {{-- <div class="today-events"> --}}
-
-              <h6>Twitter Feed</h6>
-
-            {{-- </div> --}}
-
-            <div class="media-object-wrappper">
-
-              @foreach($tweets as $t)
-
-              <div class="media-objects">
-
-                <div class="row">
-
-                  <div class="col-md-12">
-
-
-
-                    <div class="media">
-
-                      <div class="media-left">
-
-                        <img src="{{$t['user']['profile_image_url']}}" class="media-object"
-
-                          style="width:60px;border-radius: 20%">
-
-                      </div>
-
-                      <div class="media-body">
-
-                        <h6>{{$t['user']['name']}}</h6>
-
-                        <span>@ {{$t['user']['screen_name']}}</span>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                  {{-- <div class="col-md-4"> --}}
-
-                    {{-- <a href="#" class="btn btn-outline-primary"><i class="fa fa-twitter">Follow</i> </a> --}}
-
-                  {{-- </div> --}}
-
-                </div>
-
-                <div class="media-detail">
-
-                  <p>
-
-                    {{ preg_replace("@(https?://([-\w\.]+[-\w])+(:\d+)?(/([\w/_\.#-]*(\?\S+)?[^\.\s])?)?)@",' ',$t['text'])}}
-
-                  </p>
-
-
-
-                </div>
-
-                <div class="date">
-
-                  <p>{{date('h:i A',strtotime($t['created_at']))}} | {{date('d M Y',strtotime($t['created_at']))}}</p>
-
-                </div>
-
-              </div>
-
-              @endforeach
-
-            </div>
-
-            {{-- @if (Auth::check()) --}}
-
-              @if (Auth::check())
-                @if (hasMemberShip())
-                  {{-- @dump('hi how are you') --}}
-                  @else
-                    <div class="advertising-box">
-
-                      <h6>Advertising Space</h6>
-
-                      <div class="advertising-pic">
-
-                        <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
-
-                      </div>
-
-                    </div>
-                @endif
-                {{-- @dump('EVent Champ here') --}}
-                @else
-                
-                <div class="advertising-box">
-
-                  <h6>Advertising Space</h6>
-
-                  <div class="advertising-pic">
-
-                    <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
-
-                  </div>
-
-                </div>
-
-              @endif
-            
-            {{-- @else --}}
-              
-
-            {{-- @endif --}}
-            
-
-
-          </div>
 
         </div>
 

@@ -399,15 +399,17 @@ class events extends Model
     }
 
 
-    public function full_events($date){
+    public function full_events($date,$year){
 
         $array = array();
+
+        // =========================== Daily Events ===========================
         $daily =  $this->where('start_date',$date )->where('type','Daily')->where('feature_picture', '!=', '')->pluck('id')->toArray();
         foreach ($daily as $dail) {
             $array[] = $dail;
         }
 
-        // For Weekly events;
+        // =========================== For Weekly events ===========================
         $start_date = date('Y-m-d', strtotime($date. ' - 7 days')); 
         $end_date = date('Y-m-d', strtotime($date. ' + 1 days')); 
         $weekly =  $this->whereBetween('start_date',[$start_date,$end_date])->where('end_date', '>=', $end_date)->where('type','Weekly')->where('feature_picture', '!=', '')->pluck('id')->toArray();
@@ -415,7 +417,7 @@ class events extends Model
             $array[] = $week;
         }
 
-        // For Monthly Events
+        // =========================== For Monthly Events ===========================
         $start_date_monthly = date('Y-m-d', strtotime($date. ' - 31 days')); 
         $end_date_onthly = date('Y-m-d', strtotime($date. ' + 1 days')); 
         $monthly =  $this->whereBetween('start_date',[$start_date_monthly,$end_date] )->where('end_date', '>=', $end_date_onthly)->where('type','Monthly')->pluck('id')->where('feature_picture', '!=', '')->toArray();
@@ -423,14 +425,21 @@ class events extends Model
         foreach ($monthly as $month) {
             $array[] = $week;
         }
+        // =========================== Annual Events ===========================
+        $anual = $this->where('type', 'Annual')->where('start_year', '<=' , $year)->where('end_year', '>=', $year)->where('feature_picture', '!=', '')->pluck('id')->toArray();
 
-        // Annual and Decade Events
-
-        $decade_anual = $this->where('type', 'Decade')->orWhere('type', 'Annual')->where('feature_picture', '!=', '')->pluck('id')->toArray();
-
-        foreach ($decade_anual as $events) {
-            $array[] = $events;
+        foreach ($anual as $anual_events) {
+            $array[] = $anual_events;
         }
+
+
+        // =========================== Decade events ===========================
+        $decade = $this->where('type', 'Decade')->where('start_year', '<=' , $year)->where('end_year', '>=', $year)->where('feature_picture', '!=', '')->pluck('id')->toArray();
+
+        foreach ($decade as $decade_events) {
+            $array[] = $decade_events;
+        }
+
         // dd($array);
 
         return $this->whereIn('id', $array)->get();

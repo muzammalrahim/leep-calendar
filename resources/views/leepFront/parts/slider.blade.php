@@ -21,8 +21,10 @@
             @if ($events->feature_picture !='')
             {{-- @dump($events->feature_picture) --}}
                <div class="carousel-item {{ ($i == 0)? 'active':'' }}">
-                  <img src="{{URL::asset('leep_calender/images/Headers/'.$events->feature_picture)}}"
+                  <a href="{{ route('eventDetail' ,['id'=> $events->id ]) }}" class="pointer">
+                     <img src="{{URL::asset('leep_calender/images/Headers/'.$events->feature_picture)}}"
                      class="d-block w-100" alt="...">
+                  </a>
                   <div class="carousel-caption  d-md-block">
                      <div class="warmup-after mt-5">
                      </div>

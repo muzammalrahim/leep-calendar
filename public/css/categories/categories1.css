@@ -100,7 +100,7 @@ padding: 30px 130px;
 }
 @media screen and (min-width:1600px) and (max-width: 1919px) {
     .categories-page .categories-box .cat-box .cat-data {
-        height: 125px;
+        /*height: 125px;*/
     }
     p{
         font-size: 22px;

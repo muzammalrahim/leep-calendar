@@ -194,6 +194,8 @@ function dateAccordingToIp($ip){
     $data['date'] = $responseBody['date'];
     $data['day'] = substr($responseBody['date'], -2,2);
     $data['month'] = substr($responseBody['date'], -5,2);
+    $data['year'] = substr($responseBody['date'], 0,4);
+    // dd($year);
     return $data;
 
 }

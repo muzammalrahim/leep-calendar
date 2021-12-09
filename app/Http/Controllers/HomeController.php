@@ -62,11 +62,11 @@ class HomeController extends Controller
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
-        // dd($d);
         $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
 
 
-        $full_events = $this->events->full_events($date);
+        $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
@@ -94,7 +94,7 @@ class HomeController extends Controller
         $m = $ip_dates['month'];
 
 
-        $full_events = $this->events->full_events($date);
+        $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
@@ -266,29 +266,35 @@ class HomeController extends Controller
         return view('leepFront.searchEvents',compact('events','search'));
         // return view('leepFront.searchEvents');
     }
-    public function eventDetail(Request $request,$name){
+    public function eventDetail(request $request, $id){
         // dd($request->id);
-        $id = $request->id;
         $eventCategory=EventCategory::find($id);
+        // dd($eventCategory);
         if(isset($eventCategory->event->id)){
+
             if($eventCategory->event->status=='' || Auth::id()==$eventCategory->event->user_id){
 
             }else{
                 return redirect()->back()->with(['error'=>'Unknown Event']);                
             }
+
+            // dd('comming');
+
             $category = category::where('cat_id',$eventCategory->category_1)->first();
             $events=events::all();   
 
             // $d=date('d');
             // $m=date('m');   
             // $date=date("Y-m-d");
+            
 
             $ip_dates = dateAccordingToIp($request->ip());
             $date = $ip_dates['date'];
             $d = $ip_dates['day'];
             $m = $ip_dates['month'];
+            $y = $ip_dates['year'];
             
-            $full_events = $this->events->full_events($date);
+            $full_events = $this->events->full_events($date,$y);
             $daily_events = $this->events->daily_events($date); 
             $week_events = $this->events->week_events($date);
             $monthly_events = $this->events->monthly_events($date);
@@ -298,7 +304,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));              
             
-            return view('leepFront.eventDetail',compact('eventCategory','d','m','category','full_events','daily_events','monthName','monthly_events'));
+            return view('leepFront.eventDetail',compact('eventCategory','d','m','category','full_events','daily_events', 'week_events', 'monthName','monthly_events'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -902,8 +908,9 @@ class HomeController extends Controller
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
 
-        $full_events = $this->events->full_events($date);
+        $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
@@ -1069,6 +1076,7 @@ class HomeController extends Controller
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
 
 
         $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
@@ -1078,7 +1086,7 @@ class HomeController extends Controller
         $wED=date("Y-m-d", strtotime( 'sunday this week' ));
         $featureEvents=featuredEvents::all()->take(3) ;
 
-        $full_events = $this->events->full_events($date);
+        $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
