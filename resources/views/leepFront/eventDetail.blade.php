@@ -15,12 +15,12 @@ $event = $eventCategory->event
 
 <div class="eventDetailDiv m-4">
     <div class="row">
-        <div class="col-lg-2 col-md-3 pt-4"> 
+        <div class="col-lg-4 col-md-4 pt-4"> 
 
             @include('layout.leftSidebar')
 
         </div>
-        <div class="col-lg-8 col-md-7 pt-4 ml-lg-5 ml-md-3"> 
+        <div class="col-lg-7 col-md-7 pt-4 ml-lg-5 ml-md-3"> 
           <div class="event-main blockCopy">
             <div class="eventsDetail">
                 <div class="event-detail-container">
@@ -28,7 +28,7 @@ $event = $eventCategory->event
                     @include('layout.errorMsg')
 
 
-                    <div class="borderBottom">
+                    <div class="borderBottom1">
                         <div class="container">
                          <div class="row">
                             <div class="col-md-10 event-detail-left">
@@ -38,36 +38,42 @@ $event = $eventCategory->event
                             </div>
 
                             <div class="col-md-12">
-                                <span class="float-right font-color font18 font-weight-bold estimate-date"> This Date is Estimated </span> 
+                                <span class="float-left font-color font20 font-weight-bold estimate-date"> United States </span> 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="eventDetailAndRegions m-4 ">
-                    <div class="borderBottom eventInfo">
-                        <div class="row">
+                    <div class="eventInfo">
+                        <div class="row mb-5">
                             <div class="col-md-6">
-                                <div class="country mb-3"> 
-                                    <span class="font-weight-bold "> Country/Region: </span> {{ $event->country1 }} 
+                                <div class="country"> 
+                                    <span class="font-weight-bold font20 "> EVENT NAME: </span> 
+                                </div>
+                                <div class="country pl-3 "> 
+                                    <span class="font18"> Safe Toys & Gifts Month, Ntl. {{ $event->country1 }} </span>
                                 </div> 
                             </div>
 
                             <div class="col-md-6">
                                 <div class="eventDate eventInfo mb-3"> 
-                                    <span class="font-weight-bold"> Event Date(s):</span> 
+                                    {{-- <span class="font-weight-bold"> Event Date(s):</span>  --}}
                                     {{-- July 1, 2019 - July 31, 2019  --}}
 
-                                    {{date("F", strtotime(date("Y")."-".$event->m_start."-01")).' '. $event->d_start}} , {{$event->y_start}} - 
-                                    {{date("F", strtotime(date("Y")."-".$event->m_end."-01")).' '. $event->d_end}} , {{$event->y_end}}
+                                    {{-- {{date("F", strtotime(date("Y")."-".$event->m_start."-01")).' '. $event->d_start}} , {{$event->y_start}} -  --}}
+                                    {{-- {{date("F", strtotime(date("Y")."-".$event->m_end."-01")).' '. $event->d_end}} , {{$event->y_end}} --}}
                                 </div>
 
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-5">
                                 <div class="eventCategories">
-                                    <span class="font-weight-bold"> Event Categories:</span> 
+                                    <span class="font-weight-bold font20"> EVENT CATEGORIES:</span>
+                                </div>
+                                <div class="eventCategories pl-3 ">
+                                    <span class="font18"> Safety & Security, Children, Retail, United States </span>
                                     @isset($event->cat1->name)
                                     <span style="margin-bottom: 5px !important; ">{{($event->cat1->name)}}, </span>
                                     @endif
@@ -90,28 +96,42 @@ $event = $eventCategory->event
 
 
                             </div>
-                            <div class="col-md-6">
-                                <div class="lenghtOfFamily mb-3"> <span class="font-weight-bold"> Length of Event: </span> {{ $event->type }}  </div>
+                            <div class="col-md-6 mb-5">
+                                <div class="lenghtOfFamily"> 
+                                    <span class="font-weight-bold font20"> DATE(S): </span>
+                                </div>
+                                <div class="lenghtOfFamily pl-3 "> 
+                                    <span class="font18"> {{ $event->type }}  </span> 
+                                </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="eventChampion mb-3">
-                                    <span class="font-weight-bold"> Event Champion:</span> {{ $event->champ_name }}
+                            <div class="col-md-6 mb-5">
+                                <div class="eventChampion">
+                                    <span class="font-weight-bold font20"> INFORMATION URL:</span> {{ $event->champ_name }}
+                                </div>
+                                <div class="eventChampion pl-3 ">
+                                    <span class="font18 text_marron"> https://www.preventblind-ness.org/safe-toy-checklist {{ $event->champ_name }} </span> 
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="source mb-3">
-                                   <span class="font-weight-bold"> Source/Reference URL: </span> <!-- {{ $event->url }} -->
+                            <div class="col-md-6 mb-5">
+                                <div class="source">
+                                   <span class="font-weight-bold font20"> EVENT ADDRESS: </span> <!-- {{ $event->url }} -->
+                               </div>
+                               <div class="source pl-3 ">
+                                   <span class="font18"> <!-- {{ $event->url }} --> </span>
                                </div>
                            </div>
                        </div>
 
                        <div class="row">
-                        <div class="col-md-6">
-                            <div class="socialLinks mb-3">
-                                <span class="font-weight-bold"> Event Champion Social Media Links:</span>
+                        <div class="col-md-6 mb-5">
+                            <div class="socialLinks">
+                                <span class="font-weight-bold font20"> SOCIAL MEDIA LINKS:</span>
+                            </div>
+                            <div class="socialLinks pl-3 ">
+                                <span class="font18 text_marron"> https://www.faceook.com/preventblindness </span>
                                 @if (isset($event->socail_link1))
                                 <a href="{{ $event->socail_link1 }}"> {{ $event->socail_link1 }}  </a>
                                 @endif
@@ -125,14 +145,17 @@ $event = $eventCategory->event
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="eventAddress mb-3">
-                               <span class="font-weight-bold"> Event Address (if available): </span> {{ $event->address1 }}
+                        <div class="col-md-6 mb-5">
+                            <div class="eventAddress">
+                               <span class="font-weight-bold font20"> RESERVE TICKETS: </span> 
+                           </div>
+                           <div class="eventAddress pl-3 ">
+                               <span class="font18"> {{ $event->address1 }} </span>
                            </div>
 
-                           <div class="registerPurchase mb-3">
-                            <span class="font-weight-bold"> Register or Purchase Tickets to this Event (if available): </span>
-                            {{ $event->purchas_reserve }}
+                           {{-- <div class="registerPurchase mb-3"> --}}
+                            {{-- <span class="font-weight-bold"> Register or Purchase Tickets to this Event (if available): </span> --}}
+                            {{-- {{ $event->purchas_reserve }} --}}
                         </div>
 
                     </div>
@@ -140,12 +163,16 @@ $event = $eventCategory->event
 
             </div>
 
-            <div class="descript borderBottom">
+            <div class="descript">
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="events-description">
-                            <h4 class="font-weight-bold">Description</h4>
-                            <p class="description-text">@isset($event->description){{$event->description}}@endif</p>
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4">DESCRIPTION:</h4>
+                            <p class="line-height-2 m-5 text_black font18">
+                                Prevent Blindness America sponsors Safe Toys and Gifts Awareness Month each December in an effort to help adults make the best decisions on how to keep the holiday season joyful for everyone. In 2010, the United States. Consumer Product Safety Commission (CPSC) estimated that hospital emergency rooms across the country treated 251,700 toy-related injuries. And, 72 percent of those injuries were to those under the age of 15.
+                                @isset($event->description){{$event->description}}@endif
+                            </p>
+                            <p class="line-height-2 m-5 text_marron font18 font-italic text-center"> Continute Reading... </p>
                         </div>
                     </div>
                 </div>
@@ -156,134 +183,92 @@ $event = $eventCategory->event
 
     <!-- champion-box -->
 
-    <div class="m-4 event-card1 borderBottom pb-2">
+    <div class="event-card1 pb-2">
 
         <div class="row">
 
+          
 
-            <div class="col-md-12">
-                <div class="event-champion">
-                    <h4 class="font-weight-bold">Event Champion</h4>
+            @if($event->socail_link1!='' || $event->socail_link1!='' || $event->socail_link1!='')
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="schedule-four">
+                    <h6>Champion Social Media Links</h6>
+                    <div class="schedule-detail text-center mt-1">
+                        {{-- fb --}}
+                        @if($event->socail_link1!='')
+                        <p class="estimate-date" style="    clear: both;float: left;"> 
+                            <a href="{{URL::asset('$event->socail_link1')}}"><img style="float: left;padding-left: 43px;"src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-facebook-square.svg')}}" alt=""> {{$event->socail_link1}}  </a>
+                        </p>
+                        {{-- Twiter --}}
+                        @endif
+                        @if($event->socail_link3!='')                              
+                        <p class="estimate-date" style="    clear: both;float: left;">
+                            <a href="{{URL::asset('$event->socail_link3')}}">
+                                <img style="float: left;padding-left: 43px;" src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-instagram.svg')}}" alt=""> {{$event->socail_link3}} 
+                            </a> 
+                        </p>
+                        {{-- youtube --}}
+                        @endif
+                        @if($event->socail_link2!='')                              
+                        <p class="estimate-date" style="  float: left;  clear: both;">
+                            <a href="{{URL::asset('$event->socail_link2')}}"><img style="float: left;padding-left: 43px;"src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-twitter-square.svg')}}" alt=""> {{$event->socail_link2}}
+                            </a> 
+                        </p>
+                        @endif
+                    </div>
                 </div>
+            </div>
+            @endif
+        </div>
+    </div>
+    <div class="champ-contact-info m-4">
 
-                
-                    <div class="focal-contact1 mt-4">
-                        <div class="row m-0">
+        <h4 class="font-weight-bold event-champ">EVENT CHAMPION CONTACT INFORMATION</h4>
 
-                            <div class="focal-person">
-                                <div class="col-md-4 ">
-                                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                    alt="">
-                                </div>
-                                <div class="col-md-8 ser-name">
-                                    <a href="{{ route('champion.detail',['id' => $event->id]) }}" target="_blank" class="eventChampionLink font-weight-bold">{{ $event->event_champion }}</a>
+            @isset((Auth::user()->membership->type))
+            
+            @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
 
-                                        
+                {{-- @include('leepFront.eventDetail.contactInfo')  --}}
+                @include('leepFront.eventDetail.championInformation')
 
-                                    {{-- <p>Darrel_Hn87@yahoo.com</p> --}}
-                                </div>
-                                <!-- hover-box-start-->
-                                                       {{--  <div class="hover-card">
-                                                            <div class="col-md-12 focal-hover">
-                                                                <div><img
-                                                                        src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Rectangle 256.svg')}}"
-                                                                        alt=""></div>
-                                                                <div class="user-name"><b> {{ $event->event_champion }} </b>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-12">
-                                                                <hr>
-                                                            </div>                                                    
-                                                        </div> --}}
-                                                        <!-- hover-box-end-->
-                                                    </div>
-
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-
-
-                                    {{-- To be removed --}}
-                                    @if($event->socail_link1!='' || $event->socail_link1!='' || $event->socail_link1!='')
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                      <div class="schedule-four">
-                                          <h6>Champion Social Media Links</h6>
-                                          <div class="schedule-detail text-center mt-1">
-                                            {{-- fb --}}
-                                            @if($event->socail_link1!='')
-                                            <p class="estimate-date" style="    clear: both;float: left;"> <a href="{{URL::asset('$event->socail_link1')}}"><img style="float: left;padding-left: 43px;" 
-                                              src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-facebook-square.svg')}}"
-                                              alt=""> {{$event->socail_link1}} </a></p>
-                                              {{-- Twiter --}}
-                                              @endif
-                                              @if($event->socail_link3!='')                              
-                                              <p class="estimate-date" style="    clear: both;float: left;"><a href="{{URL::asset('$event->socail_link3')}}"><img style="float: left;padding-left: 43px;" 
-                                                  src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-instagram.svg')}}"
-                                                  alt=""> {{$event->socail_link3}} </a> </p>
-                                                  {{-- youtube --}}
-                                                  @endif
-                                                  @if($event->socail_link2!='')                              
-                                                  <p class="estimate-date" style="  float: left;  clear: both;"><a href="{{URL::asset('$event->socail_link2')}}"><img style="float: left;padding-left: 43px;"
-                                                      src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon awesome-twitter-square.svg')}}"
-                                                      alt=""> {{$event->socail_link2}}</a> </p>
-                                                      @endif
-                                                  </div>
-
-                                              </div>
-                                          </div>
-                                          @endif
-                                          {{-- End to be removed --}}
-                                      </div>
-                                  </div>
-                                  <!-- champion-box-end-->
-
-                                  <!-- champion-contact-information -->
-                                  <div class="champ-contact-info m-4">
-
-                                    <h4 class="font-weight-bold event-champ">EVENT CHAMPION CONTACT INFORMATION</h4>
-
-                                    @isset((Auth::user()->membership->type))
-                                    
-                                    @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
-
-                                    @include('leepFront.eventDetail.contactInfo') {{-- leepFront/eventDetail/contactInfo --}}
-
-                                    @else
-                                    <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
-                                        <div class="blurr-back">
-                                          <div class="blurry text-center">
-                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                            <h4 class="font-weight-bold">PREMIUM ACCESS ONLY</h4>
-                                            <h6>Upgrade to Premium/Gold Membership to View</h6>
-                                            <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
-                                        </div>
-                                    </div>                      
-                                </div>
-                                @endif
-                                @else
-                                <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
-                                    {{-- <h6>EVENT CHAMPION CONTACT INFORMATION</h6> --}}
-                                    <div class="blurr-back">
-                                      <div class="blurry text-center">
-                                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
-                                        <h4 class="font-weight-bold">PREMIUM ACCESS ONLY</h4>
-                                        <h6>Upgrade to Premium/Gold Membership to View</h6>
-                                        <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
-                                    </div>
-                                </div>                      
-                            </div>
-                            @endif
-                        </div>
+            @else
+            <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
+                <div class="blurr-back">
+                  <div class="blurry text-center">
+                    <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt="">
+                    <h4 class="font-weight-bold">PREMIUM ACCESS ONLY</h4>
+                    <h6>Upgrade to Premium/Gold Membership to View</h6>
+                    <a href="{{URL::asset('becomeMember')}}" class="btn btn-outline-secondary" type="submit">Upgrade Membership</a>
+                </div>
+            </div>                      
+        </div>
+        @endif
+        @else
+        <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
+            {{-- <h6>EVENT CHAMPION CONTACT INFORMATION</h6> --}}
+            <div class="blurr-back">
+              <div class="blurry text-center">
+                {{-- <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Group1657_blur_Image.png')}}" alt=""> --}}
+                <h4 class="font-weight-bold mb-3">PREMIUM CONTENT</h4>
+                <h6 class="text-center m-0 p-0 font-weight-normal">Login to your account to view </h6>
+                <h6 class="text-center m-0 p-0 font-weight-normal">Event Champion contact</h6>
+                <h6 class="text-center m-0 p-0 font-weight-normal"> information.</h6>
+                <a href="{{URL::asset('login')}}" class="rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3 my-3 text_marron font20 font-weight-bold" type="submit">Login</a> <br>
+                <a href="{{URL::asset('register')}}" class="rounded-0 px-4 text-success font20 font-weight-bold" type="submit">Register</a>
+            </div>
+        </div>                      
+        </div>
+        @endif
+    </div>
                         <!-- Video-box-->
 
                         {{-- @dump($event->eventAttachment->id) --}}
                             {{-- expr --}}
-                        <div class="supporting-wrapper p m-4">
-                            <div class="borderBottom"> </div>
-                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING VIDEOS</h4>
+                        <div class="supporting-wrapper p ">
+                            <div class=""> </div>
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">VIDEOS</h4>
                             @if ($event->eventAttachment->video1 != '' || $event->eventAttachment->video2 != '' || $event->eventAttachment->video3 != '')
 
 
@@ -319,9 +304,9 @@ $event = $eventCategory->event
                         </div>
 
                         <!-- supporting-box -->
-                        <div class="supporting-wrapper m-4">
-                            <div class="borderBottom"> </div> 
-                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING DOCUMENTS</h4>
+                        <div class="supporting-wrapper">
+                            <div class=""> </div> 
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">SUPPORTING DOCUMENTS</h4>
                             {{-- <div class="row d-flex justify-content-around">
                                 <div class="col-md-3 text-center">
                                     <span class="imagenum ">Doucement 1</span>
@@ -390,48 +375,46 @@ $event = $eventCategory->event
                         </div>
 
                         <!-- Supporting Images  -->
-                        <div class="supporting-wrapper m-4">
-                            <div class="borderBottom"> </div> 
-                            <h4 class="font-weight-bold mt-4">TOPIC & SUPPORTING IMAGES</h4> 
+                        <div class="supporting-wrapper">
+                            <div class=""> </div> 
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">ADDITIONAL IMAGES</h4> 
                             
                             @if ($event->eventAttachment->extra_image1 != '' || $event->eventAttachment->extra_image2 != '' || $event->eventAttachment->extra_image3 != '')
                             
                             <div class="row d-flex justify-content-around">
                                 <div class="col-md-3 text-center">
-                                    <span class="imagenum ">Image 1</span>
                                     <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
-                                    <p>Text from column AU</p>
+                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
                                 </div>
                                 <div class="col-md-3 text-center">
-                                    <span class="imagenum">Image 2</span>
-                                    <div class="supportimg bg-dark text-warning text- my-2">IMAGE 2</div>
-                                    <p>Text from column AV</p>
+                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 2</div>
+                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
                                 </div>
-                                <div class="col-md-3 supportingimg text-center">
-                                    <span class="imagenum">Image 3</span>
+                                <div class="col-md-3 text-center">
                                     <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
-                                    <p>Text from column AW</p>
+                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
                                 </div>
                             </div>
                             @else
                                 <p> None Supporting image found </p>
+                                
                             @endif
                         </div>
                         <!-- ============Event Update============ -->
 
-                        <div class="borderBottom"> </div>
-                        <div class="eventupdate">
+                        <div class=""> </div>
+                        <div class="eventupdate bg_lightyellow py-1">
                             <div class="row row m-5 d-flex justify-content-around">
                                 <div class="col-md-4 text-center">
-                                    <p>Event Last Updated:</p>
-                                    <span>{{ $event->updated_at->format('d-m-y') }}</span>
+                                    <p class="font-weight-bold font20 text_black mb-0">LAST UPDATED:</p>
+                                    <span class="font20">{{ $event->updated_at->format('d-m-y') }}</span>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <p>REPORT CHANGES TO THIS EVENT</p>
+                                    <p class="font-weight-bold font20 text_marron mb-0 ins">Report a Correction</p>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <p>Event Maintenance:</p>
-                                    <span>Column BD Text</span>
+                                    <p class="font-weight-bold font20 text_black mb-0">EVENT MANAGER:</p>
+                                    <span class="font20">LEEP</span>
                                 </div>
                             </div>
                         </div> 

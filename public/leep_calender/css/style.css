@@ -2461,6 +2461,10 @@ a.nav-item {
     border-bottom: 2px solid #60012c;
 }
 
+.borderBottom1 {
+    border-bottom: 10px solid #60012c;
+}
+
 .dynamicPage123>.font-color:hover {
     color: black !important;
 }
@@ -2500,6 +2504,9 @@ a.colorSkin:hover {
 }
 .description-text {
     line-height: 1.25;
+}
+.line-height-2 {
+    line-height: 2;
 }
 .eventChampionLink{
     text-decoration: underline; 
@@ -2644,8 +2651,17 @@ a.colorSkin:hover {
 .font18{
     font-size: 18px !important;
 }
+.font20{
+    font-size: 20px !important;
+}
 .font12{
     font-size: 12px !important;
+}
+.text_marron{
+    color: #60012C !important;
+}
+.text_black{
+    color: #000 !important;
 }
 .bg_black{
     background:#231f20;
@@ -2691,8 +2707,17 @@ a.colorSkin:hover {
 }
 
 
+
 @media screen and (min-width:320px) and (max-width: 991px){
     .img-fluid{
         width: 29%;
     }
+}
+
+
+.bg_black {
+    background-color: #000 !important;
+}
+.bg_lightyellow {
+    background-color: #EFE9DC;
 }
