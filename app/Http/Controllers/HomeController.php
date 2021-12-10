@@ -65,7 +65,6 @@ class HomeController extends Controller
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
 
-
         $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
@@ -87,11 +86,12 @@ class HomeController extends Controller
         // $m=date('m');
         // $d=date('d');
         // $date=date("Y-m-d");
-
+        $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
 
 
         $full_events = $this->events->full_events($date,$y);
@@ -120,7 +120,7 @@ class HomeController extends Controller
         
 
         // dd($eventCategory);
-        return view('leepFront.categoryDetail',compact('eventCategory', 'full_events','daily_events', 'week_events','monthly_events', 'eventCount', 'm','d', 'category', 'id')); // leepFront/categoryDetail
+        return view('leepFront.categoryDetail',compact('eventCategory', 'tweets', 'full_events','daily_events', 'week_events','monthly_events', 'eventCount', 'm','d', 'y', 'category', 'id')); // leepFront/categoryDetail
     }
     public function downloadpdf($eveId,$filesId)
     {
@@ -287,6 +287,7 @@ class HomeController extends Controller
             // $m=date('m');   
             // $date=date("Y-m-d");
             
+            $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
 
             $ip_dates = dateAccordingToIp($request->ip());
             $date = $ip_dates['date'];
@@ -302,9 +303,9 @@ class HomeController extends Controller
 
             // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
 
-            // dd(events::distinct('country1,country2')->get(['country1','country2']));              
+            // dd(events::distinct('country1,country2')->get(['country1','country2']));           
             
-            return view('leepFront.eventDetail',compact('eventCategory','d','m','category','full_events','daily_events', 'week_events', 'monthName','monthly_events'));
+            return view('leepFront.eventDetail',compact('eventCategory','d', 'tweets', 'm','category','full_events','daily_events', 'week_events', 'monthName','monthly_events'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -904,6 +905,7 @@ class HomeController extends Controller
         // $d=date('d');     
         // $date=date("Y-m-d"); 
 
+        $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
@@ -917,7 +919,7 @@ class HomeController extends Controller
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.legend',compact('events','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','week_events','featureEvents','m','d'));
+        return view('leepFront.legend',compact('events','tweets','page_title','full_events', 'daily_events', 'monthly_events', 'page_description','week_events','featureEvents','m','d'));
         // return view('leepFront.legend');        
     }
     public function aboutUs($value='')
@@ -1071,6 +1073,7 @@ class HomeController extends Controller
         // $m=date('m');
         // $d=date('d');     
         // $date=date("Y-m-d"); 
+        $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
 
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
@@ -1093,7 +1096,7 @@ class HomeController extends Controller
         
 
         $page_title = "Blogs";
-            return view('leepFront.blogs',compact('page_title','page_description','blogs','events', 'full_events','daily_events' ,'week_events', 'monthly_events', 'd_events','m_events','week_events','featureEvents','m','d'));
+            return view('leepFront.blogs',compact('page_title','page_description','blogs','tweets','events', 'full_events','daily_events' ,'week_events', 'monthly_events', 'd_events','m_events','week_events','featureEvents','m','d'));
     }
 
 

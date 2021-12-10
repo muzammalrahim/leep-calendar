@@ -1514,163 +1514,106 @@ ul {
     .navbar-light .navbar-nav .nav-link {
 
         font-weight: 600;
-
-        font-size: 24px;
+        font-size: 18px;
 
     }
 
     .duration-box {
-
         margin-top: 42px;
-
     }
 
     .professional-heading h6 {
-
         font-weight: 700;
-
         font-size: 23px;
-
     }
 
     .navbar-light .navbar-nav .nav-link {
-
         margin-left: 17px;
-
     }
 
     .drop {
-
         margin-right: 50px;
-
         padding-left: 0px;
 
     }
 
     .hero-wrapper .container {
-
         max-width: 1310px;
-
-
-
     }
 
     .right-login a {
-
         font-size: 20px;
-
     }
 
     .dropdown-bar .btn-secondary {
-
         font-size: 22px;
-
     }
 
     i.fa.fa-filter {
-
         margin-top: 7px;
-
         font-size: 23px;
-
     }
 
     .grey-wrapper .container {
-
         max-width: 1200px;
-
     }
 
     .grey-wrapper .container .wrapper1 .heading h6 {
-
         font-size: 26px;
-
     }
 
     .media-object-wrappper .btn-outline-primary {
-
         margin: 0.3rem 1rem;
-
     }
 
     .feature-events-wrapper .card {
-
         height: 390px;
-
         width: 19rem !important;
-
     }
 
     .card-title {
-
         font-size: 1.5rem;
-
     }
 
     .card-text {
-
         font-size: 18px;
-
     }
-
     .main-featured-data {
-
         font-size: 20px !important;
-
         font: inherit;
-
     }
 
     .main-featured-events h6 {
-
         font-size: 1.5rem !important;
-
     }
 
     .advertising-box h6 {
-
         margin-top: 65px;
-
         font-size: 1.5rem !important;
-
     }
 
     .advertising-pic img {
-
-        width: 405px;
-
+        /*width: 405px;*/
     }
-
     .media-object-wrappper h6 {
-
         font-size: 18px;
-
     }
 
     .media-object-wrappper .media-body span {
-
         font-size: 18px;
-
     }
 
     .media-object-wrappper p {
-
         font-size: 16px;
-
     }
 
     .grey-wrapper .container ul li {
-
         font-size: 22px;
-
     }
 
     .grey-wrapper .filter-btn .btn-success {
-
         padding: 4px 90px;
-
         font-size: 20px;
-
     }
 
     .grey-wrapper .rest-filter {
@@ -2165,13 +2108,10 @@ ul {
 
     }
 
-    .mobile-footer {
-
+    /*.mobile-footer {
         display: block;
-
         padding-top: 20px;
-
-    }
+    }*/
 
     .calender .col-md-9 {
 
@@ -2359,17 +2299,13 @@ ul {
 
     /* footer */
 
-    .footer {
-
+    /*.footer {
         display: none !important;
-
     }
 
     .footer-mobile {
-
         display: block;
-
-    }
+    }*/
 
 
 
@@ -2641,9 +2577,7 @@ a.colorSkin:hover {
     .top-heading{
       padding-top: 45px;
     }
-    .img-fluid{
-        width: 29%;
-    }
+    
     .footerImage{
         display: flex;
         justify-content: space-around;
@@ -2757,18 +2691,28 @@ a.colorSkin:hover {
         margin-top: 40px;
         margin-left: 224px;
     }
+    .professional-event{
+        padding-left: 224px;
+    }
+
 
      
 }
 
 
 @media screen and (max-width:768px){
-    .professional-heading h6{
+    .professional-heading h6, .welcome_heading{
         font-size:15px ;
     }
 }
 
 
+
+@media screen and (min-width:320px) and (max-width: 991px){
+    .img-fluid{
+        width: 29%;
+    }
+}
 
 
 .bg_black {

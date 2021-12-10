@@ -121,19 +121,19 @@
   	</div>
 
 
-  	<div class="mt-5 mb-3">
+  	<div class="mt-5 mb-3 professional-event">
 
 	            <div class="row m-0">
-	            	{{-- <div class="col-1 mr-5"></div> --}}
-	            	<div class="col-md-6 col-lg-6 col-sm-6 col-7">
-	            		<div class="professional-heading">
+	            	{{-- <div class="col-lg-1 mr-lg-3"></div> --}}
+	            	<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+	            		<div class="professional-heading editorial_heading">
 					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 					    </div>
 	            	</div>
 
 	            	{{-- Login Button  --}}
 
-	            	<div class="col-5 col-sm-6 col-md-6 col-lg-6 mb-3 m-0 p-0 ml-sm-0 ml-md-0 ml-lg-0">
+	            	<div class="col-5 col-sm-5 col-md-5 col-lg-5 mb-3 m-0 p-0">
 			    		 <div class="d-flex">
 				    		@guest
 						        <form class="form-inline my-2 my-lg-0 right-login">

@@ -75,31 +75,30 @@
 </div>
  --}}
 
- <div class="footer">
- 	<div class="row m-0">
- 		<div class="col-12 col-sm-12 col-md-12 col-lg-2 px-5 bg_black py-5 footerImage">
- 			<img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/logo.png')}}" class = "img-fluid" alt="">
- 			
- 			<p class="mt-4 text-white ml-2">Jubilee LLC, <br>
-				1712 Pioneer Avenue, <br>
-				Suite 2019 <br>
-				Cheyenne, WY 82001 <br>
-				(307) 222.4729
+<div class="row m-0">
+		<div class="col-12 col-sm-12 col-md-12 col-lg-2 px-5 bg_black py-5 footerImage">
+			<img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/logo.png')}}" class = "img-fluid" alt="">
+			
+			<p class="mt-4 text-white ml-2">Jubilee LLC, <br>
+			1712 Pioneer Avenue, <br>
+			Suite 2019 <br>
+			Cheyenne, WY 82001 <br>
+			(307) 222.4729
 			</p>
 
- 		</div>
+		</div>
 
- 		<div class="col-12 col-sm-12 col-md-12 col-lg-6 p-5">
- 	
+		<div class="col-12 col-sm-12 col-md-12 col-lg-6 p-sm-5 p-md-5 p-lg-5">
+	
 			<div class="row p-4">
-				<div class="col-4">
+				<div class="col-6 col-sm-4 col-md-4 col-lg-4">
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('login')}}">Login</a> <br>
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('register')}}">Register</a><br> 
-	        		<a class="advanceSearchLink font-weight-bold font17" href="{{ URL::asset('categories') }}">Categories</a><br> 
+		    		<a class="advanceSearchLink font-weight-bold font17" href="{{ URL::asset('categories') }}">Categories</a><br> 
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'about-us']) }}">About Us</a><br>
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'privacy-policy']) }}">Privacy Policy</a><br>
 				</div>
-				<div class="col-4">
+				<div class="col-6 col-sm-4 col-md-4 col-lg-4">
 
 					<a class="advanceSearchLink font-weight-bold font17" href="{{route('advance.search')}}">Advanced Search</a> <br>
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('becomeMember')}}">Membership</a> <br>
@@ -107,7 +106,7 @@
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'contact-us']) }}">Contact Us</a><br>
 
 				</div>
-				<div class="col-4">
+				<div class="col-6 col-sm-4 col-md-4 col-lg-4">
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('addNewEvent')}}">Submit an Event</a><br>
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('report-an-error')}}">Report an Error</a>
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('media')}}">Media</a>
@@ -119,33 +118,32 @@
 				</div>
 			</div>	
 
- 		</div>
+		</div>
 
- 		<div class="col-12 col-sm-12 col-md-12 col-lg-4 p-4 bg_maroon">
- 			<p class="text-white text-justify font12 m-4">
- 				LEGAL: Excerpts and links may be used, provided that full and
-				clear attribution is given to Jubilee LLC and LEEPCalendar.com,
-				with appropriate and specific direction to the original content
-				(Page URL). Additional documents, embedded videos and
-				additional image rights retained by their creators and are provided
-				to increase understanding of the event or topic. <br>
-				<br>
- 				Jubilee LLC reserves the right to accept or reject inclusion of
-				events in this calendar. The appearance of an event in LEEP
-				Calendar does not imply endorsement of the event, nor the
-				organization championing the event by Jubilee LLC, its
-				stakeholders, customers or subsidiaries. All dates, contact
-				information, URLs, addresses, and information relating to any
-				event, promotion or holiday are subject to change without notice
-				and should be treated as estimated. Jubilee LLC, our
-				stakeholders, customers and subsidiaries cannot warrant
-				accuracy. Users of this application are solely responsible for
-				verifying actual event date with organizers and additional sources
-				prior to committing resources, financial, human or otherwise. 
- 			</p>
- 		</div>
+		<div class="col-12 col-sm-12 col-md-12 col-lg-4 p-4 bg_maroon">
+			<p class="text-white text-justify font12 m-4">
+				LEGAL: Excerpts and links may be used, provided that full and
+			clear attribution is given to Jubilee LLC and LEEPCalendar.com,
+			with appropriate and specific direction to the original content
+			(Page URL). Additional documents, embedded videos and
+			additional image rights retained by their creators and are provided
+			to increase understanding of the event or topic. <br>
+			<br>
+				Jubilee LLC reserves the right to accept or reject inclusion of
+			events in this calendar. The appearance of an event in LEEP
+			Calendar does not imply endorsement of the event, nor the
+			organization championing the event by Jubilee LLC, its
+			stakeholders, customers or subsidiaries. All dates, contact
+			information, URLs, addresses, and information relating to any
+			event, promotion or holiday are subject to change without notice
+			and should be treated as estimated. Jubilee LLC, our
+			stakeholders, customers and subsidiaries cannot warrant
+			accuracy. Users of this application are solely responsible for
+			verifying actual event date with organizers and additional sources
+			prior to committing resources, financial, human or otherwise. 
+			</p>
+		</div>
 
- 	</div>
- </div>
+	</div>
 
 
