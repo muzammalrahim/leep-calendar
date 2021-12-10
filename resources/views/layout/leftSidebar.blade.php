@@ -1,20 +1,20 @@
 <div class="becomeProfessional pb-5"> 
-  <div class="container">
-      <h6 class="font-weight-bold text-center"> BECOME A MEMBER </h6>
-      <a href="{{ asset('login') }}" class="d-block text-center"> Professionals </a>
-      <a href="{{ asset('register') }}" class="d-block text-center"> Event Champions </a>
+  <div class="container1">
+      <h6 class="font-weight-bold"> BECOME A MEMBER </h6>
+      <a href="{{ asset('login') }}" class="d-block ml-4"> Professionals </a>
+      <a href="{{ asset('register') }}" class="d-block ml-4"> Event Champions </a>
   </div>                   
 </div>
 
 
 <div class="follow-us">
-    <div class="container">
+    <div class="container1">
          <h5 class="borderBottom"> Follow Us </h5>
     </div>
 </div>
 
 <div class="icons my-4">
-    <div class="container pl-4">
+    <div class="container1 pl-4">
         <div class="pl-3">
             <a href="https://www.linkedin.com/company/leep-publishing" target="_blank">
                 <img src="{{ asset('leep_calender/images/Developer Assets/social_icons/linkedin.png') }}"/>

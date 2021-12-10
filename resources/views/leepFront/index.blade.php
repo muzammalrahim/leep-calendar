@@ -62,13 +62,13 @@
 
       {{-- <div class="container"> --}}
         <div class="row m-0 p-0">
-          <div class="col-0 col-sm-2 col-md-2 col-lg-2"></div>
-          <div class="col-md-8 col-lg-8 col-sm-7 col-12">
+          <div class="col-0 col-sm-0 col-md-4 col-lg-4"></div>
+          <div class="col-7 col-sm-7 col-md-6 col-lg-6">
             <div class="today-events">
-              <h1 class="ml-lg-1 ml-md-3 ml-sm-3 p-0">Welcome to LEEP Calendar</h1>
+              <h1 class="ml-lg-1 ml-md-3 ml-sm-3 p-0 welcome_heading">Welcome to LEEP Calendar</h1>
            </div>
           </div>
-          <div class="col-md-2 col-lg-2 col-sm-5 col-12">
+          <div class="col-5 col-sm-5 col-md-2 col-lg-2">
             <div class="followLeep float-right">
               <a href="https://twitter.com/PromoCalendar?ref_src=twsrc%5Etfw" class="mr-md-5 mr-sm-5 font-weight-bold">Follow LEEP</a>
             </div>
@@ -78,11 +78,11 @@
 
         <div class="row m-0">
 
-          <div class="col-md-3 col-lg-2 mt-4 mx-md-4 mx-sm-4 mx-lg-4"> 
-              @include('layout.leftSidebar')
+          <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 mx-sm-1 mx-md-2 mx-lg-4"> 
+              @include('layout.leftSidebar') {{-- layout/leftSidebar --}}
           </div>
 
-          <div class="col-md-7 col-lg-7 col-sm-7 col-12">
+          <div class="col-12 col-sm-12 col-md-7 col-lg-7">
             {{-- <div class="row"> --}}
               @foreach($featureEvents as $eve)
 
