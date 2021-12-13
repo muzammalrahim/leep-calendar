@@ -1,9 +1,5 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="event-champion">
-            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0"> EVENT CHAMPION </h4>
-        </div>
-
         <div class="focal-contact1 m-0 bg_lightyellow">
             <div class="row m-0 pt-5 pl-5 pr-5">
                 <div class="col-12 m-0">

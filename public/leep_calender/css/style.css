@@ -48,7 +48,7 @@
 
 header {
 
-    margin: 20px 20px 20px 20px;
+    margin: 0px 20px 20px 20px;
 
 }
 
@@ -2495,7 +2495,7 @@ a.colorSkin:hover {
     overflow-x: hidden;
 }
 .top-heading{
-    padding-top: 75px;
+    /*padding-top: 75px;*/
     font-family: 'impact'!important;
     color: black !important;
 
@@ -2575,7 +2575,7 @@ a.colorSkin:hover {
      height: 85px;
     }
     .top-heading{
-      padding-top: 45px;
+      /*padding-top: 45px;*/
     }
     
     .footerImage{
@@ -2720,4 +2720,71 @@ a.colorSkin:hover {
 }
 .bg_lightyellow {
     background-color: #EFE9DC;
+}
+.underline {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px){
+    .event-detail-heading {
+        font-size: 24px;
+    }
+    .event-detail-country {
+        font-size: 16px !important;
+    }
+    .font-detail-title {
+        font-size: 16px !important;
+    }
+    .font-detail-detail {
+        font-size: 14px !important;
+    }
+
+    .event-detail-headings {
+        font-size: 18px;
+    }
+    .event-detail-descriptions {
+        font-size: 16px !important;
+    }
+}
+@media screen and (min-width:768px) and (max-width: 991px){
+    .event-detail-heading {
+        font-size: 28px;
+    }
+    .event-detail-country {
+        font-size: 18px !important;
+    }
+    .font-detail-title {
+        font-size: 18px !important;
+    }
+    .font-detail-detail {
+        font-size: 16px !important;
+    }
+
+    .event-detail-headings {
+        font-size: 20px;
+    }
+    .event-detail-descriptions {
+        font-size: 18px !important;
+    }
+}
+
+
+.left-sidebar-ad {
+    border: 1px solid; 
+    height: 250PX;
+ }
+
+.left-sidebar-ad1 {
+    border: 1px solid; 
+    height: 90PX;
+ }
+@media screen and (min-width:320px) and (max-width: 767px){
+    .navbar-brand img {
+        height: 60px;
+    }
+}
+@media screen and (min-width:768px) and (max-width: 1024px){
+    .navbar-brand img {
+        height: 90px;
+    }
 }
