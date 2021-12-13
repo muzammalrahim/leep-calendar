@@ -1,5 +1,5 @@
 {{-- Extends layout --}}
-@extends('layout.layoutLeep')
+@extends('layout.eventDetail.eventDetailMaster')
 @section('content')
 
 
@@ -19,6 +19,21 @@ $event = $eventCategory->event
 
             @include('layout.leftSidebar')
 
+            {{-- NON-MEMBER Slidebar Ad --}}
+            <div class="container advertising-box">
+                {{-- <div class="row m-0">
+                    <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 mt-5" style="border: 1px solid; height: 600px;"> 
+                        <p class="text-center text_black">Sidebar Ad</p>
+                    </div>
+                </div> --}}
+                <div class="row m-0">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad"> 
+                    {{-- <div class="" style="border: 1px solid; height: 250px; width: 250px !important;">  --}}
+                        <p class="text-center text_black">Sidebar Ad2</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
         <div class="col-lg-7 col-md-7 pt-4 ml-lg-5 ml-md-3"> 
           <div class="event-main blockCopy">
@@ -31,31 +46,31 @@ $event = $eventCategory->event
                     <div class="borderBottom1">
                         <div class="container">
                          <div class="row">
-                            <div class="col-md-10 event-detail-left">
+                            <div class="col-12 col-sm-12 col-md-10 col-lg-10 event-detail-left">
                                 @if(isset($event->name))
-                                <h1 class="text-dark top-heading">{{$event->alt_text}}</h1>
+                                <h1 class="text-dark top-heading event-detail-heading">{{$event->alt_text}}</h1>
                                 @endif
                             </div>
 
                             <div class="col-md-12">
-                                <span class="float-left font-color font20 font-weight-bold estimate-date"> United States </span> 
+                                <span class="float-left font-color font20 font-weight-bold estimate-date event-detail-country"> United States </span> 
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="eventDetailAndRegions m-4 ">
                     <div class="eventInfo">
-                        <div class="row mb-5">
-                            <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="country"> 
-                                    <span class="font-weight-bold font20 "> EVENT NAME: </span> 
+                                    <span class="font-weight-bold font20 font-detail-title"> EVENT NAME: </span> 
                                 </div>
                                 <div class="country pl-3 "> 
-                                    <span class="font18"> Safe Toys & Gifts Month, Ntl. {{ $event->country1 }} </span>
+                                    <span class="font18 font-detail-detail"> Safe Toys & Gifts Month, Ntl. {{ $event->country1 }} </span>
                                 </div> 
                             </div>
 
-                            <div class="col-md-6">
+                            <div class="col-0 col-sm-0 col-md-0 col-lg-0">
                                 <div class="eventDate eventInfo mb-3"> 
                                     {{-- <span class="font-weight-bold"> Event Date(s):</span>  --}}
                                     {{-- July 1, 2019 - July 31, 2019  --}}
@@ -68,12 +83,12 @@ $event = $eventCategory->event
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-5">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="eventCategories">
-                                    <span class="font-weight-bold font20"> EVENT CATEGORIES:</span>
+                                    <span class="font-weight-bold font20 font-detail-title"> EVENT CATEGORIES:</span>
                                 </div>
                                 <div class="eventCategories pl-3 ">
-                                    <span class="font18"> Safety & Security, Children, Retail, United States </span>
+                                    <span class="font18 font-detail-detail"> Safety & Security, Children, Retail, United States </span>
                                     @isset($event->cat1->name)
                                     <span style="margin-bottom: 5px !important; ">{{($event->cat1->name)}}, </span>
                                     @endif
@@ -96,42 +111,42 @@ $event = $eventCategory->event
 
 
                             </div>
-                            <div class="col-md-6 mb-5">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="lenghtOfFamily"> 
-                                    <span class="font-weight-bold font20"> DATE(S): </span>
+                                    <span class="font-weight-bold font20 font-detail-title font-detail-title"> DATE(S): </span>
                                 </div>
                                 <div class="lenghtOfFamily pl-3 "> 
-                                    <span class="font18"> {{ $event->type }}  </span> 
+                                    <span class="font18 font-detail-detail"> {{ $event->type }}  </span> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-5">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="eventChampion">
-                                    <span class="font-weight-bold font20"> INFORMATION URL:</span> {{ $event->champ_name }}
+                                    <span class="font-weight-bold font20 font-detail-title font-detail-title"> INFORMATION URL:</span> {{ $event->champ_name }}
                                 </div>
                                 <div class="eventChampion pl-3 ">
-                                    <span class="font18 text_marron"> https://www.preventblind-ness.org/safe-toy-checklist {{ $event->champ_name }} </span> 
+                                    <span class="font18 text_marron font-detail-detail"> https://www.preventblind-ness.org/safe-toy-checklist {{ $event->champ_name }} </span> 
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-5">
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="source">
-                                   <span class="font-weight-bold font20"> EVENT ADDRESS: </span> <!-- {{ $event->url }} -->
+                                   <span class="font-weight-bold font20 font-detail-title font-detail-title"> EVENT ADDRESS: </span> <!-- {{ $event->url }} -->
                                </div>
                                <div class="source pl-3 ">
-                                   <span class="font18"> <!-- {{ $event->url }} --> </span>
+                                   <span class="font18 font-detail-detail"> <!-- {{ $event->url }} --> </span>
                                </div>
                            </div>
                        </div>
 
                        <div class="row">
-                        <div class="col-md-6 mb-5">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                             <div class="socialLinks">
-                                <span class="font-weight-bold font20"> SOCIAL MEDIA LINKS:</span>
+                                <span class="font-weight-bold font20 font-detail-title"> SOCIAL MEDIA LINKS:</span>
                             </div>
                             <div class="socialLinks pl-3 ">
-                                <span class="font18 text_marron"> https://www.faceook.com/preventblindness </span>
+                                <span class="font18 text_marron font-detail-detail"> https://www.faceook.com </span>
                                 @if (isset($event->socail_link1))
                                 <a href="{{ $event->socail_link1 }}"> {{ $event->socail_link1 }}  </a>
                                 @endif
@@ -145,12 +160,12 @@ $event = $eventCategory->event
                                 @endif
                             </div>
                         </div>
-                        <div class="col-md-6 mb-5">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                             <div class="eventAddress">
-                               <span class="font-weight-bold font20"> RESERVE TICKETS: </span> 
+                               <span class="font-weight-bold font20 font-detail-title"> RESERVE TICKETS: </span> 
                            </div>
                            <div class="eventAddress pl-3 ">
-                               <span class="font18"> {{ $event->address1 }} </span>
+                               <span class="font18 font-detail-detail font-detail-detail"> {{ $event->address1 }} </span>
                            </div>
 
                            {{-- <div class="registerPurchase mb-3"> --}}
@@ -167,8 +182,8 @@ $event = $eventCategory->event
                 <div class="row mt-3">
                     <div class="col-md-12">
                         <div class="events-description">
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4">DESCRIPTION:</h4>
-                            <p class="line-height-2 m-5 text_black font18">
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 event-detail-headings">DESCRIPTION:</h4>
+                            <p class="line-height-1 p-2 pl-4 text_black font20 event-detail-descriptions">
                                 Prevent Blindness America sponsors Safe Toys and Gifts Awareness Month each December in an effort to help adults make the best decisions on how to keep the holiday season joyful for everyone. In 2010, the United States. Consumer Product Safety Commission (CPSC) estimated that hospital emergency rooms across the country treated 251,700 toy-related injuries. And, 72 percent of those injuries were to those under the age of 15.
                                 @isset($event->description){{$event->description}}@endif
                             </p>
@@ -222,9 +237,9 @@ $event = $eventCategory->event
             @endif
         </div>
     </div>
-    <div class="champ-contact-info m-4">
+    <div class="champ-contact-info">
 
-        <h4 class="font-weight-bold event-champ">EVENT CHAMPION CONTACT INFORMATION</h4>
+        <h4 class="font-weight-bold bg_black text-light p-2 pl-4 mb-0 event-detail-headings">EVENT CHAMPION</h4>
 
             @isset((Auth::user()->membership->type))
             
@@ -268,7 +283,7 @@ $event = $eventCategory->event
                             {{-- expr --}}
                         <div class="supporting-wrapper p ">
                             <div class=""> </div>
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">VIDEOS</h4>
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">VIDEOS</h4>
                             @if ($event->eventAttachment->video1 != '' || $event->eventAttachment->video2 != '' || $event->eventAttachment->video3 != '')
 
 
@@ -306,7 +321,7 @@ $event = $eventCategory->event
                         <!-- supporting-box -->
                         <div class="supporting-wrapper">
                             <div class=""> </div> 
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">SUPPORTING DOCUMENTS</h4>
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">SUPPORTING DOCUMENTS</h4>
                             {{-- <div class="row d-flex justify-content-around">
                                 <div class="col-md-3 text-center">
                                     <span class="imagenum ">Doucement 1</span>
@@ -377,7 +392,7 @@ $event = $eventCategory->event
                         <!-- Supporting Images  -->
                         <div class="supporting-wrapper">
                             <div class=""> </div> 
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0">ADDITIONAL IMAGES</h4> 
+                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">ADDITIONAL IMAGES</h4> 
                             
                             @if ($event->eventAttachment->extra_image1 != '' || $event->eventAttachment->extra_image2 != '' || $event->eventAttachment->extra_image3 != '')
                             
@@ -410,14 +425,19 @@ $event = $eventCategory->event
                                     <span class="font20">{{ $event->updated_at->format('d-m-y') }}</span>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <p class="font-weight-bold font20 text_marron mb-0 ins">Report a Correction</p>
+                                    <a href="#" class="font-weight-bold font20 text_marron mb-0 underline">Report a Correction</a>
                                 </div>
                                 <div class="col-md-4 text-center">
                                     <p class="font-weight-bold font20 text_black mb-0">EVENT MANAGER:</p>
-                                    <span class="font20">LEEP</span>
                                 </div>
                             </div>
                         </div> 
+                            {{-- NON-MEMBER Bottom Ad --}}
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad1" style="border: 1px solid; height: 90px;"> 
+                                    <p class="text-center text_black">Bottom Ad</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
 
