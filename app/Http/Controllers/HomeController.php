@@ -267,6 +267,7 @@ class HomeController extends Controller
         // return view('leepFront.searchEvents');
     }
     public function eventDetail(request $request, $id){
+        // dd($id);
         // dd($request->id);
         $eventCategory=EventCategory::find($id);
         // dd($eventCategory);

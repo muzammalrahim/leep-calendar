@@ -2688,7 +2688,7 @@ a.colorSkin:hover {
 @media screen and (min-width:768px){
 
     .search_bar {
-        margin-top: 40px;
+        /*margin-top: 40px;*/
         margin-left: 224px;
     }
     .professional-event{
@@ -2772,11 +2772,21 @@ a.colorSkin:hover {
 .left-sidebar-ad {
     border: 1px solid; 
     height: 250PX;
+    background: #34743b;
+
  }
 
 .left-sidebar-ad1 {
     border: 1px solid; 
     height: 90PX;
+    background: #34743b;
+ }
+ .side-bar-3{
+    border: 1px solid; 
+    height: 600px;
+    background: #34743b;
+    
+
  }
 @media screen and (min-width:320px) and (max-width: 767px){
     .navbar-brand img {

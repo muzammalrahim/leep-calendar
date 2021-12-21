@@ -121,267 +121,267 @@
   	</div>
 
 
-  	<div class="mt-5 mb-3 professional-event">
-
-	            <div class="row m-0">
-	            	{{-- <div class="col-lg-1 mr-lg-3"></div> --}}
-	            	<div class="col-7 col-sm-7 col-md-7 col-lg-7">
-	            		<div class="professional-heading editorial_heading">
-					        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
-					    </div>
-	            	</div>
-
-	            	{{-- Login Button  --}}
-
-	            	<div class="col-5 col-sm-5 col-md-5 col-lg-5 mb-3 m-0 p-0">
-			    		 <div class="d-flex">
-				    		@guest
-						        <form class="form-inline my-2 my-lg-0 right-login">
-						        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-						        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3"  type="submit">Login</a>
-						        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
-						        </form>
-						        @else
-
-						        @if(Auth::User()->email_verified_at=='')
-							    	<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-							        	@csrf
-							        	<button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
-							        </form>&nbsp
+  	<div class="mt-3 mb-3 professional-event">
+
+        <div class="row m-0">
+        	{{-- <div class="col-lg-1 mr-lg-3"></div> --}}
+        	<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+        		<div class="professional-heading editorial_heading">
+			        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
+			    </div>
+        	</div>
+
+        	{{-- Login Button  --}}
+
+        	<div class="col-5 col-sm-5 col-md-5 col-lg-5 mb-3 m-0 p-0">
+	    		 <div class="d-flex">
+		    		@guest
+				        <form class="form-inline my-2 my-lg-0 right-login">
+				        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
+				        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3"  type="submit">Login</a>
+				        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
+				        </form>
+				        @else
+
+				        @if(Auth::User()->email_verified_at=='')
+					    	<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+					        	@csrf
+					        	<button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
+					        </form>&nbsp
 
-							        <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-						        	{{ __('Logout') }}
-							        </a>
+					        <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+				        	{{ __('Logout') }}
+					        </a>
 
-							        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-							        	@csrf
-							        </form>
-						        @else
-
-
-									<div class="user-img"> 
-										<a href="{{URL::asset('settings')}}">
-											@if(Auth::user()->image!='')
-												<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
-											@else
-												<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
-											@endif
-
-											
-										</a>
-									</div>
+					        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+					        	@csrf
+					        </form>
+				        @else
+
+
+							<div class="user-img"> 
+								<a href="{{URL::asset('settings')}}">
+									@if(Auth::user()->image!='')
+										<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
+									@else
+										<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
+									@endif
+
+									
+								</a>
+							</div>
 
-									<div class="nav-item dropdown mt-1">
-					                    <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
-					                    <div class="dropdown-menu">
+							<div class="nav-item dropdown mt-1">
+			                    <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
+			                    <div class="dropdown-menu">
 
-						                        <a class="dropdown-item">
-						                        	<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
-						                        		{{Auth::user()->fname}} 
-						                        	</b>
-						                        </a>
-												<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary dropdown-item" type="submit">Create Event</a>
+				                        <a class="dropdown-item">
+				                        	<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
+				                        		{{Auth::user()->fname}} 
+				                        	</b>
+				                        </a>
+										<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary dropdown-item" type="submit">Create Event</a>
 
-						                        <a class="dropdown-item">
-						                        	<label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
-						                        		My Events
-						                        	</label>
-						                        </a>
+				                        <a class="dropdown-item">
+				                        	<label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
+				                        		My Events
+				                        	</label>
+				                        </a>
 
-						                        <a class="dropdown-item text-dark" href="{{ route('logoutRoute') }}"> Logout
-							                        {{-- <a href="{{ route('logoutRoute') }}" class="text-dark"> Logout </a> --}}
-						                        </a>
-						                    </div>
-					                </div>
+				                        <a class="dropdown-item text-dark" href="{{ route('logoutRoute') }}"> Logout
+					                        {{-- <a href="{{ route('logoutRoute') }}" class="text-dark"> Logout </a> --}}
+				                        </a>
+				                    </div>
+			                </div>
 
-						        @endif
+				        @endif
 
-						        @endguest
+				        @endguest
 
-						     </div> 
-			    	</div>
+				     </div> 
+	    	</div>
 
-	            	{{-- Login Button --}}
+        	{{-- Login Button --}}
 
-	            	
-                   
+        	
+           
 
-	                <div class="col-md-4 drop-right">
-	                    {{-- <i class="fa fa-filter"> Advanced Filters</i> --}}
-	                    <div class="grey-wrapper" style="display: none;">
-	                    	<div class="container">
-	                    		<div class="wrapper1">
-	                    			<div class="div1">
-	                    				<div class="heading"> <h6>Country</h6> </div>
+            <div class="col-md-4 drop-right">
+                {{-- <i class="fa fa-filter"> Advanced Filters</i> --}}
+                <div class="grey-wrapper" style="display: none;">
+                	<div class="container">
+                		<div class="wrapper1">
+                			<div class="div1">
+                				<div class="heading"> <h6>Country</h6> </div>
 
-	                                    <div class="input-group md-form form-sm form-2">
-	                                        <input class="form-control my-0 py-1 red-border" type="text"
-	                                            placeholder="Search a country" aria-label="Search">
-	                                        <div class="input-group-append">
-	                                            <span class="input-group-text red lighten-3" id="basic-text1">
-	                                            	<i class="fa fa-search text-grey" aria-hidden="true"></i>
-	                                            </span>
-	                                        </div>
+                                <div class="input-group md-form form-sm form-2">
+                                    <input class="form-control my-0 py-1 red-border" type="text"
+                                        placeholder="Search a country" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text red lighten-3" id="basic-text1">
+                                        	<i class="fa fa-search text-grey" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
 
-	                                    </div>
+                                </div>
 
-	                                    <div>
-	                                        <ul>
-	                                            <li><input type="checkbox"> Africa</li>
+                                <div>
+                                    <ul>
+                                        <li><input type="checkbox"> Africa</li>
 
-	                                            <li><input type="checkbox"> Alcohol, Tobacco & Drugs</li>
+                                        <li><input type="checkbox"> Alcohol, Tobacco & Drugs</li>
 
-	                                            <li><input type="checkbox"> Animals, Fish, Insects & Birds</li>
+                                        <li><input type="checkbox"> Animals, Fish, Insects & Birds</li>
 
-	                                            <li><input type="checkbox"> Anniversaries</li>
+                                        <li><input type="checkbox"> Anniversaries</li>
 
-	                                            <li class="no-check"> Australia</li>
+                                        <li class="no-check"> Australia</li>
 
-	                                            <li class="no-check"> Books</li>
+                                        <li class="no-check"> Books</li>
 
-	                                            <li class="no-check"> Brazil & S.America</li>
+                                        <li class="no-check"> Brazil & S.America</li>
 
-	                                            <li class="no-check"> Buddhism</li>
+                                        <li class="no-check"> Buddhism</li>
 
-	                                        </ul>
+                                    </ul>
 
-	                                    </div>
+                                </div>
 
-	                                </div>
+                            </div>
 
-	                                <div class="div2">
-	                                	<div class="heading"> <h6>Category</h6> </div>
-	                                    <div class="input-group md-form form-sm form-2">
-	                                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" aria-label="Search">
-	                                        <div class="input-group-append">
-	                                            <span class="input-group-text red lighten-3" id="basic-text1">
-	                                            	<i class="fa fa-search text-grey" aria-hidden="true"></i>
-	                                            </span>
+                            <div class="div2">
+                            	<div class="heading"> <h6>Category</h6> </div>
+                                <div class="input-group md-form form-sm form-2">
+                                    <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search a category" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text red lighten-3" id="basic-text1">
+                                        	<i class="fa fa-search text-grey" aria-hidden="true"></i>
+                                        </span>
 
-	                                        </div>
-	                                    </div>
+                                    </div>
+                                </div>
 
-	                                    <div>
-	                                        <ul>
-	                                            <li><input type="checkbox"> Afghanistan, AF</li>
+                                <div>
+                                    <ul>
+                                        <li><input type="checkbox"> Afghanistan, AF</li>
 
-	                                            <li><input type="checkbox"> Aland Island, AX</li>
+                                        <li><input type="checkbox"> Aland Island, AX</li>
 
-	                                            <li><input type="checkbox"> Albania, AL</li>
+                                        <li><input type="checkbox"> Albania, AL</li>
 
-	                                            <li><input type="checkbox"> Algeria, DZ</li>
+                                        <li><input type="checkbox"> Algeria, DZ</li>
 
-	                                            <li class="no-check"> American, Samoa, AS</li>
+                                        <li class="no-check"> American, Samoa, AS</li>
 
-	                                            <li class="no-check"> Andarra, AD</li>
+                                        <li class="no-check"> Andarra, AD</li>
 
-	                                            <li class="no-check"> Angola, AO</li>
+                                        <li class="no-check"> Angola, AO</li>
 
-	                                            <li class="no-check"> Anguilla, Al</li>
+                                        <li class="no-check"> Anguilla, Al</li>
 
-	                                        </ul>
-	                                    </div>
+                                    </ul>
+                                </div>
 
-	                                </div>
+                            </div>
 
 
 
-	                                <div class="div3">
-	                                    <div class="heading"><h6>Event Type</h6></div>
-	                                    <div>
-	                                        <ul>
-	                                            <li><input type="checkbox"> Daily</li>
-	                                            <li><input type="checkbox"> Weekly</li>
-	                                            <li><input type="checkbox"> Annual</li>
-	                                            <li><input type="checkbox"> Recurring</li>
-	                                        </ul>
-	                                    </div>
-	                                </div>
+                            <div class="div3">
+                                <div class="heading"><h6>Event Type</h6></div>
+                                <div>
+                                    <ul>
+                                        <li><input type="checkbox"> Daily</li>
+                                        <li><input type="checkbox"> Weekly</li>
+                                        <li><input type="checkbox"> Annual</li>
+                                        <li><input type="checkbox"> Recurring</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-	                                <div class="div4">
-	                                    <div class="heading"><h6>Duration</h6></div>
-	                                    <div>
-	                                        <ul>
-	                                            <li><input type="checkbox"> All</li>
-	                                            <li><input type="checkbox"> 1 Day</li>
-	                                            <li><input type="checkbox"> 2 Day</li>
-	                                            <li><input type="checkbox"> 3 Day</li>
-	                                            <li><input type="checkbox"> 4 Day</li>
-	                                            <li><input type="checkbox"> 5 Day</li>
-	                                            <li><input type="checkbox"> 6 Day</li>
-	                                        </ul>
-	                                    </div>
-	                                </div>
+                            <div class="div4">
+                                <div class="heading"><h6>Duration</h6></div>
+                                <div>
+                                    <ul>
+                                        <li><input type="checkbox"> All</li>
+                                        <li><input type="checkbox"> 1 Day</li>
+                                        <li><input type="checkbox"> 2 Day</li>
+                                        <li><input type="checkbox"> 3 Day</li>
+                                        <li><input type="checkbox"> 4 Day</li>
+                                        <li><input type="checkbox"> 5 Day</li>
+                                        <li><input type="checkbox"> 6 Day</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-	                                <div class="div5">
+                            <div class="div5">
 
-	                                    <div class="heading">
+                                <div class="heading">
 
-	                                        <h6>Event Type</h6>
+                                    <h6>Event Type</h6>
 
-	                                    </div>
+                                </div>
 
-	                                    <div>
+                                <div>
 
-	                                        <ul>
+                                    <ul>
 
-	                                            <li class="no-check"> Daily</li>
+                                        <li class="no-check"> Daily</li>
 
-	                                            <li class="no-check"> weekly</li>
+                                        <li class="no-check"> weekly</li>
 
-	                                            <li class="no-check"> Annual</li>
+                                        <li class="no-check"> Annual</li>
 
-	                                            <li class="no-check"> Recurring</li>
+                                        <li class="no-check"> Recurring</li>
 
-	                                        </ul>
+                                    </ul>
 
-	                                    </div>
+                                </div>
 
-	                                </div>
+                            </div>
 
-	                                <div class="div6">
+                            <div class="div6">
 
-	                                    <div class="heading">
+                                <div class="heading">
 
-	                                        <h6>Event Type</h6>
+                                    <h6>Event Type</h6>
 
-	                                    </div>
+                                </div>
 
-	                                    <div>
+                                <div>
 
-	                                        <ul>
+                                    <ul>
 
-	                                            <li class="no-check"> Daily</li>
+                                        <li class="no-check"> Daily</li>
 
-	                                            <li class="no-check"> weekly</li>
+                                        <li class="no-check"> weekly</li>
 
-	                                            <li class="no-check"> Annual</li>
+                                        <li class="no-check"> Annual</li>
 
-	                                            <li class="no-check"> Recurring</li>
+                                        <li class="no-check"> Recurring</li>
 
-	                                        </ul>
+                                    </ul>
 
-	                                    </div>
+                                </div>
 
-	                                </div>
+                            </div>
 
-	                            </div>
+                        </div>
 
 
 
 
 
-	                        </div>
+                    </div>
 
-	                    </div>
+                </div>
 
-	                </div>
+            </div>
 
-	            </div>
+        </div>
 
 
 
-	        </div>
+    </div>
 
 
 @yield('content')
