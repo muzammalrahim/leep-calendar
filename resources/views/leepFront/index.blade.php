@@ -79,6 +79,7 @@
         <div class="row m-0">
 
           <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 mx-sm-1 mx-md-2 mx-lg-4"> 
+            {{-- ============================== left Side bar included ============================== --}}
               @include('layout.leftSidebar') {{-- layout/leftSidebar --}}
           </div>
 

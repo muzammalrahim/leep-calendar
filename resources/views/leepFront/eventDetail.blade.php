@@ -20,7 +20,7 @@ $event = $eventCategory->event
             @include('layout.leftSidebar')
 
             {{-- NON-MEMBER Slidebar Ad --}}
-            <div class="container advertising-box">
+            <div class="advertising-box">
                 {{-- <div class="row m-0">
                     <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 mt-5" style="border: 1px solid; height: 600px;"> 
                         <p class="text-center text_black">Sidebar Ad</p>
@@ -29,7 +29,7 @@ $event = $eventCategory->event
                 <div class="row m-0">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad"> 
                     {{-- <div class="" style="border: 1px solid; height: 250px; width: 250px !important;">  --}}
-                        <p class="text-center text_black">Sidebar Ad2</p>
+                        <p class="text-center text-light m-auto">Sidebar Ad2</p>
                     </div>
                 </div>
             </div>

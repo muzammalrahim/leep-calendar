@@ -1,7 +1,7 @@
 
             {{-- <div class="today-events"> --}}
 
-              <h6>Twitter Feed</h6>
+              <h6 class="borderBottom font-weight-bold mb-4">Twitter Feed</h6>
 
             {{-- </div> --}}
 
@@ -11,9 +11,18 @@
 
               <div class="media-objects">
 
+                @php
+                  $urls = $t['entities']['urls'];
+
+
+                  // dump(implode(" ", $urls));
+
+                @endphp
+                {{-- {{ $t['entities']['urls'] }} --}}
+                {{-- @dump($t['entities']['urls']) --}}
                 <div class="row">
 
-                  <div class="col-md-12">
+                  <div class="col-md-8">
 
 
 
@@ -23,7 +32,7 @@
 
                         <img src="{{$t['user']['profile_image_url']}}" class="media-object"
 
-                          style="width:60px;border-radius: 20%">
+                          style="width:60px;border-radius: 40%">
 
                       </div>
 
@@ -39,11 +48,11 @@
 
                   </div>
 
-                  {{-- <div class="col-md-4"> --}}
+                  <div class="col-md-4">
 
-                    {{-- <a href="#" class="btn btn-outline-primary"><i class="fa fa-twitter">Follow</i> </a> --}}
+                  <a href="https://twitter.com/" target="_blank"> <h4 class="float-right"><i class="fa fa-twitter text-secondary"></i> </h4> </a>
 
-                  {{-- </div> --}}
+                  </div>
 
                 </div>
 
@@ -58,6 +67,9 @@
 
 
                 </div>
+
+                  
+                <a href="{{ (!empty($urls)? $urls[0]['url']:'') }}"> {{ (!empty($urls)? $urls[0]['url']:'') }} </a>
 
                 <div class="date">
 
@@ -78,29 +90,22 @@
                   {{-- @dump('hi how are you') --}}
                   @else
                     <div class="advertising-box">
-
-                      <h6>Advertising Space</h6>
-
-                      <div class="advertising-pic">
-
-                        <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
-
-                      </div>
-
+                      <h6 class="borderBottom font-weight-bold mb-4">Advertising Space</h6>
+                      <div class="side-bar-3"></div>
+                      {{-- <div class="advertising-pic">
+                        <img src="{{ asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg') }}" alt="">
+                      </div> --}}
                     </div>
                 @endif
-                {{-- @dump('EVent Champ here') --}}
                 @else
                 
                 <div class="advertising-box">
+                  <h6 class="borderBottom font-weight-bold mb-4">Advertising Space</h6>
+                  <div class="side-bar-3"></div>
 
-                  <h6>Advertising Space</h6>
-
-                  <div class="advertising-pic">
-
-                    <img src="leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg" alt="">
-
-                  </div>
+                  {{-- <div class="advertising-pic">
+                    <img src="{{ asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/Rectangle 347.svg') }}" alt="">
+                  </div> --}}
 
                 </div>
 
