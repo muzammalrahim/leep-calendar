@@ -85,6 +85,8 @@
 
             {{-- @if (Auth::check()) --}}
 
+            @if (isset($add_3))
+              {{-- expr --}}
               @if (Auth::check())
                 @if (hasMemberShip())
                   {{-- @dump('hi how are you') --}}
@@ -110,6 +112,8 @@
                 </div>
 
               @endif
+            @endif
+            
             
             {{-- @else --}}
               
