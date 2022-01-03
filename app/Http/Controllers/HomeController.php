@@ -283,19 +283,20 @@ class HomeController extends Controller
 
             $category = category::where('cat_id',$eventCategory->category_1)->first();
             $events=events::all();   
-
+            $add_1 = false;
+            $add_2 = false;
+            $add_3 = false;
+            $add_4 = false;
             // $d=date('d');
             // $m=date('m');   
             // $date=date("Y-m-d");
             
             $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
-
             $ip_dates = dateAccordingToIp($request->ip());
             $date = $ip_dates['date'];
             $d = $ip_dates['day'];
             $m = $ip_dates['month'];
             $y = $ip_dates['year'];
-            
             $full_events = $this->events->full_events($date,$y);
             $daily_events = $this->events->daily_events($date); 
             $week_events = $this->events->week_events($date);
@@ -306,7 +307,7 @@ class HomeController extends Controller
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));           
             
-            return view('leepFront.eventDetail',compact('eventCategory','d', 'tweets', 'm','category','full_events','daily_events', 'week_events', 'monthName','monthly_events'));
+            return view('leepFront.eventDetail',compact('eventCategory','d', 'tweets', 'm','category','full_events','daily_events', 'week_events', 'monthName','monthly_events', 'add_1', 'add_2', 'add_3', 'add_4'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);

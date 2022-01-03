@@ -91,6 +91,9 @@
 	    <header>
 
 	    	{{-- NON-MEMBER Top Ad --}}
+
+	    	@if ($add_1)
+	    		{{-- expr --}}
 			<div class="container">
 			    <div class="row m-0">
 			        <div class="col-12 col-sm-12 col-md-12 col-lg-12 left-sidebar-ad1"> 
@@ -99,6 +102,8 @@
 			        </div>
 			    </div>
 			</div>
+	    	@endif
+			
 	    	@include('layout.header') 	
 	    	<hr>
 	    </header>

@@ -20,6 +20,9 @@ $event = $eventCategory->event
             @include('layout.leftSidebar')
 
             {{-- NON-MEMBER Slidebar Ad --}}
+
+            @if ($add_2)
+                {{-- expr --}}
             <div class="advertising-box">
                 {{-- <div class="row m-0">
                     <div class="col-12 col-sm-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1 mt-5" style="border: 1px solid; height: 600px;"> 
@@ -33,6 +36,8 @@ $event = $eventCategory->event
                     </div>
                 </div>
             </div>
+            @endif
+
             
         </div>
         <div class="col-lg-7 col-md-7 pt-4 ml-lg-5 ml-md-3"> 
@@ -313,7 +318,7 @@ $event = $eventCategory->event
                             </div>
 
                             @else
-                            <p> None supporting video found </p>
+                            <p> Currently, this event doe not have supporting videos. </p>
                             @endif
 
                         </div>
@@ -385,7 +390,7 @@ $event = $eventCategory->event
                                 @endif
                             </div>
                             @else
-                                <p> None Supporting document found </p>
+                                <p> Currently, this event doe not have supporting documents. </p>
                             @endif
                         </div>
 
@@ -411,7 +416,7 @@ $event = $eventCategory->event
                                 </div>
                             </div>
                             @else
-                                <p> None Supporting image found </p>
+                                <p> Currently, this event doe not have supporting images. </p>
                                 
                             @endif
                         </div>
@@ -433,11 +438,15 @@ $event = $eventCategory->event
                             </div>
                         </div> 
                             {{-- NON-MEMBER Bottom Ad --}}
+                            @if ($add_4)
+                                {{-- expr --}}
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad1" style="border: 1px solid; height: 90px;"> 
                                     <p class="text-center text_black">Bottom Ad</p>
                                 </div>
                             </div>
+                            @endif
+
                     </div>
                 </div>
 
