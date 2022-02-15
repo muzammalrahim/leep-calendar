@@ -64,6 +64,16 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/uploadEvents', function () {
         return view('admin/uploadEvents');
     });
+    Route::get('admin/upload/feature-pictures', function () {
+        return view('admin/uploadFeaturePictures');
+    });
+
+
+    Route::get('admin/view/pictures', 'EventsController@viewAdminImages')->name('viewAdminImages');
+
+
+    Route::post('uploadFeaturePictures', 'EventsController@uploadFeaturePictures');
+
     Route::get('admin/Blogs', 'EventsController@Blogs');
     Route::get('admin/addBlogs', 'EventsController@addBlogs');
     Route::get('admin/deleteBlog/{id}', 'EventsController@deleteBlog');

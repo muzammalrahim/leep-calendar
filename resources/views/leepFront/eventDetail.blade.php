@@ -1,17 +1,37 @@
 {{-- Extends layout --}}
-@extends('layout.eventDetail.eventDetailMaster')
+{{-- @extends('layout.eventDetail.eventDetailMaster') --}}
+@extends('site.master') {{-- layout/layoutLeep --}}
+
+
+@section('add_1')
+
+    @if ($add_1)
+        {{-- expr --}}
+    <div class="container">
+        <div class="row m-0">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 left-sidebar-ad1"> 
+            {{-- <div class="" style="border: 1px solid; height: 250px; width: 250px !important;">  --}}
+                <p class="text-center text-light mt-4">Top Ad</p>
+            </div>
+        </div>
+    </div>
+    @endif
+@endsection
+
+@php
+$event = $eventCategory->event;
+@endphp
+
+@section('calendar-slider')
+
+@include('leepFront.parts.categoryDetail.header') {{-- leepFront/parts/categoryDetail/header --}}
+
+
+@endsection
+
 @section('content')
 
 
-{{-- Content --}}
-
-<!-- hero-box -->
-{{-- @dd($event->EventComments); --}}
-@php
-$event = $eventCategory->event
-@endphp
-
-@include('leepFront.parts.category_slider') {{-- leepFront/parts/category_slider --}}
 
 <div class="eventDetailDiv m-4">
     <div class="row">
@@ -58,7 +78,7 @@ $event = $eventCategory->event
                             </div>
 
                             <div class="col-md-12">
-                                <span class="float-left font-color font20 font-weight-bold estimate-date event-detail-country"> United States </span> 
+                                <span class="float-left font-color font20 font-weight-bold estimate-date event-detail-country"> {{ $event->states }} </span> 
                             </div>
                         </div>
                     </div>
@@ -71,7 +91,7 @@ $event = $eventCategory->event
                                     <span class="font-weight-bold font20 font-detail-title"> EVENT NAME: </span> 
                                 </div>
                                 <div class="country pl-3 "> 
-                                    <span class="font18 font-detail-detail"> Safe Toys & Gifts Month, Ntl. {{ $event->country1 }} </span>
+                                    <span class="font18 font-detail-detail"> {{ $event->name }} </span>
                                 </div> 
                             </div>
 
@@ -93,24 +113,24 @@ $event = $eventCategory->event
                                     <span class="font-weight-bold font20 font-detail-title"> EVENT CATEGORIES:</span>
                                 </div>
                                 <div class="eventCategories pl-3 ">
-                                    <span class="font18 font-detail-detail"> Safety & Security, Children, Retail, United States </span>
-                                    @isset($event->cat1->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat1->name)}}, </span>
+                                    {{-- <span class="font18 font-detail-detail"> Safety & Security, Children, Retail, United States </span> --}}
+                                    @isset($eventCategory->category_1)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category1->name)}}, </span>
                                     @endif
-                                    @isset($event->cat2->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat2->name)}}, </span>
+                                    @isset($eventCategory->category_2)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category2->name)}}, </span>
                                     @endif
-                                    @isset($event->cat3->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat3->name)}}, </span>
+                                    @isset($eventCategory->category_3)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category3->name)}}, </span>
                                     @endif
-                                    @isset($event->cat4->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat4->name)}}, </span>
+                                    @isset($eventCategory->category_4)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category4->name)}}, </span>
                                     @endif
-                                    @isset($event->cat5->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat5->name)}}, </span>
+                                    @isset($eventCategory->category_5)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category5->name)}}, </span>
                                     @endif
-                                    @isset($event->cat3->name)
-                                    <span style="margin-bottom: 5px !important; ">{{($event->cat3->name)}} </span>
+                                    @isset($eventCategory->category_6)
+                                    <span class="font18" style="margin-bottom: 5px !important;">{{($eventCategory->category6->name)}} </span>
                                     @endif
                                 </div>
 
@@ -120,8 +140,10 @@ $event = $eventCategory->event
                                 <div class="lenghtOfFamily"> 
                                     <span class="font-weight-bold font20 font-detail-title font-detail-title"> DATE(S): </span>
                                 </div>
-                                <div class="lenghtOfFamily pl-3 "> 
-                                    <span class="font18 font-detail-detail"> {{ $event->type }}  </span> 
+                                <div class="lenghtOfFamily pl-3 ">
+                                 
+                                    <span class="font18 font-detail-detail"> {{ $event->date_format($event->start_date) }}  </span>  <br>
+                                    <span class="font18 font-detail-detail"> {{ $event->date_format($event->end_date) }}  </span> 
                                 </div>
                             </div>
                         </div>
@@ -129,18 +151,18 @@ $event = $eventCategory->event
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="eventChampion">
-                                    <span class="font-weight-bold font20 font-detail-title font-detail-title"> INFORMATION URL:</span> {{ $event->champ_name }}
+                                    <span class="font-weight-bold font20 font-detail-title font-detail-title"> INFORMATION URL:</span> 
                                 </div>
                                 <div class="eventChampion pl-3 ">
-                                    <span class="font18 text_marron font-detail-detail"> https://www.preventblind-ness.org/safe-toy-checklist {{ $event->champ_name }} </span> 
+                                    <a href="{{ $event->url }}" target="_blank" class="font18 text-break text_marron font-detail-detail"> {{ $event->url }}</a> 
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-5">
                                 <div class="source">
-                                   <span class="font-weight-bold font20 font-detail-title font-detail-title"> EVENT ADDRESS: </span> <!-- {{ $event->url }} -->
+                                   <span class="font-weight-bold font20 font-detail-title font-detail-title"> EVENT ADDRESS: </span> 
                                </div>
                                <div class="source pl-3 ">
-                                   <span class="font18 font-detail-detail"> <!-- {{ $event->url }} --> </span>
+                                   <span class="font18 font-detail-detail"> {{ $event->event_address1 }} </span>
                                </div>
                            </div>
                        </div>
@@ -151,17 +173,17 @@ $event = $eventCategory->event
                                 <span class="font-weight-bold font20 font-detail-title"> SOCIAL MEDIA LINKS:</span>
                             </div>
                             <div class="socialLinks pl-3 ">
-                                <span class="font18 text_marron font-detail-detail"> https://www.faceook.com </span>
-                                @if (isset($event->socail_link1))
-                                <a href="{{ $event->socail_link1 }}"> {{ $event->socail_link1 }}  </a>
+                                {{-- <span class="font18 text_marron font-detail-detail"> https://www.faceook.com </span> --}}
+                                @if (isset($event->eventAttachment->socail_link1))
+                                <a href="{{ $event->eventAttachment->socail_link1 }}" class="text-break text_marron"> {{ $event->eventAttachment->socail_link1 }}  </a>
                                 @endif
 
-                                @if (isset($event->socail_link2))
-                                <a href="{{ $event->socail_link2 }}"> {{ $event->socail_link2 }}  </a>
+                                @if (isset($event->eventAttachment->socail_link2))
+                                <a href="{{ $event->eventAttachment->socail_link2 }}" class="text-break text_marron"> {{ $event->eventAttachment->socail_link2 }}  </a>
                                 @endif
 
-                                @if (isset($event->socail_link3))
-                                <a href="{{ $event->socail_link3 }}"> {{ $event->socail_link3 }}  </a>
+                                @if (isset($event->eventAttachment->socail_link3))
+                                <a href="{{ $event->eventAttachment->socail_link3 }}" class="text-break text_marron"> {{ $event->eventAttachment->socail_link3 }}  </a>
                                 @endif
                             </div>
                         </div>
@@ -170,7 +192,7 @@ $event = $eventCategory->event
                                <span class="font-weight-bold font20 font-detail-title"> RESERVE TICKETS: </span> 
                            </div>
                            <div class="eventAddress pl-3 ">
-                               <span class="font18 font-detail-detail font-detail-detail"> {{ $event->address1 }} </span>
+                               <span class="font18 font-detail-detail font-detail-detail"> {{ $event->purchase_reserve }} </span>
                            </div>
 
                            {{-- <div class="registerPurchase mb-3"> --}}
@@ -188,11 +210,23 @@ $event = $eventCategory->event
                     <div class="col-md-12">
                         <div class="events-description">
                             <h4 class="font-weight-bold bg_black text-light p-2 pl-4 event-detail-headings">DESCRIPTION:</h4>
-                            <p class="line-height-1 p-2 pl-4 text_black font20 event-detail-descriptions">
-                                Prevent Blindness America sponsors Safe Toys and Gifts Awareness Month each December in an effort to help adults make the best decisions on how to keep the holiday season joyful for everyone. In 2010, the United States. Consumer Product Safety Commission (CPSC) estimated that hospital emergency rooms across the country treated 251,700 toy-related injuries. And, 72 percent of those injuries were to those under the age of 15.
-                                @isset($event->description){{$event->description}}@endif
+                            <p class="line-height-1 p-2 pl-4 text_black font20 event-detail-descriptions ellipsis" id="my_text">
+
+                                {{-- Prevent Blindness America sponsors Safe Toys and Gifts Awareness Month each December in an effort to help adults make the best decisions on how to keep the holiday season joyful for everyone. In 2010, the United States. Consumer Product Safety Commission (CPSC) estimated that hospital emergency rooms across the country treated 251,700 toy-related injuries. And, 72 percent of those injuries were to those under the age of 15. --}}
+                                @isset($event->description)
+                                @php 
+                                   $event_desc =  str_replace(".", ".<br>" , $event->description);
+                                   $strip_tags =  preg_replace("/\s\s+/", " ",$event->description);
+                                   // dump(str_word_count($event_desc));
+
+                                @endphp
+                                    <span class="text-justify content" data-text="{{ str_word_count($event_desc) }}"> {!! $event_desc !!} </span>
+                                    {{-- <input type="hidden" name="" class="show-read-more" value="{{ str_word_count($event_desc) }}"> --}}
+                                @endif
+
+
                             </p>
-                            <p class="line-height-2 m-5 text_marron font18 font-italic text-center"> Continute Reading... </p>
+                            {{-- <p class="line-height-2 m-5 text_marron font18 font-italic text-center"> Continute Reading... </p> --}}
                         </div>
                     </div>
                 </div>
@@ -206,9 +240,6 @@ $event = $eventCategory->event
     <div class="event-card1 pb-2">
 
         <div class="row">
-
-          
-
             @if($event->socail_link1!='' || $event->socail_link1!='' || $event->socail_link1!='')
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -243,16 +274,11 @@ $event = $eventCategory->event
         </div>
     </div>
     <div class="champ-contact-info">
-
         <h4 class="font-weight-bold bg_black text-light p-2 pl-4 mb-0 event-detail-headings">EVENT CHAMPION</h4>
-
             @isset((Auth::user()->membership->type))
-            
             @if(Auth::user()->membership->type!='Silver' || Auth::id()==$event->user_id)
-
                 {{-- @include('leepFront.eventDetail.contactInfo')  --}}
                 @include('leepFront.eventDetail.championInformation')
-
             @else
             <div class="champion-info-wrapper"  style="padding-bottom: 90px;">
                 <div class="blurr-back">
@@ -276,7 +302,7 @@ $event = $eventCategory->event
                 <h6 class="text-center m-0 p-0 font-weight-normal">Event Champion contact</h6>
                 <h6 class="text-center m-0 p-0 font-weight-normal"> information.</h6>
                 <a href="{{URL::asset('login')}}" class="rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3 my-3 text_marron font20 font-weight-bold" type="submit">Login</a> <br>
-                <a href="{{URL::asset('register')}}" class="rounded-0 px-4 text-success font20 font-weight-bold" type="submit">Register</a>
+                <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" style="background-color:#003300 !important; -webkit-appearance:none" type="submit">Register</a>
             </div>
         </div>                      
         </div>
@@ -286,169 +312,188 @@ $event = $eventCategory->event
 
                         {{-- @dump($event->eventAttachment->id) --}}
                             {{-- expr --}}
-                        <div class="supporting-wrapper p ">
-                            <div class=""> </div>
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">VIDEOS</h4>
-                            @if ($event->eventAttachment->video1 != '' || $event->eventAttachment->video2 != '' || $event->eventAttachment->video3 != '')
+    <div class="supporting-wrapper p ">
+        <div class=""> </div>
+        <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">VIDEOS</h4>
+        @if ($event->eventAttachment->video1 != '' || $event->eventAttachment->video2 != '' || $event->eventAttachment->video3 != '')
 
 
-                            <div class="row row d-flex justify-content-around ">
-                                @if ($event->eventAttachment->video1 != '')
-                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                                        VIDEO 1
-                                    </div>
-                                @else
+        <div class="row row d-flex justify-content-around ">
+            @if ($event->eventAttachment->video1 == '')
+                <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                    VIDEO 1
+                </div>
+            @else
+                <div class="col-md-4 text-center my-5 px-3">{!! $event->eventAttachment->video1 !!}</div>
+            @endif
 
-                                @endif
+            @if ($event->eventAttachment->video2 == '')
+                <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                    VIDEO 2
+                </div>
+            @else
+                <div class="col-md-4 text-center my-5 px-3">{!! $event->eventAttachment->video2 !!}</div>
+            @endif
 
-                                @if ($event->eventAttachment->video2 != '')
-                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                                        VIDEO 2
-                                    </div>
-                                @else
-                                @endif
+            @if ($event->eventAttachment->video3 == '')
+                <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
+                    VIDEO 3
+                </div>
+            @else
+                <div class="col-md-4 text-center my-5 px-3">{!! $event->eventAttachment->video3 !!}</div>
+            @endif
+            
+        </div>
 
-                                @if ($event->eventAttachment->video3 != '')
-                                    <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
-                                        VIDEO 3
-                                    </div>
-                                @else
-                                @endif
-                                
-                            </div>
+        @else
+        <p> Currently, this event does not have supporting videos. </p>
+        @endif
 
-                            @else
-                            <p> Currently, this event doe not have supporting videos. </p>
-                            @endif
-
-                        </div>
+    </div>
 
                         <!-- supporting-box -->
-                        <div class="supporting-wrapper">
-                            <div class=""> </div> 
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">SUPPORTING DOCUMENTS</h4>
-                            {{-- <div class="row d-flex justify-content-around">
-                                <div class="col-md-3 text-center">
-                                    <span class="imagenum ">Doucement 1</span>
-                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 1</div>
-                                    <p>Text from column AO</p>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <span class="imagenum">Document 2</span>
-                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 2</div>
-                                    <p>Text from column AP</p>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <span class="imagenum">Document 3</span>
-                                    <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 3</div>
-                                    <p>Text from column AQ</p>
-                                </div>
-                            </div> --}}
-                            @if ($event->eventAttachment->download1 != '' || $event->eventAttachment->download2 != '' || $event->eventAttachment->download3 != '')
+    <div class="supporting-wrapper">
+        <div class=""> </div> 
+        <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">SUPPORTING DOCUMENTS</h4>
+        {{-- <div class="row d-flex justify-content-around">
+            <div class="col-md-3 text-center">
+                <span class="imagenum ">Doucement 1</span>
+                <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 1</div>
+                <p>Text from column AO</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="imagenum">Document 2</span>
+                <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 2</div>
+                <p>Text from column AP</p>
+            </div>
+            <div class="col-md-3 text-center">
+                <span class="imagenum">Document 3</span>
+                <div class="supportimg bg-dark text-warning my-2">DOUCEMENT 3</div>
+                <p>Text from column AQ</p>
+            </div>
+        </div> --}}
+        @if ($event->eventAttachment->download1 != '' || $event->eventAttachment->download2 != '' || $event->eventAttachment->download3 != '')
 
-                            <div class="download-header">
-                                @if($event->eventAttachment->download1 != '')
-                                <div class="download-box">
-                                    <div class="col-md-12 text-right download">
-                                        <a  href="{{URL::asset('downloadPdf/'.$event->id.'/1')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt=""></a>
-                                    </div>
-                                    <div class="col-md-12 text-center media-link">
-                                        <a href="">
-                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt="">
-                                        </a>
-                                        <p>{{substr($event->download_title1,0,22)}}</p>
-                                    </div>
-                                </div>
-                                @endif
-                                @if($event->eventAttachment->download2 != '')
-                                <div class="download-box">
-                                    <div class="col-md-12 text-right download">
-                                        <a href="{{URL::asset('downloadPdf/'.$event->id.'/2')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12 text-center media-link">
-                                        <a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt=""></a>
-                                        <p>{{substr($event->download_title2,0,20)}}</p>
-                                    </div>
-                                </div>
-                                @endif
-
-                                @if($event->eventAttachment->download3 != '')
-                                <div class="download-box">
-                                    <div class="col-md-12 text-right download">
-                                        <a href="{{URL::asset('downloadPdf/'.$event->id.'/3')}}">
-                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-md-12 text-center media-link">
-                                        <a href="#">
-                                            <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}" alt="">
-                                        </a>
-                                        <p>{{substr($event->download_title3,0,20)}}</p>
-                                    </div>
-                                </div>
-                                @endif
-                            </div>
-                            @else
-                                <p> Currently, this event doe not have supporting documents. </p>
-                            @endif
-                        </div>
-
-                        <!-- Supporting Images  -->
-                        <div class="supporting-wrapper">
-                            <div class=""> </div> 
-                            <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">ADDITIONAL IMAGES</h4> 
-                            
-                            @if ($event->eventAttachment->extra_image1 != '' || $event->eventAttachment->extra_image2 != '' || $event->eventAttachment->extra_image3 != '')
-                            
-                            <div class="row d-flex justify-content-around">
-                                <div class="col-md-3 text-center">
-                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
-                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 2</div>
-                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
-                                    <p class="font18 text_black font-weight-bold">Text from column AU</p>
-                                </div>
-                            </div>
-                            @else
-                                <p> Currently, this event doe not have supporting images. </p>
-                                
-                            @endif
-                        </div>
-                        <!-- ============Event Update============ -->
-
-                        <div class=""> </div>
-                        <div class="eventupdate bg_lightyellow py-1">
-                            <div class="row row m-5 d-flex justify-content-around">
-                                <div class="col-md-4 text-center">
-                                    <p class="font-weight-bold font20 text_black mb-0">LAST UPDATED:</p>
-                                    <span class="font20">{{ $event->updated_at->format('d-m-y') }}</span>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <a href="#" class="font-weight-bold font20 text_marron mb-0 underline">Report a Correction</a>
-                                </div>
-                                <div class="col-md-4 text-center">
-                                    <p class="font-weight-bold font20 text_black mb-0">EVENT MANAGER:</p>
-                                </div>
-                            </div>
-                        </div> 
-                            {{-- NON-MEMBER Bottom Ad --}}
-                            @if ($add_4)
-                                {{-- expr --}}
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad1" style="border: 1px solid; height: 90px;"> 
-                                    <p class="text-center text_black">Bottom Ad</p>
-                                </div>
-                            </div>
-                            @endif
-
-                    </div>
+        <div class="download-header">
+            @if($event->eventAttachment->download1 != '')
+            <div class="download-box">
+                <div class="col-md-12 text-right download">
+                    <a  href="{{URL::asset('downloadPdf/'.$event->id.'/1')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt=""></a>
                 </div>
+                <div class="col-md-12 text-center media-link">
+                    <a href="">
+                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt="">
+                    </a>
+                    <p>{{substr($event->eventAttachment->download_title1,0,22)}}</p>
+                </div>
+            </div>
+            @endif
+            @if($event->eventAttachment->download2 != '')
+            <div class="download-box">
+                <div class="col-md-12 text-right download">
+                    <a href="{{URL::asset('downloadPdf/'.$event->id.'/2')}}"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}"alt="">
+                    </a>
+                </div>
+                <div class="col-md-12 text-center media-link">
+                    <a href="#"><img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}"alt=""></a>
+                    <p>{{substr($event->eventAttachment->download_title2,0,20)}}</p>
+                </div>
+            </div>
+            @endif
+
+            @if($event->eventAttachment->download3 != '')
+            <div class="download-box">
+                <div class="col-md-12 text-right download">
+                    <a href="{{URL::asset('downloadPdf/'.$event->id.'/3')}}">
+                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/Icon feather-download.svg')}}" alt="">
+                    </a>
+                </div>
+                <div class="col-md-12 text-center media-link">
+                    <a href="#">
+                        <img src="{{URL::asset('leep_calender/images/Developer Assets/Event View Page/media-link.svg')}}" alt="">
+                    </a>
+                    <p>{{substr($event->eventAttachment->download_title3,0,20)}}</p>
+                </div>
+            </div>
+            @endif
+        </div>
+        @else
+            <p> Currently, this event does not have supporting documents. </p>
+        @endif
+    </div>
+
+    <!-- Supporting Images  -->
+    <div class="supporting-wrapper">
+        <div class=""> </div> 
+        <h4 class="font-weight-bold bg_black text-light p-2 pl-4 m-0 event-detail-headings">ADDITIONAL IMAGES</h4> 
+        
+        @if ($event->eventAttachment->extra_image1 != '' || $event->eventAttachment->extra_image2 != '' || $event->eventAttachment->extra_image3 != '')
+        
+        <div class="row d-flex justify-content-around">
+            @if ($event->eventAttachment->extra_image1 != '')
+            <div class="col-md-3 text-center">
+                <div class="supportimg bg-dark text-warning my-2">IMAGE 1</div>
+                    <p class="font18 text_black font-weight-bold"> {{ $event->eventAttachment->extra_image1 }} </p>
+            </div>
+            @endif
+
+            @if ($event->eventAttachment->extra_image2 != '')
+            <div class="col-md-3 text-center">
+                <div class="supportimg bg-dark text-warning my-2">IMAGE 2</div>
+                    <p class="font18 text_black font-weight-bold"> {{ $event->eventAttachment->extra_image2 }} </p>
+            </div>
+            @endif
+
+            @if ($event->eventAttachment->extra_image3 != '')
+            <div class="col-md-3 text-center">
+                <div class="supportimg bg-dark text-warning my-2">IMAGE 3</div>
+                    <p class="font18 text_black font-weight-bold"> {{ $event->eventAttachment->extra_image3 }} </p>
+            </div>
+            @endif
+
+        </div>
+        @else
+            <p> Currently, this event does not have supporting images. </p>
+            
+        @endif
+    </div>
+    <!-- ============Event Update============ -->
+
+    <div class=""> </div>
+    <div class="eventupdate bg_lightyellow py-1">
+        <div class="row row m-5 d-flex justify-content-around">
+            <div class="col-md-4 text-center">
+                <p class="font-weight-bold font20 text_black mb-0">LAST UPDATED:</p>
+                <span class="font20">{{ $event->date_format($event->updated_at) }}</span>
+            </div>
+            <div class="col-md-4 text-center">
+                <a href="#" class="font-weight-bold font20 text_marron mb-0 underline">Report a Correction</a>
+            </div>
+            <div class="col-md-4 text-center">
+                <p class="font-weight-bold font20 text_black mb-0">EVENT MANAGER:</p>
+                @if ($event->manager == '')
+                    {{-- expr --}}
+                    <span class="font14">  Currently, this event does not have any manager yet. </span>
+                @else
+                    <span class="font20">  {{ $event->manager }}</span>
+                @endif
+                {{-- <span class="font20">  {{ $event->manager }}</span> --}}
+
+            </div>
+        </div>
+    </div> 
+    {{-- NON-MEMBER Bottom Ad --}}
+    @if ($add_4)
+        {{-- expr --}}
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-3 left-sidebar-ad1" style="border: 1px solid; height: 90px;"> 
+            <p class="text-center text_black">Bottom Ad</p>
+        </div>
+    </div>
+    @endif
+
+</div>
+</div>
 
          {{-- Comments on event --}}
 
@@ -542,6 +587,13 @@ $event = $eventCategory->event
             .cursor:hover { color: blue }
             .cursor { cursor: pointer }
             .textarea { resize: none}
+            iframe {
+                width: 100%;
+                height: 181px;
+            }
+
+            .hidden { display: none;}
+            .readmore { margin: 0 5px;}
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -551,10 +603,39 @@ $event = $eventCategory->event
 
     // ================================= Block Copy and Paste =================================
 
-    $(".blockCopy").blockCopy({
-      blockPasteClass : "prevent-paste",
-      // message:"Shame on you!"
-  });
+    $(document).ready(function(){
+        $(function () {
+    
+            var maxL = 250;
+            
+            $('.content').each(function () {
+                
+                var text = $(this).text();
+                if(text.length > maxL) {
+                    
+                    var begin = text.substr(0, maxL),
+                        end = text.substr(maxL);
+
+                    $(this).html(begin)
+                        .append($('<span class="readmore text_maroon pointer"></span>').html('Read more...'))
+                        .append($('<span class="hidden" />').html(end));   
+                }
+            });
+                    
+            $(document).on('click', '.readmore', function () {
+                        // $(this).next('.readmore').fadeOut("400");
+                $(this).next('.hidden').removeClass('hidden');
+                $(this).remove();
+            })        
+            
+            
+        })
+    });
+
+    /*$(".blockCopy").blockCopy({
+        blockPasteClass : "prevent-paste",
+        // message:"Shame on you!"
+    });*/
 
 
     // ================================= Post Comment while viewing event =================================
@@ -582,6 +663,10 @@ $event = $eventCategory->event
             }
         });
     })
+
+    // =============================== Show more text in description =============================== 
+
+    
 
 
 </script>

@@ -185,17 +185,22 @@ function insertIntoAttachments($event_id,$data){
 
 
 function dateAccordingToIp($ip){
-    $apiURL = 'https://api.ipgeolocation.io/timezone?apiKey=729b967c8e964a46bd2f3f7505ee01a1&ip='.$ip.''; 
+    /*$apiURL = 'https://api.ipgeolocation.io/timezone?apiKey=9c1df5caf9614c0fab57838c6ba322f3&ip='.$ip.''; 
     $client = new \GuzzleHttp\Client();
     $response = $client->request('GET', $apiURL);
     $statusCode = $response->getStatusCode();
     $responseBody = json_decode($response->getBody(), true);
-    // dd($responseBody);
     $data['date'] = $responseBody['date'];
     $data['day'] = substr($responseBody['date'], -2,2);
     $data['month'] = substr($responseBody['date'], -5,2);
-    $data['year'] = substr($responseBody['date'], 0,4);
-    // dd($year);
+    $data['year'] = substr($responseBody['date'], 0,4);*/
+
+    // $start_date = date("Y-m-d", strtotime($d. "+1 month"));
+    $data['date'] = date("Y-m-d", strtotime("-1 days"));
+    $data['day'] = date('d');
+    $data['month'] = date('m');
+    $data['year'] = date('Y');
+
     return $data;
 
 }

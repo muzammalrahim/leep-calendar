@@ -1,19 +1,26 @@
 {{-- Extends layout --}}
-@section('content')
-@extends('layout.layoutLeep')
 
-    {{-- @dd($eventCategory->count()); --}}
-    @include('leepFront.parts.category_slider')
- 
-    <div class="eventsDiv m-4">
+@extends('site.master')
+
+
+@section('calendar-slider')
+
+@include('leepFront.parts.categoryDetail.category_image') {{-- leepFront/parts/slider --}}
+
+@endsection
+
+@section('content')
+
+
+    <div class="eventsDiv">
 
         <div class="row">
 
-            <div class="col-md-3 col-lg-2"> 
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 mx-sm-1 mx-md-2 mx-lg-4"> 
                 @include('layout.leftSidebar')
             </div>
 
-            <div class="col-md-8">
+            <div class="col-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="events mx-3">
                     <div class="search-title-box">
                         <div class="row">
@@ -24,31 +31,35 @@
                                     <p class="">For the current year, this category includes: <b> {{ $eventCount }} </b> events.
                                     </p>
                                     <h4 class="mb-4 font-color font-weight-bold">
-                                        The Africa category highlights events that take place in the nations of Africa, or have a tie to Africa.
+                                        {{ $category->description }}
                                     </h4>
-                                    <p class="mb-4">Africa is defined as:</p>
+                                    {{-- <p class="mb-4">Africa is defined as:</p> --}}
                                     <p class="">
-                                        <b>Africa Northern Hemisphere:</b> Algeria, Benin, Burkina Faso, Cabo Verde, Canary Islands, Cameroon, Central African Republic, Chad, Cote d'Ivoire, Djibouti, Egypt, Equatorial Guinea, Eritrea, Ethiopia, Gabon, Ghana, Guinea, Guinea-Bissau, Liberia, Libya, Mali, Mauritania, Morocco, Niger, Nigeria, Republic of Congo, Senegal, Sierra Leon, Somalia, South Sudan, Sudan, The Gambia, Togo, Tunisia, Western Sahara.
+
+                                        
+                                        {!! $category->countries !!}
                                     </p>
+                                    
+
                                     <p class="mb-4">
-                                        <b>Africa Southern Hemisphere:</b> Angola, Botswana, Burundi, Comoros, Democratic Republic of Congo, Eswatini, Gabon, Kenya, Lesotho, Madagascar, Malawi, Mauritius, Mayotte, Mozambique, Namibia, Reunion, Rwanda, Sao Tome and Principe, Seychelles, South Africa, Tanzania, Uganda, Zambia, Zimbabwe.
+                                        A partial list of events will be displayed in the search results for non-members. To view the full results, login to your LEEP Membership account and search this category again, (requires paid subscription).
                                     </p>
-                                    <p class="mb-4 text-center">
+                                    {{-- <p class="mb-4 text-center">
                                         A partial list of events will be displayed in the search results for<br> non-members. To view the full results, login to your LEEP<br> Membership account and search this category again, (requires<br> paid subscription).
-                                    </p>
+                                    </p> --}}
                                 </div>
                             </div>
 
                             <div class="container mt-5">
                                 <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0">
                                     <div class="col-4">
-                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white bg_maroon" type="submit">Search</a>
+                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white bg_maroon webkit-app-none" type="submit">Search</a>
                                     </div>
                                     <div class="col-4">
-                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 bg_light"  type="submit">Login</a>
+                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text_marron "  type="submit">Login</a>
                                     </div>
                                     <div class="col-4">
-                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white bg_green" type="submit">Register</a>
+                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white register-btn" type="submit">Register</a>
                                     </div>
                                 </div>
                             </div>
@@ -102,3 +113,5 @@
         color: #000000 !important;
     }
 </style>
+
+

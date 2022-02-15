@@ -1,7 +1,14 @@
 .hero-wrapper .carousel-item img {
 
-    height: 300px !important;
+    /*height: 380px !important;*/
 
+}
+/*.bg-green-registerButton{
+    background-color:#003300 !important; 
+    -webkit-appearance:none;
+}*/
+.hero-wrapper .calender #tabs nav a {
+    width: fit-content !important;
 }
 
 .text-color{color: #7a003b;}
@@ -430,7 +437,10 @@ hr {
 
 .hero-wrapper {
 
-    background-color: #7a003b;
+    /*background-color: #7a003b;*/
+
+    background: #c5b090;
+    /*padding: 10px 0px 10px 0px;*/
 
 }
 
@@ -472,12 +482,9 @@ hr {
 
 .calender .calender-head {
 
-    height: 40px;
-
+    /*height: 40px;*/
     margin-bottom: 10px;
-
     /*background-color: #fff;*/
-
     border-radius: 10px;
 
 }
@@ -485,13 +492,17 @@ hr {
 .calender .calender-head h3 {
 
     letter-spacing: 0px;
-    color: #c8b08b;
-    padding: 15px;
-    font-weight: bold;
+    /*color: #c8b08b;*/
+    color: white;
+    /*padding: 15px;*/
+    font-weight: 500;
     /*border-radius: 10px;*/
     /*background-color: white;*/
+    font-size: 1.92rem !important;
     font-family: 'impact' !important;
 }
+
+
 .calendar-foot{
     font-family: 'impact' !important; 
 }
@@ -1189,13 +1200,13 @@ ul {
 
     .hero-wrapper .carousel-item img {
 
-        height: 508px !important;
+        /*height: 508px !important;*/
 
     }
 
     .hero-wrapper .calender #tabs nav a {
 
-        width: 140px !important;
+        width: 70px !important;
 
         margin-right: 18px !important;
 
@@ -1205,7 +1216,7 @@ ul {
 
         font-weight: 600;
 
-        font-size: 24px;
+        /*font-size: 24px;*/
 
     }
 
@@ -1219,7 +1230,7 @@ ul {
 
     .navbar-light .navbar-nav .nav-link {
 
-        margin-left: 60px;
+        /*margin-left: 60px;*/
 
     }
 
@@ -1307,13 +1318,13 @@ ul {
 
         border-radius: 12px;
 
-        width: 480px;
+        /*width: 480px;*/
 
     }
 
     .calender-body {
 
-        height: 108px;
+        /*height: 108px;*/
 
     }
 
@@ -1333,7 +1344,7 @@ ul {
 
     .media-object-wrappper {
 
-        max-height: 522px;
+        /*max-height: 522px;*/
 
     }
 
@@ -1497,7 +1508,7 @@ ul {
 
     .hero-wrapper .carousel-item img {
 
-        height: 400px !important;
+        /*height: 400px !important;*/
 
     }
     .calendarScrolls {
@@ -1514,7 +1525,7 @@ ul {
     .navbar-light .navbar-nav .nav-link {
 
         font-weight: 600;
-        font-size: 18px;
+        /*font-size: 18px;*/
 
     }
 
@@ -1579,7 +1590,7 @@ ul {
         font-size: 18px;
     }
     .main-featured-data {
-        font-size: 20px !important;
+        /*font-size: 20px !important;*/
         font: inherit;
     }
 
@@ -1879,7 +1890,7 @@ ul {
 
     .hero-wrapper .carousel-item img {
 
-        height: 300px !important;
+        /*height: 300px !important;*/
 
     }
 
@@ -1936,19 +1947,12 @@ ul {
 
     }
     .hero-wrapper .carousel-item img {
-    height: 250px !important;
+    /*height: 250px !important;*/
     }
     .calendarScrolls {
-    height: 105px !important;
+    /*height: 105px !important;*/
     }
 
-    .hero-wrapper .calender #tabs nav a {
-
-        width: 70px !important;
-
-        margin-right: 8px !important;
-
-    }
 
     header {
 
@@ -2072,6 +2076,14 @@ ul {
 
     }
 
+}
+
+
+@media screen and (min-width:1086px) and (max-width: 1279px) {
+    .hero-wrapper .calender #tabs nav a {
+        width: 70px !important;
+        margin-right: 8px !important;
+    }
 }
 
 @media screen and (max-width:767px) {
@@ -2434,7 +2446,12 @@ a.nav-item.active {
 a.nav-item {
     color: #c8b08b !important;
 }
-
+.font8{
+    font-size: 8px !important;
+}
+.font10{
+    font-size: 10pt !important;
+}
 .font15 {
     font-size: 15px !important;
 }
@@ -2490,7 +2507,7 @@ a.colorSkin:hover {
 }
 
 .calendarScrolls{
-    height: 139px;
+    height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -2569,10 +2586,10 @@ a.colorSkin:hover {
       margin-left: 1px;
     }
     .hero-wrapper .carousel-item img {
-     height: 230px !important;
+     /*height: 230px !important;*/
     }
     .calendarScrolls {
-     height: 85px;
+     /*height: 85px;*/
     }
     .top-heading{
       /*padding-top: 45px;*/
@@ -2593,10 +2610,10 @@ a.colorSkin:hover {
      margin-left: 1px;
     }
     .hero-wrapper .carousel-item img {
-    height: 250px !important;
+    /*height: 250px !important;*/
     }
     .calendarScrolls {
-    height: 105px !important;
+    /*height: 105px !important;*/
     }
     
     .calender{
@@ -2625,7 +2642,7 @@ a.colorSkin:hover {
 @media screen and (min-width:1200px) and (max-width: 2000px) {
 
     .calender{
-            padding:0 6rem !important;
+            /*padding:0 6rem !important;*/
     }
     .today-features{
         padding-left: 120px;
@@ -2684,6 +2701,10 @@ a.colorSkin:hover {
 .ml_15{
     margin-left: 15px;
 }
+.wrapper{
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
 @media screen and (min-width:768px){
 
@@ -2692,13 +2713,18 @@ a.colorSkin:hover {
         margin-left: 224px;
     }
     .professional-event{
-        padding-left: 224px;
+        /*padding-left: 224px;*/
     }
-
-
-     
 }
 
+
+@media screen and (min-width:768px) and (max-width: 1086px) {
+    .hero-wrapper .calender #tabs nav a {
+        width: 35px !important;
+        margin-right: 8px !important;
+        font-size: 13px !important;
+    }
+}
 
 @media screen and (max-width:768px){
     .professional-heading h6, .welcome_heading{
@@ -2797,4 +2823,54 @@ a.colorSkin:hover {
     .navbar-brand img {
         height: 90px;
     }
+}
+
+
+a#nav-home-tab,a#nav-contact-tab,a#nav-profile-tab {
+    margin: -5px 0px 0px 14px;
+}
+
+a#nav-home-tab,a#nav-contact-tab {
+    background: #b4a289;
+}
+
+a#nav-contact-tab {
+    background: #401527;
+}
+
+a#nav-profile-tab {
+    background: #531021;
+}
+
+@media screen and (min-width:768px) and (max-width: 1130px) {
+
+    .hero-wrapper .carousel-item img {
+        height: 360px !important;
+    }
+
+    div.col-md-12.m-0.pl-4.pt-2>h6 {
+        font-size: 10px;
+        line-height: 1;
+    }
+
+    .calender .calender-head h3{
+        font-size: 19px !important;
+    }
+}
+
+@media screen and (min-width:992px) and (max-width: 1024px) {
+    .navbar-light .navbar-nav .nav-link{
+        font-size: 11px;
+
+    }
+}
+
+.register-btn{
+    background-color: #003300 !important;
+    -webkit-appearance: none !important;
+}
+
+.webkit-app-none{
+    -webkit-appearance: none !important;
+    
 }

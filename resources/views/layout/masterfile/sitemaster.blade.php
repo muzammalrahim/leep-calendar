@@ -89,22 +89,7 @@
 		{{-- ========================== Header ========================== --}}
 
 	    <header>
-
-	    	{{-- NON-MEMBER Top Ad --}}
-
-	    	@if ($add_1)
-	    		{{-- expr --}}
-			<div class="container">
-			    <div class="row m-0">
-			        <div class="col-12 col-sm-12 col-md-12 col-lg-12 left-sidebar-ad1"> 
-			        {{-- <div class="" style="border: 1px solid; height: 250px; width: 250px !important;">  --}}
-			            <p class="text-center text-light mt-4">Top Ad</p>
-			        </div>
-			    </div>
-			</div>
-	    	@endif
-			
-	    	@include('layout.header') 	
+	    	@include('layout.header')
 	    	<hr>
 	    </header>
 
@@ -116,16 +101,16 @@
 
 		    <div class="search_bar">
 			    <div class="row m-0">	
-			    	<div class="col-8 col-sm-8 col-md-8 col-lg-8 mb-3">
+			    	<div class="col-7 col-sm-7 col-md-7 col-lg-7 mb-3">
 			    		<div class="search1 d-flex">
-					    	<input type="text" class="searchTerm1 w-100" name="event_Name"  placeholder="Search for an event">
+					    	<input type="text" class="searchTerm1" style="width:84%" name="event_Name"  placeholder="Search for an event">
 					    	<button type="submit" class="searchButton">
 					    		<i class="fa fa-search"></i>
 					    	</button>
 					    </div>
 			    	</div>
 
-			    	<div class="col-4 col-sm-4 col-md-4 col-lg-4 text-center advanceSearch mt-3">
+			    	<div class="col-4 col-sm-4 col-md-4 col-lg-4 float-left advanceSearch mt-3 text-nowrap">
 	            		<a href="{{route('advance.search')}}" class="font-weight-bold">Advanced Search</a>
                    </div>
 			    </div>	
@@ -140,86 +125,13 @@
 
         <div class="row m-0">
         	{{-- <div class="col-lg-1 mr-lg-3"></div> --}}
-        	<div class="col-7 col-sm-7 col-md-7 col-lg-7">
+        	
+        	<div class="col-12 col-sm-12 col-md-12 col-lg-12 ml-4">
         		<div class="professional-heading editorial_heading">
 			        <h6>The PROFESSIONAL Event, Editorial and Promotional Calendar</h6>
 			    </div>
         	</div>
-
-        	{{-- Login Button  --}}
-
-        	<div class="col-5 col-sm-5 col-md-5 col-lg-5 mb-3 m-0 p-0">
-	    		 <div class="d-flex">
-		    		@guest
-				        <form class="form-inline my-2 my-lg-0 right-login">
-				        	{{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
-				        	<a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3"  type="submit">Login</a>
-				        	<a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important;">Register</a>
-				        </form>
-				        @else
-
-				        @if(Auth::User()->email_verified_at=='')
-					    	<form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-					        	@csrf
-					        	<button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
-					        </form>&nbsp
-
-					        <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-				        	{{ __('Logout') }}
-					        </a>
-
-					        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-					        	@csrf
-					        </form>
-				        @else
-
-
-							<div class="user-img"> 
-								<a href="{{URL::asset('settings')}}">
-									@if(Auth::user()->image!='')
-										<img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
-									@else
-										<img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
-									@endif
-
-									
-								</a>
-							</div>
-
-							<div class="nav-item dropdown mt-1">
-			                    <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
-			                    <div class="dropdown-menu">
-
-				                        <a class="dropdown-item">
-				                        	<b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
-				                        		{{Auth::user()->fname}} 
-				                        	</b>
-				                        </a>
-										<a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary dropdown-item" type="submit">Create Event</a>
-
-				                        <a class="dropdown-item">
-				                        	<label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
-				                        		My Events
-				                        	</label>
-				                        </a>
-
-				                        <a class="dropdown-item text-dark" href="{{ route('logoutRoute') }}"> Logout
-					                        {{-- <a href="{{ route('logoutRoute') }}" class="text-dark"> Logout </a> --}}
-				                        </a>
-				                    </div>
-			                </div>
-
-				        @endif
-
-				        @endguest
-
-				     </div> 
-	    	</div>
-
-        	{{-- Login Button --}}
-
-        	
-           
+      	   
 
             <div class="col-md-4 drop-right">
                 {{-- <i class="fa fa-filter"> Advanced Filters</i> --}}
@@ -397,6 +309,28 @@
     </div>
 
 
+    {{-- Calendar and slider --}}
+
+    {{-- <div class="hero-wrapper mb-4 py-3">
+        <div class="container123">
+            <div class="row m-0">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 px-md-5 px-lg-0 px-0 bg-site">
+                    <div class="calender m-auto px-sm-5 px-md-0 px-lg-5 mx-lg-0 mx-md-0 mx-sm-5  mt-lg-2 mt-md-2">
+                        <div class="calender-head mb-4">
+                            <h3 class="pb-2 pt-3"> Today is: &nbsp {{ getMonthFullName($m) }}<span class="ml-2"></span> {{ $d  }}</h3>
+                        </div>
+                        <section id="tabs">
+                            @include('leepFront.parts.calendar')
+                        </section>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8 p-0">
+                    @yield('calendar-slider')
+                </div>
+            </div>
+        </div>
+    </div> --}}
+    
 @yield('content')
 
 

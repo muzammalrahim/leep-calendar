@@ -1,9 +1,9 @@
 {{-- Extends layout --}}
-@section('content')
 @extends('layout.layoutLeep') {{-- layout/layoutLeep --}}
 
+@section('content')
 
-    
+
 <!-- caegories-section -->
 {{-- <a href="event-search.html"> --}}
 <div class="categories-page">

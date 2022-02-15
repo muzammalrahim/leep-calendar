@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\category;
 
 class EventCategory extends Model
 {
@@ -11,8 +12,32 @@ class EventCategory extends Model
 
 
     public function event(){
-        // dd($user);
         return $this->belongsTo(events::class,'event_id','id');
+    }
+
+    public function category1(){
+        return $this->belongsTo(category::class ,'category_1', 'cat_id');
+
+    }
+
+    public function category2(){
+        return $this->belongsTo(category::class,'category_2', 'cat_id');
+    }
+
+    public function category3(){
+        return $this->belongsTo(category::class,'category_3', 'cat_id');
+    }
+
+    public function category4(){
+        return $this->belongsTo(category::class,'category_4', 'cat_id');
+    }
+
+    public function category5(){
+        return $this->belongsTo(category::class,'category_5', 'cat_id');
+    }
+
+    public function category6(){
+        return $this->belongsTo(category::class,'category_6', 'cat_id');
     }
 
     public function storeEventCategories($event_id, $data)

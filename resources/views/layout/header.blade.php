@@ -76,8 +76,88 @@
                     </div>
                </div>
     		</li>
-      </ul>
+
+        </ul>
+        {{-- Login Button  --}}
+
+        <div class="nav-item">
+
+                    <div class="float-right m-0 p-0">
+                         <div class="d-flex">
+                            @guest
+                                <form class="form-inline my-2 my-lg-0 right-login">
+                                    {{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
+                                    <a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3"  type="submit">Login</a>
+                                    <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important; -webkit-appearance:none">Register</a>
+                                </form>
+                                @else
+
+                                @if(Auth::User()->email_verified_at=='')
+                                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-secondary">{{ __('Resend Verification Link') }}</button> 
+                                    </form>&nbsp
+
+                                    <a class="btn btn-outline-secondary" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                @else
+
+
+                                    <div class="user-img"> 
+                                        <a href="{{URL::asset('settings')}}">
+                                            @if(Auth::user()->image!='')
+                                                <img src="{{URL::asset('leep_calender/images/userProfilePic/'.Auth::user()->image)}}" alt="" style='width:52px;height:49px;border-radius: 15%;'>
+                                            @else
+                                                <img src="{{URL::asset('/leep_calender/images/Developer Assets/Event View Page/Rectangle 10.svg')}}" alt="" >
+                                            @endif
+
+                                            
+                                        </a>
+                                    </div>
+
+                                    <div class="nav-item dropdown mt-1">
+                                        <a href="#" class="nav-link dropdown-toggle text-dark" data-toggle="dropdown">{{ Auth::user()->fname }}</a>
+                                        <div class="dropdown-menu">
+
+                                                <a class="dropdown-item">
+                                                    <b onclick="window.location.replace('{{URL::asset('becomeMember')}}','self'); " style=" cursor:pointer;" >
+                                                        {{Auth::user()->fname}} 
+                                                    </b>
+                                                </a>
+                                                <a href="{{URL::asset('addNewEvent')}}" class="btn btn-secondary dropdown-item" type="submit">Create Event</a>
+
+                                                <a class="dropdown-item">
+                                                    <label onclick="window.location.replace('{{URL::asset('my-events')}}','self'); " style=" cursor:pointer;">
+                                                        My Events
+                                                    </label>
+                                                </a>
+
+                                                <a class="dropdown-item text-dark" href="{{ route('logoutRoute') }}"> Logout
+                                                    {{-- <a href="{{ route('logoutRoute') }}" class="text-dark"> Logout </a> --}}
+                                                </a>
+                                            </div>
+                                    </div>
+
+                                @endif
+
+                                @endguest
+
+                             </div> 
+                    </div>
+
+        </div>
+        {{-- Login Button --}}
+
+      
       {{-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> --}}
     </div>
+
+
+
 
   </nav>

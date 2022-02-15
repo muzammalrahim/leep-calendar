@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 use App\Imports\eventImport;
-
+use File;
+use App\Traits\PaginationTrait;
 use App\Imports\eventsImport; // Added on 24-09-2021
 
 
@@ -33,6 +34,7 @@ use Crypt;
 
 class EventsController extends Controller
 {
+    use PaginationTrait;
     
     private $event, $country, $user;
     
@@ -124,7 +126,7 @@ class EventsController extends Controller
         return redirect('admin/events')->with("['success'=>'added']");
     }
     public function searchEvents(Request $request){
-        dd('com'); exit;
+        // dd('com'); exit;
       // $msg='hi a.o.a';
       // return response()->json(array('msg'=> $msg), 200);
         $sDate=null;
@@ -282,6 +284,34 @@ class EventsController extends Controller
     {
         return view('admin.settings');
     }
+
+
+    public function viewAdminImages()
+    {
+
+        // dd('coming here');
+        $imagesArray = array();
+        if (!empty(File::glob('leep_calender/images/Headers/*'))) {
+
+            foreach (File::glob('leep_calender/images/Headers/*') as $file){   
+                $imagesArray[] = $file;
+            }
+        }
+        dd(sizeof($imagesArray));
+        $imagesArray = $this->paginate($imagesArray, 20);
+        $imagesArray->withPath('');
+        // ddd($imagesArray);
+
+        // <img src="{{ asset($file) }}">
+
+        return view('admin/viewUploadedPictures', [
+            'adminImages' => $imagesArray,
+        ]);
+
+        // return view('admin.settings');
+    }
+
+
     public function updateBannerPic(Request $request)
     {
         $request->validate([
@@ -559,7 +589,7 @@ class EventsController extends Controller
             if($request->isMethod('get'))
             {
                 // Initialization
-                    $id = Crypt::decrypt($id);
+                    $id = $id;
                     $data = [];
                 // End Initialization
                    
@@ -575,21 +605,24 @@ class EventsController extends Controller
             }
             else
             {
-                // Initialization
-                    $data = $request->input();
-                    $data['event_id'] = Crypt::decrypt($data['event_id']);
-                    $feature_image  = $request->file('feature_picture');
-                    $download1      = $request->file('download1');
-                    $download2      = $request->file('download2');
-                    $download3      = $request->file('download3');
-                    $extra_image1   = $request->file('extra_image1');
-                    $extra_image2   = $request->file('extra_image2');
-                    $extra_image3   = $request->file('extra_image3');
+                // Initialization 
+                $data = $request->input();
+
+                // dd( 'hi', $data);
+                $data['event_id'] = $data['event_id'];
+                $feature_image  = $request->file('feature_picture');
+                $download1      = $request->file('download1');
+                $download2      = $request->file('download2');
+                $download3      = $request->file('download3');
+                $extra_image1   = $request->file('extra_image1');
+                $extra_image2   = $request->file('extra_image2');
+                $extra_image3   = $request->file('extra_image3');
                 // End Initialization
 
                 $rules = $this->event->validations(
                     [
-                        'name' => 'required|unique:events,name,'.$data['event_id'],
+                        // 'name' => 'required|unique:events,name,'.$data['event_id'],
+                        'name' => 'required',
                         'states' => 'nullable',
                     ]
                 );
@@ -730,4 +763,24 @@ class EventsController extends Controller
         }
     }
     /* End: Zeeshan code */
+
+
+    // =============================================== Upload Feature Imges =============================================== 
+
+    public function uploadFeaturePictures(Request $request){
+        $data = $request->all();
+        // dd($data);
+        $images=array();
+        foreach ($data['file'] as $file) {
+            $imageName = $file->getClientOriginalName(); 
+            $file->move(public_path('leep_calender/images/Headers'), $imageName);
+            $images[]=$imageName;
+        }
+
+        $total_images = sizeof($images);
+
+        return back()->with('successMsg','You have successfully uploaded '.$total_images.' images ' .implode("", $images));
+    }
+
+    // =============================================== upload Feature Images end ===============================================
 }
