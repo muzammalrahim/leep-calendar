@@ -156,7 +156,7 @@
                         <td id="url">{{$e->url}}</td>
                         <td id="url">@isset($e->user->email){{$e->user->fname}} {{$e->user->lname}}@endif</td>
                         <td> 
-                            <a href="{{ route('admin.event.edit',["id"=>Crypt::encrypt($e->id)]) }}">
+                            <a href="{{ route('admin.event.edit',["id"=>$e->id]) }}">
                               <i class="fas fa-edit fa-2x text-primary"></i>
                             </a> 
                             {{-- / 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\EventCategory;
 use App\Models\EventAttachment;
+use Carbon\Carbon;
+
 
 // use Illuminate\Database\Eloquent\Model featedEvents;
 
@@ -198,6 +200,8 @@ class events extends Model
     public function updateEvent( $data ) 
     {
 
+        // dd($data);
+
         $event = new events;
 
         $event = $event->getEventDetail( $data['event_id'] );
@@ -207,6 +211,9 @@ class events extends Model
             $states = implode (", ", array_filter($data['states']));
             $event->states = $states;
         }
+
+
+        // dd($data);
         $event->start_month = $data['start_month'];
         $event->start_day   = $data['start_day'];
         $event->start_year  = $data['start_year'];
@@ -225,11 +232,11 @@ class events extends Model
         $event->description = $data['description'];
         $event->event_champion = $data['event_champion'];
         $event->country_code = $data['country_code'];
-        $event->state = $data['state'];
-        $event->city = $data['city'];
+        $event->champ_state = $data['champ_state'];
+        $event->champ_city = $data['champ_city'];
         $event->zip = $data['zip'];
-        $event->event_address1 = $data['event_address1'];
-        $event->event_address2 = $data['event_address2'];
+        $event->champ_address1 = $data['champ_address1'];
+        $event->champ_address2 = $data['champ_address2'];
         $event->ph_num = $data['ph_num'];
         $event->email_form = $data['email_form'];
         $event->contact_person = $data['contact_person'];
@@ -247,8 +254,10 @@ class events extends Model
         $event_categories = new EventCategory;
         $event_attachments = new EventAttachment;
 
-        $event_categories->updateEventCategories($event->id, $data);
-        $event_attachments->updateEventAttachments($event->id, $data);
+        $event_categoriesUpdate = EventCategory::where('event_id', $data['event_id'])->first();
+        $event_AttachmentUpdate = EventAttachment::where('event_id', $data['event_id'])->first();
+        $event_categoriesUpdate->updateEventCategories($data['event_id'], $data);
+        $event_attachments->updateEventAttachments($data['event_id'], $data);
 
 
         return with($this);
@@ -374,7 +383,13 @@ class events extends Model
 
     // Foreign key relashioships
     public function eventAttachment() {
+        // dd('coming here');
         return $this->hasOne(EventAttachment::class,'event_id','id');
+    }
+
+    public function attachment() {
+        // dd('coming here');
+        return $this->belongsTo(EventAttachment::class,'id', 'event_id');
     }
 
     // used underscore for decalaration b/c same funtion name exists
@@ -383,7 +398,10 @@ class events extends Model
     }
     /* End: Zeeshan code */
 
-
+    public function eventCategories() {
+        // dd('coming here');
+        return $this->belongsTo(EventCategory::class,'event_id');
+    }
 
 
     public function EventComments(){
@@ -467,6 +485,21 @@ class events extends Model
         $end_date = date('Y-m-d', strtotime($date. ' + 1 days')); 
 
         return $this->whereBetween('start_date',[$start_date,$end_date] )->where('end_date', '>=', $end_date)->where('type','Monthly')->orderBy('created_at','desc')->get();        
+    }
+
+
+    public function date_format($date){
+        $date1 = '';
+        $timestamp = strtotime($date);
+        $month = date('M', $timestamp);
+        $year = date('Y', $timestamp);
+        $day = Carbon::parse($date)->format('d');
+        $date1 .= $month.' '. $day.', '. $year;
+        // dump($date1);
+        return $date1;
+
+        // dump($day);
+
     }
 
 

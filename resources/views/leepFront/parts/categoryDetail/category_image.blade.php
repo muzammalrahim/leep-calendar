@@ -7,21 +7,18 @@
 
       <div class="carousel-item active">
         {{-- @isset(App\Models\participants::first()->banner) --}}
-        @if ($eventCategory->event->feature_picture)
-          {{-- expr --}}
+ {{--        @if ($eventCategory->event->feature_picture)
           @if ( !file_exists(URL::asset('leep_calender/images/Developer Assets/Category Images/'. $category->image) ))
-            {{-- @dump('image is not avaialbe') --}}
             <img src="{{URL::asset('leep_calender/images/Developer Assets/Category Images/'. $category->image )}}"
           class="d-block w-100" alt="...">
           @else
             <img src="{{URL::asset('leep_calender/images/Headers/'. $eventCategory->event->feature_picture )}}"
           class="d-block w-100" alt="...">  
           @endif
-          
-        @else
+        @else --}}
         <img src="{{URL::asset('leep_calender/images/Developer Assets/Category Images/'. $category->image )}}"
           class="d-block w-100" alt="...">
-        @endif
+        {{-- @endif --}}
         {{-- @endif --}}
 
         <div class="carousel-caption  d-md-block">
@@ -56,3 +53,6 @@
   </div>
 
 </div>
+
+
+

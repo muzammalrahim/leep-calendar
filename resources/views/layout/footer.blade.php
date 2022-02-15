@@ -79,7 +79,7 @@
 		<div class="col-12 col-sm-12 col-md-12 col-lg-2 px-5 bg_black py-5 footerImage">
 			<img src="{{URL::asset('leep_calender/images/Developer Assets/Homepage (After Login or Sign up)/logo.png')}}" class = "img-fluid" alt="">
 			
-			<p class="mt-4 text-white ml-2">Jubilee LLC, <br>
+			<p class="mt-4 text-white ml-2 font10">Jubilee LLC, <br>
 			1712 Pioneer Avenue, <br>
 			Suite 2019 <br>
 			Cheyenne, WY 82001 <br>
@@ -113,8 +113,8 @@
 				</div>
 
 				<div class="copyright m-auto" style="margin-top: 70px !important;">
-					<p class="text-center m-0"> Copyright © Jubilee LLC / LEEPCalendar.com 2021.  </p>
-					<p class="text-center">  All rights reserved. </p>		
+					<p class="text-center m-0 font10"> Copyright © Jubilee LLC / LEEPCalendar.com 2021.  </p>
+					<p class="text-center font10">  All rights reserved. </p>		
 				</div>
 			</div>	
 

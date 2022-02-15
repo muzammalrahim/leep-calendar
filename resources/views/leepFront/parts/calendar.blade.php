@@ -31,7 +31,7 @@
 
       {{-- </div> --}}
 
-      <div class="event_detail px-2 row m-0">
+      <div class="event_detail px-3 row m-0">
 
         <div class="tab-content px-3 px-sm-0" id="nav-tabContent">
 
@@ -161,9 +161,9 @@
   {{-- </div> --}}
 
   <div class="row font-color m-0 px-2 mb-3 ">
-    <div class="col-5"></div>
-    <div class="col-7 text-right">
-      <h5 class="font-weight-bold calendar-foot"> LEEP Calendar </h5>
+    <div class="col-0 col-sm-3 col-md-5 col-lg-5"></div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-right">
+      <h5 class="font-weight-normal calendar-foot text-white pr-3 pt-1"> LEEP Calendar </h5>
     </div>
   </div>
 

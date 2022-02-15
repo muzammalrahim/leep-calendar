@@ -5,7 +5,7 @@
                 <div class="col-12 m-0">
                     <div class="mb-3">
                         <div class="float-left">
-                            <span class="font-weight-bold font20"> EVENT CHAMPION: </span>
+                            <span class="font-weight-bold font20"> EVENT CHAMPION: </span> <span> {{ $event->event_champion }} </span>
                         </div>
                         <div>
                             <span class="ml-3 font18"> Prevent Blindness America </span>
@@ -16,7 +16,7 @@
                             <span class="font-weight-bold font20"> ADDRESS 1: </span>
                         </div>
                         <div class="">
-                            <span class="ml-3 font18"> 211 West Wacker Drive </span>
+                            <span class="ml-3 font18"> {{ $event->champ_address1 }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -24,19 +24,19 @@
                             <span class="font-weight-bold font20"> ADDRESS 2: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> Suite 1700 </span>
+                            <span class="ml-3 font18"> {{ $event->champ_address2 }} </span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row m-0 pl-5 pr-5">
-                <div class="col-sm-12 col-md-12 col-lg-6 col-12">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-12">
                     <div class="mb-3">
                         <div class="float-left">
                             <span class="font-weight-bold font20"> CITY: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> Chicago </span>
+                            <span class="ml-3 font18"> {{ $event->champ_city }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -44,7 +44,7 @@
                             <span class="font-weight-bold font20"> STATE: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> IL </span>
+                            <span class="ml-3 font18"> {{ $event->champ_state }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -52,7 +52,7 @@
                             <span class="font-weight-bold font20"> COUNTRY: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> US </span>
+                            <span class="ml-3 font18"> {{ $event->champ_country }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -60,17 +60,17 @@
                             <span class="font-weight-bold font20"> ZIP CODE: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> 60606 </span>
+                            <span class="ml-3 font18"> {{ $event->zip }} </span>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 col-12">
+                <div class="col-sm-12 col-md-12 col-lg-8 col-12">
                     <div class="mb-3">
                         <div class="float-left">
                             <span class="font-weight-bold font20"> PHONE: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> (800) 331.2020 </span>
+                            <span class="ml-3 font18"> {{ $event->ph_num }} </span>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@
                             <span class="font-weight-bold font20"> EMAIL: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18  text_marron"> info@preventblindness.org </span>
+                            <span class="ml-3 font18  text_marron"> {{ $event->email_form }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -87,7 +87,7 @@
                             <span class="font-weight-bold font20"> CONTACT: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18"> General Information </span>
+                            <span class="ml-3 font18"> {{ $event->contact_person }} </span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -95,7 +95,7 @@
                             <span class="font-weight-bold font20"> CONTACT URL: </span>
                         </div>
                         <div>
-                            <span class="ml-3 font18 text_marron"> https://www.preventblind-ness.org/contact-us </span>
+                            <span class="ml-3 font18 text_marron"> {{ $event->contact_link }} </span>
                         </div>
                     </div>
                 </div>

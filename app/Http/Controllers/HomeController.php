@@ -92,15 +92,15 @@ class HomeController extends Controller
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
-
+        // dd($y);
 
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
+        $daily_events = $this->events->daily_events($date);
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
 
         $eventCount=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->get()->count();
-
+        // dd($eventCount);
         if(!isset($category->id))
             return redirect()->back()->with(['errorMsg','Undefined Category']);
         if (Auth::check()) {
@@ -115,6 +115,7 @@ class HomeController extends Controller
         }
         
         else{
+            // dd('coming here');
             $eventCategory=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->take(10)->get();
         }
         

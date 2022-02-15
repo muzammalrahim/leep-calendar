@@ -42,66 +42,56 @@
                             <div class="col-md-12" style="padding-top: 5px;">
                                 <div class="form-group">
                                     <div class="form-group">
-                                    	@php($label = 'Name')
-                						@php($name = 'name')
 
                                         <label>
-                                        	<b>{{ $label }}
-                                        		<span class="text-danger">*</span></label>
-                                        	</b>
+                                        	<b> Name <span class="text-danger">*</span></label> </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
+                                        <input type="text"  name="name" id="name" class="form-control" placeholder="Enter Name" value="{{ $event->name }}">
                                     </div>
 
                                     <div class="form-group">
-                                        @php($label = 'Select Nations / States')
-                                        @php($name = 'states')
-
-                                        <label >{{ $label }}
+                                        <label >Select Nations / States
                                             <span class="text-danger">*</span>
                                         </label>
-
-                                        <label> <strong>Previously selected states:</strong> {{ $event->states }}</label>
-
-                                        <select multiple class="form-control selectpicker" size="3" aria-label="Default select example" name="{{ $name }}[]">
+                                        <label class="my-4"> <strong>Previously selected states:</strong> {{ $event->states }}</label>
+                                        <select multiple class="form-control selectpicker" size="3" aria-label="Default select example" name="states[]">
                                             <option value="">Select</option>
                                             @foreach( $countries_list as $nation )
-                                                <option {{ (collect(old($name))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
+                                                <option {{ (collect(old('states'))->contains($nation->name)) ? 'selected':'' }}>{{ $nation->name }}</option>
+
+                                                            {{-- @php($label = 'Select Nations / States')
+                                        @php($name = 'states') --}}
+
+
                                             @endforeach
                                         </select>
 
-                                        <label>
+                                        <label class="mt-4">
                                             <strong>Note:</strong> Selecting states will override all previous once.
                                         </label>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Month Start')
-                                            @php($name = 'start_month')
-
-                                            <label >{{ $label }}
+                                            <label >Select Month Start
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="start_month">
                                                 <option value="">Select</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}" {{ $key == $event->$name ? 'selected' : ''}} >{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == $event->start_month ? 'selected' : ''}} >{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Day Start')
-                                            @php($name = 'start_day')
-
-                                            <label >{{ $label }}
+                                            <label >Select Day Start
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="start_day">
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day < 32; $day++ )
-                                                    <option value="{{ $day }}" {{ $day == $event->$name ? 'selected' : ''}}> {{ $day }} </option>
+                                                    <option value="{{ $day }}" {{ $day == $event->start_day ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -109,45 +99,37 @@
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Year Start')
-                                            @php($name = 'start_year')
-
-                                            <label >{{ $label }}
+                       
+                                            <label >Select Year Start
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="start_year">
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year > 1900; $year--)
-                                                    <option value="{{ $year }}" {{ $year == $event->$name ? 'selected' : '' }} > {{ $year }} </option>
+                                                    <option value="{{ $year }}" {{ $year == $event->start_year ? 'selected' : '' }} > {{ $year }} </option>
                                                 @endfor
                                             </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Start Date')
-                                            @php($name = 'start_date')
-
                                             <label>
-                                                <b>{{ $label }}
-                                                    <span class="text-danger">*</span></label>
+                                                <b>Start Date
+                                                    <span class="text-danger">*</span>
                                                 </b>
                                             </label>
-                                            <input type="date" name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
+                                            <input type="date" name="start_date" id="start_date" class="form-control" placeholder="Enter Start Date}" value="{{ $event->start_date }}">
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Month End')
-                                            @php($name = 'end_month')
-
-                                            <label >{{ $label }}
+                                            <label >Select Month End
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
-                                                <option value="">Select</option>
+                                            <select class="form-control" aria-label="Default select example" name="end_month">
+                                                <option value="">Select End Month</option>
                                                 @foreach( getMonths() as $key=>$month )
-                                                    <option value="{{ $key }}" {{ $key == $event->$name ? 'selected' : '' }}>{{ $month }}</option>
+                                                    <option value="{{ $key }}" {{ $key == $event->end_month ? 'selected' : '' }}>{{ $month }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -156,13 +138,13 @@
                                             @php($label = 'Select Day End')
                                             @php($name = 'end_day')
 
-                                            <label >{{ $label }}
+                                            <label >Select Day End
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="end_day">
                                                 <option value="">Select</option>
                                                 @for ( $day=1; $day<32; $day++ )
-                                                    <option value="{{ $day }}" {{ $day == $event->$name ? 'selected' : ''}}> {{ $day }} </option>
+                                                    <option value="{{ $day }}" {{ $day == $event->end_day ? 'selected' : ''}}> {{ $day }} </option>
                                                 @endfor
                                             </select>
                                         </div>
@@ -170,30 +152,25 @@
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Year End')
-                                            @php($name = 'end_year')
-
-                                            <label >{{ $label }}
+                                          
+                                            <label >Select Year End
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="end_year">
                                                 <option value="">Select</option>
                                                 @for ($year=date("Y"); $year>1900; $year--)
-                                                    <option value="{{ $year }}" {{ $year == $event->$name ? 'selected' : ''}}> {{ $year }} </option>
+                                                    <option value="{{ $year }}" {{ $year == $event->end_year ? 'selected' : ''}}> {{ $year }} </option>
                                                 @endfor
                                             </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'End Date')
-                                            @php($name = 'end_date')
-
                                             <label>
-                                                <b>{{ $label }}
+                                                <b>End Date
                                                     <span class="text-danger">*</span></label>
                                                 </b>
                                             </label>
-                                            <input type="date"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
+                                            <input type="date" name="end_date" id="end_date" class="form-control" placeholder="Enter End Date" value="{{ $event->end_date }}">
                                         </div>
                                     </div>
 
@@ -207,88 +184,71 @@
 
                                     <div class="row">
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 1')
-                                            @php($name = 'category_1')
-
-                                            <label >{{ $label }}
+                                            <label >Select Category 1
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_1">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_1 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 2')
-                                            @php($name = 'category_2')
-
-                                            <label >{{ $label }}
+        
+                                            <label >Select Category 2
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_2">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_2 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 3')
-                                            @php($name = 'category_3')
-
-                                            <label >{{ $label }}
+                                            <label >Select Category 3
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_3">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_3 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="row">
-
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 4')
                                             @php($name = 'category_4')
-
-                                            <label >{{ $label }}
+                                            <label >Select Category 4
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_4">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_4 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 5')
-                                            @php($name = 'category_5')
-
-                                            <label >{{ $label }}
+                                            <label >Select Category 5
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_5">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_5 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 form-group">
-                                            @php($label = 'Select Category 6')
-                                            @php($name = 'category_6')
-
-                                            <label >{{ $label }}
+                                            <label >Select Category 6
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="category_6">
                                                 <option value="">Select Category</option>
                                                 @foreach( $categories_list as $category )
-                                                    <option value="{{ $category->id }}" {{ $category->id == $event->event_category->$name ? 'selected' : ''}}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->cat_id }}" {{ $category->cat_id == $event->event_category->category_6 ? 'selected' : ''}}>{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -299,51 +259,42 @@
                                             @php($label = 'Select Type')
                                             @php($name = 'type')
 
-                                            <label >{{ $label }}
+                                            <label >Select Type
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="type">
                                                 <option value="">Select Type</option>
                                                 @foreach( getEventTypesList() as $type )
-                                                    <option value="{{ $type }}" {{ $type == $event->$name ? 'selected' : ''}}>{{ $type }}</option>
+                                                    <option value="{{ $type }}" {{ $type == $event->type ? 'selected' : ''}}>{{ $type }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
 
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Static Change')
-                                            @php($name = 'static_change')
-
-                                            <label >{{ $label }}
+                                            <label >Select Static Change
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+                                            <select class="form-control" aria-label="Default select example" name="static_change">
                                                 <option value="">Select Static Change</option>
                                                 @foreach( getStaticChangesList() as $static_change )
-                                                    <option value="{{ $static_change }}" {{ $static_change == $event->$name ? 'selected' : ''}}>{{ $static_change }}</option>
+                                                    <option value="{{ $static_change }}" {{ $static_change == $event->static_change ? 'selected' : ''}}>{{ $static_change }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        @php($label = 'Enter Notes')
-                                        @php($name = 'notes_not_public')
-
                                         <label>
-                                            <b>{{ $label }} (Not Public)
+                                            <b>Enter Notes (Not Public)
                                             </b>
                                         </label>
-                                        <textarea  name="{{ $name }}"  class="form-control" placeholder="Enter {{ $label }}">{{ $event->$name }}</textarea>
+                                        <textarea name="notes_not_public"  class="form-control" placeholder="Enter {{ $label }}">{{ $event->notes_not_public }}</textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        @php($label = 'Enter URL')
-                                        @php($name = 'url')
-
                                         <label>
-                                            <b>{{ $label }}
+                                            <b>Enter URL
                                             </b>
                                         </label>
-                                        <input type="text"  name="{{ $name }}" onblur="checkDeadLink(this)" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
+                                        <input type="text"  name="url" onblur="checkDeadLink(this)" id="url" class="form-control" placeholder="Enter URL" value="{{ $event->url }}">
                                     </div>
 
                                     <div class="form-group">
@@ -410,7 +361,7 @@
                                         <textarea  name="{{ $name }}"  class="form-control wysihtml5" placeholder="Enter {{ $label }}">{!! $event->$name !!}</textarea>
                                     </div>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         @php($label = 'Event Champion')
                                         @php($name = 'event_champion')
 
@@ -420,12 +371,11 @@
                                         <input list="browsers" name="event_champion" id="event_champion" class="form-control" value="{{ $event->$name }}">
 
                                         <datalist id="browsers">
-                                          @foreach( $event_champions as $event_champ )
+                                            @foreach( $event_champions as $event_champ )
                                                 <option value="{{ $event_champ->fname.' '.$event_champ->lname }}">{{ $event_champ->fname.' '.$event_champ->lname }} | {{ $event_champ->email }}</option>
                                             @endforeach
                                         </datalist>
-
-                                        <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ old($name) }}">
+                                        <input list="{{ $name }}"  name="{{ $name }}" id="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{  old($name) }}">
 
                                         <datalist id="{{ $name }}">
                                             <option value="">Select {{ $label }}</option>
@@ -433,26 +383,40 @@
                                                 <option value="{{ $event_champ->fname.' '.$event_champ->lname }}">{{ $event_champ->fname.' '.$event_champ->lname }} | {{ $event_champ->email }}</option>
                                             @endforeach
                                         </datalist>
+                                    </div> --}}
+
+                                    <div class="form-group">
+                                        @php($label = 'Event Champion')
+                                        @php($name = 'event_champion')
+
+                                        <label>
+                                            <b>{{ $label }}
+                                            </b>
+                                        </label>
+                                        <input type="text"  name="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6 form-group">
-                                            @php($label = 'Select Country Code')
+                                            @php($label = 'Country Code')
                                             @php($name = 'country_code')
 
                                             <label >{{ $label }}
                                             </label>
-                                            <select class="form-control" aria-label="Default select example" name="{{ $name }}">
+
+                                            <input type="text"  name="{{ $name }}" class="form-control" placeholder="Enter {{ $label }}" value="{{ $event->$name }}">
+
+                                            {{-- <select class="form-control" aria-label="Default select example" name="{{ $name }}">
                                                 <option value="">Select</option>
                                                 @foreach( $countries_list as $country )
                                                     <option value="{{ $country->code }}" {{ $country->code == $event->$name ? 'selected' : ''}}>{{ $country->code }}</option>
                                                 @endforeach
-                                            </select>
+                                            </select> --}}
                                         </div>
 
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Enter State')
-                                            @php($name = 'state')
+                                            @php($name = 'champ_state')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -465,7 +429,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Enter City')
-                                            @php($name = 'city')
+                                            @php($name = 'champ_city')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -490,7 +454,7 @@
                                     <div class="row">
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Address 1')
-                                            @php($name = 'event_address1')
+                                            @php($name = 'champ_address1')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -501,7 +465,7 @@
 
                                         <div class="col-md-6 form-group">
                                             @php($label = 'Address 2')
-                                            @php($name = 'event_address2')
+                                            @php($name = 'champ_address2')
 
                                             <label>
                                                 <b>{{ $label }}
@@ -867,7 +831,7 @@
                                 </div>
 
                                 {{-- Start: Input Hidden Fields --}}
-                                    <input type="hidden" name="event_id" value="{{Crypt::encrypt($event->id)}}">
+                                    <input type="hidden" name="event_id" value="{{ $event->id }}">
                                 {{-- End: Input Hidden Fields --}}
 
                                 <div>

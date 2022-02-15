@@ -1,8 +1,8 @@
 
-<div class="px-md-5 mx-lg-4 mx-2">
+<div class="px-md-0 mx-lg-4 mx-lg-2">
     
 
-    <div class="becomeProfessional pb-5"> 
+    <div class="becomeProfessional pb-3"> 
       <div class="container1">
           <h5 class="font-weight-bold"> BECOME A MEMBER </h5>
           <a href="{{ asset('login') }}" class="d-block ml-4"> Professionals </a>

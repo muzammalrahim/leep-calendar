@@ -25,6 +25,23 @@ return [
             'page' => 'admin/uploadEvents',
             'visible' => 'preview',
         ],
+
+        [
+            'title' => 'Upload Feature Pictures',
+            'root' => true,
+            'icon' => 'media/svg/icons/Home/Library.svg',
+            'page' => 'admin/upload/feature-pictures',
+            'visible' => 'preview',
+        ],
+
+        [
+            'title' => 'View All Pictures',
+            'root' => true,
+            'icon' => 'media/svg/icons/Home/Library.svg',
+            'page' => 'admin/view/pictures',
+            'visible' => 'preview',
+        ],
+
         [
             'title' => 'Users',
             'root' => true,
