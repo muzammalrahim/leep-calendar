@@ -33,7 +33,7 @@
         <div class="row p-0 m-0 mt-lg-5">
             
             <div class="col-lg-3 col-md-6">
-                <div class="categories-box">
+                <div class="categories-box ">
                     <?php $categoryA=App\Models\category::where('name','like','A'.'%')->orderBy('name','Asc')->get();?>
                     @if(isset($categoryA[0]->name))
                     <div class="cat-box">
