@@ -47,6 +47,7 @@ padding: 30px 130px;
     /*padding-left: 130px;*/
     padding-right: 25px;
     padding-bottom: 28px;
+    overflow:auto;
 }
 .categories-page .categories-box .cat-box {
     padding-right: 35px;

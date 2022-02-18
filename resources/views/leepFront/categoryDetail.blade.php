@@ -13,14 +13,14 @@
 
 
     <div class="eventsDiv">
-        <div class="row">
+        <div class="row mx-0">
             <div class="col-12 col-sm-12 col-md-4 col-lg-4 mt-4 mx-sm-1 mx-md-2 mx-lg-4"> 
                 @include('layout.leftSidebar')
             </div>
             <div class="col-12 col-sm-12 col-md-7 col-lg-7">
                 <div class="events mx-3">
                     <div class="search-title-box">
-                        <div class="row">
+                        <div class="row mx-0">
                             <div class="col-md-12">
                                 <h1 class="mb-lg-3" style="font-family: 'impact';"> Events in {{ $category->name }}</h1>
                                 <div class="pl-lg-5 ml-lg-4 pl-md-5 ml-md-4">
@@ -46,27 +46,28 @@
                                 </div>
                             </div>
                             <div class="container mt-5">
-                                <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 ">
-                                    <div class="col-4">
-                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white bg_maroon webkit-app-none" type="submit">Search</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text_marron "  type="submit">Login</a>
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold px-3 px-lg-5 px-md-5 px-sm-5 py-3 text-white register-btn" type="submit">Register</a>
-                                    </div>
-                                </div>
-                                <?php
+                            <?php
                                 $cat_name =  $category->name ;
                                 ?>
                                 @if ($cat_name == 'Religion')
-                                <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 ">
+                                <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 mr-0">
                                     <div class="col-12 w-100 pt-4">
-                                        <a href="{{url('leep_calender/pdf/Faiths.pdf')}}" class="w-100" download><img src="{{asset('images/religion.png')}}" alt="" width="100%"/> </a>
+                                        <img id="zoom_01" src="{{asset('images/religion.png')}}" data-zoom-image="{{asset('images/religion.png')}}" alt="" width="100%"/> 
                                     </div>
+                                    <div class="w-100 col-12"><a href="{{url('leep_calender/pdf/Faiths.pdf')}}" class="py-4 text-center text_marron d-block" download>download this image</a></div>
                                 </div>
                                 @endif
+                            <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 mr-0">
+                                    <div class="col-4">
+                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white bg_maroon webkit-app-none" type="submit">Search</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold  w-100 py-3 text_marron "  type="submit">Login</a>
+                                    </div>
+                                    <div class="col-4">
+                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white register-btn" type="submit">Register</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

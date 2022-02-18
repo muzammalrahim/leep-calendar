@@ -49,11 +49,11 @@
     {{-- LEGEND --}}
     <div class="legend-wrapper p-4">
         <div class="row">
-          <div class="col-lg-2 col-md-3">
+          <div class="col-lg-4 col-md-4">
                 @include('layout.leftSidebar')
           </div>
 
-          <div class="col-lg-8 col-md-7 ml-lg-5 ml-md-5">
+          <div class="col-lg-7 col-md-7 ml-lg-5 ml-md-5">
             <div class="legend-content">
                 <h2 class="font-weight-bold font-color"> Legend </h2>
                 <div class="header">
@@ -100,7 +100,7 @@
                                 <span> Estimated </span>                                
                               </div>
                             </div>
-
+                              <br/>
                             <div class="row">
                               <div class="col-1"> <span class="font-weight-bold"> (*) </span> </div>
                               <div class="col-1 ml-3"> = </div>
@@ -109,7 +109,7 @@
                                 <p>of the same or similar title by different sponsors, different countries or at different times.</p>
                               </div>
                             </div>
-
+                            <br/>
                             <div class="row">
                               <div class="col-1"> <span class="font-weight-bold"> (1981) </span> </div>
                               <div class="col-1 ml-3"> = </div>
@@ -117,7 +117,7 @@
                                 <span> Date in the title is the anniversary year for an event. </span>                                
                               </div>
                             </div>
-
+                            <br/>
                             <div class="row">
                               <div class="col-1"> <span class="font-weight-bold"> Ntl. </span> </div>
                               <div class="col-1 ml-3"> = </div>
@@ -126,7 +126,7 @@
                                 <p> Unless noted, national refers to United States. </p>                            
                               </div>
                             </div>
-
+                            <br/>
                             <div class="row">
                               <div class="col-1"> <span class="font-weight-bold"> Intl. </span> </div>
                               <div class="col-1 ml-3"> = </div>
@@ -135,10 +135,10 @@
                                 <p> This event is intended to be observed worldwide and has support in a minimum of five countries </p>
                               </div>
                             </div>
-
+                            <br/>
                             <h4 class="text-dark font-weight-bold borderBottom mb-2">Religious Designations</h4>
 
-                            <p class="m-0"> <b> (c) </b> <span class="mx-4"> = </span> Christian Event </p>
+                            <p class="m-0"> <b> (C) </b> <span class="mx-4"> = </span> Christian Event </p>
                             <p class="m-0"> <b> (B) </b> <span class="mx-4"> = </span> Buddhist Event </p>
                             <p class="m-0"> <b> (M) </b> <span class="mx-4"> = </span> Muslim or Islamic Event </p>
                             <p class="m-0"> <b> (H) </b> <span class="mx-4"> = </span> Hindu Event </p>
