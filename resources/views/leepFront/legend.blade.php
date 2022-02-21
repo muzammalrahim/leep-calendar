@@ -65,11 +65,11 @@
                     <p class="font-weight-bold">2) Event name</p>
 
                     <ul class="pl-3">
-                      <li class="list-unstyled">Coma followed by Ntl., Intl., World, Global or other location designation </li>
-                      <li class="list-unstyled"> Parenthesis (Descriptive Word) if applicable </li>
-                      <li class="list-unstyled"> Parenthesis (Religious Abbreviation) if applicable </li>
-                      <li class="list-unstyled"> Parenthesis (Country / State Abbreviations) if applicable </li>
-                      <li class="list-unstyled"> Parenthesis (Anniversary Year) if applicable </li>
+                      <li class="list-unstyled"><p>Coma followed by Ntl., Intl., World, Global or other location designation </li>
+                      <li class="list-unstyled"> <p>Parenthesis (Descriptive Word) if applicable </p></li>
+                      <li class="list-unstyled"> <p>Parenthesis (Religious Abbreviation) if applicable </p></li>
+                      <li class="list-unstyled"><p> Parenthesis (Country / State Abbreviations) if applicable </p></li>
+                      <li class="list-unstyled"><p> Parenthesis (Anniversary Year) if applicable </p></li>
                     </ul>
 
                     <p class=""><b>3) Date:</b> Start Month/Day/Year through End Month/Day/Year</p>
@@ -82,8 +82,7 @@
                             on October 23, 2001.</p>
                         <h5 class="font-color font-weight-bold">Example: Sausage Week, (UK): October 28 - November 3 (est)</h5>
 
-                        <p>Translation: International iPod Day celebrates the anniversary of the premiere of theiPod
-                            on October 23, 2001.</p>
+                        <p>Translation: Sausage Week in the United Kingdom occurs October 28-November 3 this year.</p>
                     </div>
                 </div>
                 <div class="legend-title">
@@ -94,44 +93,44 @@
                             <h4 class="text-dark font-weight-bold borderBottom">General</h4>
                             
                             <div class="row">
-                              <div class="col-1"> <span class="font-weight-bold"> (est) </span> </div>
-                              <div class="col-1 ml-3"> = </div>
+                              <div class="col-2"> <p class="font-weight-bold"> (est) </p> </div>
+                              <div class="col-1 pl-3"><p> = </p></div>
                               <div class="col-9">
-                                <span> Estimated </span>                                
+                                <p> Estimated </p>                                
                               </div>
                             </div>
                               <br/>
                             <div class="row">
-                              <div class="col-1"> <span class="font-weight-bold"> (*) </span> </div>
-                              <div class="col-1 ml-3"> = </div>
+                              <div class="col-1"> <p class="font-weight-bold"> (*) </p> </div>
+                              <div class="col-1 ml-3"><p> = </p></div>
                               <div class="col-9">
-                                <span> More than one event </span>     
+                                <p> More than one event </p>     
                                 <p>of the same or similar title by different sponsors, different countries or at different times.</p>
                               </div>
                             </div>
                             <br/>
                             <div class="row">
-                              <div class="col-1"> <span class="font-weight-bold"> (1981) </span> </div>
-                              <div class="col-1 ml-3"> = </div>
+                              <div class="col-2"> <p class="font-weight-bold"> (1981) </p> </div>
+                              <div class="col-1 pl-3"> <p> = </p> </div>
                               <div class="col-9">
-                                <span> Date in the title is the anniversary year for an event. </span>                                
+                                <p> Date in the title is the anniversary year for an event. </p>                                
                               </div>
                             </div>
                             <br/>
                             <div class="row">
-                              <div class="col-1"> <span class="font-weight-bold"> Ntl. </span> </div>
-                              <div class="col-1 ml-3"> = </div>
+                              <div class="col-1"> <p class="font-weight-bold"> Ntl. </p> </div>
+                              <div class="col-1 ml-3"> <p> = </p> </div>
                               <div class="col-9">
-                                <span> National </span>    
+                                <p> National </p>    
                                 <p> Unless noted, national refers to United States. </p>                            
                               </div>
                             </div>
                             <br/>
                             <div class="row">
-                              <div class="col-1"> <span class="font-weight-bold"> Intl. </span> </div>
-                              <div class="col-1 ml-3"> = </div>
+                              <div class="col-1"> <p class="font-weight-bold"> Intl. </p> </div>
+                              <div class="col-1 ml-3"><p> = </p></div>
                               <div class="col-9">
-                                <span> International </span>    
+                                <p> International </p>    
                                 <p> This event is intended to be observed worldwide and has support in a minimum of five countries </p>
                               </div>
                             </div>
@@ -159,14 +158,14 @@
                                   Note: UK is used for Great Britian rather than GB.</p>
                             </div>
                             <div class="row m-0">
-                              <p><span> (AU) or (AU/UK) </span>Two letter country code or two letter country codes
+                              <p> (AU) or (AU/UK) Two letter country code or two letter country codes
                                   separated by forward slash = (Australia) or
                                   (Australia/United Kingdom). This event takes place primarily in this/these
                                   country(ies).</p>
                             </div>
 
                             <div class="row m-0">
-                              <p> We will list up to four in the title, <span> separated by a backslash. </span>
+                              <p> We will list up to four in the title,  separated by a backslash.
                                   If more than four, the event is considered worldwide. </p>
                             </div>
 
@@ -175,14 +174,14 @@
                             <h4 class="text-dark font-weight-bold borderBottom">Dates</h4>
 
                               <div class="row m-0">
-                                <p><span>Date includes / or </span> – = Begins at Sundown/Ends at Sundown or Begins this day
+                                <p>Date includes / or  – = Begins at Sundown/Ends at Sundown or Begins this day
                                   – Ends this day.</p>
                               </div>
 
                             <h4 class="text-dark font-weight-bold borderBottom">States & Provinces</h4>
                               
                             <div class="row m-0"> 
-                              <p><Span>(AU-NSW)</Span> Two letter Country Code followed by em-dash and initials = <br>
+                              <p>(AU-NSW) Two letter Country Code followed by em-dash and initials = <br>
                                   (Australia—New South Wales). Country – State/Province of occurrence when applicable.
                               </p>
                             </div>                            
@@ -200,7 +199,8 @@
                         <p>Translation: The international Jewish observance of Yom Kippur begins at sundown on
                             October 7 and ends at sundown on October 8, 2019.</p>
                         <h5 class="font-color font-weight-bold">Example 2: Rosh Hashanah (J): September 29-October 1</h5>
-                    </div>
+                        <p>Translation: Rosh HaShanah, is the Jewish New Year. The biblical name for this holiday is Yom Teruah, literally "day of shouting or blasting.</p>
+                      </div>
                 </div>
 
             </div>

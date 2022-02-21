@@ -54,7 +54,7 @@
                                     <div class="col-12 w-100 pt-4">
                                         <img id="zoom_01" src="{{asset('images/religion.png')}}" data-zoom-image="{{asset('images/religion.png')}}" alt="" width="100%"/> 
                                     </div>
-                                    <div class="w-100 col-12"><a href="{{url('leep_calender/pdf/Faiths.pdf')}}" class="py-4 text-center text_marron d-block" download>download this image</a></div>
+                                    <div class="w-100 col-12"><a href="{{url('leep_calender/pdf/Faiths.pdf')}}" class="py-4 text-center text_marron d-block" download>Download This Image</a></div>
                                 </div>
                                 @endif
                             <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 mr-0">

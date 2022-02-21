@@ -574,7 +574,6 @@ $(document).ready(function(){
         cursor: "crosshair", 
         zoomWindowFadeIn: 100,
         zoomWindowFadeOut: 8000
-        
     });
 </script>
 
