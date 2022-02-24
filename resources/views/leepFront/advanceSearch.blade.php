@@ -49,11 +49,18 @@
 					<div class="col-11 col-sm-9 col-md-9 col-lg-6">
 						<div class="input-group">
 							<span class="pt-2">Year: </span>
-							<select class="form-select form-control mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Default select example">
-								<option>2019</option>
-								<option>2020</option>
-								<option>2021</option>
-								<option>2022</option>
+							<select class="form-select  form-control mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Default select example">	  
+									<?php
+										$y= date("Y");
+									 	$z=$y-10;
+									 	$x=$z+20;
+									 for ($z ; $z <= $x ; $z++) {
+									 ?> 
+									 	<option><?php echo $z; ?></option>
+									 <?php 
+									}
+									  ?>
+									
 							</select>
 							<span class="text-dark  pt-2">(Required)</span>
 						</div>
@@ -75,35 +82,35 @@
 					<div class="col-12 col-sm-9 col-md-9 col-lg-7">
 						<div class="input-group">
 							<span class="pt-2">Start Month: </span>
-							<select class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Default select example">
-								<option>January</option>
-								<option>February</option>
-								<option>March</option>
-								<option>April</option>
-								<option>May</option>
-								<option>June</option>
-								<option>July</option>
-								<option>August</option>
-								<option>September</option>
-								<option>October</option>
-								<option>November</option>
-								<option>December</option>
+							<select class="form-select form-control icon-hide  mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Default select example">
+								<option value="1">January</option>
+								<option value="2">February</option>
+								<option value="3">March</option>
+								<option value="4">April</option>
+								<option value="5">May</option>
+								<option value="6">June</option>
+								<option value="7">July</option>
+								<option value="8">August</option>
+								<option value="9">September</option>
+								<option value="10">October</option>
+								<option value="11">November</option>
+								<option value="12">December</option>
 							</select>
 							<span class="text-dark  pt-2">(Optional)</span>
 						</div>
 						<div class="input-group pt-2">
 							<span class="pt-2 pl-3 ml-1">Start Day: </span>
-							<input type="text" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
+							<input type="date" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
 							<span class="text-dark  pt-2">(Optional)</span>
 						</div>
 						<div class="input-group pt-2">
 							<span class="pt-2 pl-2">End Month: </span>
-							<input type="text" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
+							<input type="date" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
 							<span class="text-dark  pt-2">(Optional)</span>
 						</div>
 						<div class="input-group pt-2">
 							<span class="pt-2 pl-4 ml-1">End Day: </span>
-							<input type="text" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
+							<input type="date" class="form-select form-control icon-hide mx-lg-3 mx-2 mx-md-3 mx-sm-3" aria-label="Username" aria-describedby="basic-addon1">
 							<span class="text-dark  pt-2">(Optional)</span>
 						</div>
 					</div>
@@ -123,16 +130,11 @@
 				</div>
 				<div class="row">
 					<div class="col-10">
-						<select class="form-select w-100 px-3 px-sm-5 ml-3" multiple aria-label="multiple select example">
-							<option value="1" class="pb-3">All (Default)</option>
-							<option value="2">Alcohol, Tobacco & Drugs</option>
-							<option value="3">Animals, Fish, Birds & Insects</option>
-							<option value="4">Anniversaries</option>
-							<option value="5">Australia</option>
-							<option value="6">Alcohol, Tobacco & Drugs</option>
-							<option value="7">Animals, Fish, Birds & Insects</option>
-							<option value="8">Anniversaries</option>
-							<option value="9">Australia</option>
+						<!-- <select class="form-select w-100  ml-3 input-border" name="langOpt[]" id="langOpt" multiple aria-label="multiple select example"> -->
+						 <select multiple data-style="" class="js-example-basic-multiple w-100 form-select pl-2 ml-3 pt-2 input-border" multiple aria-label="multiple select example">
+							@foreach ($category as $data)
+							<option value="{{ $data->name }}" class="pb-3">{{ $data->name }}</option>
+							@endforeach	
 						</select>
 					</div>
 					<div class="col-2">
@@ -158,12 +160,18 @@
 				</div>
 				<div class="row">
 					<div class="col-10">
-						<select class="form-select w-100 px-3 px-sm-5 ml-3 pt-2" multiple aria-label="multiple select example">
+						<!-- <select class="form-select w-100 pl-2 ml-3 pt-2 input-border select2" multiple aria-label="multiple select example">
 							<option value="1">All (Default)</option>
 							<option value="2">United States</option>
 							<option value="3">United Kingdom</option>
 							<option value="4" class="pt-3">Afghanistan</option>
-						</select>
+						</select> -->
+
+						  <select multiple data-style="" class="js-example-basic-multiple w-100 form-select pl-2 ml-3 pt-2 input-border" multiple aria-label="multiple select example">
+			                @foreach ($country as $data)
+								<option value="{{ $data->cat_id }}" class="pb-3">{{ $data->name }}</option>
+							@endforeach	
+            			</select><!-- End -->
 					</div>
 					<div class="col-2">
 						<p class="text-dark pt-3">(Optional)</p>
@@ -178,7 +186,7 @@
 				<div class="row justify-content-center">
 					<div class="col-8 pt-3">
 						<div class="form-check">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<input type="checkbox" class="form-check-input" id=" selectAll">
 							<label class="form-check-label font-weight-bold" for="exampleCheck1">
 								<div class="row">
 									<div class="col-9">All Events (Default)</div>
@@ -187,19 +195,19 @@
 							</label>
 						</div>
 						<div class="form-check pt-2 pl-5">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<input type="checkbox" class="form-check-input " id="exampleCheck1 checkbox">
 							<label class="form-check-label" for="exampleCheck1">Daily Events Only</label>
 						</div>
 						<div class="form-check pt-2 pl-5">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1 checkbox">
 							<label class="form-check-label" for="exampleCheck1">Weekly Event Only</label>
 						</div>
 						<div class="form-check pt-2 pl-5">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1 checkbox">
 							<label class="form-check-label" for="exampleCheck1">Monthly Events Only</label>
 						</div>
 						<div class="form-check pt-2 pl-5">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+							<input type="checkbox" class="form-check-input" id="exampleCheck1 checkbox">
 							<label class="form-check-label" for="exampleCheck1">Decade & Annual Only</label>
 						</div>
 					</div>

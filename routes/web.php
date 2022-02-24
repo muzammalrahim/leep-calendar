@@ -90,6 +90,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/page/edit/{id}', 'PageController@edit')->name('admin.page.edit');
     Route::post('admin/page/update', 'PageController@update')->name('admin.page.update');
     Route::get('admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
+
+
+    // Catagories routes
+    Route::get('admin/categories', 'CategoryController@index')->name('admin.catagories.show');
+        Route::get('admin/category/edit/{id}', 'CategoryController@edit')->name('admin.category.edit');
+    Route::post('admin/category/update', 'CategoryController@update')->name('admin.category.update');
+    Route::get('admin/category/delete/{id}', 'CategoryController@delete')->name('admin.category.delete');
     // /admin/adminSetting
 
     // Events routes

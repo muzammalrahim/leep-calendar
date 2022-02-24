@@ -1117,19 +1117,20 @@ class HomeController extends Controller
         $page_title = "Advance Search";
         $page_description = "Advance Search";
         $events=events::all();
+        $category=category::all();
+        $country=country::all();
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
-
         $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.advanceSearch' , compact('events','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
+        return view('leepFront.advanceSearch' , compact('events','category','country','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
     }
 }

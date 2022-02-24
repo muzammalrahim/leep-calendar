@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\category;
 use Illuminate\Http\Request;
-
+use Validator;
+use Crypt;
 class CategoryController extends Controller
 {
     /**
@@ -12,9 +13,22 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     private $category;
+
+    public function __construct()
+    {
+        $this->category = new category;
+    }
     public function index()
     {
-        //
+        // Initialization
+        $data = [];
+        // End Initialization
+
+        $data['catagories'] = $this->category->getCategoriesList();
+        
+        return view('admin.catagories.manage_catagories', $data); // admin/catagories/manage_catagories
     }
 
     /**
@@ -35,7 +49,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Initialization
+        $data = $request->input();
+    // End Initialization
+    
+    $rules = $this->catagory->validations();
+    $validator = Validator::make($request->all(), $rules);
+
+
+    if ($validator->fails()) {
+        return redirect()
+            ->back()
+            ->withErrors($validator)
+            ->withInput();
+    }
+
+
+    $catagory = $this->catagory->storeCatagory($data);
+
+    if ( $category->id ) {
+        return redirect()->route('admin.categories.show')->with('success', 'catagory with title: '.$catagory->title.' Has Been Successfully Added.');
+    }
+    else {
+        return redirect()->back()->with('error', 'Catagory Adding Error.');
+    }
     }
 
     /**
@@ -55,9 +92,18 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(category $category)
+    public function edit($id)
     {
-        //
+        
+        // Initialization
+        // dd($id);
+        $id = $id;
+        // dd($id);
+        $data = [];
+        // End Initialization
+
+        $data['category'] = $this->category->find($id);
+        return view('admin.catagories.edit_category', $data);
     }
 
     /**
@@ -67,9 +113,18 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, category $category)
+    public function update(Request $request)
     {
-        //
+        // Initialization
+        $data = $request->input();
+        $data['cat_id'] = $data['cat_id'];
+        $catagory = $this->category->updateCategory( $data );
+        if ($catagory) {
+            return redirect()->route('admin.catagories.show')->with('success','Category has been updated');
+        }
+        else{
+            return redirect()->route('admin.catagories.show')->with('success','Error occured while updating Category');
+        }
     }
 
     /**

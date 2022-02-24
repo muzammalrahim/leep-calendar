@@ -60,8 +60,7 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	{{-- <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script> --}}
 
@@ -507,8 +506,47 @@
 	    border-radius: 20px;       /* roundness of the scroll thumb */
 	    border: 2px solid #eee;  /* creates padding around scroll thumb */
 	}
-	
+	.input-border{
+    border:1px solid #60012C !important;
+}
+input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;
+}
 
+input[type=checkbox]:before {
+	font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 15px;
+    color: transparent !important;
+    background: transparent;
+    text-align:center;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #60012c;
+    margin-right: 7px;
+}
+
+input[type=checkbox]:checked:before {
+
+	color: #60012C !important;
+}
+.bootstrap-select .bs-ok-default::after {
+    width: 0.3em;
+    height: 0.6em;
+    border-width: 0 0.1em 0.1em 0;
+    transform: rotate(45deg) translateY(0.5rem);
+}
+
+.btn.dropdown-toggle:focus {
+    outline: none !important;
+}
+.bootstrap-select .bs-ok-default::after {
+    color: #60012a !important;
+}
 </style>
 
 <script type="text/javascript">
@@ -541,15 +579,15 @@
 {{-- NEW ADDED --}}
 
 <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{-- NEW ADDED END --}}
 
 {{-- <script src = "{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')}}"></script> --}}
 
 <script src="{{URL::asset('js/script.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.min.js" integrity="sha512-UH428GPLVbCa8xDVooDWXytY8WASfzVv3kxCvTAFkxD2vPjouf1I3+RJ2QcSckESsb7sI+gv3yhsgw9ZhM7sDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.min.js" integrity="sha512-vSyPWqWsSHFHLnMSwxfmicOgfp0JuENoLwzbR+Hf5diwdYTJraf/m+EKrMb4ulTYmb/Ra75YmckeTQ4sHzg2hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.min.css" integrity="sha512-3lMc9rpZbcRPiC3OeFM3Xey51i0p5ty5V8jkdlNGZLttjj6tleviLJfHli6p8EpXZkCklkqNt8ddSroB3bvhrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript">
 
 $(document).ready(function(){  
@@ -565,7 +603,11 @@ $(document).ready(function(){
        // $.fn.select2.defaults.set("theme", "bootstrap");
        
       
-});  
+}); 
+    // jquery for bootstrap multiselect advanceSearch page
+$(function () {
+    $('.selectpicker').selectpicker();
+}); 
 </script>
 <script>
     $("#zoom_01").elevateZoom({
@@ -577,6 +619,48 @@ $(document).ready(function(){
     });
 </script>
 
+        <script type="text/javascript">
+                  $(document).ready(function(){
+          $("#selectAll").click(function(){
+           if(this.checked){
+            $('.checkbox').each(function(){
+                $(".checkbox").prop('checked', true);
+            })
+        }else{
+            $('.checkbox').each(function(){
+                $(".checkbox").prop('checked', false);
+            })
+        }
+        console.log('checked values');
+    });
+});
+        </script>
+<script>
+    // select all check boxes jquery code
+    var select_all = document.getElementById("select_all"); //select all checkbox
+var checkboxes = document.getElementsByClassName("checkbox"); //checkbox items
+
+//select all checkboxes
+select_all.addEventListener("change", function(e){
+	for (i = 0; i < checkboxes.length; i++) { 
+		checkboxes[i].checked = select_all.checked;
+	}
+});
+
+
+for (var i = 0; i < checkboxes.length; i++) {
+	checkboxes[i].addEventListener('change', function(e){ //".checkbox" change 
+		//uncheck "select all", if one of the listed checkbox item is unchecked
+		if(this.checked == false){
+			select_all.checked = false;
+		}
+		//check "select all" if all checkbox items are checked
+		if(document.querySelectorAll('.checkbox:checked').length == checkboxes.length){
+			select_all.checked = true;
+		}
+	});
+}
+</script>
  {{-- Dead Links Start Akmal --}}
         <script type="text/javascript">
             function checkDeadLink(event){
@@ -608,12 +692,6 @@ $(document).ready(function(){
                 }
             }
 
-
-
-
-
-
-
             $(document).ready(function(){
 
             	console.log('this is dropdown');
@@ -626,7 +704,6 @@ $(document).ready(function(){
 			    });
 			});
         </script>
-
 
         {{-- Dead Links End Akmal --}}
       

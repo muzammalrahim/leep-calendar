@@ -1,48 +1,18 @@
 {{-- Extends layout --}}
 @section('content')
-@extends('layout.layoutLeep')
+
+@section('calendar-slider')
+
+@include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
+
+@endsection
+
+@extends('site.master')
 
 {{-- Content --}}
 
     <!-- hero-box -->
-    <div class="hero-wrapper mb-4">
-
-      <div class="row m-0">
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 px-md-5 px-lg-3 px-0">
-
-            <div class="calender m-auto px-sm-5 px-md-0 px-lg-5 mx-lg-5 mx-md-0 mx-sm-5 mt-lg-2 mt-md-2">
-
-              <div class="calender-head">
-
-                <h3> Today Is ... {{ getMonthFullName($m) }}<span class="ml-2"></span> {{ $d  }}</h3>
-              </div>
-
-              <!-- Tabs -->
-
-              <section id="tabs">
-
-                  @include('leepFront.parts.calendar') {{-- leepFront/parts/calendar --}}  
-                
-              </section>
-
-              <!-- ./Tabs -->
-
-            </div>
-
-          </div>
-
-
-          <div class="col-12 col-sm-12 col-md-6 col-lg-6 p-0">
-            @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
+   
 
     
     <!-- End hero-box -->

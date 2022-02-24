@@ -27,7 +27,7 @@
                                     <p class="">For the current year, this category includes: <b> {{ $eventCount }} </b> events.
                                     </p>
                                     <h4 class="mb-4 font-color font-weight-bold">
-                                        {{ $category->description }}
+                                        {!! $category->description !!}
                                     </h4>
                                     {{-- <p class="mb-4">Africa is defined as:</p> --}}
                                     <p class="">

@@ -78,6 +78,13 @@ return [
             'page' => 'admin/pages',
             'visible' => 'preview',
         ],
+        [
+            'title' => 'Categories',
+            'root' => true,
+            'icon' => 'media/svg/icons/Home/Library.svg',
+            'page' => 'admin/categories',
+            'visible' => 'preview',
+        ],
 
         
 
