@@ -22,7 +22,7 @@
                     <div class="search-title-box">
                         <div class="row mx-0">
                             <div class="col-md-12">
-                                <h1 class="mb-lg-3" style="font-family: 'impact';"> Events in {{ $category->name }}</h1>
+                                <!-- <h1 class="mb-lg-3" style="font-family: 'impact';"> Events in {{ $category->name }}</h1> -->
                                 <div class="pl-lg-5 ml-lg-4 pl-md-5 ml-md-4">
                                     <p class="">For the current year, this category includes: <b> {{ $eventCount }} </b> events.
                                     </p>
@@ -37,9 +37,9 @@
                                     </p>
                                     
 
-                                    <p class="mb-4">
+                                   <!--  <p class="mb-4">
                                         A partial list of events will be displayed in the search results for non-members. To view the full results, login to your LEEP Membership account and search this category again, (requires paid subscription).
-                                    </p>
+                                    </p> -->
                                     {{-- <p class="mb-4 text-center">
                                         A partial list of events will be displayed in the search results for<br> non-members. To view the full results, login to your LEEP<br> Membership account and search this category again, (requires<br> paid subscription).
                                     </p> --}}
@@ -59,13 +59,13 @@
                                 @endif
                             <div class="row pl-lg-5 ml-lg-5 pl-md-0 ml-md-0 mr-0">
                                     <div class="col-4">
-                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white bg_maroon webkit-app-none" type="submit">Search</a>
+                                        <a href="{{route('advance.search')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white bg_maroon webkit-app-none" type="submit"data-balloon-length="fit" aria-label="After clicking the Search button you will be redirected to advance Search page. Where You will see all the events According to your filters." data-balloon-pos="up">Search</a>
                                     </div>
                                     <div class="col-4">
-                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold  w-100 py-3 text_marron "  type="submit">Login</a>
+                                        <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold  w-100 py-3 text_marron "  type="submit" data-balloon-length="fit" aria-label="Click on the login button . If You are not authenticated to the page. Please login to see the more events" data-balloon-pos="up">Login</a>
                                     </div>
                                     <div class="col-4">
-                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white register-btn" type="submit">Register</a>
+                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white register-btn" type="submit" data-balloon-length="fit" aria-label="If you are new to leep calendar . Please Register your account and then login . After Login You will be able to see more events ." data-balloon-pos="up">Register</a>
                                     </div>
                                 </div>
                             </div>

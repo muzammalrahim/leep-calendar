@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\events;
@@ -1133,4 +1133,67 @@ class HomeController extends Controller
         $featureEvents=featuredEvents::all()->take(3) ;
         return view('leepFront.advanceSearch' , compact('events','category','country','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
     }
+    public function gotoAdvanceSearchResults(Request $request)
+    {
+        // ddd($request);
+         $page_title = "Advance Search";
+        $page_description = "Advance Search";
+        $States= $request->states;
+        $Catagories= $request->Categories;
+        $end_month= $request->emonth;
+        $events=events::all();
+        $category=category::all();
+        $country=country::all();
+        $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
+          $full_events = $this->events->full_events($date,$y);
+        $daily_events = $this->events->daily_events($date); 
+        $week_events = $this->events->week_events($date);
+        $monthly_events = $this->events->monthly_events($date);
+        $monthName = getMonthFullName($m);
+        $featureEvents=featuredEvents::all()->take(3);
+
+        // $eventData = events::all();
+        // dd($request->input());
+        // dd($events);
+        $Events = new events;
+        
+        if ( $request->input('s-month') ) {
+            $Events = $Events->where('start_month', $request->input('s-month'));
+        }
+        if ( $request->input('s-day') ) {
+            $Events = $Events->where('start_day', str_replace(0, '', \Carbon\Carbon::parse($request->input('s-day'))->format('d')) );
+        }
+        if ( $request->input('emonth') ) {
+            $Events = $Events->where('end_month', $request->input('emonth'));
+        }
+         if ( $request->input('e-day') ) {
+            $Events = $Events->where('end_day', str_replace(0, '', \Carbon\Carbon::parse($request->input('e-day'))->format('d')));
+        }
+        if ( $request->input('syear') ) {
+            $Events = $Events->where('start_year', $request->input('syear'));
+        }
+        if ( $request->input('etype') ) {
+            $Events = $Events->where('type', $request->input('etype'));
+        }
+        if ( $request->input('keywords') ) {
+            $Events = $Events->where('description', $request->input('keywords'));
+        }
+        if ( $request->input('states') ) {
+            foreach($request->input('states') as $states) {
+               $Events = $Events->where('states','Like', '%'.$states.'%');
+            // $Events = $Events->where('states', 'LIKE','%'.$request->input('states').'%');
+             }
+        }
+        // dd($Events);
+                // $events = $events->get();
+             $Events = $Events->paginate(10);
+            // dd($events);
+         return view('leepFront.advanceSearchResult' , compact('Events','country','events','full_events','y','m','d','daily_events','monthly_events','week_events'));
+    }
+
 }

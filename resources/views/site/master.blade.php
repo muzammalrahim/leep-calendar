@@ -116,7 +116,7 @@
     			    	</div>
 
     			    	<div class="col-4 col-sm-4 col-md-4 col-lg-4 float-left {{-- advanceSearch --}} mt-3 text-nowrap">
-    	            		<a href="{{route('advance.search')}}" class="bg_maroon text-white py-1 px-2">Advanced Search</a>
+    	            		<a href="{{route('advance.search')}}" class="bg_maroon text-white py-1 px-2" data-balloon-length="fit" aria-label="Click on the advance search button to Search the events with advance multiple filters. " data-balloon-pos="down">Advanced Search</a>
                        </div>
     			    </div>	
     		    </div>
@@ -547,6 +547,70 @@ input[type=checkbox]:checked:before {
 .bootstrap-select .bs-ok-default::after {
     color: #60012a !important;
 }
+/*advance search page radio button css*/
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #60012c;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
 </style>
 
 <script type="text/javascript">
@@ -592,7 +656,10 @@ input[type=checkbox]:checked:before {
 
 $(document).ready(function(){  
 
-    $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-multiple').select2({
+    tags: true,
+    tokenSeparators: [',', ' ']
+});
 
     $('.select2-search__field').css('border', 'none');
 
@@ -617,6 +684,37 @@ $(function () {
         zoomWindowFadeIn: 100,
         zoomWindowFadeOut: 8000
     });
+//This is sort of CSS-only; the JS below just sticks a span around each letter, so i can animate each independantly.
+//(oh for an :nth-letter selector!)
+const labels = document.querySelectorAll('.label');
+labels.forEach(label => {
+  const chars = label.textContent.split('');
+  label.innerHTML = '';
+  chars.forEach(char => {
+    label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+  });
+})
+1
+//This is sort of CSS-only; the JS below just sticks a span around each letter, so i can animate each independantly.
+2
+//(oh for an :nth-letter selector!)
+3
+const labels = document.querySelectorAll('.label');
+4
+labels.forEach(label => {
+5
+  const chars = label.textContent.split('');
+6
+  label.innerHTML = '';
+7
+  chars.forEach(char => {
+8
+    label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+9
+  });
+10
+})
+
 </script>
 
         <script type="text/javascript">

@@ -250,10 +250,8 @@ class EventsController extends Controller
     public function addBtcAddress(Request $request)
     {
         // dd($request->all());
-        
         // echo phpinfo();
         // exit;
-
 
         Excel::import(new eventsImport, $request->file('file')->store('temp'));
         return back();

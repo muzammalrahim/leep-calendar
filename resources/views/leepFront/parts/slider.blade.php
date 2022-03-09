@@ -23,7 +23,7 @@
                <div class="carousel-item {{ ($i == 0)? 'active':'' }}">
                   <a href="{{ route('eventDetail' ,['id'=> $events->id ]) }}" class="pointer">
                      <img src="{{URL::asset('leep_calender/images/Headers/'.$events->feature_picture)}}"
-                     class="d-block w-100" alt="...">
+                     class="d-block w-100" alt="No Image found . This Image is about the event {{$events->name}}. Click on the event name to see the event detail.">
                   </a>
                   <div class="carousel-caption  d-md-block">
                      <div class="warmup-after mt-5">

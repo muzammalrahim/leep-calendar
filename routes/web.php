@@ -223,3 +223,6 @@ Route::get('/event-champion/{id}', 'HomeController@getEventChampionDetail')->nam
 
 //Adavnce Search Page
 Route::get('/advance-search', 'HomeController@gotoAdvanceSearch')->name('advance.search');
+Route::post('/advance-search/results', 'HomeController@gotoAdvanceSearchResults')->name('advance.searchResults');
+Route::get('/advance-searchresult', 'HomeController@gotoAdvanceSearchResults')->name('advance.searchresult');
+Route::get('/advance-search/results',[HomeController::class,'gotoAdvanceSearchResults']);
