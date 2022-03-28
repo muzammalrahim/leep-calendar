@@ -1,4 +1,9 @@
 {{-- Extends layout --}}
+@section('loader')
+
+@include('leepFront.parts.loader') {{-- leepFront/parts/loader --}}
+
+@endsection
 @section('content')
 
 @section('calendar-slider')

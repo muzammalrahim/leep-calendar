@@ -1,6 +1,9 @@
 @extends('site.master')
 
+@section('loader')
+@include('leepFront.parts.loader'){{-- leepFront/parts/loader --}}
 
+@endsection
 @section('calendar-slider')
 
 @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
@@ -9,13 +12,13 @@
 
 @section('content')
 
-<div class="random">
+<div class="random" style="transform: scale(1.0);">
 	   <div class="row  border-bottom">
          	<div class="col-md-3">
-         		<h3 class="text-maroon">Event Name</h3>
+         		<h3 class="text-maroon font-weight-bold">Event Name</h3>
          	</div>
-         	<div class="col-md-6"><h3>Event Description</h3></div>
-         	<div class="col-md-3"><h3>Event States</h3></div>
+         	<div class="col-md-6 "><h3 class="font-weight-bold">Event Description</h3></div>
+         	<div class="col-md-3 "><h3 class="font-weight-bold">Event States</h3></div>
          </div>	
           <div class="row">
           @foreach ($Events as $event) 
@@ -38,9 +41,10 @@
          	<div class="col-md-3"><h4>{{$event->states}}</h4></div>
          </h4>	
          @endforeach
-          </div>
+      </div>
           @if($Events->count()<1)
-	        		 <h1 class=" px-auto font-weight-bold pt-5" style="color: #7a003b; font-size: 80px; text-align: center;">Oops!</h2><br/>
+	        		 <img src="{{asset('images/no-data.png')}}" alt="" width="200" style="display: flex;margin: auto;">
+                     <h1 class=" px-auto font-weight-bold" style="color: #7a003b; font-size: 80px; text-align: center;">Oops!</h2><br/>
 	        		 	<h5 class="text-center Text-secondary m-auto">Sorry! No Events Founds against the Data. Please Try again with another Query</h5>
 	         @endif
          {!! $Events->appends(Request::except('page'))->links() !!}

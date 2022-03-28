@@ -1,6 +1,11 @@
 {{-- Extends layout --}}
-@extends('layout.layoutLeep') {{-- layout/layoutLeep --}}
 
+@extends('layout.layoutLeep') {{-- layout/layoutLeep --}}
+@section('loader')
+
+@include('leepFront.parts.loader') {{-- leepFront/parts/loader --}}
+
+@endsection
 @section('content')
 
 

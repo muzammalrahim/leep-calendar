@@ -1066,7 +1066,7 @@ class HomeController extends Controller
         $page_title = $blog->page_title;
         return view('leepFront.blogDetail',compact('blog','d_events','m_events','week_events','page_title'));
     }
-    public function userBlogs()
+    public function userBlogs( Request $request)
     {
         $page_title = 'Blogs';
         $page_description = 'Blogs Page';
@@ -1161,36 +1161,25 @@ class HomeController extends Controller
         // dd($request->input());
         // dd($events);
         $Events = new events;
-        
-        if ( $request->input('s-month') ) {
-            $Events = $Events->where('start_month', $request->input('s-month'));
+    
+         if ( $request->input('keywords') ) {
+            $Events = $Events->where('description', $request->input('keywords'));
         }
-        if ( $request->input('s-day') ) {
-            $Events = $Events->where('start_day', str_replace(0, '', \Carbon\Carbon::parse($request->input('s-day'))->format('d')) );
-        }
-        if ( $request->input('emonth') ) {
-            $Events = $Events->where('end_month', $request->input('emonth'));
-        }
-         if ( $request->input('e-day') ) {
-            $Events = $Events->where('end_day', str_replace(0, '', \Carbon\Carbon::parse($request->input('e-day'))->format('d')));
-        }
-        if ( $request->input('syear') ) {
-            $Events = $Events->where('start_year', $request->input('syear'));
+        if ( $request->input('s-date') ) {
+            $Events = $Events->where('start_date', \Carbon\Carbon::parse($request->input('s-date'))->format('Y-m-d'));
+        } 
+         if ( $request->input('e-date') ) {
+            $Events = $Events->where('end_date', \Carbon\Carbon::parse($request->input('e-date'))->format('Y-m-d'));
         }
         if ( $request->input('etype') ) {
             $Events = $Events->where('type', $request->input('etype'));
         }
-        if ( $request->input('keywords') ) {
-            $Events = $Events->where('description', $request->input('keywords'));
-        }
         if ( $request->input('states') ) {
-            foreach($request->input('states') as $states) {
-               $Events = $Events->where('states','Like', '%'.$states.'%');
-            // $Events = $Events->where('states', 'LIKE','%'.$request->input('states').'%');
+            $states = $request->input('states');
+            foreach($states as $state) {
+             $Events = $Events->where('states','Like', '%' .$state. '%');   
              }
         }
-        // dd($Events);
-                // $events = $events->get();
              $Events = $Events->paginate(10);
             // dd($events);
          return view('leepFront.advanceSearchResult' , compact('Events','country','events','full_events','y','m','d','daily_events','monthly_events','week_events'));

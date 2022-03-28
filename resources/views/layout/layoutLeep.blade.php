@@ -69,12 +69,18 @@
 </head>
 
 <body>
-
+    <script>
+    //after window is loaded completely 
+    window.onload = function(){
+        //hide the preloader
+        document.querySelector(".loader-bg").style.display = "none";
+    }
+</script>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNTKK5C"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
+    @yield('loader')
 
     @if (config('layout.page-loader.type') != '')
 

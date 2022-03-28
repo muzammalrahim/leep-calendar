@@ -300,7 +300,7 @@ class EventsController extends Controller
                 $imagesArray[] = $file;
             }
         }
-        dd(sizeof($imagesArray));
+        // dd(sizeof($imagesArray));
         $imagesArray = $this->paginate($imagesArray, 20);
         $imagesArray->withPath('');
         // ddd($imagesArray);
