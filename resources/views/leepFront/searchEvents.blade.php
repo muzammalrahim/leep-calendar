@@ -1,7 +1,9 @@
 {{-- Extends layout --}}
 @section('content')
 @extends('layout.layoutLeep')
- 
+         <?php
+            $d= date('Y');
+            ?>
          <div class="container">
             <div class="event-page">
                <div class="search-title-box">
@@ -17,19 +19,24 @@
             </div>
                 <div class="event-box">
                 @foreach($events as $e)
-	                <div class="event-title"  onclick="window.location.replace('{{URL::asset('event/'.$e->id)}}','self'); " style=" cursor:pointer;">
+                <a href="{{ route('eventDetail', ['id'=>$e->id] ) }}">
+	                <div class="event-title" style=" cursor:pointer;">
 	                    <div class="row">	                    	
 		                        <div class="col-md-10">
 		                            <h4>{{\Illuminate\Support\Str::limit($e->name,42)}}</h4>
 		                            <p class="event-type">{{$e->type}}</p>
+                                    @if(($e->description) == "0")
+                                    <p>There is no description for this event.</p>
+                                    @else
 		                            <p>{{\Illuminate\Support\Str::limit($e->description,204)}}</p>
-
+                                    @endif
 		                        </div>
 		                        <div class="col-md-2" style="padding-left: 0px; text-align: center;">
-		                            <h5 class="date-year">{{$e->d_start}} {{date("F", strtotime(date("Y")."-".$e->m_start."-01"))}}</h5>
+		                            <h5 class="date-year">{{ Carbon\Carbon::parse($e->start_date)->format('F')}} </h5>
 		                        </div>	                    	
 	                    </div>
 	                </div>
+                </a>
                 @endforeach
                 {{-- {{ $events->links() }} --}}
                  <style type="text/css">

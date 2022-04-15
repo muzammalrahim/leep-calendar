@@ -19,7 +19,7 @@
 
     <div class="row">
         <div  class='card-header col-lg-12 col-xxl-12'>
-            <h6 style='text-align:center;'>Upload Events</h6>
+            <h6 style='text-align:center;'>Edit Blog post page</h6>
         </div>
         <div class="card card-custom gutter-b example example-compact col-md-12">
             <div class='card-body'>
@@ -30,12 +30,12 @@
                             <div class=" col-md-12" style="padding-top: 5px;">
                                 <div class="form-group">
                                     <div class="form-group">
-                                        <label><b>Page Title</b>
+                                        <label><b>Blog Title</b>
                                         </label>
-                                        <input type="text"  name="page_title" class="form-control">
+                                        <input type="text"  name="page_title"  class="form-control">
                                     </div>
-                                    <div class="form-group">
-                                        <label><b>Title</b>
+                                     <div class="form-group">
+                                        <label><b>Post Title</b>
                                         </label>
                                         <input type="text"  name="title" class="form-control">
                                     </div>
@@ -43,6 +43,11 @@
                                         <label><b>Desciption</b>
                                         </label>
                                         <textarea  name="description"  class="form-control wysihtml5 "></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><b>Chose Image</b>
+                                        </label>
+                                        <input type="file"  name="image" class="form-control" required>
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-primary mr-2  form-control uppy-btn btn btn-light-primary font-weight-bold btn-sm mt-4" value="create" class="">

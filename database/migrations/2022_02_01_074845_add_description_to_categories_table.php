@@ -18,7 +18,6 @@ class AddDescriptionToCategoriesTable extends Migration
             $table->text('countries')->after('description')->nullable();
         });
     }
-
     /**
      * Reverse the migrations.
      *

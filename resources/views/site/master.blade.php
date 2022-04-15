@@ -60,8 +60,7 @@
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
-
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css" integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	{{-- <script src="{{URL::asset('https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js')}}"></script> --}}
 
@@ -69,12 +68,18 @@
 </head>
 
 <body>
-
+<script>
+    //after window is loaded completely 
+    window.onload = function(){
+        //hide the preloader
+        document.querySelector(".loader-bg").style.display = "none";
+    }
+</script>
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNTKK5C"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
-
+@yield('loader')
 
     @if (config('layout.page-loader.type') != '')
 
@@ -117,7 +122,7 @@
     			    	</div>
 
     			    	<div class="col-4 col-sm-4 col-md-4 col-lg-4 float-left {{-- advanceSearch --}} mt-3 text-nowrap">
-    	            		<a href="{{route('advance.search')}}" class="bg_maroon text-white py-1 px-2">Advanced Search</a>
+    	            		<a href="{{route('advance.search')}}" class="bg_maroon text-white py-1 px-2" data-balloon-length="fit" aria-label="Click on the advance search button to Search the events with advance multiple filters. " data-balloon-pos="down">Advanced Search</a>
                        </div>
     			    </div>	
     		    </div>
@@ -471,6 +476,50 @@
 	{{-- /*dropdown.css-start*/ --}}
 
 <style type="text/css">
+   /*============================================loader css==================================*/
+.loader{
+    width: 150px;
+    height: 150px;
+    margin: 30px auto 0;
+    position: relative;
+}
+.loader div{
+    width: 150px;
+    height: 150px;
+    border: 3px solid #60012C;
+    border-radius: 100%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: animate 1.8s infinite linear;
+}
+.loader div:nth-child(1) { animation-delay:200ms; }
+.loader div:nth-child(2) { animation-delay:400ms; }
+.loader div:nth-child(3) { animation-delay:600ms; }
+.loader div:nth-child(4) { animation-delay:800ms; }
+.loader div:nth-child(5) { animation-delay:1000ms; }
+.loader div:nth-child(6) { animation-delay:1200ms; }
+.loader div:nth-child(7) { animation-delay:1400ms; }
+.loader div:nth-child(8) { animation-delay:1600ms; }
+.loader div:nth-child(9) { animation-delay:1800ms; }
+@keyframes animate{
+    0%{
+        opacity: 0.0;
+        width: 0;
+        height: 0;
+    }
+    10%{
+        opacity: 0.9;
+    }
+    100%{
+        opacity: 0.0;
+        width: 150px;
+        height: 150px;
+    }
+}
+/*============================================loader css==================================*/
 
 	.selections{
 	    margin-left: 2px;
@@ -507,8 +556,111 @@
 	    border-radius: 20px;       /* roundness of the scroll thumb */
 	    border: 2px solid #eee;  /* creates padding around scroll thumb */
 	}
-	
+	.input-border{
+    border:1px solid #60012C !important;
+}
+input[type=checkbox] {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;
+}
 
+input[type=checkbox]:before {
+	font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 15px;
+    color: transparent !important;
+    background: transparent;
+    text-align:center;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #60012c;
+    margin-right: 7px;
+}
+
+input[type=checkbox]:checked:before {
+
+	color: #60012C !important;
+}
+.bootstrap-select .bs-ok-default::after {
+    width: 0.3em;
+    height: 0.6em;
+    border-width: 0 0.1em 0.1em 0;
+    transform: rotate(45deg) translateY(0.5rem);
+}
+
+.btn.dropdown-toggle:focus {
+    outline: none !important;
+}
+.bootstrap-select .bs-ok-default::after {
+    color: #60012a !important;
+}
+/*advance search page radio button css*/
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #60012c;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
 </style>
 
 <script type="text/javascript">
@@ -541,20 +693,23 @@
 {{-- NEW ADDED --}}
 
 <script src="{{URL::asset('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js')}}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js" integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{-- NEW ADDED END --}}
 
 {{-- <script src = "{{URL::asset('https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')}}"></script> --}}
 
 <script src="{{URL::asset('js/script.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.min.js" integrity="sha512-UH428GPLVbCa8xDVooDWXytY8WASfzVv3kxCvTAFkxD2vPjouf1I3+RJ2QcSckESsb7sI+gv3yhsgw9ZhM7sDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/js/jquery.multi-select.min.js" integrity="sha512-vSyPWqWsSHFHLnMSwxfmicOgfp0JuENoLwzbR+Hf5diwdYTJraf/m+EKrMb4ulTYmb/Ra75YmckeTQ4sHzg2hg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/multi-select/0.9.12/css/multi-select.min.css" integrity="sha512-3lMc9rpZbcRPiC3OeFM3Xey51i0p5ty5V8jkdlNGZLttjj6tleviLJfHli6p8EpXZkCklkqNt8ddSroB3bvhrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script type="text/javascript">
 
 $(document).ready(function(){  
 
-    $('.js-example-basic-multiple').select2();
+    $('.js-example-basic-multiple').select2({
+    tags: true,
+    tokenSeparators: [',', ' ']
+});
 
     $('.select2-search__field').css('border', 'none');
 
@@ -565,7 +720,11 @@ $(document).ready(function(){
        // $.fn.select2.defaults.set("theme", "bootstrap");
        
       
-});  
+}); 
+    // jquery for bootstrap multiselect advanceSearch page
+$(function () {
+    $('.selectpicker').selectpicker();
+}); 
 </script>
 <script>
     $("#zoom_01").elevateZoom({
@@ -574,10 +733,82 @@ $(document).ready(function(){
         cursor: "crosshair", 
         zoomWindowFadeIn: 100,
         zoomWindowFadeOut: 8000
-        
     });
+//This is sort of CSS-only; the JS below just sticks a span around each letter, so i can animate each independantly.
+//(oh for an :nth-letter selector!)
+const labels = document.querySelectorAll('.label');
+labels.forEach(label => {
+  const chars = label.textContent.split('');
+  label.innerHTML = '';
+  chars.forEach(char => {
+    label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+  });
+})
+1
+//This is sort of CSS-only; the JS below just sticks a span around each letter, so i can animate each independantly.
+2
+//(oh for an :nth-letter selector!)
+3
+const labels = document.querySelectorAll('.label');
+4
+labels.forEach(label => {
+5
+  const chars = label.textContent.split('');
+6
+  label.innerHTML = '';
+7
+  chars.forEach(char => {
+8
+    label.innerHTML += `<span>${char === ' ' ? '&nbsp' : char}</span>`;
+9
+  });
+10
+})
+
 </script>
 
+        <script type="text/javascript">
+                  $(document).ready(function(){
+          $("#selectAll").click(function(){
+           if(this.checked){
+            $('.checkbox').each(function(){
+                $(".checkbox").prop('checked', true);
+            })
+        }else{
+            $('.checkbox').each(function(){
+                $(".checkbox").prop('checked', false);
+            })
+        }
+        console.log('checked values');
+    });
+});
+        </script>
+<script>
+    // select all check boxes jquery code
+    var select_all = document.getElementById("select_all"); //select all checkbox
+var checkboxes = document.getElementsByClassName("checkbox"); //checkbox items
+
+//select all checkboxes
+select_all.addEventListener("change", function(e){
+	for (i = 0; i < checkboxes.length; i++) { 
+		checkboxes[i].checked = select_all.checked;
+	}
+});
+
+
+for (var i = 0; i < checkboxes.length; i++) {
+	checkboxes[i].addEventListener('change', function(e){ //".checkbox" change 
+		//uncheck "select all", if one of the listed checkbox item is unchecked
+		if(this.checked == false){
+			select_all.checked = false;
+		}
+		//check "select all" if all checkbox items are checked
+		if(document.querySelectorAll('.checkbox:checked').length == checkboxes.length){
+			select_all.checked = true;
+		}
+	});
+}
+</script>
  {{-- Dead Links Start Akmal --}}
         <script type="text/javascript">
             function checkDeadLink(event){
@@ -609,12 +840,6 @@ $(document).ready(function(){
                 }
             }
 
-
-
-
-
-
-
             $(document).ready(function(){
 
             	console.log('this is dropdown');
@@ -627,7 +852,6 @@ $(document).ready(function(){
 			    });
 			});
         </script>
-
 
         {{-- Dead Links End Akmal --}}
       

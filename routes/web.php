@@ -77,6 +77,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/Blogs', 'EventsController@Blogs');
     Route::get('admin/addBlogs', 'EventsController@addBlogs');
     Route::get('admin/deleteBlog/{id}', 'EventsController@deleteBlog');
+    Route::get('admin/editBlog/{id}', 'EventsController@editBlog');
+    Route::post('admin/updateBlog/', 'EventsController@updateBlog');
     Route::post('admin/Blogs', 'EventsController@addBlog');
 
     Route::post('admin/updateBannerPic','EventsController@updateBannerPic');
@@ -90,6 +92,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/page/edit/{id}', 'PageController@edit')->name('admin.page.edit');
     Route::post('admin/page/update', 'PageController@update')->name('admin.page.update');
     Route::get('admin/page/delete/{id}', 'PageController@delete')->name('admin.page.delete');
+
+
+    // Catagories routes
+    Route::get('admin/categories', 'CategoryController@index')->name('admin.catagories.show');
+        Route::get('admin/category/edit/{id}', 'CategoryController@edit')->name('admin.category.edit');
+    Route::post('admin/category/update', 'CategoryController@update')->name('admin.category.update');
+    Route::get('admin/category/delete/{id}', 'CategoryController@delete')->name('admin.category.delete');
     // /admin/adminSetting
 
     // Events routes
@@ -216,3 +225,6 @@ Route::get('/event-champion/{id}', 'HomeController@getEventChampionDetail')->nam
 
 //Adavnce Search Page
 Route::get('/advance-search', 'HomeController@gotoAdvanceSearch')->name('advance.search');
+Route::post('/advance-search/results', 'HomeController@gotoAdvanceSearchResults')->name('advance.searchResults');
+Route::get('/advance-searchresult', 'HomeController@gotoAdvanceSearchResults')->name('advance.searchresult');
+Route::get('/advance-search/results',[HomeController::class,'gotoAdvanceSearchResults']);

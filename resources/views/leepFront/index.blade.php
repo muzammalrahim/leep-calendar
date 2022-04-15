@@ -1,7 +1,8 @@
 {{-- Extends layout --}}
 @extends('site.master') {{-- site/master --}}
-
-
+@section('loader')
+@include('leepFront.parts.loader') {{-- leepFront/parts/loader --}}
+@endsection
 @section('calendar-slider')
 
 @include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}

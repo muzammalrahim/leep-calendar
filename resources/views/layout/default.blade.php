@@ -155,7 +155,8 @@
 
         <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//lib/js/prettify.js')}}"></script>
        <script src="{{ asset('https://jhollingworth.github.io/bootstrap-wysihtml5//src/bootstrap-wysihtml5.js')}}"></script>
-
+       <script src="{{asset('js/editor.js')}}"></script>
+       <link rel="stylesheet" type="text/css" href="{{asset('CSS/editor.css')}}">
        <!-- Start: Datatables -->
             <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
             <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>

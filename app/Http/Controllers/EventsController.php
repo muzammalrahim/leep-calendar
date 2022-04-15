@@ -250,6 +250,9 @@ class EventsController extends Controller
     public function addBtcAddress(Request $request)
     {
         // dd($request->all());
+        
+        // echo phpinfo();
+        // exit;
 
 
         Excel::import(new eventsImport, $request->file('file')->store('temp'));
@@ -297,7 +300,7 @@ class EventsController extends Controller
                 $imagesArray[] = $file;
             }
         }
-        dd(sizeof($imagesArray));
+        // dd(sizeof($imagesArray));
         $imagesArray = $this->paginate($imagesArray, 20);
         $imagesArray->withPath('');
         // ddd($imagesArray);
@@ -339,7 +342,7 @@ class EventsController extends Controller
         $a->save();
         return redirect()->back()->with(['successMsg'=>'Password Updated successfully']);
     }
-    public function Blogs(){
+    public function Blogs(Request $request){
         $blogs=blogs::all();
         return view('admin.blogs',compact('blogs'));
     }
@@ -353,6 +356,21 @@ class EventsController extends Controller
         $blogs->Page_title=$request->page_title;
         $blogs->title=$request->title;
         $blogs->description=$request->description;
+        $blogs->images=$request->image;
+         if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move(public_path('leep_calender/images'), $filename);
+
+//see above line.. path is set.(uploads/appsetting/..)->which goes to public->then create
+//a folder->upload and appsetting, and it wil store the images in your file.
+
+            $blogs->images = $filename;
+        } else {
+            return $request;
+            $pages->image = '';
+        }
         $blogs->save();
             return redirect()->back()->with(['successMsg'=>"Blog Successfully Added"]);
     }
@@ -366,6 +384,30 @@ class EventsController extends Controller
             return redirect()->back()->with(['errorMsg'=>"Blog deleted Successfully"]);
         }
         return view('admin.blogs',compact('blogs'));
+    }
+    public function editBlog($id){
+         $blogs=blogs::where('id',$id)->first();
+         return view('admin.edit-blog',compact('blogs'));
+    }
+    public function updateBlog( Request $request){
+        $blog=blogs::where('id',$request->id)->first();
+        $blog->Page_title=$request->page_title;
+        $blog->title=$request->title;
+        $blog->description=$request->description;
+        $blog->images=$request->image;
+         if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension(); // getting image extension
+            $filename = time() . '.' . $extension;
+            $file->move(public_path('leep_calender/images'), $filename);
+            $blog->images = $filename;
+        } else {
+            // return $request;
+            $pages->image = '';
+        }
+        $blog->save();
+         $blogs=blogs::all();
+            return view('admin.blogs',compact('blogs'));
     }
 
     // ========================================== Login user's event ==========================================

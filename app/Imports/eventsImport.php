@@ -16,6 +16,8 @@ class eventsImport implements ToModel
     public function model(array $row)
     {   
 
+            
+
             if ( isset($row[5]) && isset($row[6]) && isset($row[7]) ) {
                 $end_date=strtotime($row[5].'/'.$row[6].'/'.$row[7]);
                 $end_date=date('Y-m-d',$end_date);

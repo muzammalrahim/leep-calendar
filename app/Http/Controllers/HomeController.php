@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\events;
@@ -274,7 +274,7 @@ class HomeController extends Controller
         // dd($eventCategory);
         if(isset($eventCategory->event->id)){
 
-            if($eventCategory->event->status=='' || Auth::id()==$eventCategory->event->user_id){
+            if($eventCategory->event->status !='' || Auth::id()==$eventCategory->event->user_id){
 
             }else{
                 return redirect()->back()->with(['error'=>'Unknown Event']);                
@@ -1061,12 +1061,11 @@ class HomeController extends Controller
         $d_events=events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
         $m_events=events::where('start_date','=',$date)->where('type','Monthly')->where('status','Approved')->orderBy('created_at','desc')->get();
         $week_events=events::where('start_date','=',$date)->where('type','Weekly')->where('status','Approved')->orderBy('created_at','desc')->get();
-       
         $blog=blogs::where('id',$id)->first();
         $page_title = $blog->page_title;
         return view('leepFront.blogDetail',compact('blog','d_events','m_events','week_events','page_title'));
     }
-    public function userBlogs()
+    public function userBlogs( Request $request)
     {
         $page_title = 'Blogs';
         $page_description = 'Blogs Page';
@@ -1117,19 +1116,72 @@ class HomeController extends Controller
         $page_title = "Advance Search";
         $page_description = "Advance Search";
         $events=events::all();
+        $category=category::all();
+        $country=country::all();
         $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
         $ip_dates = dateAccordingToIp($request->ip());
         $date = $ip_dates['date'];
         $d = $ip_dates['day'];
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
-
         $full_events = $this->events->full_events($date,$y);
         $daily_events = $this->events->daily_events($date); 
         $week_events = $this->events->week_events($date);
         $monthly_events = $this->events->monthly_events($date);
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3) ;
-        return view('leepFront.advanceSearch' , compact('events','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
+        return view('leepFront.advanceSearch' , compact('events','category','country','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
     }
+    public function gotoAdvanceSearchResults(Request $request)
+    {
+        // ddd($request);
+         $page_title = "Advance Search";
+        $page_description = "Advance Search";
+        $States= $request->states;
+        $Catagories= $request->Categories;
+        $end_month= $request->emonth;
+        $events=events::all();
+        $category=category::all();
+        $country=country::all();
+        $tweets=Twitter::getUserTimeline(['count' => 10, 'format' => 'array']);
+        $ip_dates = dateAccordingToIp($request->ip());
+        $date = $ip_dates['date'];
+        $d = $ip_dates['day'];
+        $m = $ip_dates['month'];
+        $y = $ip_dates['year'];
+          $full_events = $this->events->full_events($date,$y);
+        $daily_events = $this->events->daily_events($date); 
+        $week_events = $this->events->week_events($date);
+        $monthly_events = $this->events->monthly_events($date);
+        $monthName = getMonthFullName($m);
+        $featureEvents=featuredEvents::all()->take(3);
+
+        // $eventData = events::all();
+        // dd($request->input());
+        // dd($events);
+        $Events = new events;
+    
+         if ( $request->input('keywords') ) {
+            $Events = $Events->where('name','Like', '%' .$request->input('keywords'). '%');
+        }
+        if ( $request->input('s-date') ) {
+            $Events = $Events->where('start_date', \Carbon\Carbon::parse($request->input('s-date'))->format('Y-m-d'));
+        } 
+         if ( $request->input('e-date') ) {
+            $Events = $Events->where('end_date', \Carbon\Carbon::parse($request->input('e-date'))->format('Y-m-d'));
+        }
+        if ( $request->input('etype') ) {
+            $Events = $Events->where('type', $request->input('etype'));
+        }
+        if ( $request->input('states')!= 0 ) {
+            $states = $request->input('states');
+            foreach($states as $state) {
+             $Events = $Events->where('states','Like', '%' .$state. '%');   
+             }
+        }
+             $Events = $Events->paginate(10);
+            // dd($events);
+         return view('leepFront.advanceSearchResult' , compact('Events','country','events','full_events','y','m','d','daily_events','monthly_events','week_events'));
+    }
+
 }
