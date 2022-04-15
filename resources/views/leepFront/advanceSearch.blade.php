@@ -5,7 +5,7 @@
 @endsection
 @section('calendar-slider')
 
-@include('leepFront.parts.slider') {{-- leepFront/parts/slider --}}
+@include('leepFront.parts.slider2') {{-- leepFront/parts/slider --}}
 
 @endsection
 
@@ -30,7 +30,7 @@
 			<!--============================= First Section =========================   -->
 			<div class=" pt-5">
 				<p class="font-weight-bold">1. Enter KeyWords</p>
-				<p class="text-dark pl-3">
+				<p class="text-dark pl-3" >
 					Note:  Keywords include event champion or sponsor, event name, adjectives. Separate each with commas. Try several different keywords if synonyms exist.
 				</p>
 				<div class="input-group">
@@ -79,7 +79,7 @@
 								(Required).
 							</span>
 						</div>
-						<p class="text-dark">Note: Events occurring in the next year are added in October</p>
+						<p class="text-dark" >Note: Events occurring in the next year are added in October</p>
 					</div>
 				</div>
 				<div class="row justify-content-start ml-0  pt-2">
@@ -187,11 +187,11 @@
 					</div>
 				</div>
 			</div>
-			<span class="text-center text-dark pt-5">
+			<p class="text-center text-dark pt-5">
 					*Daily events take place on a specific day or weekend. Weekly events last more than 4 
 					days. Monthly events cover a 28-31 day and up to an 11 month time frame. Annual 
 					events occur for the given year and decade events will span may years. 
-				</span>
+				</p>
 			<!--============================= Search Button  =========================   -->
 			<span class="row justify-content-center align-content-center pt-4">
 				<button type="submit" class="btn bg_maroon text-white px-5 py-2 border-0 " 

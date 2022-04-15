@@ -24,28 +24,31 @@
 
         <div class="col-lg-12 col-xxl-12">
             <div class="card-body">
-                <!--begin: Search Form-->
-                <!--begin::Search Form-->
+                
                 <div class="mb-7">
                     <div class="row align-items-center">
+                 
                     </div>
                 </div>
-                    <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
-                        <thead>
-                        <tr>
+               
+                    <table width="100%" class="table table-striped table-hover">
+                        <thead >
+                        <tr >
                             <th title="Field #1">Page Title</th>
-                            <th title="Field #1">Blog Title</th>
+                            <th title="Field #1">Post Title</th>
                             <th title="Field #2">Description</th>
+                            <th title="Field #2">Image</th>
                             <th title="Field #3">Actions</th>
                         </tr>
                         </thead>
                         <tbody id='event_body zah'>
                             @foreach($blogs as $b)
                         <tr>
-                            <td id="name" > {{$b->Page_title}}    </td>
-                            <td id="name" > {{$b->title}}    </td>
-                            <td id='country1'>{!! $b->description !!}</td>
-                            <td id='delete'><a href="{{URL::asset('admin/deleteBlog/'.$b->id)}}">Delete</a></td>
+                            <td id="name" width="15%"> {{$b->Page_title}}    </td>
+                            <td id="name" width="15%"> {{$b->title}}    </td>
+                            <td id='country1' width="50%">{!! Str::limit(($b->description), 100) !!}</td>
+                            <td id='country1' width="10%"> <img src="{{asset('leep_calender/images')}}/{{$b->images}}" width="30px" /></td>
+                            <td id='delete' width="10%"><a href="{{URL::asset('admin/deleteBlog/'.$b->id)}}" class="text-danger"><i class="fa-solid fa-trash text-danger"></i></a>/ <a href="{{URL::asset('admin/editBlog/'.$b->id)}}" class="text-primary"><i class="fa-solid fa-pen-to-square text-primary"></i></a></td>
                         </tr>
                         @endforeach
                         </tbody>

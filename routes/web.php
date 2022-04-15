@@ -77,6 +77,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('admin/Blogs', 'EventsController@Blogs');
     Route::get('admin/addBlogs', 'EventsController@addBlogs');
     Route::get('admin/deleteBlog/{id}', 'EventsController@deleteBlog');
+    Route::get('admin/editBlog/{id}', 'EventsController@editBlog');
+    Route::post('admin/updateBlog/', 'EventsController@updateBlog');
     Route::post('admin/Blogs', 'EventsController@addBlog');
 
     Route::post('admin/updateBannerPic','EventsController@updateBannerPic');
