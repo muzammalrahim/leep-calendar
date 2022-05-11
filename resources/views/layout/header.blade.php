@@ -88,7 +88,7 @@
                                 <form class="form-inline my-2 my-lg-0 right-login">
                                     {{-- <a class="member" href="{{URL::asset('/becomeEventChamp')}}"><u>Become a member</u></a> --}}
                                     <a href="{{URL::asset('login')}}" class="btn btn-outline-secondary rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3"  type="submit" data-balloon-length="fit" aria-label="If you are existing user please Click on the login button to authenticate yourself . " data-balloon-pos="down">Login</a>
-                                    <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" type="submit" style="background-color:#003300 !important; -webkit-appearance:none" data-balloon-length="fit" aria-label="If you are New user please Click on the Register button to register yourself . " data-balloon-pos="down">Register</a>
+                                    <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-5 text-white" type="submit" style="background-color:#003300 !important; -webkit-appearance:none; " data-balloon-length="fit" aria-label="If you are New user please Click on the Register button to register yourself . " data-balloon-pos="down">Subscribe</a>
                                 </form>
                                 @else
 

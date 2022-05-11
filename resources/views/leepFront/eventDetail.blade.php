@@ -302,7 +302,7 @@ $event = $eventCategory->event;
                 <h6 class="text-center m-0 p-0 font-weight-normal">Event Champion contact</h6>
                 <h6 class="text-center m-0 p-0 font-weight-normal"> information.</h6>
                 <a href="{{URL::asset('login')}}" class="rounded-0 px-4 mx-sm-3 mx-md-3 mx-lg-3 my-3 text_marron font20 font-weight-bold" type="submit">Login</a> <br>
-                <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" style="background-color:#003300 !important; -webkit-appearance:none" type="submit">Register</a>
+                <a href="{{URL::asset('register')}}" class="btn btn-outline-success rounded-0 px-4 text-white" style="background-color:#003300 !important; -webkit-appearance:none" type="submit">Subscribe</a>
             </div>
         </div>                      
         </div>

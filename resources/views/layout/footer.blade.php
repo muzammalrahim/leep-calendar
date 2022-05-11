@@ -93,7 +93,7 @@
 			<div class="row p-4">
 				<div class="col-6 col-sm-4 col-md-4 col-lg-4">
 					<a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('login')}}">Login</a> <br>
-		            <a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('register')}}">Register</a><br> 
+		            <a class="advanceSearchLink font-weight-bold font17" href="{{URL::asset('register')}}">Subscribe</a><br> 
 		    		<a class="advanceSearchLink font-weight-bold font17" href="{{ URL::asset('categories') }}">Categories</a><br> 
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'about-us']) }}">About Us</a><br>
 		            <a class="advanceSearchLink font-weight-bold font17" href="{{ route('page.detail.show',["slug"=>'privacy-policy']) }}">Privacy Policy</a><br>
