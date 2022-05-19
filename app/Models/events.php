@@ -471,7 +471,7 @@ class events extends Model
 
     public function daily_events($date){
 
-        return $this->where('start_date',$date )->where('type','Daily')->get();        
+        return $this->where('start_date',$date )->where('type','Daily')->get();
     }
 
     public function week_events($date){

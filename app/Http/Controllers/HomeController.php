@@ -66,9 +66,9 @@ class HomeController extends Controller
         $y = $ip_dates['year'];
 
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name');
+        $week_events = $this->events->week_events($date)->sortBy('name'); 
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3) ;
 

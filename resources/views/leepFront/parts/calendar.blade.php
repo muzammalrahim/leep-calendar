@@ -132,7 +132,7 @@
                         @php
                           $eventName = substr($event->name, 0, strpos($event->name, ":"));
                         @endphp
-                        
+
                         <h6  onclick="window.location.replace('{{URL::asset('event/'.$event->id)}}','self'); " style=" cursor:pointer;">
                           {{\Illuminate\Support\Str::limit($eventName)}}
                         </h6>
