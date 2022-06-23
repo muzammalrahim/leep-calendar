@@ -24,7 +24,7 @@ $event = $eventCategory->event;
 
 @section('calendar-slider')
 
-@include('leepFront.parts.categoryDetail.header') {{-- leepFront/parts/categoryDetail/header --}}
+@include('leepFront.parts.categoryDetail.event-slider') {{-- leepFront/parts/categoryDetail/event-slider --}}
 
 
 @endsection
@@ -214,14 +214,20 @@ $event = $eventCategory->event;
 
                                 {{-- Prevent Blindness America sponsors Safe Toys and Gifts Awareness Month each December in an effort to help adults make the best decisions on how to keep the holiday season joyful for everyone. In 2010, the United States. Consumer Product Safety Commission (CPSC) estimated that hospital emergency rooms across the country treated 251,700 toy-related injuries. And, 72 percent of those injuries were to those under the age of 15. --}}
                                 @isset($event->description)
-                                @php 
-                                   $event_desc =  str_replace(".", ".<br>" , $event->description);
+                                @php
+
+                                if($event->description == '0'){
+                                    $event_desc = 'There is no description for this event';
+                                }
+                                    else{
+                                        $event_desc =  str_replace(".", ".<br>" , $event->description);
+                                    }
                                    $strip_tags =  preg_replace("/\s\s+/", " ",$event->description);
                                    // dump(str_word_count($event_desc));
-
                                 @endphp
-                                    <span class="text-justify content" data-text="{{ str_word_count($event_desc) }}"> {!! $event_desc !!} </span>
+                                    <span class="text-justify content" style="white-space: pre-line;" data-text="{{ str_word_count($event_desc) }}"> {!! $event_desc !!}</span>
                                     {{-- <input type="hidden" name="" class="show-read-more" value="{{ str_word_count($event_desc) }}"> --}}
+
                                 @endif
 
 
@@ -319,7 +325,7 @@ $event = $eventCategory->event;
 
 
         <div class="row row d-flex justify-content-around ">
-            @if ($event->eventAttachment->video1 == '')
+            @if ($event->eventAttachment->video1 == '' || $event->eventAttachment->video1 == '0')
                 <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
                     VIDEO 1
                 </div>
@@ -327,7 +333,7 @@ $event = $eventCategory->event;
                 <div class="col-md-4 text-center my-5 px-3">{!! $event->eventAttachment->video1 !!}</div>
             @endif
 
-            @if ($event->eventAttachment->video2 == '')
+            @if ($event->eventAttachment->video2 == '' || $event->eventAttachment->video2 == '0')
                 <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
                     VIDEO 2
                 </div>
@@ -335,7 +341,7 @@ $event = $eventCategory->event;
                 <div class="col-md-4 text-center my-5 px-3">{!! $event->eventAttachment->video2 !!}</div>
             @endif
 
-            @if ($event->eventAttachment->video3 == '')
+            @if ($event->eventAttachment->video3 == '' || $event->eventAttachment->video3 == '0')
                 <div class="col-md-3 bg-dark text-center my-5 mx-3 text-warning">
                     VIDEO 3
                 </div>

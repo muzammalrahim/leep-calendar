@@ -95,9 +95,9 @@ class HomeController extends Controller
         // dd($y);
 
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date);
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name');
+        $week_events = $this->events->week_events($date)->sortBy('name');
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
 
         $eventCount=EventCategory::where('category_1',$category->cat_id)->orWhere('category_2',$category->cat_id)->orWhere('category_3',$category->cat_id)->orWhere('category_4',$category->cat_id)->orWhere('category_5',$category->cat_id)->orWhere('category_6',$category->cat_id)->get()->count();
         // dd($eventCount);
@@ -299,16 +299,16 @@ class HomeController extends Controller
             $m = $ip_dates['month'];
             $y = $ip_dates['year'];
             $full_events = $this->events->full_events($date,$y);
-            $daily_events = $this->events->daily_events($date); 
-            $week_events = $this->events->week_events($date);
-            $monthly_events = $this->events->monthly_events($date);
+            $daily_events = $this->events->daily_events($date)->sortBy('name'); 
+            $week_events = $this->events->week_events($date)->sortBy('name');
+            $monthly_events = $this->events->monthly_events($date)->sortBy('name');
             $monthName = getMonthFullName($m);
 
             // $todayEvents = events::where('start_date','=',$date)->where('type','Daily')->where('status','Approved')->get();
 
             // dd(events::distinct('country1,country2')->get(['country1','country2']));           
             
-            return view('leepFront.eventDetail',compact('eventCategory','d', 'tweets', 'm','category','full_events','daily_events', 'week_events', 'monthName','monthly_events', 'add_1', 'add_2', 'add_3', 'add_4'));
+            return view('leepFront.eventDetail',compact('eventCategory','d', 'tweets', 'm','category','full_events','daily_events', 'week_events', 'monthName','monthly_events', 'add_1', 'add_2', 'add_3', 'add_4','events'));
             // leepFront/eventDetail
         }else
             return redirect()->back()->with(['error'=>'Unknown Event']);
@@ -916,9 +916,9 @@ class HomeController extends Controller
         $y = $ip_dates['year'];
 
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name'); 
+        $week_events = $this->events->week_events($date)->sortBy('name');
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
 
 
         $featureEvents=featuredEvents::all()->take(3) ;
@@ -1092,9 +1092,9 @@ class HomeController extends Controller
         $featureEvents=featuredEvents::all()->take(3) ;
 
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name'); 
+        $week_events = $this->events->week_events($date)->sortBy('name');
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
         
 
         $page_title = "Blogs";
@@ -1125,9 +1125,9 @@ class HomeController extends Controller
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
         $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name'); 
+        $week_events = $this->events->week_events($date)->sortBy('name');
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3) ;
         return view('leepFront.advanceSearch' , compact('events','category','country','page_title', 'page_description','full_events','week_events','featureEvents','tweets','d','m','monthName','daily_events','monthly_events')); // leepFront/advanceSearch
@@ -1150,9 +1150,9 @@ class HomeController extends Controller
         $m = $ip_dates['month'];
         $y = $ip_dates['year'];
           $full_events = $this->events->full_events($date,$y);
-        $daily_events = $this->events->daily_events($date); 
-        $week_events = $this->events->week_events($date);
-        $monthly_events = $this->events->monthly_events($date);
+        $daily_events = $this->events->daily_events($date)->sortBy('name'); 
+        $week_events = $this->events->week_events($date)->sortBy('name');
+        $monthly_events = $this->events->monthly_events($date)->sortBy('name');
         $monthName = getMonthFullName($m);
         $featureEvents=featuredEvents::all()->take(3);
 
