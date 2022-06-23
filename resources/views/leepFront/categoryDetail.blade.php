@@ -24,7 +24,15 @@
                             <div class="col-md-12">
                                 <!-- <h1 class="mb-lg-3" style="font-family: 'impact';"> Events in {{ $category->name }}</h1> -->
                                 <div class="pl-lg-5 ml-lg-4 pl-md-5 ml-md-4">
-                                    <p class="">For the current year, this category includes: <b> {{ $eventCount }} </b> events.
+                                    <p class="">For the current year, this category includes: <b>
+                                    <?php 
+                                    if($eventCount== 0) {
+                                        echo "No";
+                                    }else{
+                                        echo $eventCount;
+                                    }
+                                    ?> 
+                                    </b> events.
                                     </p>
                                     <h4 class="mb-4 font-color font-weight-bold">
                                         {!! $category->description !!}
@@ -65,7 +73,7 @@
                                         <a href="{{URL::asset('login')}}" class="custom_btn btn btn-outline-secondary rounded-0 text-white font-weight-bold  w-100 py-3 text_marron "  type="submit" data-balloon-length="fit" aria-label="Click on the login button . If You are not authenticated to the page. Please login to see the more events" data-balloon-pos="up">Login</a>
                                     </div>
                                     <div class="col-4">
-                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white register-btn" type="submit" data-balloon-length="fit" aria-label="If you are new to leep calendar . Please Register your account and then login . After Login You will be able to see more events ." data-balloon-pos="up">Register</a>
+                                        <a href="{{URL::asset('register')}}" class="custom_btn btn rounded-0 font-weight-bold w-100 py-3 text-white register-btn" type="submit" data-balloon-length="fit" aria-label="If you are new to leep calendar . Please Register your account and then login . After Login You will be able to see more events ." data-balloon-pos="up">Subscribe</a>
                                     </div>
                                 </div>
                             </div>
@@ -112,6 +120,10 @@
 <style type="text/css">
     p{
         color: #000000 !important;
+        font-size: 14px;
+    }
+    p b{
+        font-weight: bolder !important;
     }
 </style>
 
